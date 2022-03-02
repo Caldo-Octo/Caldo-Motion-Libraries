@@ -9,7 +9,7 @@ const OutfeedStagingX = 915.0;
 const OutfeedStagingY = 956.69;
 const OutfeedStagingZ = 5.76;
 	
-Type TGantry=object
+Type TGantry:=object
 	XMotor:T1Axis;
 	YMotor:T1Axis;
 	ZMotor:T1Axis;

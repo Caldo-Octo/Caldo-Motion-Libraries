@@ -114,12 +114,12 @@ procedure TContainer.InitializeAuger(var Axis:TDistributedT1Axis;XPos:double;YPo
 					if Motor.MoveIsFinished and not ReverseSwitch then
 						begin
 						Motor.BeginMoveBy(Revolutions);
-						ReverseSwitch:=true;
+						Reverse:=true;
 						end
 					else if Motor.MoveIsFinished and ReverseSwitch then
 					begin
 						Motor.BeginMoveBy(ReverseRevolutions);
-						ReverseSwitch:=false;
+						Reverse:=false;
 						end;
 					yield;
 				 end;
