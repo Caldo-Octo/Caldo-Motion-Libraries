@@ -8,26 +8,25 @@ const DenesterStagingZ = 5.76;
 const OutfeedStagingX = 915.0;
 const OutfeedStagingY = 956.69;
 const OutfeedStagingZ = 5.76;
+const DenesterXPos = 100;
+const DenesterYPos = 1;
+const DenesterZPos = 0;
 	
 Type TGantry=object
 	XMotor:T1Axis;
 	YMotor:T1Axis;
 	ZMotor:T1Axis;
 	ZEncoder:T1Axis; {This is a virtual axis necessary for Z's encoder}
-	GantrySafeToMove:boolean;
-	GantryPermissive:boolean;
-	CurrentZone:integer;{0 - Home, 1 - Pumps, 2 - PumpStaging, 3 - Containers, 4 - Outfeed, Denester Staging, 5 - Denester, Outfeed Zones, 99 - Unknown}
-	GantryError:integer; {1 - impossible move to pump, 2- Impossible Move To containers}
-	DenesterXPos:double;
-	DenesterYPos:double;
-	DenesterZPos:double;
-	CurrentPump:integer;
+	SafeToMove:boolean;
 	AtPump:boolean;
 	AtPumpStaging:boolean;
 	AtContainers:boolean;
 	AtDenesterStaging:boolean;
+	AtDenester:boolean;
 	AtHome:boolean;
 	AtOutfeedStaging:boolean;
+	CurrentPump:integer;
+	PreviousPumpY:double;
 	
 
 	procedure Initialize( var XMot:T1Axis; var YMot:T1Axis; var ZMot:T1Axis; var ZEnc:T1Axis);
@@ -39,45 +38,33 @@ Type TGantry=object
 		end;
 		
 
-	procedure MoveToPumpStaging(var Pump:TPump);
+	procedure MoveToPump(var Container:TContainer);
 		begin
-			if AtDenesterStaging or AtContainers then
+			if AtPumpStaging and Container.IsPump then
 				begin
-					AtContainers:=false;
-					AtDenesterStaging:=false;
-					ZMotor.MoveTo(0);
-					XMotor.BeginMoveTo(Pump.StagingXCoord);
-					YMotor.BeginMoveTo(Pump.StagingYCoord);
-					while not (XMotor.MoveIsFinished and YMotor.MoveIsFinished) do
-						yield;
+					XMotor.MoveTo(Container.XCoord);
+					AtPump:=true;
+					PreviousPumpY:=trunc(Container.YCoord);
+					AtPumpStaging:=false;
 				end
-			else if AtPump then
-				begin
-					AtPump:=false;
-					XMotor.MoveTo(PumpStagingX);
-					YMotor.MoveTo(Pump.YCoord);
-				end;
-			AtPumpStaging:=true;
-		end;
-		
-	procedure MoveToPump(var Pump:TPump);
-		begin
-			MoveToPumpStaging(Pump);
-			if AtPumpStaging then
-			begin
-				XMotor.MoveTo(Pump.XCoord);
-				ZMotor.MoveTo(Pump.ZCoord);
-				AtPump:=true;
-				CurrentPump:=Pump.Id;
-				AtPumpStaging:=false;
-			end;
+			else if AtPump and (PreviousPumpY = Container.Ycoord) then
+				XMotor.MoveTo(Container.XCoord);
+			ZMotor.MoveTo(Container.ZCoord);
 		end;
 	
 		
 	
 	
-	procedure MoveToContainer(var Container:TAugerContainer);
+	procedure JointAxisMove(var Container:TContainer);
 		begin 
+			if AtPump then
+				begin
+					ZMotor.MoveTo(0)
+					XMotor.MoveTo(PumpStagingX);
+					AtPump:=false;
+					PreviousPumpY:=0;
+					AtPumpStaging:=true;
+				end;
 			if AtPumpStaging or AtContainers or AtDenesterStaging then
 				begin
 					AtPumpStaging:=false;
@@ -89,7 +76,14 @@ Type TGantry=object
 					while not (XMotor.MoveIsFinished and YMotor.MoveIsFinished) do
 						yield;
 				end;
+			if (XMotor.ActualPosition <101) and (XMotor.ActualPosition > 99) then
+				AtPumpStaging := true
+			else if (XMotor.ActualPosition > 101) and (XMotor.ActualPosition < 900) then
+				AtContainers := true
+			else if (XMotor.ActualPosition > 900) and (round(YMotor.ActualPosition) = 956) then
+				AtDenesterStaging := true;
 		end;
+		
 		
 	procedure MoveToDenesterStaging;
 		begin
@@ -148,25 +142,36 @@ Type TGantry=object
 		end;
 	
 	procedure ZigZagPattern(DeltaX:double;DeltaZ:double;Cycles:integer);
+		var flipflop:boolean;
 		var i:integer;
 		begin
+			flipflop:=false;
 			for i:=0 to Cycles do
 				begin
-					if ((i and $01) = 1) then
+					if flipflop then
 						begin
-						XMotor.BeginMoveBy(-DeltaX);
-						ZMotor.BeginMoveBy(-DeltaZ);
-						while not (XMotor.MoveIsFinished and ZMotor.MoveIsFinished) do
-							yield;
+							XMotor.BeginMoveBy(-DeltaX);
+							ZMotor.BeginMoveBy(-DeltaZ);
+							while not (XMotor.MoveIsFinished and ZMotor.MoveIsFinished) do
+								yield;
+							end
+							flipflop:=false;
 						end
 					else 
-						ZMotor.BeginMoveBy(DeltaZ);	
-						while not (XMotor.MoveIsFinished and ZMotor.MoveIsFinished) do
-							yield;
-						end
+						begin
+							ZMotor.BeginMoveBy(DeltaZ);	
+							while not (XMotor.MoveIsFinished and ZMotor.MoveIsFinished) do
+								yield;
+							end
+							flipflop:=true;
+						end;
 				end;
-				
-
+		
+	end;
+		
+	procedure StraightLinePattern(BowlDiameter:integer);
+		begin
+			XMotor.MoveBy(BowlDiameter);
 		end;
 	
 end;
