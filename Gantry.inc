@@ -145,29 +145,24 @@ Type TGantry=object
 		var flipflop:boolean;
 		var i:integer;
 		begin
-			flipflop:=false;
+			Flipflop:=false;
 			for i:=0 to Cycles do
 				begin
 					if flipflop then
 						begin
 							XMotor.BeginMoveBy(-DeltaX);
 							ZMotor.BeginMoveBy(-DeltaZ);
-							while not (XMotor.MoveIsFinished and ZMotor.MoveIsFinished) do
-								yield;
-							end
-							flipflop:=false;
+							FlipFlop=false;
 						end
 					else 
 						begin
 							ZMotor.BeginMoveBy(DeltaZ);	
-							while not (XMotor.MoveIsFinished and ZMotor.MoveIsFinished) do
-								yield;
-							end
 							flipflop:=true;
 						end;
+					while not (XMotor.MoveIsFinished and ZMotor.MoveIsFinished) do
+						yield;		
 				end;
-		
-	end;
+		end;
 		
 	procedure StraightLinePattern(BowlDiameter:integer);
 		begin
