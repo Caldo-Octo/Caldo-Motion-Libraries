@@ -1,5 +1,3 @@
-
-var ManualDispenseComplete:boolean;
 {-------------------------------Generic Container---------------------------}
 type TContainer=object
 	Motor:TDistributedT1Axis;
