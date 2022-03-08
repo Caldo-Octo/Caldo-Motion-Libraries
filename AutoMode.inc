@@ -104,6 +104,6 @@ procedure InitializeActuators;
 		while LoadCellScaled < CurrentWeightSP do
 			yield;
 		Containers[CurrentContainerNo].DispenseEnable:=false;
-		while TaskPresent(TaskAddr(DispenseWrapper)) and (TaskPresent(TaskAddr(ZigPatternWrapper)) or TaskPresent(TaskAddr(LinePatternWrapper))) do
+		while TaskPresent(TaskAddr(DispenseWrapper)) or (TaskPresent(TaskAddr(ZigPatternWrapper)) or TaskPresent(TaskAddr(LinePatternWrapper))) do
 			yield;
 		end;
