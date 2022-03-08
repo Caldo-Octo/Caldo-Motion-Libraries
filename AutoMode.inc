@@ -6,18 +6,18 @@ var CurrentContainerNo:integer;
 var CurrentContainerType:integer; {1 Auger, 2 Pump}
 var LoadCellScaled:double;
 
-const Col1Coord = 133.0;
-const Col2Coord = 288.1;
-const Col3Coord = 443.0;
-const Col4Coord = 597.9;
-const Col5Coord = 771.0;
-const Row1Coord = 1464.5;
-const Row2Coord = 979.2;
-const Row3Coord = 500.0;
-const Row4Coord = 18.5;
-const AugDefaultSpeed = 20.0;
-const LPumpDefaultX = -75.0;
-const RPumpDefaultX = -55.0;
+const Col1Coord = 133;
+const Col2Coord = 288;
+const Col3Coord = 443;
+const Col4Coord = 597;
+const Col5Coord = 771;
+const Row1Coord = 1464;
+const Row2Coord = 979;
+const Row3Coord = 500;
+const Row4Coord = 18;
+const AugDefaultSpeed = 20;
+const LPumpDefaultX = -75;
+const RPumpDefaultX = -55;
 
 const PumpsDefaultSpeed = 40;
 
