@@ -37,6 +37,23 @@ Type TGantry=object
 			ZEncoder:=ZEnc;
 		end;
 		
+	procedure MoveToStaging(var Container:TContainer);
+		begin
+			ZMotor.MoveTo(0);
+			if AtPump then
+				begin
+				XMotor.MoveTo(Container.StagingXCoord);
+				AtPump:=false;
+				end
+			else
+				begin
+				XMotor.BeginMoveTo(Container.StagingXCoord);
+				YMotor.BeginMoveTo(Container.StagingYCoord);
+				while not (XMotor.MoveIsFinished and YMotor.MoveIsFinished) do
+					yield;
+				end;
+			AtPumpStaging:=true;
+		end;
 
 	procedure MoveToPump(var Container:TContainer);
 		begin
@@ -65,7 +82,7 @@ Type TGantry=object
 					PreviousPumpY:=0;
 					AtPumpStaging:=true;
 				end;
-			if AtPumpStaging or AtContainers or AtDenesterStaging then
+			if AtHome or AtPumpStaging or AtContainers or AtDenesterStaging then
 				begin
 					AtPumpStaging:=false;
 					AtContainers:=false;

@@ -92,11 +92,12 @@ procedure TContainer.InitializeAuger(var Axis:TDistributedT1Axis;XPos:double;YPo
 		Motor.SetCurrent(Current);
 		if IsPump then
 			begin
-				Motor.Jog(DispenseSpeed);
+				Motor.BeginMoveBy(1000);
 				while DispensePermissive do 
 					yield;
 				if ReverseEnabled then
 					begin
+					Motor.Stop;
 					Motor.MoveTo(-20);
 					{Delay(ReverseDelay);}
 					end;
