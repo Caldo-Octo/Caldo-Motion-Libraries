@@ -1,5 +1,3 @@
-
-var ManualDispenseComplete:boolean;
 {-------------------------------Generic Container---------------------------}
 type TContainer=object
 	Motor:TDistributedT1Axis;
@@ -29,7 +27,7 @@ type TContainer=object
 	
 end;
 
-procedure  TContainer.InitializePump(var Axis:TDistributedT1Axis;Identifier:integer;XPos:double;YPos:double;Speed:double);
+procedure  TContainer.InitializePump(var Axis:TDistributedT1Axis;XPos:double;YPos:double;Identifier:integer;Speed:double);
 	begin
 		Motor:=Axis;
 		XCoord:=XPos;
@@ -90,15 +88,17 @@ procedure TContainer.InitializeAuger(var Axis:TDistributedT1Axis;XPos:double;YPo
 	begin
 		ReverseSpeed:= (0-DispenseSpeed);
 		DispensePermissive:=true;
+		DebugDispensing:=true;
 		Motor.SetMotor(On);
 		Motor.SetCurrent(Current);
 		if IsPump then
 			begin
-				Motor.Jog(DispenseSpeed);
+				Motor.BeginMoveBy(1000);
 				while DispensePermissive do 
 					yield;
 				if ReverseEnabled then
 					begin
+					Motor.Stop;
 					Motor.MoveTo(-20);
 					{Delay(ReverseDelay);}
 					end;
@@ -114,12 +114,12 @@ procedure TContainer.InitializeAuger(var Axis:TDistributedT1Axis;XPos:double;YPo
 					if Motor.MoveIsFinished and not ReverseSwitch then
 						begin
 						Motor.BeginMoveBy(Revolutions);
-						Reverse:=true;
+						ReverseSwitch:=true;
 						end
 					else if Motor.MoveIsFinished and ReverseSwitch then
 					begin
 						Motor.BeginMoveBy(ReverseRevolutions);
-						Reverse:=false;
+						ReverseSwitch:=false;
 						end;
 					yield;
 				 end;

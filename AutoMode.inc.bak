@@ -60,11 +60,11 @@ procedure InitializeActuators;
 		Containers[13].InitializeAuger(Remote_Motor_15,Col3Coord,Row3Coord,13,AugDefaultSpeed);
 		Containers[14].InitializeAuger(Remote_Motor_16,Col4Coord,Row3Coord,14,AugDefaultSpeed);
 		Containers[15].InitializeAuger(Remote_Motor_13,Col5Coord,Row3Coord,15,AugDefaultSpeed);
-		Containers[16].InitializeAuger(Remote_Motor_14,Col1Coord,Row4Coord,16,AugDefaultSpeed);
-		Containers[17].InitializeAuger(Remote_Motor_11,Col2Coord,Row4Coord,17,AugDefaultSpeed);
+		Containers[16].InitializeAuger(Remote_Motor_10,Col1Coord,Row4Coord,16,AugDefaultSpeed);
+		Containers[17].InitializeAuger(Remote_Motor_9,Col2Coord,Row4Coord,17,AugDefaultSpeed);
 		Containers[18].InitializeAuger(Remote_Motor_12,Col3Coord,Row4Coord,18,AugDefaultSpeed);
-		Containers[19].InitializeAuger(Remote_Motor_9,Col4Coord,Row4Coord,19,AugDefaultSpeed);
-		Containers[20].InitializeAuger(Remote_Motor_10,Col5Coord,Row4Coord,20,AugDefaultSpeed);
+		Containers[19].InitializeAuger(Remote_Motor_11,Col4Coord,Row4Coord,19,AugDefaultSpeed);
+		Containers[20].InitializeAuger(Remote_Motor_14,Col5Coord,Row4Coord,20,AugDefaultSpeed);
 		
 		Containers[21].InitializePump(Remote_Motor_8,LPumpDefaultX,Row1Coord,21,PumpsDefaultSpeed);
 		Containers[22].InitializePump(Remote_Motor_7,RPumpDefaultX,Row1Coord,22,PumpsDefaultSpeed);

@@ -27,7 +27,7 @@ type TContainer=object
 	
 end;
 
-procedure  TContainer.InitializePump(var Axis:TDistributedT1Axis;Identifier:integer;XPos:double;YPos:double;Speed:double);
+procedure  TContainer.InitializePump(var Axis:TDistributedT1Axis;XPos:double;YPos:double;Identifier:integer;Speed:double);
 	begin
 		Motor:=Axis;
 		XCoord:=XPos;
