@@ -35,6 +35,9 @@ Type TGantry=object
 			YMotor:=YMot;
 			ZMotor:=ZMot;
 			ZEncoder:=ZEnc;
+			AtPump:=false;
+			if (XMot.ActualPosition > 99) and (XMot.ActualPosition < 101) and (YMot.ActualPosition <3) then
+				AtHome:=true;
 		end;
 		
 	procedure MoveToStaging(var Container:TContainer);
@@ -43,6 +46,7 @@ Type TGantry=object
 			if AtPump then
 				begin
 				XMotor.MoveTo(Container.StagingXCoord);
+				YMotor.MoveTo(Container.StagingYCoord);
 				AtPump:=false;
 				end
 			else
