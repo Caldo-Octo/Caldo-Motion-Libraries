@@ -81,6 +81,8 @@ procedure InitializeActuators;
 		Containers[28].InitializePump(Augar1,RPumpDefaultX,Row1Coord,28,PumpsDefaultSpeed);
 		
 		Gantry.Initialize(X_Motor,Y_Motor,Stepper,StepperEncoder);
+		if (X_Motor.ActualPosition > 99) and (X_Motor.ActualPosition < 101) and (Y_Motor.ActualPosition<10) then
+			Gantry.AtHome:=true;
 	end;
 	
 	
@@ -107,7 +109,7 @@ procedure InitializeActuators;
 					else if Containers[CurrentContainerNo].GantryPattern = 2 then
 						BeginTask(TaskAddr(LinePatternWrapper));
 				end;
-			while LoadCellScaled < CurrentWeightSP and not ManualDispenseComplete do
+			while (LoadCellScaled < CurrentWeightSP) and not ManualDispenseComplete do
 				yield;
 			Containers[CurrentContainerNo].DispensePermissive:=false;
 			while TaskPresent(TaskAddr(DispenseWrapper)) or (TaskPresent(TaskAddr(ZigPatternWrapper)) or TaskPresent(TaskAddr(LinePatternWrapper))) do
