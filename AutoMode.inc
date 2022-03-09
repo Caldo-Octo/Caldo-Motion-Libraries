@@ -5,6 +5,11 @@ var GantryEnabled:boolean;
 var CurrentContainerNo:integer;
 var CurrentContainerType:integer; {1 Auger, 2 Pump}
 var LoadCellScaled:double;
+var Mb_StartButton:boolean;
+var Mb_CurrentContainer:integer;
+var Mb_DispenseComplete:boolean;
+var SystemInAuto:boolean;
+var Recipe:Array[0..20] of integer;
 
 const Col1Coord = 133;
 const Col2Coord = 288;
@@ -82,28 +87,61 @@ procedure InitializeActuators;
 	procedure AutoDispense;
 		var CurrentWeightSP:double;
 		begin
-		if GantryEnabled then
-			begin
-			if CurrentContainerNo <= 20 then
-				Gantry.JointAxisMove(Containers[CurrentContainerNo])
-			else
+			ManualDispenseComplete:=false;
+			if GantryEnabled then
 				begin
-				Gantry.MoveToStaging(Containers[CurrentContainerNo]);
-				Gantry.MoveToPump(Containers[CurrentContainerNo]);
+				if CurrentContainerNo <= 20 then
+					Gantry.JointAxisMove(Containers[CurrentContainerNo])
+				else
+					begin
+					Gantry.MoveToStaging(Containers[CurrentContainerNo]);
+					Gantry.MoveToPump(Containers[CurrentContainerNo]);
+					end;
 				end;
-			end;
-		CurrentWeightSP:=Containers[CurrentContainerNo].WeightSP+LoadCellScaled;
-		BeginTask(TaskAddr(DispenseWrapper));
-		if Containers[CurrentContainerNo].GantryPatternEnabled then
-			begin
-				if Containers[CurrentContainerNo].GantryPattern = 1 then
-					BeginTask(TaskAddr(ZigPatternWrapper))
-				else if Containers[CurrentContainerNo].GantryPattern = 2 then
-					BeginTask(TaskAddr(LinePatternWrapper));
-			end;
-		while LoadCellScaled < CurrentWeightSP do
-			yield;
-		Containers[CurrentContainerNo].DispensePermissive:=false;
-		while TaskPresent(TaskAddr(DispenseWrapper)) or (TaskPresent(TaskAddr(ZigPatternWrapper)) or TaskPresent(TaskAddr(LinePatternWrapper))) do
-			yield;
+			CurrentWeightSP:=Containers[CurrentContainerNo].WeightSP+LoadCellScaled;
+			BeginTask(TaskAddr(DispenseWrapper));
+			if Containers[CurrentContainerNo].GantryPatternEnabled then
+				begin
+					if Containers[CurrentContainerNo].GantryPattern = 1 then
+						BeginTask(TaskAddr(ZigPatternWrapper))
+					else if Containers[CurrentContainerNo].GantryPattern = 2 then
+						BeginTask(TaskAddr(LinePatternWrapper));
+				end;
+			while LoadCellScaled < CurrentWeightSP and not ManualDispenseComplete do
+				yield;
+			Containers[CurrentContainerNo].DispensePermissive:=false;
+			while TaskPresent(TaskAddr(DispenseWrapper)) or (TaskPresent(TaskAddr(ZigPatternWrapper)) or TaskPresent(TaskAddr(LinePatternWrapper))) do
+				yield;
 		end;
+		
+	procedure DispenseLoop;
+		var DispenseState:integer;
+		var RecipeIndex:integer;
+		begin
+		DispenseState:=0;
+		RecipeIndex:=0;
+			while true do
+				if Mb_StartButton and (DispenseState = 0) then
+					begin
+					RecipeIndex:=0;
+					DispenseState:=1;
+					Mb_StartButton:=false;
+					end
+					
+				else if DispenseState = 1 then
+					begin
+						CurrentContainerNo:=Recipe[RecipeIndex];
+						Mb_StartButton:=false;
+						BeginTask(TaskAddr(AutoDispense));
+						while TaskPresent(TaskAddr(AutoDispense)) do
+							yield;
+						Mb_DispenseComplete:=true;
+						RecipeIndex:=RecipeIndex+1;
+						if Recipe[RecipeIndex] = 0 then
+							DispenseState:=0;
+					end;
+				yield;
+		end;
+		
+		
+		
