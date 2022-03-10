@@ -1,4 +1,4 @@
-var ManualDispenseComplete:boolean;
+{var ManualDispenseComplete:boolean;} {Block Accessible}
 var Containers: Array[1..28] of TContainer;
 var Gantry:TGantry;
 var GantryEnabled:boolean;
@@ -86,6 +86,7 @@ procedure InitializeActuators;
 	end;
 	
 	
+	
 	procedure AutoDispense;
 		var CurrentWeightSP:double;
 		begin
@@ -147,4 +148,9 @@ procedure InitializeActuators;
 		end;
 		
 		
-		
+	procedure ButtonHandler(Container:integer);
+		var DispenseTaskPresent:boolean;
+		begin
+		CurrentContainerNo:=Container;
+		AutoDispense;	
+		end;

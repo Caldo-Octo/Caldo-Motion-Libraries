@@ -1,4 +1,4 @@
-var ManualDispenseComplete:boolean;
+{var ManualDispenseComplete:boolean;} {Block Accessible}
 var Containers: Array[1..28] of TContainer;
 var Gantry:TGantry;
 var GantryEnabled:boolean;
@@ -60,7 +60,7 @@ procedure InitializeActuators;
 		Containers[8].InitializeAuger(Remote_Motor_22,Col3Coord,Row2Coord,8,AugDefaultSpeed);
 		Containers[9].InitializeAuger(Remote_Motor_19,Col4Coord,Row2Coord,9,AugDefaultSpeed);
 		Containers[10].InitializeAuger(Remote_Motor_20,Col5Coord,Row2Coord,10,AugDefaultSpeed);
-		Containers[11].InitializeAuger(Remote_Motor_21,Col1Coord,Row3Coord,11,AugDefaultSpeed);
+		Containers[11].InitializeAuger(Remote_Motor_17,Col1Coord,Row3Coord,11,AugDefaultSpeed);
 		Containers[12].InitializeAuger(Remote_Motor_18,Col2Coord,Row3Coord,12,AugDefaultSpeed);
 		Containers[13].InitializeAuger(Remote_Motor_15,Col3Coord,Row3Coord,13,AugDefaultSpeed);
 		Containers[14].InitializeAuger(Remote_Motor_16,Col4Coord,Row3Coord,14,AugDefaultSpeed);
@@ -73,15 +73,18 @@ procedure InitializeActuators;
 		
 		Containers[21].InitializePump(Remote_Motor_8,LPumpDefaultX,Row1Coord,21,PumpsDefaultSpeed);
 		Containers[22].InitializePump(Remote_Motor_7,RPumpDefaultX,Row1Coord,22,PumpsDefaultSpeed);
-		Containers[23].InitializePump(Remote_Motor_6,LPumpDefaultX,Row1Coord,23,PumpsDefaultSpeed);
-		Containers[24].InitializePump(Remote_Motor_5,RPumpDefaultX,Row1Coord,24,PumpsDefaultSpeed);
-		Containers[25].InitializePump(Remote_Motor_4,LPumpDefaultX,Row1Coord,25,PumpsDefaultSpeed);
-		Containers[26].InitializePump(Remote_Motor_3,RPumpDefaultX,Row1Coord,26,PumpsDefaultSpeed);
-		Containers[27].InitializePump(Remote_Motor_2,LPumpDefaultX,Row1Coord,27,PumpsDefaultSpeed);
-		Containers[28].InitializePump(Augar1,RPumpDefaultX,Row1Coord,28,PumpsDefaultSpeed);
+		Containers[23].InitializePump(Remote_Motor_6,LPumpDefaultX,Row2Coord,23,PumpsDefaultSpeed);
+		Containers[24].InitializePump(Remote_Motor_5,RPumpDefaultX,Row2Coord,24,PumpsDefaultSpeed);
+		Containers[25].InitializePump(Remote_Motor_4,LPumpDefaultX,Row3Coord,25,PumpsDefaultSpeed);
+		Containers[26].InitializePump(Remote_Motor_3,RPumpDefaultX,Row3Coord,26,PumpsDefaultSpeed);
+		Containers[27].InitializePump(Remote_Motor_2,LPumpDefaultX,Row4Coord,27,PumpsDefaultSpeed);
+		Containers[28].InitializePump(Augar1,RPumpDefaultX,Row4Coord,28,PumpsDefaultSpeed);
 		
 		Gantry.Initialize(X_Motor,Y_Motor,Stepper,StepperEncoder);
+		if (X_Motor.ActualPosition > 99) and (X_Motor.ActualPosition < 101) and (Y_Motor.ActualPosition<10) then
+			Gantry.AtHome:=true;
 	end;
+	
 	
 	
 	procedure AutoDispense;
@@ -95,6 +98,7 @@ procedure InitializeActuators;
 				else
 					begin
 					Gantry.MoveToStaging(Containers[CurrentContainerNo]);
+					Delay(1000);
 					Gantry.MoveToPump(Containers[CurrentContainerNo]);
 					end;
 				end;
@@ -144,4 +148,9 @@ procedure InitializeActuators;
 		end;
 		
 		
-		
+	procedure ButtonHandler(Container:integer);
+		var DispenseTaskPresent:boolean;
+		begin
+		CurrentContainerNo:=Container;
+		BeginTask(TaskAddr(AutoDispense));	
+		end;

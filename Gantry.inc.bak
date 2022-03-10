@@ -35,8 +35,29 @@ Type TGantry=object
 			YMotor:=YMot;
 			ZMotor:=ZMot;
 			ZEncoder:=ZEnc;
+			AtPump:=false;
+			if (XMot.ActualPosition > 99) and (XMot.ActualPosition < 101) and (YMot.ActualPosition <3) then
+				AtHome:=true;
 		end;
 		
+	procedure MoveToStaging(var Container:TContainer);
+		begin
+			ZMotor.MoveTo(0);
+			if AtPump then
+				begin
+				XMotor.MoveTo(Container.StagingXCoord);
+				YMotor.MoveTo(Container.StagingYCoord);
+				AtPump:=false;
+				end
+			else
+				begin
+				XMotor.BeginMoveTo(Container.StagingXCoord);
+				YMotor.BeginMoveTo(Container.StagingYCoord);
+				while not (XMotor.MoveIsFinished and YMotor.MoveIsFinished) do
+					yield;
+				end;
+			AtPumpStaging:=true;
+		end;
 
 	procedure MoveToPump(var Container:TContainer);
 		begin
@@ -65,7 +86,7 @@ Type TGantry=object
 					PreviousPumpY:=0;
 					AtPumpStaging:=true;
 				end;
-			if AtPumpStaging or AtContainers or AtDenesterStaging then
+			if AtHome or AtPumpStaging or AtContainers or AtDenesterStaging then
 				begin
 					AtPumpStaging:=false;
 					AtContainers:=false;
@@ -145,29 +166,24 @@ Type TGantry=object
 		var flipflop:boolean;
 		var i:integer;
 		begin
-			flipflop:=false;
+			Flipflop:=false;
 			for i:=0 to Cycles do
 				begin
 					if flipflop then
 						begin
 							XMotor.BeginMoveBy(-DeltaX);
 							ZMotor.BeginMoveBy(-DeltaZ);
-							while not (XMotor.MoveIsFinished and ZMotor.MoveIsFinished) do
-								yield;
-							end
-							flipflop:=false;
+							FlipFlop=false;
 						end
 					else 
 						begin
 							ZMotor.BeginMoveBy(DeltaZ);	
-							while not (XMotor.MoveIsFinished and ZMotor.MoveIsFinished) do
-								yield;
-							end
 							flipflop:=true;
 						end;
+					while not (XMotor.MoveIsFinished and ZMotor.MoveIsFinished) do
+						yield;		
 				end;
-		
-	end;
+		end;
 		
 	procedure StraightLinePattern(BowlDiameter:integer);
 		begin
