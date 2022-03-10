@@ -36,13 +36,13 @@ procedure  TContainer.InitializePump(var Axis:TDistributedT1Axis;XPos:double;YPo
 		Id:=Identifier;
 		IsPump:=true;
 		StagingXCoord:=100.0;
-		if (Identifier<=2) then
+		if (Identifier<=22) then
 			StagingYCoord:=1464.5
-		else if (Identifier=3) or (Identifier=4) then
+		else if (Identifier=23) or (Identifier=24) then
 			StagingYCoord:=982.0
-		else if (Identifier=5) or (Identifier=6) then
+		else if (Identifier=25) or (Identifier=26) then
 			StagingYCoord:=500.0
-		else if (Identifier=7) or (Identifier=8) then
+		else if (Identifier=27) or (Identifier=28) then
 			StagingYcoord:=18.5;
 		DispenseSpeed:=Speed;
 		Current:=2.0;

@@ -90,6 +90,7 @@ procedure InitializeActuators;
 	
 	procedure AutoDispense;
 		var CurrentWeightSP:double;
+		var DispensePermissive:Boolean;
 		begin
 			ManualDispenseComplete:=false;
 			if GantryEnabled then
@@ -112,22 +113,23 @@ procedure InitializeActuators;
 					else if Containers[CurrentContainerNo].GantryPattern = 2 then
 						BeginTask(TaskAddr(LinePatternWrapper));
 				end;
-			if ManualMode then
-				begin
-				while not ManualDispenseComplete do
-					yield;
-				end
-			else
-				begin
-					while (LoadCellScaled < CurrentWeightSP) do
-						yield;
-				end;
+				
+			while DispensePermissive do
+				if ManualMode then
+					CurrentWeightSP:=LoadCellScaled;
+				DispensePermissive:=((LoadCellScaled<CurrentWeightSP) or not ManualDispenseComplete);
+				yield;
+			
 			
 			Containers[CurrentContainerNo].DispensePermissive:=false;
 			while TaskPresent(TaskAddr(DispenseWrapper)) or (TaskPresent(TaskAddr(ZigPatternWrapper)) or TaskPresent(TaskAddr(LinePatternWrapper))) do
 				yield;
 		end;
 		
+	procedure DenesterDispense;
+		begin
+			Delay(1000);
+		end;
 	procedure DispenseLoop;
 		var DispenseState:integer;
 		var RecipeIndex:integer;
@@ -140,12 +142,21 @@ procedure InitializeActuators;
 					RecipeIndex:=0;
 					DispenseState:=1;
 					Mb_StartButton:=false;
+					yield;
 					end
-					
 				else if DispenseState = 1 then
 					begin
+					{this needs work}
+					Gantry.MoveToDenesterStaging;
+					Delay(1000);
+					Gantry.MoveToDenester;
+					Delay(1000);{Remove once tested}
+					DenesterDispense;
+					end
+					
+				else if DispenseState = 2 then
+					begin
 						CurrentContainerNo:=Recipe[RecipeIndex];
-						Mb_StartButton:=false;
 						BeginTask(TaskAddr(AutoDispense));
 						while TaskPresent(TaskAddr(AutoDispense)) do
 							yield;

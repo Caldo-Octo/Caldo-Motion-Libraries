@@ -10,6 +10,7 @@ var Mb_CurrentContainer:integer;
 var Mb_DispenseComplete:boolean;
 var SystemInAuto:boolean;
 var Recipe:Array[0..20] of integer;
+var ManualMode:boolean;
 
 const Col1Coord = 133;
 const Col2Coord = 288;
@@ -89,6 +90,7 @@ procedure InitializeActuators;
 	
 	procedure AutoDispense;
 		var CurrentWeightSP:double;
+		var DispensePermissive:Boolean;
 		begin
 			ManualDispenseComplete:=false;
 			if GantryEnabled then
@@ -111,10 +113,14 @@ procedure InitializeActuators;
 					else if Containers[CurrentContainerNo].GantryPattern = 2 then
 						BeginTask(TaskAddr(LinePatternWrapper));
 				end;
-			{while (LoadCellScaled < CurrentWeightSP) and not ManualDispenseComplete do
-				yield;}
-			while not ManualDispenseComplete do
+				
+			while DispensePermissive do
+				if ManualMode then
+					CurrentWeightSP:=LoadCellScaled;
+				DispensePermissive:=((LoadCellScaled<CurrentWeightSP) or not ManualDispenseComplete);
 				yield;
+			
+			
 			Containers[CurrentContainerNo].DispensePermissive:=false;
 			while TaskPresent(TaskAddr(DispenseWrapper)) or (TaskPresent(TaskAddr(ZigPatternWrapper)) or TaskPresent(TaskAddr(LinePatternWrapper))) do
 				yield;
