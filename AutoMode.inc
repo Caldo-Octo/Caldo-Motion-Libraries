@@ -115,10 +115,12 @@ procedure InitializeActuators;
 				end;
 				
 			while DispensePermissive do
-				if ManualMode then
-					CurrentWeightSP:=LoadCellScaled;
-				DispensePermissive:=((LoadCellScaled<CurrentWeightSP) or not ManualDispenseComplete);
-				yield;
+				begin
+					if ManualMode then
+						CurrentWeightSP:=LoadCellScaled;
+					DispensePermissive:=((LoadCellScaled<CurrentWeightSP) or not ManualDispenseComplete);
+					yield;
+				end;
 			
 			
 			Containers[CurrentContainerNo].DispensePermissive:=false;
@@ -146,7 +148,7 @@ procedure InitializeActuators;
 					end
 				else if DispenseState = 1 then
 					begin
-					{this needs work}
+					{this needs work they might have to be in separate tasks}
 					Gantry.MoveToDenesterStaging;
 					Delay(1000);
 					Gantry.MoveToDenester;
@@ -172,6 +174,12 @@ procedure InitializeActuators;
 	procedure ButtonHandler(Container:integer);
 		var DispenseTaskPresent:boolean;
 		begin
-		CurrentContainerNo:=Container;
-		AutoDispense;	
+		DispenseTaskPresent:=TaskPresent(TaskAddr(DispenseWrapper))
+		if not DispenseTaskPresent then
+		begin
+			CurrentContainerNo:=Container;
+			BeginTask(TaskAddr(AutoDispense));
+		end
+		
+			
 		end;

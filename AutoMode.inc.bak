@@ -126,6 +126,10 @@ procedure InitializeActuators;
 				yield;
 		end;
 		
+	procedure DenesterDispense;
+		begin
+			Delay(1000);
+		end;
 	procedure DispenseLoop;
 		var DispenseState:integer;
 		var RecipeIndex:integer;
@@ -138,12 +142,21 @@ procedure InitializeActuators;
 					RecipeIndex:=0;
 					DispenseState:=1;
 					Mb_StartButton:=false;
+					yield;
 					end
-					
 				else if DispenseState = 1 then
 					begin
+					{this needs work they might have to be in separate tasks}
+					Gantry.MoveToDenesterStaging;
+					Delay(1000);
+					Gantry.MoveToDenester;
+					Delay(1000);{Remove once tested}
+					DenesterDispense;
+					end
+					
+				else if DispenseState = 2 then
+					begin
 						CurrentContainerNo:=Recipe[RecipeIndex];
-						Mb_StartButton:=false;
 						BeginTask(TaskAddr(AutoDispense));
 						while TaskPresent(TaskAddr(AutoDispense)) do
 							yield;
@@ -159,6 +172,12 @@ procedure InitializeActuators;
 	procedure ButtonHandler(Container:integer);
 		var DispenseTaskPresent:boolean;
 		begin
-		CurrentContainerNo:=Container;
-		AutoDispense;	
+		DispenseTaskPresent:=TaskPresent(TaskAddr(DispenseWrapper))
+		if not DispenseTaskPresent then
+		begin
+			CurrentContainerNo:=Container;
+			BeginTask(TaskAddr(AutoDispense));
+		end
+		
+			
 		end;
