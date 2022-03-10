@@ -1,4 +1,4 @@
-{var ManualDispenseComplete:boolean;} {Block Accessible}
+var ManualDispenseComplete:boolean; {Block Accessible}
 var Containers: Array[1..28] of TContainer;
 var Gantry:TGantry;
 var GantryEnabled:boolean;
@@ -10,6 +10,7 @@ var Mb_CurrentContainer:integer;
 var Mb_DispenseComplete:boolean;
 var SystemInAuto:boolean;
 var Recipe:Array[0..20] of integer;
+var ManualMode:boolean;
 
 const Col1Coord = 133;
 const Col2Coord = 288;
@@ -111,8 +112,17 @@ procedure InitializeActuators;
 					else if Containers[CurrentContainerNo].GantryPattern = 2 then
 						BeginTask(TaskAddr(LinePatternWrapper));
 				end;
-			while (LoadCellScaled < CurrentWeightSP) and not ManualDispenseComplete do
-				yield;
+			if ManualMode then
+				begin
+				while not ManualDispenseComplete do
+					yield;
+				end
+			else
+				begin
+					while (LoadCellScaled < CurrentWeightSP) do
+						yield;
+				end;
+			
 			Containers[CurrentContainerNo].DispensePermissive:=false;
 			while TaskPresent(TaskAddr(DispenseWrapper)) or (TaskPresent(TaskAddr(ZigPatternWrapper)) or TaskPresent(TaskAddr(LinePatternWrapper))) do
 				yield;
