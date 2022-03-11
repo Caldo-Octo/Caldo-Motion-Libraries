@@ -11,7 +11,8 @@ const OutfeedStagingZ = 0;
 const DenesterXPos = 100;
 const DenesterYPos = 1;
 const DenesterZPos = 0;
-	
+
+
 Type TGantry=object
 	XMotor:T1Axis;
 	YMotor:T1Axis;
@@ -38,6 +39,7 @@ Type TGantry=object
 			AtPump:=false;
 			if (XMot.ActualPosition > 99) and (XMot.ActualPosition < 101) and (YMot.ActualPosition <3) then
 				AtHome:=true;
+			
 		end;
 		
 	procedure MoveToStaging(var Container:TContainer);

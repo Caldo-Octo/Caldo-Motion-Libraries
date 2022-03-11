@@ -50,6 +50,7 @@ procedure LinePatternWrapper;
 
 procedure InitializeActuators;
 	begin
+		
 		{We need to change the Remote_Motor_Names eventually}
 		Containers[1].InitializeAuger(Remote_Motor_27,Col1Coord,Row1Coord,1,AugDefaultSpeed);
 		Containers[2].InitializeAuger(Remote_Motor_28,Col2Coord,Row1Coord,2,AugDefaultSpeed);
@@ -104,8 +105,10 @@ procedure InitializeActuators;
 					Gantry.MoveToPump(Containers[CurrentContainerNo]);
 					end;
 				end;
+				
 			CurrentWeightSP:=Containers[CurrentContainerNo].WeightSP+LoadCellScaled;
-			BeginTask(TaskAddr(DispenseWrapper));
+			{try without Beginning a new task}
+			DispenseWrapper;
 			if Containers[CurrentContainerNo].GantryPatternEnabled then
 				begin
 					if Containers[CurrentContainerNo].GantryPattern = 1 then
@@ -114,16 +117,11 @@ procedure InitializeActuators;
 						BeginTask(TaskAddr(LinePatternWrapper));
 				end;
 				
-			while DispensePermissive do
-				begin
-					if ManualMode then
-						CurrentWeightSP:=LoadCellScaled;
-					DispensePermissive:=((LoadCellScaled<CurrentWeightSP) or not ManualDispenseComplete);
-					yield;
-				end;
-			
-			
+			while not ManualDispenseComplete do
+				yield;
+				
 			Containers[CurrentContainerNo].DispensePermissive:=false;
+			
 			while TaskPresent(TaskAddr(DispenseWrapper)) or (TaskPresent(TaskAddr(ZigPatternWrapper)) or TaskPresent(TaskAddr(LinePatternWrapper))) do
 				yield;
 		end;
@@ -178,7 +176,7 @@ procedure InitializeActuators;
 		if not DispenseTaskPresent then
 		begin
 			CurrentContainerNo:=Container;
-			BeginTask(TaskAddr(AutoDispense));
+			AutoDispense;
 		end
 		
 			
