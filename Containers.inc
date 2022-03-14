@@ -119,7 +119,7 @@ procedure TContainer.InitializeAuger(var Axis:TDistributedT1Axis;XPos:double;YPo
 					begin
 						Motor.BeginMoveBy(ReverseRevolutions);
 						ReverseSwitch:=false;
-						end;
+					end;
 					yield;
 				 end;
 				 Motor.Stop;

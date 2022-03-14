@@ -2,15 +2,15 @@ const OutfeedXPos = 1084;
 const OutfeedYPos = 890.42;
 const OutfeedZPos = 5.76;
 const PumpStagingX = 100.0;
-const DenesterStagingX = 878.9;
-const DenesterStagingY = 1159.0;
+const DenesterStagingX = 860;
+const DenesterStagingY = 1128;
 const DenesterStagingZ = 0;
-const OutfeedStagingX = 878.9;
-const OutfeedStagingY = 1159.0;
+const OutfeedStagingX = 860;
+const OutfeedStagingY = 1128;
 const OutfeedStagingZ = 0;
-const DenesterXPos = 100;
-const DenesterYPos = 1;
-const DenesterZPos = 0;
+const DenesterXPos = 1100;
+const DenesterYPos = 1128;
+const DenesterZPos = 572;
 
 
 Type TGantry=object
@@ -118,7 +118,6 @@ Type TGantry=object
 					YMotor.BeginMoveTo(DenesterStagingY);
 					while not (XMotor.MoveIsFinished and YMotor.MoveIsFinished) do
 						yield;
-					ZMotor.MoveTo(DenesterStagingZ);
 					AtDenesterStaging:=true;
 				end
 		end;

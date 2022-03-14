@@ -1,6 +1,6 @@
 Douloi Block Program
 Version 1.41
-33
+32
 TAxisGroup
 0 {reference}
 X_Motor
@@ -77,7 +77,7 @@ TAxisGroup
 0 {reference}
 Augar1
 1
--1
+1
 1
 1
 1
@@ -577,24 +577,6 @@ FALSE
  4.00000000000000E+0003
 256
 FALSE
-TAxisGroup
-0 {reference}
-TestVirtualAxis
-1
-0
-5
-1
-1
-1
-1
-1
- 1.00000000000000E+0000
- 1.00000000000000E+0001
- 1.00000000000000E+0001
-FALSE
- 5.12000000000000E+0004
-256
-FALSE
 9
 TNamedIO
 0 {reference}
@@ -672,8 +654,8 @@ FALSE
 TControlPlate
 51 {reference}
 Main
-10 10
-1245 730
+0 0
+1015 540
 -16777211
 Tahoma
 1
@@ -729,10 +711,11 @@ TRUE
 TUserProcedure
 0 {reference}
 FALSE
-5
+6
 function  CanClose:boolean;
   begin
   Park;
+  {AutoMode.SystemReady:=false;}
   CanClose:=true;
   end;
 TRUE
@@ -1938,17 +1921,19 @@ TComment
 1216 387 255 160 60
 0
 FALSE
-0
-0
+1
+Touch and Type Here
+1
+Touch and Type Here
 nil
 0 0  diagnostic marker
 MMC-V Test Platform
-100
+102
 TControlButton
 0 {reference}
 Jog__Button
-215 320
-305 350
+205 310
+295 340
 536870911
 Tahoma
 1
@@ -2112,8 +2097,8 @@ FALSE
 TControlEditor
 24 {reference}
 GainEditor
-215 240
-305 263
+205 230
+295 253
 -16777211
 Tahoma
 1
@@ -2297,8 +2282,8 @@ nil
 TControlEditor
 25 {reference}
 ZeroEditor
-215 265
-305 288
+205 255
+295 278
 -16777211
 Tahoma
 1
@@ -2322,8 +2307,8 @@ nil
 TControlEditor
 27 {reference}
 KiEditor
-215 290
-305 313
+205 280
+295 303
 -16777211
 Tahoma
 1
@@ -2347,8 +2332,8 @@ nil
 TControlButton
 0 {reference}
 X_MotorOn
-215 80
-305 110
+205 70
+295 100
 536870911
 Tahoma
 1
@@ -2453,8 +2438,8 @@ FALSE
 TControlStatic
 97 {reference}
 Text
-215 140
-305 163
+205 130
+295 153
 -16777211
 Tahoma
 1
@@ -2538,8 +2523,8 @@ nil
 TControlStatic
 132 {reference}
 Text12
-215 115
-305 138
+205 105
+295 128
 -16777211
 Tahoma
 1
@@ -2634,8 +2619,8 @@ nil
 TControlPlate
 144 {reference}
 RP23_Configuration
-1250 10
-1400 55
+1020 30
+1170 75
 -16777211
 Tahoma
 1
@@ -3046,8 +3031,8 @@ FALSE
 TControlStatic
 0 {reference}
 Text16
-70 140
-205 163
+60 130
+195 153
 -16777211
 Tahoma
 1
@@ -3062,8 +3047,8 @@ Commanded
 TControlStatic
 170 {reference}
 Text5
-215 165
-305 188
+205 155
+295 178
 -16777211
 Tahoma
 1
@@ -3147,8 +3132,8 @@ nil
 TControlStatic
 0 {reference}
 Text17
-70 165
-205 188
+60 155
+195 178
 -16777211
 Tahoma
 1
@@ -3163,8 +3148,8 @@ Actual
 TControlStatic
 171 {reference}
 Text18
-215 190
-305 213
+205 180
+295 203
 -16777211
 Tahoma
 1
@@ -3248,8 +3233,8 @@ nil
 TControlStatic
 0 {reference}
 Text21
-70 190
-205 213
+60 180
+195 203
 -16777211
 Tahoma
 1
@@ -3264,8 +3249,8 @@ Error
 TControlStatic
 0 {reference}
 Text2
-45 215
-205 238
+35 205
+195 228
 -16777211
 Tahoma
 1
@@ -3280,8 +3265,8 @@ Commanded Torque
 TControlStatic
 172 {reference}
 Text22
-215 215
-305 238
+205 205
+295 228
 -16777211
 Tahoma
 1
@@ -3380,8 +3365,8 @@ nil
 TControlStatic
 0 {reference}
 Text3
-45 240
-205 263
+35 230
+195 253
 -16777211
 Tahoma
 1
@@ -3396,8 +3381,8 @@ Gain (1 - 1000)
 TControlStatic
 0 {reference}
 Text4
-45 265
-205 288
+35 255
+195 278
 -16777211
 Tahoma
 1
@@ -3412,8 +3397,8 @@ Zero (230-254)
 TControlStatic
 0 {reference}
 Text6
-45 290
-205 313
+35 280
+195 303
 -16777211
 Tahoma
 1
@@ -3428,8 +3413,8 @@ Integrator (0 - Gain)
 TControlPlate
 198 {reference}
 BiSS_Posital
-1250 60
-1400 110
+1020 80
+1170 130
 -16777211
 Tahoma
 1
@@ -3596,8 +3581,8 @@ FALSE
 TControlButton
 0 {reference}
 PresetButton
-215 390
-305 420
+205 380
+295 410
 536870911
 Tahoma
 1
@@ -3764,8 +3749,8 @@ FALSE
 TControlStatic
 0 {reference}
 Text8
-215 50
-305 73
+205 40
+295 63
 -16777211
 Tahoma
 1
@@ -3780,8 +3765,8 @@ X
 TControlStatic
 0 {reference}
 Text10
-310 50
-400 73
+300 40
+390 63
 -16777211
 Tahoma
 1
@@ -3796,8 +3781,8 @@ Y
 TControlButton
 0 {reference}
 Jog__Button3
-215 355
-305 385
+205 345
+295 375
 536870911
 Tahoma
 1
@@ -3961,8 +3946,8 @@ FALSE
 TControlStatic
 0 {reference}
 Text7
-125 425
-205 448
+115 415
+195 438
 -16777211
 Tahoma
 1
@@ -3977,8 +3962,8 @@ Set Speed
 TControlEditor
 201 {reference}
 XSpeedEditor
-215 425
-305 448
+205 415
+295 438
 -16777211
 Tahoma
 1
@@ -4113,8 +4098,8 @@ nil
 TControlStatic
 0 {reference}
 Text11
-125 475
-205 498
+115 465
+195 488
 -16777211
 Tahoma
 1
@@ -4129,8 +4114,8 @@ Move To
 TControlEditor
 202 {reference}
 XMoveToEditor
-215 475
-305 498
+205 465
+295 488
 -16777211
 Tahoma
 1
@@ -4259,8 +4244,8 @@ nil
 TControlButton
 0 {reference}
 Jog__Button2
-310 320
-400 350
+300 310
+390 340
 536870911
 Tahoma
 1
@@ -4424,8 +4409,8 @@ FALSE
 TControlEditor
 203 {reference}
 GainEditor2
-310 240
-400 263
+300 230
+390 253
 -16777211
 Tahoma
 1
@@ -4609,8 +4594,8 @@ nil
 TControlEditor
 204 {reference}
 ZeroEditor2
-310 265
-400 288
+300 255
+390 278
 -16777211
 Tahoma
 1
@@ -4634,8 +4619,8 @@ nil
 TControlEditor
 205 {reference}
 KiEditor2
-310 290
-400 313
+300 280
+390 303
 -16777211
 Tahoma
 1
@@ -4659,8 +4644,8 @@ nil
 TControlButton
 0 {reference}
 Y_MotorOn
-310 80
-400 110
+300 70
+390 100
 536870911
 Tahoma
 1
@@ -4765,8 +4750,8 @@ FALSE
 TControlStatic
 206 {reference}
 Text13
-310 140
-400 163
+300 130
+390 153
 -16777211
 Tahoma
 1
@@ -4850,8 +4835,8 @@ nil
 TControlStatic
 207 {reference}
 Text15
-310 115
-400 138
+300 105
+390 128
 -16777211
 Tahoma
 1
@@ -4946,8 +4931,8 @@ nil
 TControlStatic
 208 {reference}
 Text19
-310 165
-400 188
+300 155
+390 178
 -16777211
 Tahoma
 1
@@ -5031,8 +5016,8 @@ nil
 TControlStatic
 209 {reference}
 Text23
-310 190
-400 213
+300 180
+390 203
 -16777211
 Tahoma
 1
@@ -5116,8 +5101,8 @@ nil
 TControlStatic
 210 {reference}
 Text24
-310 215
-400 238
+300 205
+390 228
 -16777211
 Tahoma
 1
@@ -5216,8 +5201,8 @@ nil
 TControlButton
 0 {reference}
 PresetButton2
-310 390
-400 420
+300 380
+390 410
 536870911
 Tahoma
 1
@@ -5340,8 +5325,8 @@ FALSE
 TControlButton
 0 {reference}
 Jog__Button4
-310 355
-400 385
+300 345
+390 375
 536870911
 Tahoma
 1
@@ -5505,8 +5490,8 @@ FALSE
 TControlEditor
 211 {reference}
 YSpeedEditor
-310 425
-400 448
+300 415
+390 438
 -16777211
 Tahoma
 1
@@ -5641,8 +5626,8 @@ nil
 TControlEditor
 212 {reference}
 YMoveToEditor
-310 475
-400 498
+300 465
+390 488
 -16777211
 Tahoma
 1
@@ -5771,8 +5756,8 @@ nil
 TControlStatic
 0 {reference}
 Text25
-405 50
-495 73
+395 40
+485 63
 -16777211
 Tahoma
 1
@@ -5787,8 +5772,8 @@ Z
 TControlButton
 0 {reference}
 Jog__Button5
-405 320
-495 350
+395 310
+485 340
 536870911
 Tahoma
 1
@@ -5952,8 +5937,8 @@ FALSE
 TControlButton
 0 {reference}
 Z_MotorOn
-405 80
-495 110
+395 70
+485 100
 536870911
 Tahoma
 1
@@ -6164,8 +6149,8 @@ FALSE
 TControlStatic
 216 {reference}
 Text26
-405 140
-495 163
+395 130
+485 153
 -16777211
 Tahoma
 1
@@ -6249,8 +6234,8 @@ nil
 TControlStatic
 217 {reference}
 Text27
-405 115
-495 138
+395 105
+485 128
 -16777211
 Tahoma
 1
@@ -6345,8 +6330,8 @@ nil
 TControlStatic
 218 {reference}
 Text28
-405 165
-495 188
+395 155
+485 178
 -16777211
 Tahoma
 1
@@ -6430,8 +6415,8 @@ nil
 TControlButton
 0 {reference}
 PresetButton3
-405 390
-495 420
+395 380
+485 410
 536870911
 Tahoma
 1
@@ -6554,8 +6539,8 @@ FALSE
 TControlButton
 0 {reference}
 Jog__Button6
-405 355
-495 385
+395 345
+485 375
 536870911
 Tahoma
 1
@@ -6719,8 +6704,8 @@ FALSE
 TControlEditor
 221 {reference}
 ZSpeedEditor
-405 425
-495 448
+395 415
+485 438
 -16777211
 Tahoma
 1
@@ -6855,8 +6840,8 @@ nil
 TControlEditor
 222 {reference}
 ZMoveToEditor
-405 475
-495 498
+395 465
+485 488
 -16777211
 Tahoma
 1
@@ -7065,8 +7050,8 @@ nil
 TControlButton
 0 {reference}
 LoopOnButton
-45 335
-115 365
+35 325
+105 355
 536870911
 Tahoma
 1
@@ -7206,8 +7191,8 @@ FALSE
 TControlButton
 0 {reference}
 LoopOnButton2
-45 370
-115 400
+35 360
+105 390
 536870911
 Tahoma
 1
@@ -7347,8 +7332,8 @@ FALSE
 TControlPlate
 274 {reference}
 Modbus_Communication
-1250 115
-1400 160
+1020 135
+1170 180
 -16777211
 Tahoma
 1
@@ -7815,8 +7800,8 @@ FALSE
 TControlStatic
 0 {reference}
 SetUserUnits
-125 500
-205 523
+115 490
+195 513
 -16777211
 Tahoma
 1
@@ -7831,8 +7816,8 @@ SetUnits
 TControlEditor
 242 {reference}
 XMoveToEditor2
-215 500
-305 523
+205 490
+295 513
 -16777211
 Tahoma
 1
@@ -7953,8 +7938,8 @@ nil
 TControlEditor
 243 {reference}
 YMoveToEditor2
-310 500
-400 523
+300 490
+390 513
 -16777211
 Tahoma
 1
@@ -8083,8 +8068,8 @@ nil
 TControlStatic
 0 {reference}
 Text38
-125 450
-205 473
+115 440
+195 463
 -16777211
 Tahoma
 1
@@ -8099,8 +8084,8 @@ Set Accel
 TControlEditor
 246 {reference}
 XSpeedEditor2
-215 450
-305 473
+205 440
+295 463
 -16777211
 Tahoma
 1
@@ -8327,8 +8312,8 @@ nil
 TControlEditor
 247 {reference}
 YSpeedEditor2
-310 450
-400 473
+300 440
+390 463
 -16777211
 Tahoma
 1
@@ -8555,8 +8540,8 @@ nil
 TControlEditor
 248 {reference}
 ZSpeedEditor2
-405 450
-495 473
+395 440
+485 463
 -16777211
 Tahoma
 1
@@ -8783,8 +8768,8 @@ nil
 TControlEditor
 252 {reference}
 ZMoveToEditor2
-405 500
-495 523
+395 490
+485 513
 -16777211
 Tahoma
 1
@@ -8979,215 +8964,7 @@ TRUE
 TRUE
 TRUE
 TRUE
-TBlock
-0 {reference}
-251 {ReferenceLink}
-488 159 14053594 534 53
-4
-TPathNameField
-0 {reference}
-9 19 30 33
 nil
-
-TRUE
-List
-Main.List
-Main.
-List
-TRUE
-TRUE
-TRUE
-TStaticField
-0 {reference}
-33 19 74 33
-nil
-
-TRUE
-Writeln
-.writeln(
-TNumericField
-0 {reference}
-77 7 509 46
-TNumericExpression
-0 {reference}
-0 {ReferenceLink}
-565 166 1226588 432 39
-5
-TStaticField
-0 {reference}
-12 19 12 19
-nil
-
-TRUE
-
-(
-TNumericField
-0 {reference}
-15 4 295 35
-TNumericExpression
-0 {reference}
-0 {ReferenceLink}
-580 170 1226588 280 31
-5
-TStaticField
-0 {reference}
-12 15 12 15
-nil
-
-TRUE
-
-(
-TNumericField
-0 {reference}
-15 4 130 27
-TNumericExpression
-0 {reference}
-0 {ReferenceLink}
-595 174 3937500 115 23
-1
-TStaticField
-0 {reference}
-12 4 103 18
-nil
-
-TRUE
-Sample Counter
-SampleCounter
-Number
-Number
-TRUE
- 5.00000000000000E+0000
-TRUE
-TLocalListField
-0 {reference}
-137 8 151 22
-nil
-
-TRUE
- - 
--
-4
- + 
-+
- - 
--
- x 
-*
- / 
-/
-TNumericField
-0 {reference}
-154 4 265 27
-TNumericExpression
-0 {reference}
-250 {ReferenceLink}
-734 174 36095 111 23
-1
-TPathNameField
-0 {reference}
-12 4 99 18
-nil
-
-TRUE
-TimeReference
-Main.TimeReference
-Main.
-TimeReference
-TRUE
-TRUE
-TRUE
-Number
-Number
-TRUE
- 2.00000000000000E+0000
-TRUE
-TStaticField
-0 {reference}
-268 15 268 15
-nil
-
-TRUE
-
-)
-Number
-Number
-TRUE
- 5.00000000000000E+0000
-TRUE
-TLocalListField
-0 {reference}
-302 12 315 26
-nil
-
-TRUE
- / 
-/
-4
- + 
-+
- - 
--
- x 
-*
- / 
-/
-TNumericField
-0 {reference}
-318 8 417 31
-TNumericExpression
-0 {reference}
-0 {ReferenceLink}
-883 174 3937500 99 23
-2
-TControllerListField
-0 {reference}
-12 4 12 18
-nil
-
-TRUE
-Master
-Master.
-0
-TStaticField
-0 {reference}
-15 4 87 18
-nil
-
-TRUE
-Sample Rate
-SampleRate
-Number
-Number
-TRUE
- 2.00000000000000E+0000
-TRUE
-TStaticField
-0 {reference}
-420 19 420 19
-nil
-
-TRUE
-
-)
-Number
-Number
-TRUE
- 0.00000000000000E+0000
-TRUE
-TStaticField
-0 {reference}
-512 26 512 26
-nil
-
-TRUE
-
-);
-TRUE
-TRUE
-FALSE
-nil
-TRUE
-FALSE
 FALSE
 FALSE
 FALSE
@@ -9201,8 +8978,8 @@ nil
 TControlButton
 0 {reference}
 A_1Button
-765 80
-825 110
+575 355
+635 385
 536870911
 Tahoma
 1
@@ -9245,8 +9022,8 @@ FALSE
 TControlButton
 0 {reference}
 DefaultButton2
-765 160
-825 190
+575 405
+635 435
 536870911
 Tahoma
 1
@@ -9289,8 +9066,8 @@ FALSE
 TControlButton
 0 {reference}
 DefaultButton3
-765 240
-825 270
+575 455
+635 485
 536870911
 Tahoma
 1
@@ -9333,8 +9110,8 @@ FALSE
 TControlButton
 0 {reference}
 DefaultButton4
-765 320
-825 350
+575 505
+635 535
 536870911
 Tahoma
 1
@@ -9378,8 +9155,8 @@ FALSE
 TControlButton
 0 {reference}
 DefaultButton5
-865 80
-925 110
+665 355
+725 385
 536870911
 Tahoma
 1
@@ -9422,8 +9199,8 @@ FALSE
 TControlButton
 0 {reference}
 DefaultButton6
-965 80
-1025 110
+755 355
+815 385
 536870911
 Tahoma
 1
@@ -9466,8 +9243,8 @@ FALSE
 TControlButton
 0 {reference}
 DefaultButton7
-1065 80
-1125 110
+845 355
+905 385
 536870911
 Tahoma
 1
@@ -9510,8 +9287,8 @@ FALSE
 TControlButton
 0 {reference}
 DefaultButton8
-1165 80
-1225 110
+935 355
+995 385
 536870911
 Tahoma
 1
@@ -9554,8 +9331,8 @@ FALSE
 TControlButton
 0 {reference}
 DefaultButton9
-865 160
-925 190
+665 405
+725 435
 536870911
 Tahoma
 1
@@ -9598,8 +9375,8 @@ FALSE
 TControlButton
 0 {reference}
 DefaultButton10
-865 240
-925 270
+665 455
+725 485
 536870911
 Tahoma
 1
@@ -9642,8 +9419,8 @@ FALSE
 TControlButton
 0 {reference}
 DefaultButton11
-865 320
-925 350
+665 505
+725 535
 536870911
 Tahoma
 1
@@ -9686,8 +9463,8 @@ FALSE
 TControlButton
 0 {reference}
 DefaultButton12
-965 160
-1025 190
+755 405
+815 435
 536870911
 Tahoma
 1
@@ -9730,8 +9507,8 @@ FALSE
 TControlButton
 0 {reference}
 DefaultButton13
-965 240
-1025 270
+755 455
+815 485
 536870911
 Tahoma
 1
@@ -9744,7 +9521,7 @@ TUserProcedure
 FALSE
 5
 procedure Click;
-  const AugerNo = 14;
+  const AugerNo = 13;
   begin
  AutoMode.ButtonHandler(AugerNo);
   end;
@@ -9774,8 +9551,8 @@ FALSE
 TControlButton
 0 {reference}
 DefaultButton14
-965 320
-1025 350
+755 505
+815 535
 536870911
 Tahoma
 1
@@ -9818,8 +9595,8 @@ FALSE
 TControlButton
 0 {reference}
 DefaultButton15
-1065 160
-1125 190
+845 405
+905 435
 536870911
 Tahoma
 1
@@ -9862,8 +9639,8 @@ FALSE
 TControlButton
 0 {reference}
 DefaultButton16
-1065 240
-1125 270
+845 455
+905 485
 536870911
 Tahoma
 1
@@ -9907,8 +9684,8 @@ FALSE
 TControlButton
 0 {reference}
 DefaultButton17
-1165 160
-1225 190
+935 405
+995 435
 536870911
 Tahoma
 1
@@ -9951,8 +9728,8 @@ FALSE
 TControlButton
 0 {reference}
 DefaultButton18
-1065 320
-1125 350
+845 505
+905 535
 536870911
 Tahoma
 1
@@ -9995,8 +9772,8 @@ FALSE
 TControlButton
 0 {reference}
 DefaultButton19
-1165 240
-1225 270
+935 455
+995 485
 536870911
 Tahoma
 1
@@ -10039,8 +9816,8 @@ FALSE
 TControlButton
 0 {reference}
 DefaultButton20
-1170 320
-1230 350
+935 505
+995 535
 536870911
 Tahoma
 1
@@ -10083,8 +9860,8 @@ FALSE
 TControlPlate
 259 {reference}
 PowerMonitor
-1250 165
-1400 210
+1020 185
+1170 230
 -16777211
 Tahoma
 1
@@ -10172,7 +9949,7 @@ procedure MonitorPower;
   var i:single;
   const K_heating=0.00025;
   const K_decay=0.99990;
-  const XLimitRow1 = 945;
+  const XLimitRow1 = 850;
   const XLimitAbsolute = 1079;
   begin
   Level:=0;
@@ -10184,7 +9961,7 @@ procedure MonitorPower;
     else}
       begin
       Y_Motor.SetPositiveLimit(1466);
-      Y_Motor.SetNegativeLimit(1);
+      Y_Motor.SetNegativeLimit(-5);
       X_Motor.SetNegativeLimit(-100);
       if Y_Motor.ActualPosition < 500 then
         X_Motor.SetPositiveLimit(XLimitRow1)
@@ -10241,8 +10018,8 @@ FALSE
 TControlButton
 0 {reference}
 P1Button
-585 80
-630 110
+575 70
+635 100
 536870911
 Tahoma
 1
@@ -10285,8 +10062,8 @@ FALSE
 TControlButton
 0 {reference}
 P1Button2
-680 80
-720 110
+670 70
+725 100
 536870911
 Tahoma
 1
@@ -10329,8 +10106,8 @@ FALSE
 TControlButton
 0 {reference}
 P1Button3
-585 160
-630 190
+575 110
+635 140
 536870911
 Tahoma
 1
@@ -10373,8 +10150,8 @@ FALSE
 TControlButton
 0 {reference}
 P1Button4
-675 160
-720 190
+670 110
+725 140
 536870911
 Tahoma
 1
@@ -10417,8 +10194,8 @@ FALSE
 TControlButton
 0 {reference}
 P1Button5
-585 240
-630 270
+575 150
+635 180
 536870911
 Tahoma
 1
@@ -10461,8 +10238,8 @@ FALSE
 TControlButton
 0 {reference}
 P1Button6
-675 240
-720 270
+670 150
+725 180
 536870911
 Tahoma
 1
@@ -10505,8 +10282,8 @@ FALSE
 TControlButton
 0 {reference}
 P1Button7
-585 320
-630 350
+575 190
+635 220
 536870911
 Tahoma
 1
@@ -10549,8 +10326,8 @@ FALSE
 TControlButton
 0 {reference}
 P1Button8
-675 320
-720 350
+670 190
+725 220
 536870911
 Tahoma
 1
@@ -10593,8 +10370,8 @@ FALSE
 TControlButton
 0 {reference}
 Stop_DispenseButton
-360 605
-460 660
+885 165
+980 220
 536870911
 Tahoma
 1
@@ -10639,8 +10416,8 @@ FALSE
 TControlPlate
 298 {reference}
 AutoMode
-1250 215
-1400 260
+1020 235
+1170 280
 -16777211
 Tahoma
 1
@@ -10732,8 +10509,8 @@ FALSE
 TControlButton
 0 {reference}
 InitializeButton
-155 605
-250 660
+740 165
+835 220
 536870911
 Tahoma
 1
@@ -10775,8 +10552,8 @@ FALSE
 TControlButton
 0 {reference}
 GantryEnable
-255 605
-350 660
+885 70
+980 125
 536870911
 Tahoma
 1
@@ -10827,8 +10604,8 @@ FALSE
 TControlStatic
 0 {reference}
 Text9
-160 680
-240 697
+890 140
+970 157
 -16777211
 Tahoma
 1
@@ -10919,8 +10696,8 @@ nil
 TControlStatic
 0 {reference}
 Text14
-260 680
-345 697
+890 235
+975 252
 -16777211
 Tahoma
 1
@@ -11011,8 +10788,8 @@ nil
 TControlButton
 0 {reference}
 Manual_ToggleButton
-55 605
-150 660
+740 70
+835 125
 536870911
 Tahoma
 1
@@ -11063,8 +10840,8 @@ FALSE
 TControlStatic
 0 {reference}
 Text20
-80 680
-145 697
+740 140
+805 157
 -16777211
 Tahoma
 1
@@ -11155,8 +10932,8 @@ nil
 TControlStatic
 0 {reference}
 XMotorLimit
-190 525
-275 553
+105 70
+190 98
 -16777211
 Tahoma
 1
@@ -11231,6 +11008,94 @@ nil
 0 0  diagnostic marker
 
 0
+TControlButton
+0 {reference}
+DenesterButton
+695 300
+790 340
+536870911
+Tahoma
+1
+-16777208
+8
+0
+3
+TUserProcedure
+0 {reference}
+FALSE
+5
+procedure Click;
+  const Denester = 29;
+  begin
+    AutoMode.ButtonHandler(Denester);
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseDown;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseUp;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+nil
+0 0  diagnostic marker
+Denester
+FALSE
+TControlButton
+0 {reference}
+OutfeedButton
+860 300
+955 340
+536870911
+Tahoma
+1
+-16777208
+8
+0
+3
+TUserProcedure
+0 {reference}
+FALSE
+5
+procedure Click;
+  const Outfeed = 30;
+  begin
+  AutoMode.ButtonHandler(Outfeed);
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseDown;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseUp;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+nil
+0 0  diagnostic marker
+Outfeed
+FALSE
 42
 TUserVariable
 19 {reference}

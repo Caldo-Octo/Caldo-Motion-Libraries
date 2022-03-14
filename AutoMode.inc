@@ -9,18 +9,20 @@ var Mb_StartButton:boolean;
 var Mb_CurrentContainer:integer;
 var Mb_DispenseComplete:boolean;
 var SystemInAuto:boolean;
+var SystemReady:boolean;
 var Recipe:Array[0..20] of integer;
 var ManualMode:boolean;
 
-const Col1Coord = 133;
-const Col2Coord = 288;
-const Col3Coord = 443;
-const Col4Coord = 597;
-const Col5Coord = 771;
+const Col1Coord = 151;
+const Col2Coord = 301;
+const Col3Coord = 465;
+const Col4Coord = 625;
+const Col5Coord = 780;
 const Row1Coord = 1464;
 const Row2Coord = 979;
 const Row3Coord = 500;
 const Row4Coord = 18;
+const ZDispensePos = 9;
 const AugDefaultSpeed = 20;
 const LPumpDefaultX = -75;
 const RPumpDefaultX = -55;
@@ -83,6 +85,7 @@ procedure InitializeActuators;
 		Containers[28].InitializePump(Augar1,RPumpDefaultX,Row4Coord,28,PumpsDefaultSpeed);
 		
 		Gantry.Initialize(X_Motor,Y_Motor,Stepper,StepperEncoder);
+		SystemReady:=true;
 		if (X_Motor.ActualPosition > 99) and (X_Motor.ActualPosition < 101) and (Y_Motor.ActualPosition<10) then
 			Gantry.AtHome:=true;
 	end;
@@ -93,6 +96,12 @@ procedure InitializeActuators;
 		var CurrentWeightSP:double;
 		var DispensePermissive:Boolean;
 		begin
+			
+			if not SystemReady then
+				begin
+				InitializeActuators;
+				Delay(500);
+				end;
 			ManualDispenseComplete:=false;
 			if GantryEnabled then
 				begin
@@ -108,7 +117,6 @@ procedure InitializeActuators;
 				
 			CurrentWeightSP:=Containers[CurrentContainerNo].WeightSP+LoadCellScaled;
 			{try without Beginning a new task}
-			DispenseWrapper;
 			if Containers[CurrentContainerNo].GantryPatternEnabled then
 				begin
 					if Containers[CurrentContainerNo].GantryPattern = 1 then
@@ -116,13 +124,15 @@ procedure InitializeActuators;
 					else if Containers[CurrentContainerNo].GantryPattern = 2 then
 						BeginTask(TaskAddr(LinePatternWrapper));
 				end;
+			BeginTask(TaskAddr(DispenseWrapper));
+			
 				
 			while not ManualDispenseComplete do
 				yield;
 				
 			Containers[CurrentContainerNo].DispensePermissive:=false;
 			
-			while TaskPresent(TaskAddr(DispenseWrapper)) or (TaskPresent(TaskAddr(ZigPatternWrapper)) or TaskPresent(TaskAddr(LinePatternWrapper))) do
+			while (TaskPresent(TaskAddr(DispenseWrapper)) or TaskPresent(TaskAddr(ZigPatternWrapper)) or TaskPresent(TaskAddr(LinePatternWrapper))) do
 				yield;
 		end;
 		
@@ -174,10 +184,22 @@ procedure InitializeActuators;
 		begin
 		DispenseTaskPresent:=TaskPresent(TaskAddr(DispenseWrapper))
 		if not DispenseTaskPresent then
-		begin
-			CurrentContainerNo:=Container;
-			AutoDispense;
-		end
-		
-			
+			begin
+				if Container <= 28 then
+					begin
+						CurrentContainerNo:=Container;
+						AutoDispense;
+					end
+				else if Container = 29 then
+					begin
+						Gantry.MoveToDenesterStaging;
+						Delay(1000);
+						Gantry.MoveToDenester;
+					end
+				else if Container = 30 then
+					begin
+						Gantry.MoveToDenesterStaging; {This works for both}
+						Gantry.MoveToOutfeed;	
+					end;
+			end;
 		end;
