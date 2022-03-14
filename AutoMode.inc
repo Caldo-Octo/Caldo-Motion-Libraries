@@ -1,5 +1,5 @@
 var ManualDispenseComplete:boolean; {Block Accessible}
-var Containers: Array[1..28] of TContainer;
+var Containers: array[1..28] of TContainer;
 var Gantry:TGantry;
 var GantryEnabled:boolean;
 var CurrentContainerNo:integer;
@@ -10,7 +10,7 @@ var Mb_CurrentContainer:integer;
 var Mb_DispenseComplete:boolean;
 var SystemInAuto:boolean;
 var SystemReady:boolean;
-var Recipe:Array[0..20] of integer;
+var Recipe:array[0..20] of integer;
 var ManualMode:boolean;
 
 const Col1Coord = 151;
@@ -116,7 +116,6 @@ procedure InitializeActuators;
 				end;
 				
 			CurrentWeightSP:=Containers[CurrentContainerNo].WeightSP+LoadCellScaled;
-			{try without Beginning a new task}
 			if Containers[CurrentContainerNo].GantryPatternEnabled then
 				begin
 					if Containers[CurrentContainerNo].GantryPattern = 1 then

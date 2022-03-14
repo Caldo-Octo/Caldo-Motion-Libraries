@@ -113,6 +113,7 @@ Type TGantry=object
 			if AtHome then
 				begin
 					AtHome:=false;
+					AtContainers:=false;
 					ZMotor.MoveTo(0);
 					XMotor.BeginMoveTo(DenesterStagingX);
 					YMotor.BeginMoveTo(DenesterStagingY);
