@@ -181,6 +181,9 @@ procedure InitializeActuators;
 	procedure ButtonHandler(Container:integer);
 		var DispenseTaskPresent:boolean;
 		begin
+		if not SystemReady then
+			initializeActuators;
+		Delay(500);
 		DispenseTaskPresent:=TaskPresent(TaskAddr(DispenseWrapper))
 		if not DispenseTaskPresent then
 			begin
@@ -194,11 +197,19 @@ procedure InitializeActuators;
 						Gantry.MoveToDenesterStaging;
 						Delay(1000);
 						Gantry.MoveToDenester;
+						Delay(1000);
+						Gantry.ZMotor.MoveTo(0);
+						Gantry.MoveToDenesterStaging;
 					end
 				else if Container = 30 then
 					begin
-						Gantry.MoveToDenesterStaging; {This works for both}
-						Gantry.MoveToOutfeed;	
+						Gantry.MoveToOutfeedStaging;
+						Delay(1000);
+						{Gantry.MoveToOutfeed;}
+					end
+				else if Container = 40 then
+					begin
+						Gantry.GoToIdlePos;
 					end;
 			end;
 		end;

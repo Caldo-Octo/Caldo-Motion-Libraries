@@ -1,16 +1,16 @@
 const OutfeedXPos = 1084;
 const OutfeedYPos = 890.42;
-const OutfeedZPos = 5.76;
+const OutfeedZPos = 3.6;
 const PumpStagingX = 100.0;
-const DenesterStagingX = 860;
+const DenesterStagingX = 924;
 const DenesterStagingY = 1128;
 const DenesterStagingZ = 0;
-const OutfeedStagingX = 860;
-const OutfeedStagingY = 1128;
-const OutfeedStagingZ = 0;
+const OutfeedStagingX = 924;
+const OutfeedStagingY = 942;
+const OutfeedStagingZ = 3.6;
 const DenesterXPos = 1100;
 const DenesterYPos = 1128;
-const DenesterZPos = 572;
+const DenesterZPos = 5.72;
 
 
 Type TGantry=object
@@ -25,6 +25,7 @@ Type TGantry=object
 	AtDenesterStaging:boolean;
 	AtDenester:boolean;
 	AtHome:boolean;
+	AtIdlePos:boolean;
 	AtOutfeedStaging:boolean;
 	CurrentPump:integer;
 	PreviousPumpY:double;
@@ -40,6 +41,22 @@ Type TGantry=object
 			if (XMot.ActualPosition > 99) and (XMot.ActualPosition < 101) and (YMot.ActualPosition <3) then
 				AtHome:=true;
 			
+		end;
+		
+	procedure GoToIdlePos;
+		begin
+		if AtHome then
+			begin
+				AtHome:=false;
+				ZMotor.MoveTo(1);
+				YMotor.MoveTo(600);
+				Delay(500);
+				XMotor.BeginMoveTo(924);
+				YMotor.BeginMoveTo(1128);
+				while not (XMotor.MoveIsFinished and YMotor.MoveIsFinished) do
+					yield;
+				AtIdlePos:=true;
+			end;
 		end;
 		
 	procedure MoveToStaging(var Container:TContainer);
@@ -98,6 +115,7 @@ Type TGantry=object
 					YMotor.BeginMoveTo(Container.YCoord);
 					while not (XMotor.MoveIsFinished and YMotor.MoveIsFinished) do
 						yield;
+					ZMotor.MoveTo(9);
 				end;
 			if (XMotor.ActualPosition <101) and (XMotor.ActualPosition > 99) then
 				AtPumpStaging := true
@@ -110,8 +128,9 @@ Type TGantry=object
 		
 	procedure MoveToDenesterStaging;
 		begin
-			if AtHome then
+			if AtHome or AtDenester or AtIdlePos then
 				begin
+					AtDenester:=false;
 					AtHome:=false;
 					AtContainers:=false;
 					ZMotor.MoveTo(0);
@@ -128,26 +147,33 @@ Type TGantry=object
 			if AtDenesterStaging then
 				begin
 					AtDenesterStaging:=false;
-					XMotor.BeginMoveTo(DenesterXPos);
-					YMotor.BeginMoveTo(DenesterYPos);
-					while not (XMotor.MoveIsFinished and YMotor.MoveIsFinished) do
-						yield;
+					XMotor.MoveTo(DenesterXPos);
 					ZMotor.MoveTo(DenesterZPos);
+					AtDenester:=true;
 				end;
 		end;
 		
 		
 	procedure MoveToOutfeedStaging;
 		begin
-			if AtPumpStaging or AtContainers then
+			if AtPump then
 				begin
+				ZMotor.MoveTo(0);
+				XMotor.MoveTo(PumpStagingX);
+				end;
+			if AtPumpStaging or AtContainers or AtHome then
+				begin
+					ZMotor.MoveTo(0);
 					AtPumpStaging:=false;
 					AtContainers:=false;
+					if YMotor.ActualPosition < 500 then
+						YMotor.MoveTo(501);
 					XMotor.BeginMoveTo(OutfeedStagingX);
-					YMotor.BeginMoveTo(OutfeedStagingZ);
+					YMotor.BeginMoveTo(OutfeedStagingY);
 					while not (XMotor.MoveIsFinished and YMotor.MoveIsFinished) do
 						yield;
 					ZMotor.MoveTo(OutfeedStagingZ);
+					AtOutfeedStaging:=true;
 				end;
 		end;
 	

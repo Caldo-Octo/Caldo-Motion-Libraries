@@ -1928,7 +1928,7 @@ Touch and Type Here
 nil
 0 0  diagnostic marker
 MMC-V Test Platform
-102
+103
 TControlButton
 0 {reference}
 Jog__Button
@@ -9950,7 +9950,7 @@ procedure MonitorPower;
   const K_heating=0.00025;
   const K_decay=0.99990;
   const XLimitRow1 = 850;
-  const XLimitAbsolute = 1079;
+  const XLimitAbsolute = 1101;
   begin
   Level:=0;
   while true do
@@ -11011,8 +11011,8 @@ nil
 TControlButton
 0 {reference}
 DenesterButton
-695 300
-790 340
+735 300
+830 340
 536870911
 Tahoma
 1
@@ -11095,6 +11095,50 @@ TRUE
 nil
 0 0  diagnostic marker
 Outfeed
+FALSE
+TControlButton
+0 {reference}
+DefaultButton
+620 300
+710 340
+536870911
+Tahoma
+1
+-16777208
+8
+0
+3
+TUserProcedure
+0 {reference}
+FALSE
+5
+procedure Click;
+  const IdlePos = 40;
+  begin
+  AutoMode.ButtonHandler(IdlePos);
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseDown;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseUp;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+nil
+0 0  diagnostic marker
+Default
 FALSE
 42
 TUserVariable
@@ -11641,6 +11685,6 @@ FALSE
 2000
 TRUE
 0
-51
+259
 C:\Program Files (x86)\Snap2Motion\For_MMC\Resources\Remote Networks\MMC_Network.enc
 0
