@@ -7491,7 +7491,7 @@ TNumericField
 nil
 Number
 TRUE
- 2.20000000000000E+0001
+ 1.80000000000000E+0001
 FALSE
 TStaticField
 0 {reference}
@@ -11681,10 +11681,10 @@ FALSE
 TRUE
 FALSE
 1
-2
+0
 2000
 TRUE
 0
-259
+274
 C:\Program Files (x86)\Snap2Motion\For_MMC\Resources\Remote Networks\MMC_Network.enc
 0

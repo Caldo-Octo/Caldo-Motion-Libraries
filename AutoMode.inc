@@ -195,9 +195,10 @@ procedure InitializeActuators;
 				else if Container = 29 then
 					begin
 						Gantry.MoveToDenesterStaging;
-						Delay(1000);
+						Delay(500);
 						Gantry.MoveToDenester;
-						Delay(1000);
+						Denester.SetValue(255);
+						Delay(3400);
 						Gantry.ZMotor.MoveTo(0);
 						Gantry.MoveToDenesterStaging;
 					end
