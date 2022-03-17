@@ -198,7 +198,8 @@ procedure InitializeActuators;
 						Delay(500);
 						Gantry.MoveToDenester;
 						Denester.SetValue(255);
-						Delay(3400);
+						Delay(3300);
+						Denester.SetValue(0);
 						Gantry.ZMotor.MoveTo(0);
 						Gantry.MoveToDenesterStaging;
 					end

@@ -1,5 +1,5 @@
 var ManualDispenseComplete:boolean; {Block Accessible}
-var Containers: Array[1..28] of TContainer;
+var Containers: array[1..28] of TContainer;
 var Gantry:TGantry;
 var GantryEnabled:boolean;
 var CurrentContainerNo:integer;
@@ -9,18 +9,20 @@ var Mb_StartButton:boolean;
 var Mb_CurrentContainer:integer;
 var Mb_DispenseComplete:boolean;
 var SystemInAuto:boolean;
-var Recipe:Array[0..20] of integer;
+var SystemReady:boolean;
+var Recipe:array[0..20] of integer;
 var ManualMode:boolean;
 
-const Col1Coord = 133;
-const Col2Coord = 288;
-const Col3Coord = 443;
-const Col4Coord = 597;
-const Col5Coord = 771;
+const Col1Coord = 151;
+const Col2Coord = 301;
+const Col3Coord = 465;
+const Col4Coord = 625;
+const Col5Coord = 780;
 const Row1Coord = 1464;
 const Row2Coord = 979;
 const Row3Coord = 500;
 const Row4Coord = 18;
+const ZDispensePos = 9;
 const AugDefaultSpeed = 20;
 const LPumpDefaultX = -75;
 const RPumpDefaultX = -55;
@@ -50,6 +52,7 @@ procedure LinePatternWrapper;
 
 procedure InitializeActuators;
 	begin
+		
 		{We need to change the Remote_Motor_Names eventually}
 		Containers[1].InitializeAuger(Remote_Motor_27,Col1Coord,Row1Coord,1,AugDefaultSpeed);
 		Containers[2].InitializeAuger(Remote_Motor_28,Col2Coord,Row1Coord,2,AugDefaultSpeed);
@@ -82,6 +85,7 @@ procedure InitializeActuators;
 		Containers[28].InitializePump(Augar1,RPumpDefaultX,Row4Coord,28,PumpsDefaultSpeed);
 		
 		Gantry.Initialize(X_Motor,Y_Motor,Stepper,StepperEncoder);
+		SystemReady:=true;
 		if (X_Motor.ActualPosition > 99) and (X_Motor.ActualPosition < 101) and (Y_Motor.ActualPosition<10) then
 			Gantry.AtHome:=true;
 	end;
@@ -92,6 +96,12 @@ procedure InitializeActuators;
 		var CurrentWeightSP:double;
 		var DispensePermissive:Boolean;
 		begin
+			
+			if not SystemReady then
+				begin
+				InitializeActuators;
+				Delay(500);
+				end;
 			ManualDispenseComplete:=false;
 			if GantryEnabled then
 				begin
@@ -104,8 +114,8 @@ procedure InitializeActuators;
 					Gantry.MoveToPump(Containers[CurrentContainerNo]);
 					end;
 				end;
+				
 			CurrentWeightSP:=Containers[CurrentContainerNo].WeightSP+LoadCellScaled;
-			BeginTask(TaskAddr(DispenseWrapper));
 			if Containers[CurrentContainerNo].GantryPatternEnabled then
 				begin
 					if Containers[CurrentContainerNo].GantryPattern = 1 then
@@ -113,16 +123,15 @@ procedure InitializeActuators;
 					else if Containers[CurrentContainerNo].GantryPattern = 2 then
 						BeginTask(TaskAddr(LinePatternWrapper));
 				end;
+			BeginTask(TaskAddr(DispenseWrapper));
+			
 				
-			while DispensePermissive do
-				if ManualMode then
-					CurrentWeightSP:=LoadCellScaled;
-				DispensePermissive:=((LoadCellScaled<CurrentWeightSP) or not ManualDispenseComplete);
+			while not ManualDispenseComplete do
 				yield;
-			
-			
+				
 			Containers[CurrentContainerNo].DispensePermissive:=false;
-			while TaskPresent(TaskAddr(DispenseWrapper)) or (TaskPresent(TaskAddr(ZigPatternWrapper)) or TaskPresent(TaskAddr(LinePatternWrapper))) do
+			
+			while (TaskPresent(TaskAddr(DispenseWrapper)) or TaskPresent(TaskAddr(ZigPatternWrapper)) or TaskPresent(TaskAddr(LinePatternWrapper))) do
 				yield;
 		end;
 		
@@ -172,12 +181,36 @@ procedure InitializeActuators;
 	procedure ButtonHandler(Container:integer);
 		var DispenseTaskPresent:boolean;
 		begin
+		if not SystemReady then
+			initializeActuators;
+		Delay(500);
 		DispenseTaskPresent:=TaskPresent(TaskAddr(DispenseWrapper))
 		if not DispenseTaskPresent then
-		begin
-			CurrentContainerNo:=Container;
-			BeginTask(TaskAddr(AutoDispense));
-		end
-		
-			
+			begin
+				if Container <= 28 then
+					begin
+						CurrentContainerNo:=Container;
+						AutoDispense;
+					end
+				else if Container = 29 then
+					begin
+						Gantry.MoveToDenesterStaging;
+						Delay(500);
+						Gantry.MoveToDenester;
+						Denester.SetValue(255);
+						Delay(3400);
+						Gantry.ZMotor.MoveTo(0);
+						Gantry.MoveToDenesterStaging;
+					end
+				else if Container = 30 then
+					begin
+						Gantry.MoveToOutfeedStaging;
+						Delay(1000);
+						{Gantry.MoveToOutfeed;}
+					end
+				else if Container = 40 then
+					begin
+						Gantry.GoToIdlePos;
+					end;
+			end;
 		end;
