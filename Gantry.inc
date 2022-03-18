@@ -48,9 +48,9 @@ Type TGantry=object
 		if AtHome then
 			begin
 				AtHome:=false;
-				ZMotor.MoveTo(1);
-				YMotor.MoveTo(600);
-				Delay(500);
+				ZMotor.MoveTo(0);
+				YMotor.MoveTo(501);
+				Delay(100);
 				XMotor.BeginMoveTo(924);
 				YMotor.BeginMoveTo(1128);
 				while not (XMotor.MoveIsFinished and YMotor.MoveIsFinished) do

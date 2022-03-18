@@ -52,7 +52,7 @@ procedure  TContainer.InitializePump(var Axis:TDistributedT1Axis;XPos:double;YPo
 		ReverseEnabled:=true;
 		DispenseComplete:=false;
 		Revolutions:=180;
-		ReverseRevolutions:=36;
+		ReverseRevolutions:=1;
 		GantryPattern:=0;
 		GantryPatternEnabled:=false;
 		BowlSpinEnabled:=true;
@@ -76,7 +76,7 @@ procedure TContainer.InitializeAuger(var Axis:TDistributedT1Axis;XPos:double;YPo
 		ReverseEnabled:=true;
 		DispenseComplete:=false;	
 		Revolutions:=18;
-		ReverseRevolutions:=6;
+		ReverseRevolutions:=1;
 		GantryPattern:=0;
 		GantryPatternEnabled:=false;
 		BowlSpinEnabled:=true;
@@ -119,7 +119,7 @@ procedure TContainer.InitializeAuger(var Axis:TDistributedT1Axis;XPos:double;YPo
 					begin
 						Motor.BeginMoveBy(ReverseRevolutions);
 						ReverseSwitch:=false;
-						end;
+					end;
 					yield;
 				 end;
 				 Motor.Stop;

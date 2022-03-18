@@ -124,11 +124,11 @@ procedure InitializeActuators;
 						BeginTask(TaskAddr(LinePatternWrapper));
 				end;
 			BeginTask(TaskAddr(DispenseWrapper));
-			
+			Spin.SetValue(255);
 				
 			while not ManualDispenseComplete do
 				yield;
-				
+			Spin.SetValue(0);
 			Containers[CurrentContainerNo].DispensePermissive:=false;
 			
 			while (TaskPresent(TaskAddr(DispenseWrapper)) or TaskPresent(TaskAddr(ZigPatternWrapper)) or TaskPresent(TaskAddr(LinePatternWrapper))) do
@@ -195,10 +195,9 @@ procedure InitializeActuators;
 				else if Container = 29 then
 					begin
 						Gantry.MoveToDenesterStaging;
-						Delay(500);
 						Gantry.MoveToDenester;
 						Denester.SetValue(255);
-						Delay(3300);
+						Delay(3200);
 						Denester.SetValue(0);
 						Gantry.ZMotor.MoveTo(0);
 						Gantry.MoveToDenesterStaging;
