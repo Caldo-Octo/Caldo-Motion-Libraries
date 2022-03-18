@@ -19,7 +19,7 @@ const Col3Coord = 465;
 const Col4Coord = 625;
 const Col5Coord = 780;
 const Row1Coord = 1464;
-const Row2Coord = 979;
+const Row2Coord = 987.5;
 const Row3Coord = 500;
 const Row4Coord = 18;
 const ZDispensePos = 9;
@@ -27,7 +27,7 @@ const AugDefaultSpeed = 20;
 const LPumpDefaultX = -75;
 const RPumpDefaultX = -55;
 
-const PumpsDefaultSpeed = 40;
+const PumpsDefaultSpeed = 80;
 
 
 {-----------------Helper Functions----------------------}
