@@ -27,7 +27,7 @@ const AugDefaultSpeed = 20;
 const LPumpDefaultX = -75;
 const RPumpDefaultX = -55;
 
-const PumpsDefaultSpeed = 40;
+const PumpsDefaultSpeed = 80;
 
 
 {-----------------Helper Functions----------------------}
@@ -206,7 +206,7 @@ procedure InitializeActuators;
 					begin
 						Gantry.MoveToOutfeedStaging;
 						Delay(1000);
-						{Gantry.MoveToOutfeed;}
+						Gantry.MoveToOutfeed;
 					end
 				else if Container = 40 then
 					begin

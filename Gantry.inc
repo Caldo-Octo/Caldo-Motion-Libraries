@@ -10,7 +10,7 @@ const OutfeedStagingY = 942;
 const OutfeedStagingZ = 3.6;
 const DenesterXPos = 1100;
 const DenesterYPos = 1128;
-const DenesterZPos = 5.72;
+const DenesterZPos = 7;
 
 
 Type TGantry=object
@@ -138,8 +138,9 @@ Type TGantry=object
 					YMotor.BeginMoveTo(DenesterStagingY);
 					while not (XMotor.MoveIsFinished and YMotor.MoveIsFinished) do
 						yield;
-					AtDenesterStaging:=true;
-				end
+					
+				end;
+				AtDenesterStaging:=true;
 		end;
 	
 	procedure MoveToDenester;

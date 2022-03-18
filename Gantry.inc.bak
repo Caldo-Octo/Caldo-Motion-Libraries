@@ -10,7 +10,7 @@ const OutfeedStagingY = 942;
 const OutfeedStagingZ = 3.6;
 const DenesterXPos = 1100;
 const DenesterYPos = 1128;
-const DenesterZPos = 5.72;
+const DenesterZPos = 7;
 
 
 Type TGantry=object
@@ -48,7 +48,7 @@ Type TGantry=object
 		if AtHome then
 			begin
 				AtHome:=false;
-				ZMotor.MoveTo(1);
+				ZMotor.MoveTo(0);
 				YMotor.MoveTo(501);
 				Delay(100);
 				XMotor.BeginMoveTo(924);

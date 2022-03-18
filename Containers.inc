@@ -39,7 +39,7 @@ procedure  TContainer.InitializePump(var Axis:TDistributedT1Axis;XPos:double;YPo
 		if (Identifier<=22) then
 			StagingYCoord:=1549.0
 		else if (Identifier=23) or (Identifier=24) then
-			StagingYCoord:=1064
+			StagingYCoord:=1000
 		else if (Identifier=25) or (Identifier=26) then
 			StagingYCoord:=500.0
 		else if (Identifier=27) or (Identifier=28) then
@@ -93,6 +93,7 @@ procedure TContainer.InitializeAuger(var Axis:TDistributedT1Axis;XPos:double;YPo
 		if IsPump then
 			begin
 				Motor.SetSpeed(20);
+				Motor.SetAccel(40);
 				Motor.SetDecel(40);
 				Motor.BeginMoveBy(1000);
 				while DispensePermissive do 
@@ -100,7 +101,7 @@ procedure TContainer.InitializeAuger(var Axis:TDistributedT1Axis;XPos:double;YPo
 				if ReverseEnabled then
 					begin
 					Motor.Stop;
-					Motor.MoveBy(-200);
+					Motor.MoveBy(-5);
 					{Delay(ReverseDelay);}
 					end;
 				Motor.Stop;
