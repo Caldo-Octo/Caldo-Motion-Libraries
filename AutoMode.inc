@@ -206,7 +206,7 @@ procedure InitializeActuators;
 					begin
 						Gantry.MoveToOutfeedStaging;
 						Delay(1000);
-						{Gantry.MoveToOutfeed;}
+						Gantry.MoveToOutfeed;
 					end
 				else if Container = 40 then
 					begin

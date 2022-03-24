@@ -2,7 +2,7 @@ const OutfeedXPos = 1084;
 const OutfeedYPos = 890.42;
 const OutfeedZPos = 3.6;
 const PumpStagingX = 100.0;
-const DenesterStagingX = 924;
+const DenesterStagingX = 800;
 const DenesterStagingY = 1128;
 const DenesterStagingZ = 0;
 const OutfeedStagingX = 924;
@@ -184,9 +184,12 @@ Type TGantry=object
 				begin
 					XMotor.MoveTo(OutfeedXPos);
 					YMotor.MoveTo(OutfeedYPos);
+					
 					XMotor.MoveTo(OutfeedStagingX);
+					ZMotor.MoveTo(0);
 					YMotor.MoveTo(OutfeedStagingY);
-					ZMotor.MoveTo(OutfeedStagingZ);
+					
+					XMotor.MoveTo(800);
 				end;
 			
 		end;

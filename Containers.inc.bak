@@ -39,7 +39,7 @@ procedure  TContainer.InitializePump(var Axis:TDistributedT1Axis;XPos:double;YPo
 		if (Identifier<=22) then
 			StagingYCoord:=1549.0
 		else if (Identifier=23) or (Identifier=24) then
-			StagingYCoord:=1064
+			StagingYCoord:=1000
 		else if (Identifier=25) or (Identifier=26) then
 			StagingYCoord:=500.0
 		else if (Identifier=27) or (Identifier=28) then
