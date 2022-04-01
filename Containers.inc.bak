@@ -32,7 +32,7 @@ procedure  TContainer.InitializePump(var Axis:TDistributedT1Axis;XPos:double;YPo
 		Motor:=Axis;
 		XCoord:=XPos;
 		YCoord:=YPos;
-		ZCoord:=3.5;
+		ZCoord:=3;
 		Id:=Identifier;
 		IsPump:=true;
 		StagingXCoord:=100.0;
