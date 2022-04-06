@@ -2,7 +2,7 @@ const OutfeedXPos = 1084;
 const OutfeedYPos = 890.42;
 const OutfeedZPos = 3.6;
 const PumpStagingX = 100.0;
-const DenesterStagingX = 924;
+const DenesterStagingX = 800;
 const DenesterStagingY = 1128;
 const DenesterStagingZ = 0;
 const OutfeedStagingX = 924;
@@ -10,7 +10,7 @@ const OutfeedStagingY = 942;
 const OutfeedStagingZ = 3.6;
 const DenesterXPos = 1100;
 const DenesterYPos = 1128;
-const DenesterZPos = 5.72;
+const DenesterZPos = 7;
 
 
 Type TGantry=object
@@ -48,9 +48,9 @@ Type TGantry=object
 		if AtHome then
 			begin
 				AtHome:=false;
-				ZMotor.MoveTo(1);
-				YMotor.MoveTo(600);
-				Delay(500);
+				ZMotor.MoveTo(0);
+				YMotor.MoveTo(501);
+				Delay(100);
 				XMotor.BeginMoveTo(924);
 				YMotor.BeginMoveTo(1128);
 				while not (XMotor.MoveIsFinished and YMotor.MoveIsFinished) do
@@ -138,8 +138,9 @@ Type TGantry=object
 					YMotor.BeginMoveTo(DenesterStagingY);
 					while not (XMotor.MoveIsFinished and YMotor.MoveIsFinished) do
 						yield;
-					AtDenesterStaging:=true;
-				end
+					
+				end;
+				AtDenesterStaging:=true;
 		end;
 	
 	procedure MoveToDenester;
@@ -183,9 +184,12 @@ Type TGantry=object
 				begin
 					XMotor.MoveTo(OutfeedXPos);
 					YMotor.MoveTo(OutfeedYPos);
+					
 					XMotor.MoveTo(OutfeedStagingX);
+					ZMotor.MoveTo(0);
 					YMotor.MoveTo(OutfeedStagingY);
-					ZMotor.MoveTo(OutfeedStagingZ);
+					
+					XMotor.MoveTo(800);
 				end;
 			
 		end;

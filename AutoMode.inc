@@ -19,7 +19,7 @@ const Col3Coord = 465;
 const Col4Coord = 625;
 const Col5Coord = 780;
 const Row1Coord = 1464;
-const Row2Coord = 979;
+const Row2Coord = 987.5;
 const Row3Coord = 500;
 const Row4Coord = 18;
 const ZDispensePos = 9;
@@ -27,7 +27,7 @@ const AugDefaultSpeed = 20;
 const LPumpDefaultX = -75;
 const RPumpDefaultX = -55;
 
-const PumpsDefaultSpeed = 40;
+const PumpsDefaultSpeed = 80;
 
 
 {-----------------Helper Functions----------------------}
@@ -124,11 +124,11 @@ procedure InitializeActuators;
 						BeginTask(TaskAddr(LinePatternWrapper));
 				end;
 			BeginTask(TaskAddr(DispenseWrapper));
-			
+			Spin.SetValue(255);
 				
 			while not ManualDispenseComplete do
 				yield;
-				
+			Spin.SetValue(0);
 			Containers[CurrentContainerNo].DispensePermissive:=false;
 			
 			while (TaskPresent(TaskAddr(DispenseWrapper)) or TaskPresent(TaskAddr(ZigPatternWrapper)) or TaskPresent(TaskAddr(LinePatternWrapper))) do
@@ -195,10 +195,10 @@ procedure InitializeActuators;
 				else if Container = 29 then
 					begin
 						Gantry.MoveToDenesterStaging;
-						Delay(500);
 						Gantry.MoveToDenester;
 						Denester.SetValue(255);
-						Delay(3400);
+						Delay(3200);
+						Denester.SetValue(0);
 						Gantry.ZMotor.MoveTo(0);
 						Gantry.MoveToDenesterStaging;
 					end
@@ -206,7 +206,7 @@ procedure InitializeActuators;
 					begin
 						Gantry.MoveToOutfeedStaging;
 						Delay(1000);
-						{Gantry.MoveToOutfeed;}
+						Gantry.MoveToOutfeed;
 					end
 				else if Container = 40 then
 					begin
