@@ -79,8 +79,8 @@ procedure TContainer.InitializeAuger(var Axis:TDistributedT1Axis;XPos:double;YPo
 		DispensePermissive:=false;
 		ReverseEnabled:=true;
 		DispenseComplete:=false;	
-		Revolutions:=-18;
-		ReverseRevolutions:=6;
+		Revolutions:=18;
+		ReverseRevolutions:=-6;
 		GantryPattern:=0;
 		GantryPatternEnabled:=false;
 		BowlSpinEnabled:=true;

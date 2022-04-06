@@ -64,6 +64,7 @@ procedure InitializeActuators;
 		Containers[8].InitializeAuger(Remote_Motor_22,Col3Coord,Row2Coord,8,AugDefaultSpeed);
 		Containers[9].InitializeAuger(Remote_Motor_19,Col4Coord,Row2Coord,9,AugDefaultSpeed);
 		Containers[10].InitializeAuger(Remote_Motor_20,Col5Coord,Row2Coord,10,AugDefaultSpeed);
+		yield;
 		Containers[11].InitializeAuger(Remote_Motor_17,Col1Coord,Row3Coord,11,AugDefaultSpeed);
 		Containers[12].InitializeAuger(Remote_Motor_18,Col2Coord,Row3Coord,12,AugDefaultSpeed);
 		Containers[13].InitializeAuger(Remote_Motor_15,Col3Coord,Row3Coord,13,AugDefaultSpeed);
@@ -74,7 +75,7 @@ procedure InitializeActuators;
 		Containers[18].InitializeAuger(Remote_Motor_12,Col3Coord,Row4Coord,18,AugDefaultSpeed);
 		Containers[19].InitializeAuger(Remote_Motor_9,Col4Coord,Row4Coord,19,AugDefaultSpeed);
 		Containers[20].InitializeAuger(Remote_Motor_10,Col5Coord,Row4Coord,20,AugDefaultSpeed);
-		
+		yield;	
 		Containers[21].InitializePump(Remote_Motor_8,LPumpDefaultX,Row1Coord,21,PumpsDefaultSpeed);
 		Containers[22].InitializePump(Remote_Motor_7,RPumpDefaultX,Row1Coord,22,PumpsDefaultSpeed);
 		Containers[23].InitializePump(Remote_Motor_6,LPumpDefaultX,Row2Coord,23,PumpsDefaultSpeed);
