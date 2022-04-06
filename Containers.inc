@@ -8,7 +8,7 @@ type TContainer=object
 	IsPump:boolean;
 	StagingXCoord:double;
 	StagingYCoord:double;
-	DispenseSpeed:double;
+	DispenseSpeed:single;
 	Current:double;
 	WeightSP:double;
 	ReverseDelay:double;
@@ -24,6 +24,10 @@ type TContainer=object
 	procedure InitializePump(var Axis:TDistributedT1Axis;XPos:double;YPos:double;Identifier:integer;Speed:double); forward;
 	procedure InitializeAuger(var Axis:TDistributedT1Axis;XPos:double;YPos:double;Identifier:integer;Speed:double); forward;
 	procedure Dispense; forward;
+	procedure UpdateSpeed(Speed:single); forward;
+	procedure UpdateWeightSP(Weight:double); forward;
+	procedure UpdateRevolutions(Revs:double); forward;
+	
 	
 end;
 
@@ -89,6 +93,7 @@ procedure TContainer.InitializeAuger(var Axis:TDistributedT1Axis;XPos:double;YPo
 		ReverseSpeed:= (0-DispenseSpeed);
 		DispensePermissive:=true;
 		Motor.SetMotor(On);
+		Motor.SetSpeed(DispenseSpeed);
 		Motor.SetCurrent(Current);
 		if IsPump then
 			begin
@@ -116,10 +121,10 @@ procedure TContainer.InitializeAuger(var Axis:TDistributedT1Axis;XPos:double;YPo
 						ReverseSwitch:=true;
 						end
 					else if Motor.MoveIsFinished and ReverseSwitch then
-					begin
-						Motor.BeginMoveBy(ReverseRevolutions);
-						ReverseSwitch:=false;
-					end;
+						begin
+							Motor.BeginMoveBy(ReverseRevolutions);
+							ReverseSwitch:=false;
+						end;
 					yield;
 				 end;
 				 Motor.Stop;
@@ -128,4 +133,17 @@ procedure TContainer.InitializeAuger(var Axis:TDistributedT1Axis;XPos:double;YPo
 			end;
 	end;
 	
+	procedure UpdateSpeed(Speed:single); 
+		begin
+			DispenseSpeed:=Speed;
+		end;
+	procedure UpdateWeightSP(Weight:double);
+		begin
+			WeightSP:=Weight;
+		end;
+	procedure UpdateRevolutions(Revs:double, ReverseRevs:double);
+		begin
+			Revolutions:=Revs;
+			ReverseRevolutions:=ReverseRevs;
+		end;
 	
