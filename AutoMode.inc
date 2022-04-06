@@ -12,6 +12,8 @@ var SystemInAuto:boolean;
 var SystemReady:boolean;
 var Recipe:array[0..20] of integer;
 var ManualMode:boolean;
+var LoadCell:TAnalogInput;
+
 
 const Col1Coord = 151;
 const Col2Coord = 301;
