@@ -187,7 +187,7 @@ procedure InitializeActuators;
 		if not SystemReady then
 			initializeActuators;
 		Delay(500);
-		DispenseTaskPresent:=TaskPresent(TaskAddr(DispenseWrapper))
+		DispenseTaskPresent:=TaskPresent(TaskAddr(DispenseWrapper));
 		if not DispenseTaskPresent then
 			begin
 				if Container <= 28 then
@@ -217,3 +217,4 @@ procedure InitializeActuators;
 					end;
 			end;
 		end;
+.

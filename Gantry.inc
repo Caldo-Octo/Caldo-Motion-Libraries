@@ -31,6 +31,7 @@ Type TGantry=object
 	PreviousPumpY:double;
 	
 
+
 	procedure Initialize( var XMot:T1Axis; var YMot:T1Axis; var ZMot:T1Axis; var ZEnc:T1Axis);
 		begin
 			XMotor:=XMot;
@@ -99,7 +100,7 @@ Type TGantry=object
 		begin 
 			if AtPump then
 				begin
-					ZMotor.MoveTo(0)
+					ZMotor.MoveTo(0);
 					XMotor.MoveTo(PumpStagingX);
 					AtPump:=false;
 					PreviousPumpY:=0;
@@ -221,5 +222,3 @@ Type TGantry=object
 		begin
 			XMotor.MoveBy(BowlDiameter);
 		end;
-	
-end;
