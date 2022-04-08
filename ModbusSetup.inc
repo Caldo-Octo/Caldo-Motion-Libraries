@@ -130,7 +130,7 @@ var mb_YActualPosition:TModbusDouble;
 var mb_ZActualPosition:TModbusDouble;
 {Container Communication}
 var mb_ContainerStatus:TModbusWord;
-var mb_ContainerControl:TModbusWord;
+var mb_ContainerCommand:TModbusWord;
 var mb_CurrentContainer:TModbusWord;
 var mb_DispenseRevolutions:TModbusWord;
 var mb_ReverseRevolutions:TModbusWord;
@@ -148,15 +148,61 @@ var mb_ContainerStagingY:TModbusDouble;
 
 
 
-procedure ModbusWordInit;
+procedure SystemModbusCommsInit;
     begin
         mb_SysStatus.Initialize(UnusedModuleNo, SystemStatus, 0);
-        yield;
         mb_SysCommand.Initialize(UnusedModuleNo, SystemCommand, 0);
-        yield;
         mb_LoadCell.Initialize(UnusedModuleNo, LoadCell, 0);
         yield;
     end;
 
+procedure GantryModbusCommsInit;
+    begin
+        mb_GantryStatus.Initialize(UnusedModuleNo, GantryStatus, 0);
+        mb_GantryCommand.Initialize(UnusedModuleNo, GantryCommand, 0);
+        yield;
+        mb_XSpeed.Initialize(UnusedModuleNo, XSpeed, 0);
+        mb_YSpeed.Initialize(UnusedModuleNo, YSpeed, 0);
+        mb_ZSpeed.Initialize(UnusedModuleNo, ZSpeed, 0);
+        mb_XAccel.Initialize(UnusedModuleNo, XAccel, 0);
+        mb_YAccel.Initialize(UnusedModuleNo, YAccel, 0);
+        mb_ZAccel.Initialize(UnusedModuleNo, ZAccel, 0);
+        mb_XDecel.Initialize(UnusedModuleNo, XDecel, 0);
+        mb_YDecel.Initialize(UnusedModuleNo, YDecel, 0);
+        mb_ZDecel.Initialize(UnusedModuleNo, ZDecel, 0);
+        mb_XCurrent.Initialize(UnusedModuleNo, XCurrent, 0);
+        mb_YCurrent.Initialize(UnusedModuleNo, YCurrent, 0);
+        mb_ZCurrent.Initialize(UnusedModuleNo, ZCurrent, 0);
+        yield; 
+        mb_XPositionSP.Initialize(UnusedModuleNo, XPositionSP, 0);
+        mb_YPositionSP.Initialize(UnusedModuleNo, YPositionSP, 0);
+        mb_ZPositionSP.Initialize(UnusedModuleNo, ZPositionSP, 0);
+        mb_XActualPosition.Initialize(UnusedModuleNo, XActualPosition, 0);
+        mb_YActualPosition.Initialize(UnusedModuleNo, YActualPosition, 0);
+        mb_ZActualPosition.Initialize(UnusedModuleNo, ZActualPosition, 0);
+        end;
+
+procedure ContainerModbusCommsInit;
+    begin
+        mb_ContainerStatus.Initialize(UnusedModuleNo, ContainerStatus, 0);
+        mb_ContainerCommand.Initialize(UnusedModuleNo, ContainerCommand, 0);
+        mb_CurrentContainer.Initialize(UnusedModuleNo, CurrentContainer, 0);
+        mb_DispenseRevolutions.Initialize(UnusedModuleNo, DispenseRevolutions, 0);
+        mb_ReverseRevolutions.Initialize(UnusedModuleNo, DispenseRevolutions, 0);
+        yield;
+        mb_DispenseSpeed.Initialize(UnusedModuleNo, DispenseSpeed, 0);
+        mb_ReverseSpeed.Initialize(UnusedModuleNo, ReverseSpeed, 0);
+        mb_Accel.Initialize(UnusedModuleNo, Accel, 0);
+        mb_Decel.Initialize(UnusedModuleNo, Decel, 0);
+        mb_Current.Initialize(UnusedModuleNo, Current, 0);
+        yield;
+        mb_DispenseWeight.Initialize(UnusedModuleNo, DispenseWeight, 0);
+        mb_ContainerXCoord.Initialize(UnusedModuleNo, XCoord, 0);
+        mb_ContainerYCoord.Initialize(UnusedModuleNo, YCoord, 0);
+        mb_ContainerZCoord.Initialize(UnusedModuleNo, ZCoord, 0);
+        mb_ContainerStagingX.Initialize(UnusedModuleNo, StagingX, 0);
+        mb_ContainerStagingY.Initialize(UnusedModuleNo, StagingY, 0);
+    end;
+    
 
 
