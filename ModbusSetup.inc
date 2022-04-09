@@ -2,7 +2,7 @@ const UnusedModuleNo = $10;
 {Modbus Constants - Words}
 const SystemStatus     = $21;
 const SystemCommand     = $22;
-const _UserWord3_w     = $23;
+const SystemState     = $23;
 const _UserWord4_w     = $24;
 const _UserWord5_w     = $25;
 const _UserWord6_w     = $26;
@@ -204,5 +204,29 @@ procedure ContainerModbusCommsInit;
         mb_ContainerStagingY.Initialize(UnusedModuleNo, StagingY, 0);
     end;
     
+procedure MapModbusMMCInputs;
+    begin
+        StartSignal:=mb_SysCommand.Value and $0A;{We're encoding 32 boolean bits in one word}
+        CurrentContainer:=mb_CurrentContainer;
+    end;
 
+procedure MapModbusMMCOutputs;
+    begin
+        mb_SysStatus.SetValue(SystemStatusEnum)
+    end;
 
+procedure ModbusEventDispatcher;
+    var StartSignalMem:boolean;
+    begin
+        while true do
+            begin
+            yield;
+                begin
+                    MapModbusMMCInputs;
+                    if StartSignal and (not StartSignalMem) then   
+                        BeginTask(TaskAddress(ButtonHandler));
+                    StartSignalMem:=StartSignal;
+                    MapModbusMMCOutputs;
+                end;
+            end;
+    end;

@@ -9,6 +9,8 @@ type TContainer=object
 	StagingXCoord:double;
 	StagingYCoord:double;
 	DispenseSpeed:single;
+	Accel:single;
+	Decel:single;
 	Current:double;
 	WeightSP:double;
 	ReverseDelay:double;
@@ -25,6 +27,8 @@ type TContainer=object
 	procedure InitializeAuger(var Axis:TDistributedT1Axis;XPos:double;YPos:double;Identifier:integer;Speed:double); forward;
 	procedure Dispense; forward;
 	procedure UpdateSpeed(Speed:single); forward;
+	procedure UpdateAccel(Accel_:single); forward;
+	procedure UpdateDecel(Decel_:single); forward;
 	procedure UpdateWeightSP(Weight:double); forward;
 	procedure UpdateRevolutions(Revs:double); forward;
 	
@@ -49,6 +53,9 @@ procedure  TContainer.InitializePump(var Axis:TDistributedT1Axis;XPos:double;YPo
 		else if (Identifier=27) or (Identifier=28) then
 			StagingYcoord:=18.5;
 		DispenseSpeed:=Speed;
+		ReverseSpeed:=Speed;
+		Accel:=10;
+		Decel:=10;
 		Current:=2.0;
 		WeightSP:=0;
 		ReverseDelay:=10;
@@ -56,7 +63,7 @@ procedure  TContainer.InitializePump(var Axis:TDistributedT1Axis;XPos:double;YPo
 		ReverseEnabled:=true;
 		DispenseComplete:=false;
 		Revolutions:=180;
-		ReverseRevolutions:=1;
+		ReverseRevolutions:=-6;
 		GantryPattern:=0;
 		GantryPatternEnabled:=false;
 		BowlSpinEnabled:=true;
@@ -73,6 +80,9 @@ procedure TContainer.InitializeAuger(var Axis:TDistributedT1Axis;XPos:double;YPo
 		StagingXCoord:=XCoord;
 		StagingYCoord:=YCoord;
 		DispenseSpeed:=Speed;
+		ReverseSpeed:=Speed;
+		Accel:=10;
+		Decel:=10;
 		Current:=2.0;
 		WeightSP:=0;
 		ReverseDelay:=10;
@@ -90,23 +100,23 @@ procedure TContainer.InitializeAuger(var Axis:TDistributedT1Axis;XPos:double;YPo
 	 var ReverseSwitch:boolean;
 	 var ReverseSpeed:double;
 	begin
-		ReverseSpeed:= (0-DispenseSpeed);
 		DispensePermissive:=true;
 		Motor.SetMotor(On);
 		Motor.SetSpeed(DispenseSpeed);
 		Motor.SetCurrent(Current);
+		Motor.SetAccel(Accel);
+		Motor.SetDecel(Decel);
 		if IsPump then
 			begin
-				Motor.SetSpeed(20);
-				Motor.SetAccel(40);
-				Motor.SetDecel(40);
-				Motor.BeginMoveBy(1000);
+				
+				Motor.BeginMoveBy(Revolutions);
 				while DispensePermissive do 
 					yield;
 				if ReverseEnabled then
 					begin
+					Motor.SetSpeed(ReverseSpeed);
 					Motor.Stop;
-					Motor.MoveBy(-5);
+					Motor.MoveBy(ReverseRevolutions);
 					{Delay(ReverseDelay);}
 					end;
 				Motor.Stop;
@@ -139,6 +149,16 @@ procedure TContainer.InitializeAuger(var Axis:TDistributedT1Axis;XPos:double;YPo
 	procedure UpdateSpeed(Speed:single); 
 		begin
 			DispenseSpeed:=Speed;
+		end;
+
+	procedure UpdateAccel(Accel_:single);
+		begin
+			Accel:=Accel_;
+		end;
+
+	procedure UpdateDecel(Decel_:single);
+		begin
+			Decel:=Decel_;
 		end;
 	procedure UpdateWeightSP(Weight:double);
 		begin

@@ -5,13 +5,12 @@ var GantryEnabled:boolean;
 var CurrentContainerNo:integer;
 var CurrentContainerType:integer; {1 Auger, 2 Pump}
 var LoadCellScaled:double;
-var Mb_StartButton:boolean;
-var Mb_CurrentContainer:integer;
-var Mb_DispenseComplete:boolean;
+var OctoState:integer;
+var StartSignal:boolean;
 var SystemInAuto:boolean;
-var SystemReady:boolean;
-var Recipe:array[0..20] of integer;
+var SystemReady:boolean;{From InitializeActuators}
 var ManualMode:boolean;
+var SystemStatusEnum:integer;
 var LoadCell:TAnalogInput;
 
 
@@ -95,126 +94,72 @@ procedure InitializeActuators;
 	
 	
 	
-	procedure AutoDispense;
-		var CurrentWeightSP:double;
-		var DispensePermissive:Boolean;
-		begin
-			
-			if not SystemReady then
-				begin
-				InitializeActuators;
-				Delay(500);
-				end;
-			ManualDispenseComplete:=false;
-			if GantryEnabled then
-				begin
-				if CurrentContainerNo <= 20 then
-					Gantry.JointAxisMove(Containers[CurrentContainerNo])
-				else
-					begin
-					Gantry.MoveToStaging(Containers[CurrentContainerNo]);
-					Delay(1000);
-					Gantry.MoveToPump(Containers[CurrentContainerNo]);
-					end;
-				end;
-				
-			CurrentWeightSP:=Containers[CurrentContainerNo].WeightSP+LoadCellScaled;
-			if Containers[CurrentContainerNo].GantryPatternEnabled then
-				begin
-					if Containers[CurrentContainerNo].GantryPattern = 1 then
-						BeginTask(TaskAddr(ZigPatternWrapper))
-					else if Containers[CurrentContainerNo].GantryPattern = 2 then
-						BeginTask(TaskAddr(LinePatternWrapper));
-				end;
-			BeginTask(TaskAddr(DispenseWrapper));
-			Spin.SetValue(255);
-				
-			while not ManualDispenseComplete do
-				yield;
-			Spin.SetValue(0);
-			Containers[CurrentContainerNo].DispensePermissive:=false;
-			
-			while (TaskPresent(TaskAddr(DispenseWrapper)) or TaskPresent(TaskAddr(ZigPatternWrapper)) or TaskPresent(TaskAddr(LinePatternWrapper))) do
-				yield;
-		end;
-		
-	procedure DenesterDispense;
-		begin
-			Delay(1000);
-		end;
-	procedure DispenseLoop;
-		var DispenseState:integer;
-		var RecipeIndex:integer;
-		begin
-		DispenseState:=0;
-		RecipeIndex:=0;
-			while true do
-				if Mb_StartButton and (DispenseState = 0) then
-					begin
-					RecipeIndex:=0;
-					DispenseState:=1;
-					Mb_StartButton:=false;
-					yield;
-					end
-				else if DispenseState = 1 then
-					begin
-					{this needs work they might have to be in separate tasks}
-					Gantry.MoveToDenesterStaging;
-					Delay(1000);
-					Gantry.MoveToDenester;
-					Delay(1000);{Remove once tested}
-					DenesterDispense;
-					end
-					
-				else if DispenseState = 2 then
-					begin
-						CurrentContainerNo:=Recipe[RecipeIndex];
-						BeginTask(TaskAddr(AutoDispense));
-						while TaskPresent(TaskAddr(AutoDispense)) do
-							yield;
-						Mb_DispenseComplete:=true;
-						RecipeIndex:=RecipeIndex+1;
-						if Recipe[RecipeIndex] = 0 then
-							DispenseState:=0;
-					end;
-				yield;
-		end;
-		
-		
-	procedure ButtonHandler(Container:integer);
-		var DispenseTaskPresent:boolean;
-		begin
+procedure AutoDispense;
+	var CurrentWeightSP:double;
+	var DispensePermissive:Boolean;
+	begin
 		if not SystemReady then
-			initializeActuators;
-		Delay(500);
-		DispenseTaskPresent:=TaskPresent(TaskAddr(DispenseWrapper));
-		if not DispenseTaskPresent then
+			InitializeActuators;
+		ManualDispenseComplete:=false;
+		if GantryEnabled then
 			begin
-				if Container <= 28 then
-					begin
-						CurrentContainerNo:=Container;
-						AutoDispense;
-					end
-				else if Container = 29 then
-					begin
-						Gantry.MoveToDenesterStaging;
-						Gantry.MoveToDenester;
-						Denester.SetValue(255);
-						Delay(3200);
-						Denester.SetValue(0);
-						Gantry.ZMotor.MoveTo(0);
-						Gantry.MoveToDenesterStaging;
-					end
-				else if Container = 30 then
-					begin
-						Gantry.MoveToOutfeedStaging;
-						Delay(1000);
-						Gantry.MoveToOutfeed;
-					end
-				else if Container = 40 then
-					begin
-						Gantry.GoToIdlePos;
-					end;
+			if CurrentContainerNo <= 20 then
+				Gantry.JointAxisMove(Containers[CurrentContainerNo])
+			else
+				begin
+				Gantry.MoveToStaging(Containers[CurrentContainerNo]);
+				Gantry.MoveToPump(Containers[CurrentContainerNo]);
+				end;
 			end;
+		CurrentWeightSP:=Containers[CurrentContainerNo].WeightSP+LoadCellScaled;
+		if Containers[CurrentContainerNo].GantryPatternEnabled then
+			begin
+				if Containers[CurrentContainerNo].GantryPattern = 1 then
+					BeginTask(TaskAddr(ZigPatternWrapper))
+				else if Containers[CurrentContainerNo].GantryPattern = 2 then
+					BeginTask(TaskAddr(LinePatternWrapper));
+			end;
+		BeginTask(TaskAddr(DispenseWrapper));
+		while not ManualDispenseComplete do
+			yield;
+		Containers[CurrentContainerNo].DispensePermissive:=false;
+		
+		while (TaskPresent(TaskAddr(DispenseWrapper)) or TaskPresent(TaskAddr(ZigPatternWrapper)) or TaskPresent(TaskAddr(LinePatternWrapper))) do
+			yield;
+	end;
+		
+procedure ButtonHandler;
+	var DispenseTaskPresent:boolean;
+	begin
+	if not SystemReady then
+		initializeActuators;
+	DispenseTaskPresent:=TaskPresent(TaskAddr(DispenseWrapper));
+	if not DispenseTaskPresent then
+		begin
+			if Container <= 28 then
+				begin
+					CurrentContainerNo:=CurrentContainer;
+					AutoDispense;
+				end
+			else if Container = 29 then
+				begin
+					Gantry.MoveToDenesterStaging;
+					Gantry.MoveToDenester;
+					Delay(4000);
+					Denester.SetValue(0);
+					Gantry.ZMotor.MoveTo(0);
+					Gantry.MoveToDenesterStaging;
+				end
+			else if Container = 30 then
+				begin
+					Gantry.MoveToOutfeedStaging;
+					Delay(1000);
+					Gantry.MoveToOutfeed;
+				end
+			else if Container = 40 then
+				begin
+					Gantry.GoToIdlePos;
+				end;
 		end;
+	end;
 .
