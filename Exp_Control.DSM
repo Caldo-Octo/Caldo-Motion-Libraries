@@ -1,0 +1,3695 @@
+Douloi Block Program
+Version 1.41
+32
+TAxisGroup
+0 {reference}
+X_Motor
+1
+0
+1
+1
+1
+1
+1
+1
+ 1.00000000000000E+0002
+ 8.00000000000000E+0002
+ 8.00000000000000E+0002
+FALSE
+ 4.36906666700000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Y_Motor
+1
+0
+2
+1
+1
+1
+1
+1
+ 1.00000000000000E+0002
+ 8.00000000000000E+0002
+ 8.00000000000000E+0002
+FALSE
+ 4.36906666700000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Stepper
+1
+0
+3
+1
+1
+1
+1
+1
+ 3.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 5.12000000000000E+0004
+256
+FALSE
+TAxisGroup
+0 {reference}
+StepperEncoder
+1
+0
+4
+1
+1
+1
+1
+1
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 6.55360000000000E+0004
+256
+FALSE
+TAxisGroup
+0 {reference}
+Augar1
+1
+1
+1
+1
+1
+1
+1
+1
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 4.00000000000000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Remote_Motor_6
+1
+3
+2
+0
+0
+0
+0
+0
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 4.00000000000000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Remote_Motor_7
+1
+4
+1
+0
+0
+0
+0
+0
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 4.00000000000000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Remote_Motor_8
+1
+4
+2
+0
+0
+0
+0
+0
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 4.00000000000000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Remote_Motor_9
+1
+5
+1
+0
+0
+0
+0
+0
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 4.00000000000000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Remote_Motor_10
+1
+5
+2
+0
+0
+0
+0
+0
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 4.00000000000000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Remote_Motor_11
+1
+6
+1
+0
+0
+0
+0
+0
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 4.00000000000000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Remote_Motor_12
+1
+6
+2
+0
+0
+0
+0
+0
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 4.00000000000000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Remote_Motor_13
+1
+7
+1
+0
+0
+0
+0
+0
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 4.00000000000000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Remote_Motor_14
+1
+7
+2
+0
+0
+0
+0
+0
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 4.00000000000000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Remote_Motor_15
+1
+8
+1
+0
+0
+0
+0
+0
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 4.00000000000000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Remote_Motor_16
+1
+8
+2
+0
+0
+0
+0
+0
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 4.00000000000000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Remote_Motor_17
+1
+9
+1
+0
+0
+0
+0
+0
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 4.00000000000000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Remote_Motor_18
+1
+9
+2
+0
+0
+0
+0
+0
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 4.00000000000000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Remote_Motor_19
+1
+10
+1
+0
+0
+0
+0
+0
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 4.00000000000000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Remote_Motor_20
+1
+10
+2
+0
+0
+0
+0
+0
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 4.00000000000000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Remote_Motor_21
+1
+11
+1
+0
+0
+0
+0
+0
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 4.00000000000000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Remote_Motor_22
+1
+11
+2
+0
+0
+0
+0
+0
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 4.00000000000000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Remote_Motor_23
+1
+12
+1
+0
+0
+0
+0
+0
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 4.00000000000000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Remote_Motor_24
+1
+12
+2
+0
+0
+0
+0
+0
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 4.00000000000000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Remote_Motor_25
+1
+13
+1
+0
+0
+0
+0
+0
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 4.00000000000000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Remote_Motor_26
+1
+13
+2
+0
+0
+0
+0
+0
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 4.00000000000000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Remote_Motor_27
+1
+14
+1
+0
+0
+0
+0
+0
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 4.00000000000000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Remote_Motor_28
+1
+14
+2
+0
+0
+0
+0
+0
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 4.00000000000000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Remote_Motor_3
+1
+2
+1
+0
+0
+0
+0
+0
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 4.00000000000000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Remote_Motor_2
+1
+1
+2
+0
+0
+0
+0
+0
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 4.00000000000000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Remote_Motor_4
+1
+2
+2
+0
+0
+0
+0
+0
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 4.00000000000000E+0003
+256
+FALSE
+TAxisGroup
+0 {reference}
+Remote_Motor_5
+1
+3
+1
+0
+0
+0
+0
+0
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 4.00000000000000E+0003
+256
+FALSE
+9
+TNamedIO
+0 {reference}
+Sensor
+16
+1
+8
+FALSE
+0   {persistent index}
+TNamedIO
+0 {reference}
+A1
+16
+3
+1
+FALSE
+0   {persistent index}
+TNamedIO
+0 {reference}
+AOut
+16
+4
+1
+FALSE
+0   {persistent index}
+TNamedIO
+0 {reference}
+StartSignal
+16
+6
+10
+FALSE
+0   {persistent index}
+TNamedIO
+0 {reference}
+Augar_Distance
+16
+6
+11
+FALSE
+0   {persistent index}
+TNamedIO
+0 {reference}
+AOut3
+48
+4
+1
+FALSE
+0   {persistent index}
+TNamedIO
+0 {reference}
+LoadCell
+16
+3
+1
+FALSE
+0   {persistent index}
+TNamedIO
+0 {reference}
+Spin
+16
+6
+28
+FALSE
+0   {persistent index}
+TNamedIO
+0 {reference}
+Denester
+16
+6
+30
+FALSE
+0   {persistent index}
+1
+TControlPlate
+51 {reference}
+Main
+25 15
+425 295
+-16777211
+Tahoma
+1
+-16777208
+8
+0
+6
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseDown;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseDrag;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseUp;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure DoubleClickLeft;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure Setup;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+6
+function  CanClose:boolean;
+  begin
+  Park;
+  {AutoMode.SystemReady:=false;}
+  CanClose:=true;
+  end;
+TRUE
+TBlock_H
+0 {reference}
+0 {ReferenceLink}
+404 57 1993170 69 29
+1
+TStaticField
+0 {reference}
+9 7 62 21
+nil
+
+TRUE
+Autostart
+Autostart
+FALSE
+TRUE
+FALSE
+TBlock
+0 {reference}
+145 {ReferenceLink}
+404 86 8388736 297 29
+4
+TPathNameField
+0 {reference}
+9 7 185 21
+nil
+
+TRUE
+RP23_Configuration Assign_To
+Main.RP23_Configuration.Assign_To
+Main.RP23_Configuration.
+Assign_To
+TRUE
+TRUE
+TRUE
+TStaticField
+0 {reference}
+188 7 221 21
+nil
+
+TRUE
+Motor
+(
+T1AxisListField
+0 {reference}
+228 7 280 21
+nil
+
+TRUE
+X_Motor
+X_Motor
+0
+TRUE
+TStaticField
+0 {reference}
+283 14 283 14
+nil
+
+TRUE
+
+);
+TRUE
+TRUE
+FALSE
+TBlock
+0 {reference}
+145 {ReferenceLink}
+404 115 8388736 296 29
+4
+TPathNameField
+0 {reference}
+9 7 185 21
+nil
+
+TRUE
+RP23_Configuration Assign_To
+Main.RP23_Configuration.Assign_To
+Main.RP23_Configuration.
+Assign_To
+TRUE
+TRUE
+TRUE
+TStaticField
+0 {reference}
+188 7 221 21
+nil
+
+TRUE
+Motor
+(
+T1AxisListField
+0 {reference}
+228 7 279 21
+nil
+
+TRUE
+Y_Motor
+Y_Motor
+0
+TRUE
+TStaticField
+0 {reference}
+282 14 282 14
+nil
+
+TRUE
+
+);
+TRUE
+TRUE
+FALSE
+TBlock
+0 {reference}
+120 {ReferenceLink}
+404 144 8388736 197 29
+5
+TPathNameField
+0 {reference}
+9 14 9 14
+nil
+
+TRUE
+
+Main.SetCompensation
+Main.
+SetCompensation
+FALSE
+TRUE
+TRUE
+TStaticField
+0 {reference}
+12 14 12 14
+nil
+
+TRUE
+
+(
+T1AxisListField
+0 {reference}
+19 7 71 21
+nil
+
+TRUE
+X_Motor
+X_Motor
+0
+TRUE
+TPathNameField
+0 {reference}
+74 7 175 21
+nil
+
+TRUE
+SetCompensation
+
+Main.
+SetCompensation
+TRUE
+FALSE
+FALSE
+TStaticField
+0 {reference}
+178 14 178 14
+nil
+
+TRUE
+
+);
+TRUE
+TRUE
+FALSE
+TBlock
+0 {reference}
+120 {ReferenceLink}
+404 173 8388736 196 29
+5
+TPathNameField
+0 {reference}
+9 14 9 14
+nil
+
+TRUE
+
+Main.SetCompensation
+Main.
+SetCompensation
+FALSE
+TRUE
+TRUE
+TStaticField
+0 {reference}
+12 14 12 14
+nil
+
+TRUE
+
+(
+T1AxisListField
+0 {reference}
+19 7 70 21
+nil
+
+TRUE
+Y_Motor
+Y_Motor
+0
+TRUE
+TPathNameField
+0 {reference}
+73 7 174 21
+nil
+
+TRUE
+SetCompensation
+
+Main.
+SetCompensation
+TRUE
+FALSE
+FALSE
+TStaticField
+0 {reference}
+177 14 177 14
+nil
+
+TRUE
+
+);
+TRUE
+TRUE
+FALSE
+TBlock
+0 {reference}
+190 {ReferenceLink}
+404 202 8388736 282 29
+7
+TPathNameField
+0 {reference}
+9 14 9 14
+nil
+
+TRUE
+
+Main.SetLoopInversion
+Main.
+SetLoopInversion
+FALSE
+TRUE
+TRUE
+TStaticField
+0 {reference}
+12 14 12 14
+nil
+
+TRUE
+
+(
+T1AxisListField
+0 {reference}
+19 7 71 21
+nil
+
+TRUE
+X_Motor
+X_Motor
+0
+TRUE
+TPathNameField
+0 {reference}
+74 7 173 21
+nil
+
+TRUE
+SetLoopInversion
+
+Main.
+SetLoopInversion
+TRUE
+FALSE
+FALSE
+TStaticField
+0 {reference}
+176 7 206 21
+nil
+
+TRUE
+State
+,
+TBooleanField
+0 {reference}
+213 7 258 21
+nil
+Boolean
+TRUE
+TRUE
+True
+False
+TStaticField
+0 {reference}
+261 14 261 14
+nil
+
+TRUE
+
+);
+TRUE
+TRUE
+FALSE
+TBlock
+0 {reference}
+190 {ReferenceLink}
+404 231 8388736 281 29
+7
+TPathNameField
+0 {reference}
+9 14 9 14
+nil
+
+TRUE
+
+Main.SetLoopInversion
+Main.
+SetLoopInversion
+FALSE
+TRUE
+TRUE
+TStaticField
+0 {reference}
+12 14 12 14
+nil
+
+TRUE
+
+(
+T1AxisListField
+0 {reference}
+19 7 70 21
+nil
+
+TRUE
+Y_Motor
+Y_Motor
+0
+TRUE
+TPathNameField
+0 {reference}
+73 7 172 21
+nil
+
+TRUE
+SetLoopInversion
+
+Main.
+SetLoopInversion
+TRUE
+FALSE
+FALSE
+TStaticField
+0 {reference}
+175 7 205 21
+nil
+
+TRUE
+State
+,
+TBooleanField
+0 {reference}
+212 7 257 21
+nil
+Boolean
+TRUE
+TRUE
+True
+False
+TStaticField
+0 {reference}
+260 14 260 14
+nil
+
+TRUE
+
+);
+TRUE
+TRUE
+FALSE
+TBlock
+0 {reference}
+194 {ReferenceLink}
+404 260 8388736 346 29
+7
+TPathNameField
+0 {reference}
+9 7 82 21
+nil
+
+TRUE
+BiSS_Posital
+Main.BiSS_Posital.Initialize
+Main.BiSS_Posital.
+Initialize
+FALSE
+TRUE
+TRUE
+TStaticField
+0 {reference}
+85 14 85 14
+nil
+
+TRUE
+
+(
+T1AxisListField
+0 {reference}
+92 7 144 21
+nil
+
+TRUE
+X_Motor
+X_Motor
+0
+TRUE
+TPathNameField
+0 {reference}
+147 7 193 21
+nil
+
+TRUE
+Initialize
+
+Main.BiSS_Posital.
+Initialize
+TRUE
+FALSE
+FALSE
+TStaticField
+0 {reference}
+196 7 282 21
+nil
+
+TRUE
+Bits_In_Packet
+,
+TNumericField
+0 {reference}
+289 7 322 21
+nil
+Number
+TRUE
+ 3.20000000000000E+0001
+FALSE
+TStaticField
+0 {reference}
+325 14 325 14
+nil
+
+TRUE
+
+);
+TRUE
+TRUE
+FALSE
+TBlock
+0 {reference}
+194 {ReferenceLink}
+404 289 8388736 345 29
+7
+TPathNameField
+0 {reference}
+9 7 82 21
+nil
+
+TRUE
+BiSS_Posital
+Main.BiSS_Posital.Initialize
+Main.BiSS_Posital.
+Initialize
+FALSE
+TRUE
+TRUE
+TStaticField
+0 {reference}
+85 14 85 14
+nil
+
+TRUE
+
+(
+T1AxisListField
+0 {reference}
+92 7 143 21
+nil
+
+TRUE
+Y_Motor
+Y_Motor
+0
+TRUE
+TPathNameField
+0 {reference}
+146 7 192 21
+nil
+
+TRUE
+Initialize
+
+Main.BiSS_Posital.
+Initialize
+TRUE
+FALSE
+FALSE
+TStaticField
+0 {reference}
+195 7 281 21
+nil
+
+TRUE
+Bits_In_Packet
+,
+TNumericField
+0 {reference}
+288 7 321 21
+nil
+Number
+TRUE
+ 3.20000000000000E+0001
+FALSE
+TStaticField
+0 {reference}
+324 14 324 14
+nil
+
+TRUE
+
+);
+TRUE
+TRUE
+FALSE
+TBlock
+0 {reference}
+194 {ReferenceLink}
+404 318 8388736 390 29
+7
+TPathNameField
+0 {reference}
+9 7 82 21
+nil
+
+TRUE
+BiSS_Posital
+Main.BiSS_Posital.Initialize
+Main.BiSS_Posital.
+Initialize
+FALSE
+TRUE
+TRUE
+TStaticField
+0 {reference}
+85 14 85 14
+nil
+
+TRUE
+
+(
+T1AxisListField
+0 {reference}
+92 7 188 21
+nil
+
+TRUE
+StepperEncoder
+StepperEncoder
+0
+TRUE
+TPathNameField
+0 {reference}
+191 7 237 21
+nil
+
+TRUE
+Initialize
+
+Main.BiSS_Posital.
+Initialize
+TRUE
+FALSE
+FALSE
+TStaticField
+0 {reference}
+240 7 326 21
+nil
+
+TRUE
+Bits_In_Packet
+,
+TNumericField
+0 {reference}
+333 7 366 21
+nil
+Number
+TRUE
+ 3.20000000000000E+0001
+FALSE
+TStaticField
+0 {reference}
+369 14 369 14
+nil
+
+TRUE
+
+);
+TRUE
+TRUE
+FALSE
+TBlock
+0 {reference}
+0 {ReferenceLink}
+404 347 13921354 246 29
+5
+TStaticField
+0 {reference}
+9 14 9 14
+nil
+
+TRUE
+
+SetCurrent(T1Axis(
+T1AxisListField
+0 {reference}
+16 7 65 21
+nil
+
+TRUE
+Stepper
+Stepper
+0
+FALSE
+TStaticField
+0 {reference}
+68 7 153 21
+nil
+
+TRUE
+Set Current To 
+),
+TNumericField
+0 {reference}
+160 7 196 21
+nil
+Number
+TRUE
+ 1.50000000000000E+0000
+TRUE
+TStaticField
+0 {reference}
+199 7 235 21
+nil
+
+TRUE
+ Amps
+);
+TRUE
+TRUE
+FALSE
+TBlock
+0 {reference}
+0 {ReferenceLink}
+404 376 13921354 232 29
+5
+TStaticField
+0 {reference}
+9 14 9 14
+nil
+
+TRUE
+
+SetCurrent(T1Axis(
+T1AxisListField
+0 {reference}
+16 7 61 21
+nil
+
+TRUE
+Augar1
+Augar1
+0
+FALSE
+TStaticField
+0 {reference}
+64 7 149 21
+nil
+
+TRUE
+Set Current To 
+),
+TNumericField
+0 {reference}
+156 7 182 21
+nil
+Number
+TRUE
+ 1.00000000000000E+0000
+TRUE
+TStaticField
+0 {reference}
+185 7 221 21
+nil
+
+TRUE
+ Amps
+);
+TRUE
+TRUE
+FALSE
+TBlock
+0 {reference}
+0 {ReferenceLink}
+404 405 6333684 60 29
+1
+TStaticField
+0 {reference}
+9 7 36 21
+nil
+
+TRUE
+Yield
+yield;
+TRUE
+TRUE
+FALSE
+TBlock
+0 {reference}
+0 {ReferenceLink}
+404 434 13921354 454 37
+6
+TNAxisListField
+0 {reference}
+13 11 62 25
+nil
+
+TRUE
+Stepper
+Stepper
+0
+TStaticField
+0 {reference}
+65 11 84 25
+nil
+
+TRUE
+Set
+
+TLocalListField
+0 {reference}
+91 11 183 25
+nil
+
+TRUE
+Actual Position 
+.SetActualPosition(
+2
+Actual Position 
+.SetActualPosition(
+Commanded Position 
+.SetCommandedPosition(
+TStaticField
+0 {reference}
+186 11 200 25
+nil
+
+TRUE
+To
+
+TNumericField
+0 {reference}
+203 7 432 30
+TNumericExpression
+0 {reference}
+0 {ReferenceLink}
+607 441 13921354 229 23
+3
+T1AxisListField
+0 {reference}
+16 4 112 18
+nil
+
+TRUE
+StepperEncoder
+StepperEncoder
+0
+FALSE
+TLocalListField
+0 {reference}
+119 4 208 18
+nil
+
+TRUE
+Actual Position
+.ActualPosition
+5
+Actual Position
+.ActualPosition
+Commanded Position
+.CommandedPosition
+Error Position
+.ErrorPosition
+Destination Position
+.DestinationPosition
+Capture Position
+.CapturePosition
+TStaticField
+0 {reference}
+211 4 217 18
+nil
+
+TRUE
+  
+
+Number
+Number
+TRUE
+ 0.00000000000000E+0000
+TRUE
+TStaticField
+0 {reference}
+435 11 438 25
+nil
+
+TRUE
+ 
+);
+TRUE
+TRUE
+TRUE
+TBlock
+0 {reference}
+260 {ReferenceLink}
+404 471 8388736 249 29
+4
+TPathNameField
+0 {reference}
+9 7 138 21
+nil
+
+TRUE
+PowerMonitor Initialize
+Main.PowerMonitor.Initialize
+Main.PowerMonitor.
+Initialize
+TRUE
+TRUE
+TRUE
+TStaticField
+0 {reference}
+141 7 174 21
+nil
+
+TRUE
+Motor
+(
+T1AxisListField
+0 {reference}
+181 7 232 21
+nil
+
+TRUE
+Y_Motor
+Y_Motor
+0
+TRUE
+TStaticField
+0 {reference}
+235 14 235 14
+nil
+
+TRUE
+
+);
+TRUE
+TRUE
+FALSE
+nil
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+TBlock_Procedure
+254 {reference}
+0 {ReferenceLink}
+855 248 8388736 106 29
+1
+TStaticField
+0 {reference}
+9 7 99 21
+nil
+
+TRUE
+Procedure Park
+Park
+FALSE
+TRUE
+FALSE
+TBlock
+0 {reference}
+255 {ReferenceLink}
+855 277 8388736 203 29
+4
+TPathNameField
+0 {reference}
+9 7 86 21
+nil
+
+TRUE
+SafeZMoveTo
+Main.SafeZMoveTo
+Main.
+SafeZMoveTo
+TRUE
+TRUE
+TRUE
+TStaticField
+0 {reference}
+89 7 153 21
+nil
+
+TRUE
+Destination
+(
+TNumericField
+0 {reference}
+160 7 186 21
+nil
+Number
+TRUE
+ 0.00000000000000E+0000
+TRUE
+TStaticField
+0 {reference}
+189 14 189 14
+nil
+
+TRUE
+
+);
+TRUE
+TRUE
+FALSE
+TBlock
+0 {reference}
+0 {ReferenceLink}
+855 306 13921354 193 29
+5
+TNAxisListField
+0 {reference}
+13 7 65 21
+nil
+
+TRUE
+X_Motor
+X_Motor
+0
+TStaticField
+0 {reference}
+68 7 87 21
+nil
+
+TRUE
+Set
+
+TLocalListField
+0 {reference}
+94 7 137 21
+nil
+
+TRUE
+Speed 
+.SetSpeed(
+3
+Speed
+.SetSpeed(
+Accel
+.SetAccel(
+Decel
+.SetDecel(
+TNumericField
+0 {reference}
+144 7 184 21
+nil
+Number
+TRUE
+ 1.00000000000000E+0002
+TRUE
+TStaticField
+0 {reference}
+187 7 190 21
+nil
+
+TRUE
+ 
+);
+TRUE
+TRUE
+FALSE
+TBlock
+0 {reference}
+0 {ReferenceLink}
+855 335 13921354 192 29
+5
+TNAxisListField
+0 {reference}
+13 7 64 21
+nil
+
+TRUE
+Y_Motor
+Y_Motor
+0
+TStaticField
+0 {reference}
+67 7 86 21
+nil
+
+TRUE
+Set
+
+TLocalListField
+0 {reference}
+93 7 136 21
+nil
+
+TRUE
+Speed 
+.SetSpeed(
+3
+Speed
+.SetSpeed(
+Accel
+.SetAccel(
+Decel
+.SetDecel(
+TNumericField
+0 {reference}
+143 7 183 21
+nil
+Number
+TRUE
+ 1.00000000000000E+0002
+TRUE
+TStaticField
+0 {reference}
+186 7 189 21
+nil
+
+TRUE
+ 
+);
+TRUE
+TRUE
+FALSE
+TBlock
+0 {reference}
+0 {ReferenceLink}
+855 364 13921354 180 29
+4
+TNAxisListField
+0 {reference}
+13 7 65 21
+nil
+
+TRUE
+X_Motor
+X_Motor
+0
+TLocalListField
+0 {reference}
+72 7 123 21
+nil
+
+TRUE
+Move To
+.MoveTo(
+4
+Move By
+.MoveBy(
+Move To
+.MoveTo(
+Begin Move By
+.BeginMoveBy(
+Begin Move To
+.BeginMoveTo(
+TNumericField
+0 {reference}
+130 7 170 21
+nil
+Number
+TRUE
+ 1.00000000000000E+0002
+TRUE
+TStaticField
+0 {reference}
+173 7 182 21
+nil
+
+TRUE
+   
+);
+TRUE
+TRUE
+TRUE
+TBlock
+0 {reference}
+0 {ReferenceLink}
+855 393 13921354 165 29
+4
+TNAxisListField
+0 {reference}
+13 7 64 21
+nil
+
+TRUE
+Y_Motor
+Y_Motor
+0
+TLocalListField
+0 {reference}
+71 7 122 21
+nil
+
+TRUE
+Move To
+.MoveTo(
+4
+Move By
+.MoveBy(
+Move To
+.MoveTo(
+Begin Move By
+.BeginMoveBy(
+Begin Move To
+.BeginMoveTo(
+TNumericField
+0 {reference}
+129 7 155 21
+nil
+Number
+TRUE
+ 1.00000000000000E+0000
+TRUE
+TStaticField
+0 {reference}
+158 7 167 21
+nil
+
+TRUE
+   
+);
+TRUE
+TRUE
+TRUE
+nil
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+TComment
+0 {reference}
+0 {ReferenceLink}
+1216 387 255 160 60
+0
+FALSE
+1
+Touch and Type Here
+1
+Touch and Type Here
+nil
+0 0  diagnostic marker
+MMC-V Test Platform
+5
+TControlPlate
+144 {reference}
+RP23_Configuration
+650 20
+800 65
+-16777211
+Tahoma
+1
+-16777208
+8
+0
+6
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseDown;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseDrag;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseUp;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure DoubleClickLeft;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure Setup;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+function  CanClose:boolean;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TBlock_H
+0 {reference}
+0 {ReferenceLink}
+496 77 1993170 69 29
+1
+TStaticField
+0 {reference}
+9 7 62 21
+nil
+
+TRUE
+Autostart
+Autostart
+FALSE
+TRUE
+FALSE
+nil
+FALSE
+FALSE
+nil
+0 0  diagnostic marker
+Electrocraft RP23
+0
+2
+TUserProcedure
+145 {reference}
+TRUE
+282
+procedure Assign_To(Motor:T1Axis);
+  begin
+ { TMC4671 Initialization File }
+  SPIAtPut(Motor,$1A,0); {disable output drive}
+  SPIAtPut(Motor,1, $00000000);
+  SPIAtPut(Motor,3, $00000001);
+  SPIAtPut(Motor,4, $00100010);
+  SPIAtPut(Motor,5, $20000000);
+  SPIAtPut(Motor,6, $00000000);
+  SPIAtPut(Motor,7, $014E014E);
+  SPIAtPut(Motor,8, $010081A9);
+  SPIAtPut(Motor,9, $010080E7);
+  SPIAtPut(Motor,10, $18000100);
+  SPIAtPut(Motor,11, $00000000);
+  SPIAtPut(Motor,12, $00044400);
+  SPIAtPut(Motor,13, $01000000);
+  SPIAtPut(Motor,14, $01000000);
+  SPIAtPut(Motor,15, $01000000);
+  SPIAtPut(Motor,17, $03020100);
+  SPIAtPut(Motor,23, $00000000);
+  SPIAtPut(Motor,24, $00000F9F);
+  SPIAtPut(Motor,25, $00000A0A);
+  SPIAtPut(Motor,27, $00030008);
+  SPIAtPut(Motor,28, $00000000);
+  SPIAtPut(Motor,29, $00000000);
+  SPIAtPut(Motor,30, $00000000);
+  SPIAtPut(Motor,31, $00000000);
+  SPIAtPut(Motor,32, $0000003C);
+  SPIAtPut(Motor,33, $FFFFFFF6);
+  SPIAtPut(Motor,34, $FFFFFFF6);
+  SPIAtPut(Motor,35, $000080FE);
+  SPIAtPut(Motor,36, $00000000);
+  SPIAtPut(Motor,37, $00000000);
+  SPIAtPut(Motor,38, $00010000);
+  SPIAtPut(Motor,39, $0000FFFE);
+  SPIAtPut(Motor,40, $0000FFFE);
+  SPIAtPut(Motor,44, $00000000);
+  SPIAtPut(Motor,45, $00010000);
+  SPIAtPut(Motor,46, $00000000);
+  SPIAtPut(Motor,47, $00000000);
+  SPIAtPut(Motor,48, $00000000);
+  SPIAtPut(Motor,51, $00000000);
+  SPIAtPut(Motor,52, $2AAA0000);
+  SPIAtPut(Motor,53, $80005555);
+  SPIAtPut(Motor,54, $D555AAAA);
+  SPIAtPut(Motor,55, $00000000);
+  SPIAtPut(Motor,56, $00002AAA);
+  SPIAtPut(Motor,59, $00000000);
+  SPIAtPut(Motor,60, $00000000);
+  SPIAtPut(Motor,62, $00000000);
+  SPIAtPut(Motor,64, $00000001);
+  SPIAtPut(Motor,66, $00000000);
+  SPIAtPut(Motor,69, $00000000);
+  SPIAtPut(Motor,78, $00000001);
+  SPIAtPut(Motor,77, $00000000);
+  SPIAtPut(Motor,78, $00000002);
+  SPIAtPut(Motor,77, $00000000);
+  SPIAtPut(Motor,78, $00000004);
+  SPIAtPut(Motor,77, $20000000);
+  SPIAtPut(Motor,78, $00000005);
+  SPIAtPut(Motor,77, $00000000);
+  SPIAtPut(Motor,78, $00000006);
+  SPIAtPut(Motor,77, $00000000);
+  SPIAtPut(Motor,78, $00000007);
+  SPIAtPut(Motor,77, $00000000);
+  SPIAtPut(Motor,78, $00000009);
+  SPIAtPut(Motor,77, $3CDCA415);
+  SPIAtPut(Motor,78, $0000000A);
+  SPIAtPut(Motor,77, $E30FA9D7);
+  SPIAtPut(Motor,78, $0000000C);
+  SPIAtPut(Motor,77, $0004EC85);
+  SPIAtPut(Motor,78, $0000000D);
+  SPIAtPut(Motor,77, $0009D90A);
+  SPIAtPut(Motor,78, $0000000E);
+  SPIAtPut(Motor,77, $0004EC85);
+  SPIAtPut(Motor,78, $0000000F);
+  SPIAtPut(Motor,77, $00000000);
+  SPIAtPut(Motor,78, $00000011);
+  SPIAtPut(Motor,77, $00000000);
+  SPIAtPut(Motor,78, $00000012);
+  SPIAtPut(Motor,77, $00000000);
+  SPIAtPut(Motor,78, $00000014);
+  SPIAtPut(Motor,77, $20000000);
+  SPIAtPut(Motor,78, $00000015);
+  SPIAtPut(Motor,77, $00000000);
+  SPIAtPut(Motor,78, $00000016);
+  SPIAtPut(Motor,77, $00000000);
+  SPIAtPut(Motor,78, $00000017);
+  SPIAtPut(Motor,77, $00000000);
+  SPIAtPut(Motor,78, $00000019);
+  SPIAtPut(Motor,77, $00000000);
+  SPIAtPut(Motor,78, $0000001A);
+  SPIAtPut(Motor,77, $00000000);
+  SPIAtPut(Motor,78, $0000001C);
+  SPIAtPut(Motor,77, $20000000);
+  SPIAtPut(Motor,78, $0000001D);
+  SPIAtPut(Motor,77, $00000000);
+  SPIAtPut(Motor,78, $0000001E);
+  SPIAtPut(Motor,77, $00000000);
+  SPIAtPut(Motor,78, $0000001F);
+  SPIAtPut(Motor,77, $00000000);
+  SPIAtPut(Motor,78, $00000020);
+  SPIAtPut(Motor,77, $00000000);
+  SPIAtPut(Motor,78, $00000021);
+  SPIAtPut(Motor,77, $00000000);
+  SPIAtPut(Motor,78, $00000028);
+  SPIAtPut(Motor,77, $00000000);
+  SPIAtPut(Motor,78, $00000029);
+  SPIAtPut(Motor,77, $00000000);
+  SPIAtPut(Motor,78, $0000002A);
+  SPIAtPut(Motor,77, $00000000);
+  SPIAtPut(Motor,78, $0000002B);
+  SPIAtPut(Motor,77, $00000000);
+  SPIAtPut(Motor,78, $00000032);
+  SPIAtPut(Motor,77, $00001000);
+  SPIAtPut(Motor,78, $00000033);
+  SPIAtPut(Motor,77, $00000000);
+  SPIAtPut(Motor,78, $00000034);
+  SPIAtPut(Motor,77, $00000000);
+  SPIAtPut(Motor,78, $0000003C);
+  SPIAtPut(Motor,77, $00030000);
+  SPIAtPut(Motor,78, $0000003D);
+  SPIAtPut(Motor,77, $01000000);
+  SPIAtPut(Motor,80, $00000000);
+  SPIAtPut(Motor,81, $00000000);
+  SPIAtPut(Motor,82, $00000005);
+  SPIAtPut(Motor,84, $01000100);
+  SPIAtPut(Motor,86, $01000100);
+  SPIAtPut(Motor,88, $00000000);
+  SPIAtPut(Motor,90, $00000000);
+  SPIAtPut(Motor,92, $00000000);
+  SPIAtPut(Motor,93, $00005A81);
+  SPIAtPut(Motor,94, $00007FFF);
+  SPIAtPut(Motor,95, $7FFFFFFF);
+  SPIAtPut(Motor,96, $7FFFFFFF);
+  SPIAtPut(Motor,97, $80000001);
+  SPIAtPut(Motor,98, $7FFFFFFF);
+  SPIAtPut(Motor,99, $00000001);
+  SPIAtPut(Motor,100, $00000000);
+  SPIAtPut(Motor,101, $00000000);
+  SPIAtPut(Motor,102, $00000000);
+  SPIAtPut(Motor,103, $00000000);
+  SPIAtPut(Motor,104, $00000000);
+  SPIAtPut(Motor,107, $066A2AAA);
+  SPIAtPut(Motor,109, $00000000);
+  SPIAtPut(Motor,111, $00000000);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $00000001);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $00000002);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $00000003);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $00000004);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $00000005);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $00000006);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $00000007);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $00000008);
+  SPIAtPut(Motor,110, $FFDBFFD8);
+  SPIAtPut(Motor,111, $00000009);
+  SPIAtPut(Motor,110, $0000FFBC);
+  SPIAtPut(Motor,111, $0000000A);
+  SPIAtPut(Motor,110, $FFAE002D);
+  SPIAtPut(Motor,111, $0000000B);
+  SPIAtPut(Motor,110, $004C0036);
+  SPIAtPut(Motor,111, $0000000C);
+  SPIAtPut(Motor,110, $005F0035);
+  SPIAtPut(Motor,111, $0000000D);
+  SPIAtPut(Motor,110, $00560034);
+  SPIAtPut(Motor,111, $0000000E);
+  SPIAtPut(Motor,110, $0042FFEA);
+  SPIAtPut(Motor,111, $0000000F);
+  SPIAtPut(Motor,110, $FFF1FFF2);
+  SPIAtPut(Motor,111, $00000010);
+  SPIAtPut(Motor,110, $0000005D);
+  SPIAtPut(Motor,111, $00000011);
+  SPIAtPut(Motor,110, $00350032);
+  SPIAtPut(Motor,111, $00000012);
+  SPIAtPut(Motor,110, $0000FFCD);
+  SPIAtPut(Motor,111, $00000013);
+  SPIAtPut(Motor,110, $81D8811B);
+  SPIAtPut(Motor,111, $00000014);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $00000015);
+  SPIAtPut(Motor,110, $0000FFAF);
+  SPIAtPut(Motor,111, $00000016);
+  SPIAtPut(Motor,110, $0000FFD6);
+  SPIAtPut(Motor,111, $00000017);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $00000018);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $00000019);
+  SPIAtPut(Motor,110, $0000066A);
+  SPIAtPut(Motor,111, $0000001A);
+  SPIAtPut(Motor,110, $00002AAA);
+  SPIAtPut(Motor,111, $0000001B);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $0000001C);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $0000001D);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $0000001E);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $0000001F);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $00000020);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $00000021);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $00000022);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $00000023);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $00000024);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $00000025);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $00000028);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $00000029);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $0000002A);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $0000002B);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $0000002C);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $000000C0);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $000000C1);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $000000C2);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $000000C3);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $000000C4);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $000000C5);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $000000C6);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $000000C7);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $000000C8);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $000000C9);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $000000CA);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $000000CB);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $000000D0);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $000000D1);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $000000D2);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $000000D3);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $000000D4);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $000000D5);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $000000D6);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,111, $000000D7);
+  SPIAtPut(Motor,110, $00000000);
+  SPIAtPut(Motor,116, $00000000);
+  SPIAtPut(Motor,117, $FFFFFFFF);
+  SPIAtPut(Motor,120, $00000000);
+  SPIAtPut(Motor,121, $00009600);
+  SPIAtPut(Motor,122, $00000000);
+  SPIAtPut(Motor,123, $00000000);
+  SPIAtPut(Motor,124, $F0280000);
+  SPIAtPut(Motor,125, $00000000);
+  SPIAtPut(Motor,$1A,7); {Enable centered PWM for FOC}
+  Motor.SetMotorType((Motor.MotorType and $FFFD) or ServoDriveConfigured);
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+26
+procedure SPIAtPut(var anAxis:T1Axis; Address:longint; Value:longint);
+
+  var SPIAddrStatus:integer; absolute $6000001A;
+  var SPIData:longint; absolute $60000016;
+  var IsPhysicalValue:longint;
+  var Command:longint;
+
+  begin
+  IsPhysicalValue:=integer(anAxis.IsPhysical);
+  if IsPhysicalValue=0 then
+    begin
+    end
+  else if IsPhysicalValue=1 then
+    begin
+    repeat
+    until SPIAddrStatus=1;
+    SPIData:=Value;
+    SPIAddrStatus:=$80 or Address;
+    end
+  else
+    begin
+    Command:=$2000 or IsPhysicalValue;
+    NeighborCommunicationProcedureAxisIntegerLongintParam(Command,Address,Value);
+    end;
+  yield;
+  end;
+TRUE
+-2134376448
+TRUE
+FALSE
+1
+TControlPlate
+198 {reference}
+BiSS_Posital
+650 75
+800 125
+-16777211
+Tahoma
+1
+-16777208
+8
+0
+6
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseDown;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseDrag;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseUp;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure DoubleClickLeft;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure Setup;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+function  CanClose:boolean;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+nil
+0 0  diagnostic marker
+BiSS Posital Encoder Support 1.02
+0
+4
+TUserProcedure
+194 {reference}
+TRUE
+27
+procedure Initialize(var NoShowAxis:T1Axis; Bits_In_Packet:longint);
+
+  var IsPhysicalValue:integer;
+
+  begin
+  IsPhysicalValue:=integer(NoShowAxis.IsPhysical);
+  try
+    begin
+    if IsPhysicalValue <> 0 then
+      NoShowAxis.SetMotorType((NoShowAxis.MotorType and $FFFD) or $400);
+    end
+  recover
+    begin
+    Prompter.writeln('BiSS Init Failure with value: ',NoShowAxis.MotorType or $400);
+    {disregard if controller firmware does not support native serial encoders}
+    end;
+
+  if IsPhysicalValue=1 then
+    begin
+    Server.MemWriteWord($60000014,Bits_In_Packet);
+    Server.MemWriteWord($60000010,$100); {turn off preset before enabling driver}
+    Server.MemWriteWord($60000006,$201); {enable Drv13}
+    end
+  else
+    NeighborCommunication.ProcedureAxisWord($1900 or IsPhysicalValue,Bits_In_Packet);
+  end;
+
+TRUE
+TUserFunction
+195 {reference}
+FALSE
+20
+function ReadEncoderPosition(var anAxis:T1Axis):longint;
+{------------------------------------------------------------------------------}
+{ Requires that the controller be running a firmware image supporting BiSS in  }
+{ hardware.                                                                    }
+{______________________________________________________________________________}
+
+  var IsPhysicalValue:integer;
+
+  begin
+  IsPhysicalValue:=integer(anAxis.IsPhysical);
+  if IsPhysicalValue=1 then
+    begin
+    Server.MemWriteWord($60000012,0);
+    ReadEncoderPosition:=Server.MemReadlongint($60000010);
+    Server.MemWriteWord($60000012,1);
+    end
+  else
+    ReadEncoderPosition:=NeighborCommunication.LongintFunctionNibbleParam($1A00 or (IsPhysicalValue and $F0));
+  end;
+
+TRUE
+TUserProcedure
+196 {reference}
+TRUE
+19
+procedure Preset(var NoShowAxis:T1Axis);
+
+  var IsPhysicalValue:integer;
+
+  begin
+  IsPhysicalValue:=integer(NoShowAxis.IsPhysical);
+  if IsPhysicalValue=1 then
+    begin
+    Server.MemWriteWord($60000010,$101);
+    delay(500);
+    Server.MemWriteWord($60000010,$100);
+    end
+  else
+    begin
+    NeighborCommunication.ProcedureLongintWordParam($1B00 or (IsPhysicalValue and $F0),$60000010,$101);
+    delay(500);
+    NeighborCommunication.ProcedureLongintWordParam($1B00 or (IsPhysicalValue and $F0),$60000010,$100);
+    end;
+  end;
+TRUE
+TUserFunction
+197 {reference}
+TRUE
+7
+function Actual_Position(var NoShowAxis:T1Axis):double;
+  begin
+  if NoShowAxis.CoordinateInversionIsOn then
+    Actual_Position:=-ReadEncoderPosition(NoShowAxis)/NoShowAxis.CountsPerUserUnit
+  else
+    Actual_Position:=ReadEncoderPosition(NoShowAxis)/NoShowAxis.CountsPerUserUnit
+  end;
+TRUE
+-2134376448
+TRUE
+FALSE
+1
+TControlPlate
+274 {reference}
+Modbus_Communication
+650 135
+800 180
+-16777211
+Tahoma
+1
+-16777208
+8
+0
+6
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseDown;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseDrag;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseUp;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure DoubleClickLeft;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure Setup;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+function  CanClose:boolean;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TBlock_H
+0 {reference}
+0 {ReferenceLink}
+401 92 1993170 69 29
+1
+TStaticField
+0 {reference}
+9 7 62 21
+nil
+
+TRUE
+Autostart
+Autostart
+FALSE
+TRUE
+FALSE
+TBlock
+0 {reference}
+235 {ReferenceLink}
+401 121 8388736 402 29
+10
+TPathNameField
+0 {reference}
+9 7 128 21
+nil
+
+TRUE
+Initialize_IP_Address
+Main.Modbus_Communication.Initialize_IP_Address
+Main.Modbus_Communication.
+Initialize_IP_Address
+TRUE
+TRUE
+TRUE
+TStaticField
+0 {reference}
+131 7 149 21
+nil
+
+TRUE
+IP3
+(
+TNumericField
+0 {reference}
+156 7 196 21
+nil
+Number
+TRUE
+ 1.92000000000000E+0002
+FALSE
+TStaticField
+0 {reference}
+199 7 217 21
+nil
+
+TRUE
+IP2
+,
+TNumericField
+0 {reference}
+224 7 264 21
+nil
+Number
+TRUE
+ 1.68000000000000E+0002
+FALSE
+TStaticField
+0 {reference}
+267 7 285 21
+nil
+
+TRUE
+IP1
+,
+TNumericField
+0 {reference}
+292 7 318 21
+nil
+Number
+TRUE
+ 1.00000000000000E+0000
+FALSE
+TStaticField
+0 {reference}
+321 7 339 21
+nil
+
+TRUE
+IP0
+,
+TNumericField
+0 {reference}
+346 7 379 21
+nil
+Number
+TRUE
+ 2.00000000000000E+0001
+FALSE
+TStaticField
+0 {reference}
+382 14 382 14
+nil
+
+TRUE
+
+);
+TRUE
+TRUE
+FALSE
+nil
+FALSE
+FALSE
+FALSE
+FALSE
+nil
+0 0  diagnostic marker
+Modbus TCP/IP Communication
+0
+11
+TUserProcedure
+235 {reference}
+TRUE
+18
+procedure Initialize_IP_Address(IP3:integer; IP2:integer; IP1:integer; IP0:integer);
+{-----------------------------------------------------------------------------------}
+
+  var scanner:longint;
+
+  begin
+  EthernetSetLongintIPAddress(
+     IPAddressToLongint(IP3,IP2,IP1,IP0)
+     IPAddressToLongint(255,255,255,0),
+     IPAddressToLongint(IP3,IP2,IP1,250));
+
+  ScheduleLastTask(TaskAddr(MaintainEthernetPolling),0);
+  PortHandle:=NextPortHandle;
+  if EthernetSocketInitialize(PortHandle,502) then
+    Prompter.writeln('Problem binding socket 502');
+
+  BeginTask(TaskAddr(Interpreter));
+  end;
+TRUE
+TUserVariable
+0 {reference}
+FALSE
+PortHandle
+Longint
+FALSE
+10
+1
+0
+TUserFunction
+0 {reference}
+FALSE
+20
+Function NextEthernetByte:longint;
+{---------------------------------}
+
+    var Value:longint;
+    var TimeoutCounter:longint;
+
+    begin
+    TimeoutCounter:=0;
+    repeat
+      Value:=EthernetGetData(PortHandle);
+      if Value=-1 then
+        begin
+        TimeoutCounter:=TimeoutCounter+1;
+        yield;
+        end;
+    until (Value <> -1) or (TimeoutCounter > 100);
+    if TimeoutCounter > 100 then
+      Escape(ec_DataNotPresent);
+    NextEthernetByte:=Value;
+    end;
+TRUE
+TUserFunction
+0 {reference}
+FALSE
+11
+Function NextEthernetByteWithWriteback:longint;
+{---------------------------------}
+
+  var Value:longint;
+  
+  begin
+  Value:=NextEthernetByte;
+  StringAtPut(Modbus.ResponseString,Modbus.ResponseIndex,Value);
+  Modbus.ResponseIndex:=Modbus.ResponseIndex+1;
+  NextEthernetByteWithWriteback:=Value;
+  end;
+TRUE
+TUserFunction
+0 {reference}
+FALSE
+8
+Function NextEthernetWordWithWriteback:longint;
+{---------------------------------}
+
+  begin
+  NextEthernetWordWithWriteback:=NextEthernetByteWithWriteback*$100
+    +NextEthernetByteWithWriteback;
+  end;
+
+TRUE
+TUserFunction
+0 {reference}
+FALSE
+5
+Function NextEthernetWord:longint;
+{---------------------------------}
+  begin
+  NextEthernetWord:=NextEthernetByte*$100 + NextEthernetByte;
+  end;
+TRUE
+TUserFunction
+0 {reference}
+FALSE
+11
+Function NextEthernetLong:longint;
+{---------------------------------}
+
+  var LongToWord:TLongintToWordBigEndian;
+
+  begin
+  LongToWord.HighWord:=NextEthernetWord;
+  LongToWord.LowWord:=NextEthernetWord;
+  NextEthernetLong:=longint(LongToWord);
+  end;
+
+TRUE
+TUserFunction
+0 {reference}
+FALSE
+31
+Procedure mc_3;
+{------------------------------------------}
+{ Query Multiple Registers                 }
+{__________________________________________}
+
+  var DataAddress:longint;
+  var RegisterCount:longint;
+  var scanner:integer;
+
+  begin
+  {$IFDEF DebugActive}
+  Debuglist.writeln('mc_3');
+  {$ENDIF}
+  DataAddress:=NextEthernetWord;
+  {$IFDEF DEBUGACTIVE}
+  DebugList.writeln('DataAddress: ',DataAddress);
+  {$ENDIF}
+  RegisterCount:=NextEthernetWord;
+  {$IFDEF DEBUGACTIVE}
+  DebugList.writeln('RegisterCount: ',RegisterCount);
+  {$ENDIF}
+
+  Modbus.ResponseAppendByte(RegisterCount*2);
+
+  for scanner:=DataAddress to DataAddress+RegisterCount-1 do
+    Modbus.ResponseAppendWord(Modbus.Register[scanner+1]);
+
+  Modbus.PatchMessageLength;
+  EthernetWriteBuffer(Modbus.ResponseString,Modbus.ResponseIndex,PortHandle);
+  end;
+
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+19
+Procedure mc_6;
+{------------------------}
+{ Write single register  }
+{________________________}
+
+  var DataAddress:integer;
+  var Data:integer;
+  var Message:string;
+
+  begin
+{$IFDEF DebugActive}
+  Debuglist.writeln('mc_6');
+{$ENDIF}
+  DataAddress:=NextEthernetWordWithWriteback;
+  Data:=NextEthernetWordWithWriteback;
+  Modbus.Register[DataAddress+1]:=Data;
+  Modbus.PatchMessageLength;
+  EthernetWriteBuffer(Modbus.ResponseString,Modbus.ResponseIndex,PortHandle);
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+37
+Procedure mc_16;
+{---------------------------}
+{ Write Multiple registers  }
+{___________________________}
+
+  var DataAddress:longint;
+  var NumberOfRegisters:longint;
+  var scanner:longint;
+  var NumberOfBytes:longint;
+
+  begin
+{$IFDEF DebugActive}
+  Debuglist.writeln('mc_16 enter');
+{$ENDIF}
+  DataAddress:=NextEthernetWordWithWriteback;
+{$IFDEF DebugActive}
+  Debuglist.writeln('DataAddress: ',DataAddress);
+{$ENDIF}
+  NumberOfRegisters:=NextEthernetWordWithWriteback;
+{$IFDEF DebugActive}
+  Debuglist.writeln('NumberOfRegisters: ',NumberOfRegisters);
+{$ENDIF}
+
+  NumberOfBytes:=NextEthernetByteWithWriteback;
+{$IFDEF DebugActive}
+  Debuglist.writeln('NumberOfBytes: ',NumberOfBytes);
+{$ENDIF}
+
+  for scanner:=DataAddress to DataAddress+NumberOfRegisters-1 do
+    Modbus.Register[scanner+1]:=NextEthernetWord;
+
+  Modbus.PatchMessageLength;
+  EthernetWriteBuffer(Modbus.ResponseString,Modbus.ResponseIndex,PortHandle);
+{$IFDEF DebugActive}
+  Debuglist.writeln('mc_16 exit');
+{$ENDIF}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+60
+Procedure Interpreter;
+{---------------------------------}
+
+  var TransactionIdentifier:longint;
+  var ProtocolIdentifier:longint;
+  var MessageLength:longint;
+  var UnitIdentifier:longint;
+
+  begin
+  Modbus.CommandCounter:=0;
+  Modbus.FaultCounter:=0;
+  while true do
+    begin
+    try
+      begin
+      while not EthernetDataPresent(PortHandle) do
+        yield;
+
+      Modbus.ResponseIndex:=0;
+      TransactionIdentifier:=NextEthernetWordWithWriteback;
+      {$IFDEF DEBUGACTIVE}
+      DebugList.writeln('TransactionIdentifier: ',TransactionIdentifier);
+      {$ENDIF}
+      ProtocolIdentifier:=NextEthernetWordWithWriteback;
+      {$IFDEF DEBUGACTIVE}
+      DebugList.writeln('ProtocolIdentifier: ',ProtocolIdentifier);
+      {$ENDIF}
+      MessageLength:=NextEthernetWordWithWriteback;
+      {$IFDEF DEBUGACTIVE}
+      DebugList.writeln('MessageLength: ',MessageLength);
+      {$ENDIF}
+      UnitIdentifier:=NextEthernetByteWithWriteback;
+      {$IFDEF DEBUGACTIVE}
+      DebugList.writeln('UnitIdentifier: ',UnitIdentifier);
+      {$ENDIF}
+      Modbus.FunctionCode:=NextEthernetByteWithWriteback;
+      {$IFDEF DEBUGACTIVE}
+      DebugList.writeln('FunctionCode: ',Modbus.FunctionCode);
+      {$ENDIF}
+      
+      if Modbus.FunctionCode=3 then
+        mc_3
+      else if Modbus.FunctionCode=6 then
+        mc_6
+      else if Modbus.FunctionCode=16 then
+        mc_16
+      else
+        Prompter.writeln('Unknown function: ',Modbus.FunctionCode);
+      Modbus.CommandCounter:=Modbus.CommandCounter+1;
+      end
+
+    recover
+      begin
+      Delay(10);
+      Modbus.FaultCounter:=Modbus.FaultCounter+1;
+      end;
+    end;
+  yield;
+  end;
+
+TRUE
+-2134376448
+TRUE
+FALSE
+1
+TControlPlate
+259 {reference}
+PowerMonitor
+650 190
+800 235
+-16777211
+Tahoma
+1
+-16777208
+8
+0
+6
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseDown;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseDrag;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseUp;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure DoubleClickLeft;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure Setup;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+function  CanClose:boolean;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+nil
+0 0  diagnostic marker
+Power Monitor
+0
+6
+TUserProcedure
+260 {reference}
+TRUE
+7
+procedure Initialize(Motor:T1Axis);
+  begin
+  TorqueSimulator:=0;
+  Level:=0;
+  PowerMotor.Init(Motor);
+  BeginTask(TaskAddr(MonitorPower));
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+30
+procedure MonitorPower;
+
+  var i:single;
+  const K_heating=0.00025;
+  const K_decay=0.99990;
+  const XLimitRow1 = 850;
+  const XLimitAbsolute = 1101;
+  begin
+  Level:=0;
+  while true do
+    begin
+    yield;
+    {if not PowerMotor.MotorIsOn then
+      level:=0
+    else}
+      begin
+      Y_Motor.SetPositiveLimit(1466);
+      Y_Motor.SetNegativeLimit(-5);
+      X_Motor.SetNegativeLimit(-100);
+      if Y_Motor.ActualPosition < 500 then
+        X_Motor.SetPositiveLimit(XLimitRow1)
+        else
+        X_Motor.SetPositiveLimit(XLimitAbsolute);
+      i:=PowerMotor.CommandedTorque*(10/$7FFF);
+      Level:=Level+K_heating*i*i;
+      Level:=Level*K_decay;
+      end;
+    
+    end;
+  end;
+TRUE
+TUserVariable
+261 {reference}
+TRUE
+TorqueSimulator
+single
+FALSE
+10
+1
+0
+TUserVariable
+262 {reference}
+TRUE
+Level
+single
+FALSE
+10
+1
+0
+TUserVariable
+0 {reference}
+FALSE
+PowerMotor
+T1Axis
+FALSE
+10
+1
+0
+TUserFunction
+263 {reference}
+TRUE
+4
+function Ok:boolean;
+  begin
+  Ok:=Level < 100;
+  end;
+TRUE
+-2134376448
+TRUE
+FALSE
+1
+TControlPlate
+298 {reference}
+AutoMode
+655 245
+805 290
+-16777211
+Tahoma
+1
+-16777208
+8
+0
+6
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseDown;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseDrag;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseUp;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure DoubleClickLeft;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure Setup;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+function  CanClose:boolean;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+nil
+0 0  diagnostic marker
+Auto Mode 
+0
+3
+TUserIncludeFile
+0 {reference}
+FALSE
+Containers.inc
+
+Containers.inc
+TUserIncludeFile
+0 {reference}
+FALSE
+Gantry.inc
+
+Gantry.inc
+TUserIncludeFile
+0 {reference}
+FALSE
+AutoMode.inc
+
+AutoMode.inc
+-2134376448
+TRUE
+FALSE
+1
+35
+TUserVariable
+19 {reference}
+TRUE
+Gain
+single
+FALSE
+10
+1
+0
+TUserVariable
+20 {reference}
+TRUE
+Kz
+Single
+FALSE
+10
+1
+0
+TUserVariable
+28 {reference}
+TRUE
+IntegrationAccumulator
+single
+FALSE
+10
+1
+0
+TUserVariable
+26 {reference}
+TRUE
+Ki
+Single
+FALSE
+10
+1
+0
+TUserVariable
+0 {reference}
+FALSE
+File
+TFile
+FALSE
+10
+1
+0
+TUserProcedure
+53 {reference}
+TRUE
+4
+procedure Set_Enable(State:boolean);
+  begin
+  Axis[1].SetEnable(State);
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+13
+procedure LongintToHexString(aNumber:longint);
+{-----------------------------------------------------------------------------------------}
+
+  var scanner:longint;
+
+  begin
+  for scanner:=7 downto 0 do
+    begin
+	StringAtPut(NumberString,scanner,HexToAscii(aNumber and $F));
+	aNumber:=aNumber div $10;
+	end;
+  StringAtPut(NumberString,8,0);
+  end;
+TRUE
+TUserVariable
+0 {reference}
+FALSE
+NumberString
+String
+FALSE
+10
+1
+0
+TUserFunction
+0 {reference}
+FALSE
+12
+Function HexToAscii(C:integer):longint;
+{------------------------------------------------------------------------------}
+
+  begin
+  if (C >= 0) and (C <= 9) then
+    HexToAscii:=C+48
+  else if (C >=10) and (C <= 15) then
+    HexToAscii:=C+55
+  else
+    Escape(ParameterOutOfRangeEscapeCode);
+  end;
+
+TRUE
+TUserVariable
+0 {reference}
+FALSE
+CycleTorque
+Number
+FALSE
+10
+1
+0
+TUserProcedure
+0 {reference}
+FALSE
+12
+procedure PerformTorqueCycle;
+  begin
+  TorqueCycleEnabled:=true;
+  while TorqueCycleEnabled do
+    begin
+    Axis[1].SetCommandedTorque(round(CycleTorque));
+    delay(5);
+    Axis[1].SetCommandedTorque(-round(CycleTorque));
+    delay(5);
+    end;
+  Axis[1].SetCommandedTorque(0);
+  end;
+TRUE
+TUserVariable
+0 {reference}
+FALSE
+TorqueCycleEnabled
+Boolean
+FALSE
+10
+1
+0
+TUserFunction
+92 {reference}
+TRUE
+4
+function EnableOn:boolean;
+  begin
+  EnableOn:={Motor.EnableIsOn;}Server.MemReadWord($60000050) <> 0;
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+13
+function SPIAt(Address:longint):longint;
+
+  var SPIAddrStatus:integer; absolute $6000001A;
+  var SPIData:longint; absolute $60000016;
+
+  begin
+  repeat
+  until SPIAddrStatus=1;
+  SPIAddrStatus:=Address;
+  repeat
+  until SPIAddrStatus=1;
+  SPIAt:=SPIData;
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+26
+procedure SPIAtPut(var anAxis:T1Axis; Address:longint; Value:longint);
+
+  var SPIAddrStatus:integer; absolute $6000001A;
+  var SPIData:longint; absolute $60000016;
+  var IsPhysicalValue:longint;
+  var Command:longint;
+
+  begin
+  IsPhysicalValue:=integer(anAxis.IsPhysical);
+  if IsPhysicalValue=0 then
+    begin
+    end
+  else if IsPhysicalValue=1 then
+    begin
+    repeat
+    until SPIAddrStatus=1;
+    SPIData:=Value;
+    SPIAddrStatus:=$80 or Address;
+    end
+  else
+    begin
+    Command:=$2000 or IsPhysicalValue;
+    NeighborCommunicationProcedureAxisIntegerLongintParam(Command,Address,Value);
+    end;
+  yield;
+  end;
+TRUE
+TUserVariable
+96 {reference}
+TRUE
+CommandValue
+longint
+FALSE
+10
+1
+0
+TUserProcedure
+120 {reference}
+TRUE
+9
+procedure SetCompensation(NoShowAxis:T1Axis);
+  begin
+  NoShowAxis.SetGain(50);
+  NoShowAxis.SetZero(232);
+  NoShowAxis.SetIntegrator(0);
+  NoShowAxis.SetErrorLimit(20);
+  NoShowAxis.SetTorqueLimit($7FFF);
+  NoShowAxis.SetLoopInversion(off);
+  end;
+TRUE
+TUserFunction
+122 {reference}
+TRUE
+4
+function Torque(NoShowAxis:T1Axis):longint;
+  begin
+  Torque:=NoShowAxis.CommandedTorque;
+  end;
+TRUE
+TUserProcedure
+137 {reference}
+TRUE
+4
+procedure SetGain(NoShowAxis:T1Axis;Gain:longint);
+  begin
+  NoShowAxis.SetGain(Gain);
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+38
+procedure NeighborCommunicationProcedureAxisIntegerLongintParam(Command:longint;WordParam:integer; LongintParam:longint);
+{---------------------------------------------------------------------------------}
+
+  var scanner:longint;
+  var Done:boolean;
+  var LongToWord:TLongintToWord;
+
+  begin
+  Done:=false;
+  LongToWord:=TLongintToWord(LongintParam);
+  for scanner:=1 to 4 do
+    begin
+    try
+      begin
+      Server.MemWriteWord(NeighborCommunication.RightData,Command);
+      Server.MemWriteWord(NeighborCommunication.RightData,WordParam);
+      Server.MemWriteWord(NeighborCommunication.RightData,LongToWord.LowWord);
+      Server.MemWriteWord(NeighborCommunication.RightData,LongToWord.HighWord);
+      Server.MemWriteWord(NeighborCommunication.RightData,Command+WordParam+LongToWord.LowWord+LongToWord.HighWord);
+      if NeighborCommunication.ReadWordFromRight=$55AA then
+        Done:=true
+      else
+        yield;
+      end
+    recover
+      begin
+      yield;
+      NeighborCommunication.RetryCounter:=NeighborCommunication.RetryCounter+1;
+      end;
+
+    if Done then
+      exit;
+    end;
+
+  Escape(NeighborCommunicationEscapeCode);
+  end;
+
+
+TRUE
+TUserFunction
+167 {reference}
+TRUE
+4
+function Inputs_Raw:longint;
+  begin
+  Inputs_Raw:=SPIAt($64);
+  end;
+TRUE
+TUserVariable
+173 {reference}
+TRUE
+Reference
+Number
+FALSE
+10
+1
+0
+TUserProcedure
+190 {reference}
+TRUE
+4
+procedure SetLoopInversion(NoShowAxis:T1Axis; State:boolean);
+  begin
+  NoShowAxis.SetLoopInversion(State);
+  end;
+TRUE
+TUserFunction
+233 {reference}
+TRUE
+4
+function MT:longint;
+  begin
+  MT:=X_Motor.MotorType;
+  end;
+TRUE
+TUserVariable
+250 {reference}
+TRUE
+TimeReference
+Number
+FALSE
+10
+1
+0
+TUserFunction
+0 {reference}
+FALSE
+4
+function StepperError:double;
+  begin
+  StepperError:=Stepper.CommandedPosition-StepperEncoder.ActualPosition;
+  end;
+TRUE
+TUserVariable
+273 {reference}
+TRUE
+pattern_index
+Number
+FALSE
+10
+1
+0
+TUserVariable
+278 {reference}
+TRUE
+Counter
+Number
+FALSE
+10
+1
+0
+TUserVariable
+279 {reference}
+TRUE
+PatternNum
+Number
+FALSE
+10
+1
+0
+TUserProcedure
+281 {reference}
+TRUE
+47
+procedure Dispense(Motor:TDistributedT1Axis;Pattern:longint;Amt:longint);
+  var Container_ptrn1 : Array[0..3] of double;
+  var Container_ptrn2 : Array[0..3] of double;
+  var i: integer;
+  var PatternIndex: integer;
+  var WeightCheck: boolean;
+
+  begin
+
+  
+	Container_ptrn1[0]:= 2; {Positive is CCW, brings food foward!}
+  Container_ptrn1[1] = 2;
+  Container_ptrn1[2] = 2;
+  Container_ptrn1[3] = -1;
+  
+  Container_ptrn2[0]:= 2;
+  Container_ptrn2[1] = 2;
+  Container_ptrn2[2] = 2;
+  Container_ptrn2[3] = 2;
+
+  PatternIndex:=0;
+  WeightCheck:=(Amt>Loadcell.Value)
+  MotionComplete:=false;
+  while not MotionComplete do
+    begin
+{Current implementation finishes current move then stops}
+      WeightCheck:=(Amt>Loadcell.Value);
+      if Pattern = 1 then
+        if not Motor.MoveIsFinished then
+          yield
+        else if (PatternIndex <3) then
+          PatternIndex := PatternIndex+1
+        else if (PatternIndex >= 3) then
+          PatternIndex:=0;
+        Motor.MoveBy(Container_ptrn1[PatternIndex])
+{Current motor settings (256 microsteps w/ 4000 user units) motor spins ~2/3 of rev when told to move by 6}
+      if Pattern = 2 then
+        if not Motor.MoveIsFinished then
+          yield
+        else if (PatternIndex <3) then
+          PatternIndex := PatternIndex+1
+        else if (PatternIndex >= 3) then
+          PatternIndex:=0;
+        Motor.MoveBy(Container_ptrn2[PatternIndex])
+    end;
+end;
+
+TRUE
+TUserVariable
+287 {reference}
+TRUE
+dispensing
+Boolean
+FALSE
+10
+1
+0
+TUserVariable
+0 {reference}
+FALSE
+MotionComplete
+Boolean
+FALSE
+10
+1
+0
+TUserVariable
+309 {reference}
+TRUE
+GantryEnabledIndicator
+boolean
+FALSE
+10
+1
+0
+TUserVariable
+310 {reference}
+TRUE
+DispenseCompleteIndie
+boolean
+FALSE
+10
+1
+0
+TUserVariable
+314 {reference}
+TRUE
+ManualMode
+boolean
+FALSE
+10
+1
+0
+-1865940992
+TRUE
+FALSE
+1
+2
+2000
+TRUE
+0
+51
+C:\Program Files (x86)\Snap2Motion\For_MMC\Resources\Remote Networks\MMC_Network.enc
+0
