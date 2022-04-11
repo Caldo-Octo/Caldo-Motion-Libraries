@@ -120,7 +120,7 @@ procedure AutoDispense;
 					BeginTask(TaskAddr(LinePatternWrapper));
 			end;
 		BeginTask(TaskAddr(DispenseWrapper));
-		while not ManualDispenseComplete do
+		while (LoadCell.Value<CurrentWeightSP) and (not ManualDispenseComplete) do
 			yield;
 		Containers[CurrentContainerNo].DispensePermissive:=false;
 		
