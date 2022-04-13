@@ -11,7 +11,7 @@ var SystemInAuto:boolean;
 var SystemReady:boolean;
 var ManualMode:boolean;
 var SystemStatusEnum:integer;
-var LoadCell:TAnalogInput;
+{var LoadCell:TAnalogInput;}
 
 
 const Col1Coord = 151;
