@@ -1,14 +1,14 @@
-var ManualDispenseComplete:boolean;
+{var ManualDispenseComplete:boolean;
 var Containers: array[1..28] of TContainer;
 var Gantry:TGantry;
 var GantryEnabled:boolean;
 var CurrentContainerNo:integer;
-var CurrentContainerType:integer; {1 Auger, 2 Pump}
+var CurrentContainerType:integer; 
 var LoadCellScaled:double;
 var OctoState:integer;
 var StartSignal:boolean;
 var SystemInAuto:boolean;
-var SystemReady:boolean;{From InitializeActuators}
+var SystemReady:boolean;
 var ManualMode:boolean;
 var SystemStatusEnum:integer;
 var LoadCell:TAnalogInput;}
