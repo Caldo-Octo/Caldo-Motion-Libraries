@@ -9,6 +9,7 @@ type TContainer=object
 	StagingXCoord:double;
 	StagingYCoord:double;
 	DispenseSpeed:single;
+	ReverseSpeed:single;
 	Accel:single;
 	Decel:single;
 	Current:double;
