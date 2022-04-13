@@ -31,7 +31,7 @@ type TContainer=object
 	procedure UpdateAccel(Accel_:single); forward;
 	procedure UpdateDecel(Decel_:single); forward;
 	procedure UpdateWeightSP(Weight:double); forward;
-	procedure UpdateRevolutions(Revs:double); forward;
+	procedure UpdateRevolutions(Revs:double;ReverseRevs:double); forward;
 	
 	
 end;
@@ -165,7 +165,7 @@ procedure TContainer.InitializeAuger(var Axis:TDistributedT1Axis;XPos:double;YPo
 		begin
 			WeightSP:=Weight;
 		end;
-	procedure TContainer.UpdateRevolutions(Revs:double;ReverseRevs:double);
+	procedure TContainer.UpdateRevolutions(Revs:double; ReverseRevs:double);
 		begin
 			Revolutions:=Revs;
 			ReverseRevolutions:=ReverseRevs;
