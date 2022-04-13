@@ -1,5 +1,5 @@
-var ManualDispenseComplete:boolean; {Block Accessible}
-{var Containers: array[1..28] of TContainer;}
+var ManualDispenseComplete:boolean;
+var Containers: array[1..28] of TContainer;
 var Gantry:TGantry;
 var GantryEnabled:boolean;
 var CurrentContainerNo:integer;
@@ -11,7 +11,7 @@ var SystemInAuto:boolean;
 var SystemReady:boolean;{From InitializeActuators}
 var ManualMode:boolean;
 var SystemStatusEnum:integer;
-var LoadCell:TAnalogInput;
+var LoadCell:TAnalogInput;}
 
 
 const Col1Coord = 151;
