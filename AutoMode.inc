@@ -1,4 +1,4 @@
-var ManualDispenseComplete:boolean; {Block Accessible}
+{var ManualDispenseComplete:boolean; {Block Accessible}}
 var Containers: array[1..28] of TContainer;
 var Gantry:TGantry;
 var GantryEnabled:boolean;
@@ -134,11 +134,11 @@ procedure ButtonHandler;
 	if not SystemReady then
 		initializeActuators;
 	DispenseTaskPresent:=TaskPresent(TaskAddr(DispenseWrapper));
+	CurrentContainerNo:=CurrentContainer;
 	if not DispenseTaskPresent then
 		begin
 			if Container <= 28 then
 				begin
-					CurrentContainerNo:=CurrentContainer;
 					AutoDispense;
 				end
 			else if Container = 29 then
