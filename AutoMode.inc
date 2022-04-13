@@ -1,5 +1,5 @@
 var ManualDispenseComplete:boolean; {Block Accessible}
-var Containers: array[1..28] of TContainer;
+{var Containers: array[1..28] of TContainer;}
 var Gantry:TGantry;
 var GantryEnabled:boolean;
 var CurrentContainerNo:integer;
