@@ -1,4 +1,4 @@
-{var ManualDispenseComplete:boolean;
+var ManualDispenseComplete:boolean;
 var Containers: array[1..28] of TContainer;
 var Gantry:TGantry;
 var GantryEnabled:boolean;
@@ -11,7 +11,7 @@ var SystemInAuto:boolean;
 var SystemReady:boolean;
 var ManualMode:boolean;
 var SystemStatusEnum:integer;
-var LoadCell:TAnalogInput;}
+var LoadCell:TAnalogInput;
 
 
 const Col1Coord = 151;
