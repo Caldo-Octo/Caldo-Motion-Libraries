@@ -147,25 +147,25 @@ procedure TContainer.InitializeAuger(var Axis:TDistributedT1Axis;XPos:double;YPo
 			end;
 	end;
 	
-	procedure UpdateSpeed(Speed:single); 
+	procedure TContainer.UpdateSpeed(Speed:single); 
 		begin
 			DispenseSpeed:=Speed;
 		end;
 
-	procedure UpdateAccel(Accel_:single);
+	procedure TContainer.UpdateAccel(Accel_:single);
 		begin
 			Accel:=Accel_;
 		end;
 
-	procedure UpdateDecel(Decel_:single);
+	procedure TContainer.UpdateDecel(Decel_:single);
 		begin
 			Decel:=Decel_;
 		end;
-	procedure UpdateWeightSP(Weight:double);
+	procedure TContainer.UpdateWeightSP(Weight:double);
 		begin
 			WeightSP:=Weight;
 		end;
-	procedure UpdateRevolutions(Revs:double, ReverseRevs:double);
+	procedure TContainer.UpdateRevolutions(Revs:double, ReverseRevs:double);
 		begin
 			Revolutions:=Revs;
 			ReverseRevolutions:=ReverseRevs;
