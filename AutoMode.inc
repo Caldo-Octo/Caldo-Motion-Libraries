@@ -2,7 +2,6 @@ var ManualDispenseComplete:boolean;
 var Containers: array[1..28] of TContainer;
 var Gantry:TGantry;
 var GantryEnabled:boolean;
-var CurrentContainerNo:integer;
 var CurrentContainerType:integer; 
 var LoadCellScaled:double;
 var OctoState:integer;
@@ -134,14 +133,13 @@ procedure ButtonHandler;
 	if not SystemReady then
 		initializeActuators;
 	DispenseTaskPresent:=TaskPresent(TaskAddr(DispenseWrapper));
-	CurrentContainerNo:=CurrentContainer;
 	if not DispenseTaskPresent then
 		begin
-			if Container <= 28 then
+			if CurrentContainer <= 28 then
 				begin
 					AutoDispense;
 				end
-			else if Container = 29 then
+			else if CurrentContainer = 29 then
 				begin
 					Gantry.MoveToDenesterStaging;
 					Gantry.MoveToDenester;
@@ -150,13 +148,13 @@ procedure ButtonHandler;
 					Gantry.ZMotor.MoveTo(0);
 					Gantry.MoveToDenesterStaging;
 				end
-			else if Container = 30 then
+			else if CurrentContainer = 30 then
 				begin
 					Gantry.MoveToOutfeedStaging;
 					Delay(1000);
 					Gantry.MoveToOutfeed;
 				end
-			else if Container = 40 then
+			else if CurrentContainer = 40 then
 				begin
 					Gantry.GoToIdlePos;
 				end;
