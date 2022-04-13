@@ -165,7 +165,8 @@ procedure TContainer.InitializeAuger(var Axis:TDistributedT1Axis;XPos:double;YPo
 		begin
 			WeightSP:=Weight;
 		end;
-	procedure TContainer.UpdateRevolutions(Revs:double, ReverseRevs:double);
+	procedure TContainer.UpdateRevolutions(Revs:double;
+	ReverseRevs:double);
 		begin
 			Revolutions:=Revs;
 			ReverseRevolutions:=ReverseRevs;
