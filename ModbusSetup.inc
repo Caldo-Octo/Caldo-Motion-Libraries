@@ -207,7 +207,7 @@ procedure ContainerModbusCommsInit;
 procedure MapModbusMMCInputs;
     begin
         StartSignal:=mb_SysCommand.Value and $0A;{We're encoding 32 boolean bits in one word}
-        CurrentContainer:=mb_CurrentContainer;
+        Octo.CurrentContainerNo:=mb_CurrentContainer; 
     end;
 
 procedure MapModbusMMCOutputs;
@@ -223,8 +223,8 @@ procedure ModbusEventDispatcher;
             yield;
                 begin
                     MapModbusMMCInputs;
-                    if StartSignal and (not StartSignalMem) then   
-                        BeginTask(TaskAddress(ButtonHandler));
+                    if StartSignal and (not StartSignalMem) then  
+                        Octo.StartCycle;
                     StartSignalMem:=StartSignal;
                     MapModbusMMCOutputs;
                 end;

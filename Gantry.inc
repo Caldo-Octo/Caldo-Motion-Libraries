@@ -1,23 +1,20 @@
-const OutfeedXPos = 1084;
-const OutfeedYPos = 890.42;
-const OutfeedZPos = 3.6;
-const PumpStagingX = 100.0;
-const DenesterStagingX = 800;
-const DenesterStagingY = 1128;
-const DenesterStagingZ = 0;
-const OutfeedStagingX = 924;
-const OutfeedStagingY = 942;
-const OutfeedStagingZ = 3.6;
-const DenesterXPos = 1100;
-const DenesterYPos = 1128;
-const DenesterZPos = 7;
-
-
-Type TGantry=object
+var TGantry=object
 	XMotor:T1Axis;
 	YMotor:T1Axis;
 	ZMotor:T1Axis;
 	ZEncoder:T1Axis; {This is a virtual axis necessary for Z's encoder}
+	XSpeed:single;
+	YSpeed:single;
+	ZSpeed:single;
+	XAccel:single;
+	YAccel:single;
+	ZAccel:single;
+	XDecel:single;
+	YDecel:single;
+	ZDecel:single;
+	XCurrent:single;
+	YCurrent:single;
+	ZCurrent:single;
 	SafeToMove:boolean;
 	AtPump:boolean;
 	AtPumpStaging:boolean;
@@ -222,3 +219,9 @@ Type TGantry=object
 		begin
 			XMotor.MoveBy(BowlDiameter);
 		end;
+	
+	function GantryReady:boolean;
+		begin
+			GantryReady:=XMotor.MotorIsOn and YMotor.MotorIsOn and Zmotor.MotorIsOn;
+		end;
+end;
