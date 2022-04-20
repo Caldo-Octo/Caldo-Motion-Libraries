@@ -27,6 +27,7 @@ var SystemMode:object
 	GantryError:boolean;
 	ManualDispenseComplete:boolean;
 	Container:TContainer;
+	procedure ToggleMode; forward;
 	procedure SetContainer; forward;
 	function MoveToContainer:boolean; forward;
 	procedure SetWeightSP; forward;
