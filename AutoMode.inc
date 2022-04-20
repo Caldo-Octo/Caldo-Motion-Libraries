@@ -1,5 +1,4 @@
 var Containers: array[1..28] of TContainer;
-var Gantry:TGantry;
 {-----------------Task Wrapper Functions----------------------}
 	{We can't use object methods directly when calling a new task so 
 	they have to be wrapped in a function that can}
