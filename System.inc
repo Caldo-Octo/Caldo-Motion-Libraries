@@ -55,10 +55,6 @@ procedure InitializeSubsystems;
         Gantry.ZMotor.SetMotor(on);
 	end;
 
-function UpdateLoadCellScaled(LoadCell_:TAnalogInput;ScalingFactor:double):double;
-    begin
-        UpdateLoadCellScaled:=LoadCell_.Value*ScalingFactor;
-    end;
 
 
 procedure ButtonHandler(Container:integer);
