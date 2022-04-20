@@ -33,7 +33,6 @@ type TContainer=object
 	procedure UpdateDecel(Decel_:single); forward;
 	procedure UpdateWeightSP(Weight:double); forward;
 	procedure UpdateRevolutions(Revs:double;ReverseRevs:double); forward;
-	procedure UpdateSettings; forward;
 	
 	
 end;
