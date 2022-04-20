@@ -26,6 +26,8 @@ var TGantry=object
 	AtOutfeedStaging:boolean;
 	CurrentPump:integer;
 	PreviousPumpY:double;
+	UpdateSettings:boolean;
+	Enable:boolean;
 	
 
 
@@ -223,5 +225,35 @@ var TGantry=object
 	function GantryReady:boolean;
 		begin
 			GantryReady:=XMotor.MotorIsOn and YMotor.MotorIsOn and Zmotor.MotorIsOn;
+		end;
+	
+	procedure EventHandler;
+    	var EnableMem:boolean;
+    	var SettingsMem:boolean;
+		begin
+			if Enable and (not EnableMem) then
+				begin
+					XMotor.SetMotor(on);
+					YMotor.SetMotor(on);
+					ZMotor.SetMotor(on);
+				end;
+			EnableMem:=Enable;
+
+			if UpdateSettings and (not UpdateSettingsMem) then
+				begin
+					XMotor.SetSpeed(XSpeed);
+					YMotor.SetSpeed(YSpeed);
+					ZMotor.SetSpeed(ZSpeed);
+					XMotor.SetAccel(XAccel);
+					YMotor.SetAccel(YAccel);
+					ZMotor.SetAccel(ZAccel);
+					XMotor.SetDecel(XDecel);
+					YMotor.SetDecel(YDecel);
+					ZMotor.SetDecel(ZDecel);
+					XMotor.SetCurrentTo(XCurrent);
+					YMotor.SetCurrentTo(YCurrent);
+					ZMotor.SetCurrentTo(ZCurrent);
+				end;
+			UpdateSettingsMem:=UpdateSettings;
 		end;
 end;

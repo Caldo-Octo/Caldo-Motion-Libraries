@@ -24,7 +24,7 @@ const ContainerCommand   = $35;
 const CurrentContainer    = $36;
 const DispenseRevolutions   = $37;
 const ReverseRevolutions    = $38;
-const _UserWord25_w    = $39;
+const GantryPattern    = $39;
 const _UserWord26_w    = $3A;
 const _UserWord27_w    = $3B;
 const _UserWord28_w    = $3C;
@@ -134,6 +134,7 @@ var mb_ContainerCommand:TModbusWord;
 var mb_CurrentContainer:TModbusWord;
 var mb_DispenseRevolutions:TModbusWord;
 var mb_ReverseRevolutions:TModbusWord;
+var mb_GantryPatern:TModbusWord;
 var mb_DispenseSpeed:TModbusSingle;
 var mb_ReverseSpeed:TModbusSingle;
 var mb_Accel:TModbusSingle;
@@ -188,7 +189,8 @@ procedure ContainerModbusCommsInit;
         mb_ContainerCommand.Initialize(UnusedModuleNo, ContainerCommand, 0);
         mb_CurrentContainer.Initialize(UnusedModuleNo, CurrentContainer, 0);
         mb_DispenseRevolutions.Initialize(UnusedModuleNo, DispenseRevolutions, 0);
-        mb_ReverseRevolutions.Initialize(UnusedModuleNo, DispenseRevolutions, 0);
+        mb_ReverseRevolutions.Initialize(UnusedModuleNo, ReverseRevolutions, 0);
+        mb_GantryPatern.Initialize(UnusedModuleNo, GantryPattern, 0);
         yield;
         mb_DispenseSpeed.Initialize(UnusedModuleNo, DispenseSpeed, 0);
         mb_ReverseSpeed.Initialize(UnusedModuleNo, ReverseSpeed, 0);
@@ -205,15 +207,75 @@ procedure ContainerModbusCommsInit;
     end;
     
 procedure MapModbusMMCInputs;
+    var Container:TContainer;
     begin
-        StartSignal:=mb_SysCommand.Value and $0A;{We're encoding 32 boolean bits in one word}
-        Octo.CurrentContainerNo:=mb_CurrentContainer; 
+        {Boolean variables are encoded in modbus words}
+        {System Modbus Words}
+        GlobaldStartSignal:=mb_SysCommand.Value and $0A;
+        GlobalContainerNo:=mb_CurrentContainer;
+        {Gantry Modbus Words}
+        {TODO: Add Gantry command masks}
+        Gantry.Enable:=mb_GantryCommand.Value and $0A;
+        Gantry.UpdateSettings:=mb_GantryCommand.Value and $0C;
+        Gantry.XSpeed:=mb_XSpeed.Value;
+        Gantry.YSpeed:=mb_YSpeed.Value;
+        Gantry.ZSpeed:=mb_ZSpeed.Value;
+        Gantry.XAccel:=mb_XAccel.Value;
+        Gantry.YAccel:=mb_YAccel.Value;
+        Gantry.ZAccel:=mb_ZAccel.Value;
+        Gantry.XDecel:=mb_XDecel.Value;
+        Gantry.YDecel:=mb_YDecel.Value;
+        Gantry.ZDecel:=mb_ZDecel.Value;
+        Gantry.XCurrent:=mb_XCurrent.Value;
+        Gantry.YCurrent:=mb_YCurrent.Value;
+        Gantry.ZCurrent:=mb_ZCurrent.Value;
+        Gantry.XPositionSP:=mb_XPositionSP.Value;
+        Gantry.YPositionSP:=mb_YPositionSP.Value;
+        Gantry.ZPositionSP:=mb_ZPositionSP.Value;
+        {Container Modbus Words} 
+        Container:=Containers[GlobalContainerNo];
+        {TODO: Add container command masks}
+        Container.ReverseEnabled:=mb_ContainerCommand.Value and $0A
+        Container.GantryPatternEnabled:=mb_ContainerCommand.Value and $0B;
+        Container.UpdateSettings:=mb_ContainerCommand.Value and $0C;
+        Container.Id:=mb_CurrentContainer;
+        Container.Revolutions:=mb_DispenseRevolutions.Value;
+        Container.ReverseRevolutions:=mb_ReverseRevolutions.Value;
+        Container.DispenseSpeed:=mb_DispenseSpeed.Value;
+        Container.ReverseSpeed:=mb_ReverseSpeed.Value;
+        Container.GantryPattern:=mb_GantryPatern.Value;
+        Container.Accel:=mb_Accel.Value;
+        Container.Decel:=mb_Decel.Value;
+        Container.Current:=mb_Current.Value;
+        Container.WeightSP:=mb_DispenseWeight.Value;
+        Container.XCoord:=mb_ContainerXCoord.Value;
+        Container.YCoord:=mb_ContainerYCoord.Value;
+        Container.ZCoord:=mb_ContainerZCoord.Value;
+        Container.StagingXCoord:=mb_ContainerStagingX.Value;
+        Container.StagingYCoord:=mb_ContainerStagingY.Value;
     end;
 
 procedure MapModbusMMCOutputs;
     begin
+        {System Modbus Outputs}
         mb_SysStatus.SetValue(SystemStatusEnum)
+        {Gantry Modbus Outputs}
+        mb_GantryStatus.SetValue(0){}
+        mb_XActualPosition.SetValue(Gantry.XMotor.ActualPosition)
+        mb_YActualPosition.SetValue(Gantry.YMotor.ActualPosition)
+        mb_ZActualPosition.SetValue(Gantry.ZMotor.ActualPosition)
+        mb_ContainerStatus.SetValue(0){}
     end;
+
+procedure SystemEventHandler;
+    var StartSignalMem:boolean;
+    begin
+        if GlobalStartSignal and (not StartSignalMem) then  
+            OctoMode.StartCycle;
+        StartSignalMem:=StartSignal;
+    end;
+
+
 
 procedure ModbusEventDispatcher;
     var StartSignalMem:boolean;
@@ -223,9 +285,8 @@ procedure ModbusEventDispatcher;
             yield;
                 begin
                     MapModbusMMCInputs;
-                    if StartSignal and (not StartSignalMem) then  
-                        Octo.StartCycle;
-                    StartSignalMem:=StartSignal;
+                    SystemEventHandler;
+                    Gantry.EventHandler;
                     MapModbusMMCOutputs;
                 end;
             end;

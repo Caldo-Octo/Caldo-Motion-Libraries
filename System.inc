@@ -27,13 +27,14 @@ const DenesterXPos = 1100;
 const DenesterYPos = 1128;
 const DenesterZPos = 7;
 {=================System Wide Variables============}
-var StartSignal:boolean;
+var GlobalStartSignal:boolean;
 var OctoMode:SystemMode;
 var Containers: array[1..28] of TContainer;
 var Gantry:TGantry;
 var LoadCellScaled:double;
 var OctoState:integer;
 var GantryEnabled:boolean;
+var GlobalContainerNo:integer;
 var SystemInAuto:boolean;
 var SystemReady:boolean;
 var ManualMode:boolean;

@@ -23,6 +23,7 @@ type TContainer=object
 	GantryPattern:integer;
 	GantryPatternEnabled:boolean;
 	BowlSpinEnabled:boolean;
+	UpdateSettings:boolean;
 	
 	procedure InitializePump(var Axis:TDistributedT1Axis;XPos:double;YPos:double;Identifier:integer;Speed:double); forward;
 	procedure InitializeAuger(var Axis:TDistributedT1Axis;XPos:double;YPos:double;Identifier:integer;Speed:double); forward;
@@ -32,6 +33,7 @@ type TContainer=object
 	procedure UpdateDecel(Decel_:single); forward;
 	procedure UpdateWeightSP(Weight:double); forward;
 	procedure UpdateRevolutions(Revs:double;ReverseRevs:double); forward;
+	procedure UpdateSettings; forward;
 	
 	
 end;
@@ -171,3 +173,6 @@ procedure TContainer.InitializeAuger(var Axis:TDistributedT1Axis;XPos:double;YPo
 			ReverseRevolutions:=ReverseRevs;
 		end;
 	
+
+
+
