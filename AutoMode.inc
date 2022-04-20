@@ -64,7 +64,7 @@ function SystemMode.MoveToContainer:boolean;
 					Gantry.JointAxisMove(Container)
 				else
 					begin
-						Gantry.MoveToStaging(Container]);
+						Gantry.MoveToStaging(Container);
 						Gantry.MoveToPump(Container);
 					end;
 			end
