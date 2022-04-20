@@ -60,7 +60,7 @@ function SystemMode.MoveToContainer:boolean;
 	begin
 		if Gantry.GantryReady and GantryEnabled then
 			begin
-				if CurrentContainerNo <= 20 then
+				if GlobalContainerNo <= 20 then
 					Gantry.JointAxisMove(Container)
 				else
 					begin
