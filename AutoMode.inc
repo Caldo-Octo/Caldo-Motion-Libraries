@@ -1,3 +1,22 @@
+{-----------------Task Wrapper Functions----------------------}
+	{We can't use object methods directly when calling a new task so 
+	they have to be wrapped in a function that can}
+	
+procedure DispenseWrapper;
+	begin
+		Containers[CurrentContainerNo].Dispense;
+	end;
+	
+procedure ZigPatternWrapper;
+	begin
+		Gantry.ZigZagPattern(5,5,5)
+	end;
+procedure LinePatternWrapper;
+	begin
+		Gantry.StraightLinePattern(5)
+	end;
+{-----------------End Task Wraper Functions------------------}	
+
 var SystemMode:object
 	InAuto:boolean;
 	InManual:boolean;
@@ -34,7 +53,7 @@ procedure SystemMode.SetContainer;
 		Container:=Containers[CurrentContainerNo];
 	end;
 
-function SystemMode.MoveToContainer:boolean;
+function SystemMode.MoveToContainer(Gantry:TGAntry):boolean;
 	begin
 		if Gantry.GantryReady and GantryEnabled then
 			begin
@@ -58,7 +77,7 @@ procedure SystemMode.SetWeightSP;
 		CurrentWeightSP:=Container.WeightSP+LoadCellScaled;
 	end;
 
-procedure SystemMode.StartGantryPattern;
+procedure SystemMode.StartGantryPattern(Container:TContainer);
 	begin
 		if Container.GantryPatternEnabled and GantryEnabled then
 			begin

@@ -3,8 +3,7 @@
 {=================System Wide Variables============}
 var GlobalStartSignal:boolean;
 var OctoMode:SystemMode;
-var Containers: array[1..28] of TContainer;
-var Gantry:TGantry;
+
 var LoadCellScaled:double;
 var OctoState:integer;
 var GantryEnabled:boolean;
@@ -64,24 +63,6 @@ function UpdateLoadCellScaled(LoadCell_:TAnalogInput;ScalingFactor:double):doubl
         UpdateLoadCellScaled:=LoadCell_.Value*ScalingFactor;
     end;
 
-{-----------------Task Wrapper Functions----------------------}
-	{We can't use object methods directly when calling a new task so 
-	they have to be wrapped in a function that can}
-	
-procedure DispenseWrapper;
-	begin
-		Containers[CurrentContainerNo].Dispense;
-	end;
-	
-procedure ZigPatternWrapper;
-	begin
-		Gantry.ZigZagPattern(5,5,5)
-	end;
-procedure LinePatternWrapper;
-	begin
-		Gantry.StraightLinePattern(5)
-	end;
-{-----------------End Task Wraper Functions------------------}	
 
 procedure ButtonHandler(Container:integer);
 	var DispenseTaskPresent:boolean;
