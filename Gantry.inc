@@ -1,3 +1,31 @@
+const Col1Coord = 151;
+const Col2Coord = 301;
+const Col3Coord = 465;
+const Col4Coord = 625;
+const Col5Coord = 780;
+const Row1Coord = 1464;
+const Row2Coord = 987.5;
+const Row3Coord = 500;
+const Row4Coord = 18;
+const ZDispensePos = 9;
+const AugDefaultSpeed = 20;
+const LPumpDefaultX = -75;
+const RPumpDefaultX = -55;
+const PumpsDefaultSpeed = 80;
+const OutfeedXPos = 1084;
+const OutfeedYPos = 890.42;
+const OutfeedZPos = 3.6;
+const PumpStagingX = 100.0;
+const DenesterStagingX = 800;
+const DenesterStagingY = 1128;
+const DenesterStagingZ = 0;
+const OutfeedStagingX = 924;
+const OutfeedStagingY = 942;
+const OutfeedStagingZ = 3.6;
+const DenesterXPos = 1100;
+const DenesterYPos = 1128;
+const DenesterZPos = 7;
+
 var TGantry:object
 	XMotor:T1Axis;
 	YMotor:T1Axis;
