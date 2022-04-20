@@ -257,7 +257,7 @@ var TGantry:object
 	
 	procedure EventHandler;
     	var EnableMem:boolean;
-    	var SettingsMem:boolean;
+    	var UpdateSettingsMem:boolean;
 		begin
 			if Enable and (not EnableMem) then
 				begin
