@@ -1,4 +1,4 @@
-var TGantry=object
+var TGantry:object
 	XMotor:T1Axis;
 	YMotor:T1Axis;
 	ZMotor:T1Axis;

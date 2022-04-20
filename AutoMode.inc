@@ -1,4 +1,4 @@
-var SystemMode=object
+var SystemMode:object
 	InAuto:boolean;
 	InManual:boolean;
 	CurrentWeightSP:double;
