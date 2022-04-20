@@ -1,3 +1,5 @@
+var Containers: array[1..28] of TContainer;
+var Gantry:TGantry;
 {-----------------Task Wrapper Functions----------------------}
 	{We can't use object methods directly when calling a new task so 
 	they have to be wrapped in a function that can}
@@ -53,7 +55,7 @@ procedure SystemMode.SetContainer;
 		Container:=Containers[CurrentContainerNo];
 	end;
 
-function SystemMode.MoveToContainer(Gantry:TGAntry):boolean;
+function SystemMode.MoveToContainer:boolean;
 	begin
 		if Gantry.GantryReady and GantryEnabled then
 			begin
@@ -77,7 +79,7 @@ procedure SystemMode.SetWeightSP;
 		CurrentWeightSP:=Container.WeightSP+LoadCellScaled;
 	end;
 
-procedure SystemMode.StartGantryPattern(Container:TContainer);
+procedure SystemMode.StartGantryPattern;
 	begin
 		if Container.GantryPatternEnabled and GantryEnabled then
 			begin
