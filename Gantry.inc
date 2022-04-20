@@ -278,9 +278,9 @@ var TGantry:object
 					XMotor.SetDecel(XDecel);
 					YMotor.SetDecel(YDecel);
 					ZMotor.SetDecel(ZDecel);
-					XMotor.SetCurrent(XCurrent);
+					{XMotor.SetCurrent(XCurrent);
 					YMotor.SetCurrent(YCurrent);
-					ZMotor.SetCurrent(ZCurrent);
+					ZMotor.SetCurrent(ZCurrent);}
 				end;
 			UpdateSettingsMem:=UpdateSettings;
 		end;
