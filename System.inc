@@ -2,12 +2,9 @@
 
 {=================System Wide Variables============}
 var GlobalStartSignal:boolean;
-var OctoMode:SystemMode;
-
 var LoadCellScaled:double;
 var OctoState:integer;
 var GantryEnabled:boolean;
-var GlobalContainerNo:integer;
 var SystemInAuto:boolean;
 var SystemReady:boolean;
 var ManualMode:boolean;
@@ -72,8 +69,8 @@ procedure ButtonHandler(Container:integer);
 		begin
 			if Container <= 28 then
 				begin
-                    OctoMode.CurrentContainerNo:=Container;
-					OctoMode.StartCycle;
+                    SystemMode.CurrentContainerNo:=Container;
+					SystemMode.StartCycle;
 				end
 			else if Container = 29 then
 				begin
