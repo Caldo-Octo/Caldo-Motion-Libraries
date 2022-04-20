@@ -6,7 +6,7 @@ var GlobalContainerNo:integer;
 	
 procedure DispenseWrapper;
 	begin
-		Containers[CurrentContainerNo].Dispense;
+		Containers[GlobalContainerNo].Dispense;
 	end;
 	
 procedure ZigPatternWrapper;
@@ -24,7 +24,6 @@ var SystemMode:object
 	InManual:boolean;
 	CurrentWeightSP:double;
 	DispensePermissive:boolean;
-	CurrentContainerNo:integer;
 	GantryError:boolean;
 	ManualDispenseComplete:boolean;
 	Container:TContainer;
@@ -52,7 +51,7 @@ procedure SystemMode.ToggleMode;
 	end;
 procedure SystemMode.SetContainer;
 	begin
-		Container:=Containers[CurrentContainerNo];
+		Container:=Containers[GlobalContainerNo];
 	end;
 
 function SystemMode.MoveToContainer:boolean;
