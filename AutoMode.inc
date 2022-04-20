@@ -24,6 +24,7 @@ var SystemMode:object
 	InManual:boolean;
 	CurrentWeightSP:double;
 	DispensePermissive:boolean;
+	GantryEnabled:boolean;
 	GantryError:boolean;
 	ManualDispenseComplete:boolean;
 	Container:TContainer;
