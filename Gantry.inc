@@ -26,7 +26,7 @@ const DenesterXPos = 1100;
 const DenesterYPos = 1128;
 const DenesterZPos = 7;
 
-var Gantry=object
+var Gantry:object
 	XMotor:T1Axis;
 	YMotor:T1Axis;
 	ZMotor:T1Axis;
