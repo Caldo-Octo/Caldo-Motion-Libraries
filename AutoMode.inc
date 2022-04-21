@@ -19,9 +19,9 @@ procedure LinePatternWrapper;
 	end;
 {-----------------End Task Wraper Functions------------------}	
 
-function UpdateLoadCellScaled(LoadCell_:TAnalogInput;ScalingFactor:double):double;
+function UpdateLoadCellScaled(LoadCell:TAnalogInput;ScalingFactor:double):double;
     begin
-        UpdateLoadCellScaled:=LoadCell_.Value*ScalingFactor;
+        UpdateLoadCellScaled:=(LoadCell.Value)*ScalingFactor;
     end;
 
 
