@@ -113,7 +113,7 @@ procedure SystemMode.AutoDispense;
 					begin
 						yield;
 						begin
-						LoadCellScaled:=UpdateLoadCellScaled;
+						LoadCellScaled:=UpdateLoadCellScaled(1);
 						end;
 					end;
 				Container.DispensePermissive:=false;
