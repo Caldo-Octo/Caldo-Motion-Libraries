@@ -21,7 +21,7 @@ procedure LinePatternWrapper;
 
 function UpdateLoadCellScaled(LoadCell:TAnalogInput;ScalingFactor:double):double;
     begin
-        UpdateLoadCellScaled:=(LoadCell.Value)*ScalingFactor;
+        UpdateLoadCellScaled:=(LoadCell)*ScalingFactor;
     end;
 
 
