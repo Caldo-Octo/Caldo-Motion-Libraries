@@ -41,7 +41,7 @@ var SystemMode:object
 	procedure SetWeightSP; forward;
 	procedure StartGantryPattern; forward;
 	procedure AutoDispense; forward;
-	procedure ManualDispese; forward;
+	procedure ManualDispense; forward;
 	procedure StartCycle; forward;
 end;
 procedure SystemMode.ToggleMode;
