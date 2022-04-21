@@ -40,7 +40,7 @@ var SystemMode:object
 	function MoveToContainer:boolean; forward;
 	procedure SetWeightSP; forward;
 	procedure StartGantryPattern; forward;
-	procedure AutoDispese; forward;
+	procedure AutoDispense; forward;
 	procedure ManualDispese; forward;
 	procedure StartCycle; forward;
 end;
