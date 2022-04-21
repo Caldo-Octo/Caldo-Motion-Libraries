@@ -9,7 +9,7 @@ var SystemInAuto:boolean;
 var SystemReady:boolean;
 var ManualMode:boolean;
 var SystemStatusEnum:integer;
-var LoadCell:TAnalogInput;
+
 
 procedure InitializeSubsystems;
 	begin

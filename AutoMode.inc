@@ -1,5 +1,6 @@
 var Containers: array[1..28] of TContainer;
 var GlobalContainerNo:integer;
+var LoadCell:TAnalogInput;
 {-----------------Task Wrapper Functions----------------------}
 	{We can't use object methods directly when calling a new task so 
 	they have to be wrapped in a function that can}
@@ -19,7 +20,7 @@ procedure LinePatternWrapper;
 	end;
 {-----------------End Task Wraper Functions------------------}	
 
-function UpdateLoadCellScaled(LoadCell:TAnalogInput;ScalingFactor:double):double;
+function UpdateLoadCellScaled(ScalingFactor:double):double;
     begin
         UpdateLoadCellScaled:=LoadCell.Voltage*ScalingFactor;
     end;
@@ -82,7 +83,7 @@ function SystemMode.MoveToContainer:boolean;
 procedure SystemMode.SetWeightSP;
 	var LoadCellScaled:double;
 	begin
-		LoadCellScaled := UpdateLoadCellScaled;
+		LoadCellScaled := UpdateLoadCellScaled(1);
 		CurrentWeightSP:=Container.WeightSP+LoadCellScaled;
 	end;
 
