@@ -271,7 +271,7 @@ procedure SystemEventHandler;
     var StartSignalMem:boolean;
     begin
         if GlobalStartSignal and (not StartSignalMem) then  
-            OctoMode.StartCycle;
+            SystemMode.StartCycle;
         StartSignalMem:=StartSignal;
     end;
 
