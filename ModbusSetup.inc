@@ -308,7 +308,7 @@ procedure ModbusEventDispatcher;
                 begin
                     MapModbusMMCInputs;
                     SystemEventHandler;
-                    {Gantry.EventHandler;}
+                    Gantry.EventHandler;
                     MapModbusMMCOutputs;
                 end;
             end;
