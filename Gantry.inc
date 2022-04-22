@@ -31,6 +31,9 @@ var Gantry:object
 	YMotor:T1Axis;
 	ZMotor:T1Axis;
 	ZEncoder:T1Axis; {This is a virtual axis necessary for Z's encoder}
+	XPositionSP:single;
+	YPositionSP:single;
+	ZPositionSP:single;
 	XSpeed:single;
 	YSpeed:single;
 	ZSpeed:single;
