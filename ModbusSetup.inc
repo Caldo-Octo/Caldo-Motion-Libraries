@@ -265,6 +265,7 @@ procedure MapModbusMMCOutputs;
         mb_YActualPosition.SetValue(Gantry.YMotor.ActualPosition)
         mb_ZActualPosition.SetValue(Gantry.ZMotor.ActualPosition)
         mb_ContainerStatus.SetValue(0){}
+        mb_LoadCell.SetValue(LoadCell.Voltage);
     end;
 
 procedure Launcher;
@@ -276,10 +277,7 @@ procedure SystemEventHandler;
     begin
         if (mb_SysCommand.Value = 1) then
             begin
-            SystemMode.InManual:=true;
-            GlobalManualDispenseComplete:=false;
             GlobalStartSignal:=true;
-            
             mb_SysCommand.SetValue(2);
             end;
         if (mb_SysCommand.Value = 4) then
