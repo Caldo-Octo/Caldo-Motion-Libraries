@@ -63,11 +63,11 @@ procedure ButtonHandler(Container:integer);
 	DispenseTaskPresent:=TaskPresent(TaskAddr(DispenseWrapper));
 	if not DispenseTaskPresent and SystemMode.InManual then
 		begin
-			if GlobalContainerNo <= 28 then
+			if (GlobalContainerNo <= 28) then
 				begin
 					SystemMode.StartCycle;
 				end
-			else if GlobalContainerNo = 29 then
+			else if (GlobalContainerNo = 29) then
 				begin
 					Gantry.MoveToDenesterStaging;
 					Gantry.MoveToDenester;
@@ -76,13 +76,13 @@ procedure ButtonHandler(Container:integer);
 					Gantry.ZMotor.MoveTo(0);
 					Gantry.MoveToDenesterStaging;
 				end
-			else if GlobalContainerNo = 30 then
+			else if (GlobalContainerNo = 30) then
 				begin
 					Gantry.MoveToOutfeedStaging;
 					Delay(1000);
 					Gantry.MoveToOutfeed;
 				end
-			else if GlobalContainerNo = 40 then
+			else if (GlobalContainerNo = 40) then
 				begin
 					Gantry.GoToIdlePos;
 				end;
