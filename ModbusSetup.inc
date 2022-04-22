@@ -69,7 +69,7 @@ const _UserSingle32_s  = $7F;
 const _UserSingleLast_s= $7F;
 
 {Modbus Constants - Doubles}
-const LoadCell   = $81;
+const _UserDouble1_   = $81;
 const _UserDouble2_d   = $85;
 const _UserDouble3_d   = $89;
 const _UserDouble4_d   = $8D;
