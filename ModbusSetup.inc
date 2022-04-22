@@ -290,9 +290,10 @@ procedure SystemEventHandler;
             GlobalStartSignal:=false;
             end;
         
+        if GlobalManualDispenseComplete then
+            mb_SysCommand.SetValue(0);
+
     end;
-
-
 
 
 procedure ModbusEventDispatcher;
@@ -302,7 +303,6 @@ procedure ModbusEventDispatcher;
         GantryModbusCommsInit;
         ContainerModbusCommsInit;
         InitializeSubsystems;
-        SystemMode.InManual:=true;
         while true do
             begin
             yield;
