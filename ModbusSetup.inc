@@ -271,7 +271,10 @@ procedure SystemEventHandler;
     var StartSignalMem:boolean;
     begin
         if (mb_SysCommand.Value = 1) then
+            begin
             GlobalStartSignal:=true;
+            mb.SystemCommand.SetValue(2);
+            end;
         if GlobalStartSignal and (not StartSignalMem) then  
             SystemMode.StartCycle;
         StartSignalMem:=GlobalStartSignal;
