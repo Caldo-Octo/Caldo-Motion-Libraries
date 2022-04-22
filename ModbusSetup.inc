@@ -211,12 +211,12 @@ procedure MapModbusMMCInputs;
     begin
         {Boolean variables are encoded in modbus words}
         {System Modbus Words}
-        GlobalStartSignal:=mb_SysCommand.Value and $000A;
+        GlobalStartSignal:=mb_SysCommand.Value and $00A;
         GlobalContainerNo:=mb_CurrentContainer;
         {Gantry Modbus Words}
         {TODO: Add Gantry command masks}
-        Gantry.Enable:=mb_GantryCommand.Value and $000A;
-        Gantry.UpdateSettings:=mb_GantryCommand.Value and $000C;
+        Gantry.Enable:=mb_GantryCommand.Value and $0A;
+        Gantry.UpdateSettings:=mb_GantryCommand.Value and $0C;
         Gantry.XSpeed:=mb_XSpeed.Value;
         Gantry.YSpeed:=mb_YSpeed.Value;
         Gantry.ZSpeed:=mb_ZSpeed.Value;
@@ -235,9 +235,9 @@ procedure MapModbusMMCInputs;
         {Container Modbus Words} 
         Container:=Containers[GlobalContainerNo];
         {TODO: Add container command masks}
-        Container.ReverseEnabled:=mb_ContainerCommand.Value and $000A
-        Container.GantryPatternEnabled:=mb_ContainerCommand.Value and $000B;
-        Container.UpdateSettings:=mb_ContainerCommand.Value and $000C;
+        Container.ReverseEnabled:=mb_ContainerCommand.Value and $0A
+        Container.GantryPatternEnabled:=mb_ContainerCommand.Value and $0B;
+        Container.UpdateSettings:=mb_ContainerCommand.Value and $0C;
         Container.Id:=mb_CurrentContainer;
         Container.Revolutions:=mb_DispenseRevolutions.Value;
         Container.ReverseRevolutions:=mb_ReverseRevolutions.Value;
