@@ -282,6 +282,7 @@ procedure SystemEventHandler;
         if (mb_SysCommand.Value = 4) then
             begin
             SystemMode.ManualDispenseComplete:=true;
+            ManualDispenseComplete:=true;
             mb_SysCommand.SetValue(0);
             end;
 
