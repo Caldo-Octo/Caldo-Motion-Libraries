@@ -291,7 +291,7 @@ procedure SystemEventHandler;
             end;
         
         if GlobalManualDispenseComplete then
-            mb_SysCommand.SetValue(0);
+            mb_SysCommand.SetValue(4);
 
     end;
 
