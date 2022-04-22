@@ -235,7 +235,7 @@ procedure MapModbusMMCInputs;
         {Container Modbus Words} 
         Container:=Containers[GlobalContainerNo];
         {TODO: Add container command masks}
-        Container.ReverseEnabled:=mb_ContainerCommand.Value and $0A
+        Container.ReverseEnabled:=mb_ContainerCommand.Value and $000A
         Container.GantryPatternEnabled:=mb_ContainerCommand.Value and $0B;
         Container.UpdateSettings:=mb_ContainerCommand.Value and $0C;
         Container.Id:=mb_CurrentContainer;
