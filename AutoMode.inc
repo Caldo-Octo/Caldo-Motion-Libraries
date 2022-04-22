@@ -136,7 +136,7 @@ procedure SystemMode.AutoDispense;
 				BeginTask(TaskAddr(DispenseWrapper));
 				while not GlobalManualDispenseComplete do
 						yield;
-				Container.DispensePermissive:=false;
+				Containers[GlobalContainerNo].DispensePermissive:=false;
 				{Fix this later, Dispense Permissive should also Stop gantry pattern}
 				while (TaskPresent(TaskAddr(DispenseWrapper)) or TaskPresent(TaskAddr(ZigPatternWrapper)) or TaskPresent(TaskAddr(LinePatternWrapper))) do
 					yield;
