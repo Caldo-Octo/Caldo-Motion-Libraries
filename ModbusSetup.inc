@@ -279,7 +279,7 @@ procedure SystemEventHandler;
             begin
             GlobalStartSignal:=false;
             SystemMode.ManualDispenseComplete:=true;
-            mb.SysCommand.SetValue(0);
+            mb_SysCommand.SetValue(0);
             end;
 
         if GlobalStartSignal and (not StartSignalMem) then  
