@@ -1,7 +1,7 @@
 const UnusedModuleNo = $10;
 {Modbus Constants - Words}
 const SystemStatus     = $21;
-const SystemCommand     = $22;
+const SystemCommand    = $22;
 const SystemState     = $23;
 const _UserWord4_w     = $24;
 const _UserWord5_w     = $25;
@@ -69,7 +69,7 @@ const _UserSingle32_s  = $7F;
 const _UserSingleLast_s= $7F;
 
 {Modbus Constants - Doubles}
-const _UserDouble1_   = $81;
+const LoadCellConst   = $81;
 const _UserDouble2_d   = $85;
 const _UserDouble3_d   = $89;
 const _UserDouble4_d   = $8D;
@@ -153,7 +153,7 @@ procedure SystemModbusCommsInit;
     begin
         mb_SysStatus.Initialize(UnusedModuleNo, SystemStatus, 0);
         mb_SysCommand.Initialize(UnusedModuleNo, SystemCommand, 0);
-        mb_LoadCell.Initialize(UnusedModuleNo, LoadCell, 0);
+        mb_LoadCell.Initialize(UnusedModuleNo, LoadCellConst, 0);
         yield;
     end;
 
