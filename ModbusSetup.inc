@@ -122,12 +122,12 @@ var mb_ZDecel:TModbusSingle;
 var mb_XCurrent:TModbusSingle;
 var mb_YCurrent:TModbusSingle;
 var mb_ZCurrent:TModbusSingle;
-var mb_XPositionSP:TModbusDouble;
-var mb_YPositionSP:TModbusDouble;
-var mb_ZPositionSP:TModbusDouble;
-var mb_XActualPosition:TModbusDouble;
-var mb_YActualPosition:TModbusDouble;
-var mb_ZActualPosition:TModbusDouble;
+var mb_XPositionSP:TModbusSingle;
+var mb_YPositionSP:TModbusSingle;
+var mb_ZPositionSP:TModbusSingle;
+var mb_XActualPosition:TModbusSingle;
+var mb_YActualPosition:TModbusSingle;
+var mb_ZActualPosition:TModbusSingle;
 {Container Communication}
 var mb_ContainerStatus:TModbusWord;
 var mb_ContainerCommand:TModbusWord;
@@ -140,12 +140,12 @@ var mb_ReverseSpeed:TModbusSingle;
 var mb_Accel:TModbusSingle;
 var mb_Decel:TModbusSingle;
 var mb_Current:TModbusSingle;
-var mb_DispenseWeight:TModbusDouble;
-var mb_ContainerXCoord:TModbusDouble;
-var mb_ContainerYCoord:TModbusDouble;
-var mb_ContainerZCoord:TModbusDouble;
-var mb_ContainerStagingX:TModbusDouble;
-var mb_ContainerStagingY:TModbusDouble;
+var mb_DispenseWeight:TModbusSingle;
+var mb_ContainerXCoord:TModbusSingle;
+var mb_ContainerYCoord:TModbusSingle;
+var mb_ContainerZCoord:TModbusSingle;
+var mb_ContainerStagingX:TModbusSingle;
+var mb_ContainerStagingY:TModbusSingle;
 
 
 
