@@ -302,6 +302,7 @@ procedure ModbusEventDispatcher;
         SystemModbusCommsInit;
         GantryModbusCommsInit;
         ContainerModbusCommsInit;
+        InitializeSubsystems;
         while true do
             begin
             yield;
