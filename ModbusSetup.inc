@@ -238,7 +238,7 @@ procedure MapModbusMMCInputs;
         {Container.ReverseEnabled:=mb_ContainerCommand.Value and $0A
         Container.GantryPatternEnabled:=mb_ContainerCommand.Value and $0B;
         Container.UpdateSettings:=mb_ContainerCommand.Value and $0C;}
-        Container.Id:=mb_CurrentContainer;
+        Container.Id:=mb_CurrentContainer.Value;
         Container.Revolutions:=mb_DispenseRevolutions.Value;
         Container.ReverseRevolutions:=mb_ReverseRevolutions.Value;
         Container.DispenseSpeed:=mb_DispenseSpeed.Value;
