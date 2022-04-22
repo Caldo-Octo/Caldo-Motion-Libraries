@@ -276,7 +276,10 @@ procedure SystemEventHandler;
     begin
         if (mb_SysCommand.Value = 1) then
             begin
+            SystemMode.InManual:=true;
+            GlobalManualDispenseComplete:=false;
             GlobalStartSignal:=true;
+            
             mb_SysCommand.SetValue(2);
             end;
         if (mb_SysCommand.Value = 4) then
