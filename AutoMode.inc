@@ -144,7 +144,7 @@ procedure SystemMode.AutoDispense;
 			GantryError:=true;
 	end;
 
-procedure SystemMode.StartCycle:
+procedure SystemMode.StartCycle;
 	begin
 		SetContainer;
 		if SystemMode.InAuto then
