@@ -229,9 +229,9 @@ procedure MapModbusMMCInputs;
         Gantry.XCurrent:=mb_XCurrent.Value;
         Gantry.YCurrent:=mb_YCurrent.Value;
         Gantry.ZCurrent:=mb_ZCurrent.Value;
-        Gantry.XPositionSP:=mb_XPositionSP.Value;
+        {Gantry.XPositionSP:=mb_XPositionSP.Value;
         Gantry.YPositionSP:=mb_YPositionSP.Value;
-        Gantry.ZPositionSP:=mb_ZPositionSP.Value;
+        Gantry.ZPositionSP:=mb_ZPositionSP.Value;}
         {Container Modbus Words} 
         Container:=Containers[GlobalContainerNo];
         {TODO: Add container command masks}
@@ -248,11 +248,11 @@ procedure MapModbusMMCInputs;
         Container.Decel:=mb_Decel.Value;
         Container.Current:=mb_Current.Value;
         Container.WeightSP:=mb_DispenseWeight.Value;
-        Container.XCoord:=mb_ContainerXCoord.Value;
+        {Container.XCoord:=mb_ContainerXCoord.Value;
         Container.YCoord:=mb_ContainerYCoord.Value;
         Container.ZCoord:=mb_ContainerZCoord.Value;
         Container.StagingXCoord:=mb_ContainerStagingX.Value;
-        Container.StagingYCoord:=mb_ContainerStagingY.Value;
+        Container.StagingYCoord:=mb_ContainerStagingY.Value;}
     end;
 
 procedure MapModbusMMCOutputs;
@@ -275,6 +275,13 @@ procedure SystemEventHandler;
             GlobalStartSignal:=true;
             mb.SystemCommand.SetValue(2);
             end;
+        if (mb_SysCommand.Value = 4) then
+            begin
+            GlobalStartSignal:=false;
+            SystemMode.ManualDispenseComplete:=true;
+            mb.SystemCommand.SetValue(0);
+            end;
+
         if GlobalStartSignal and (not StartSignalMem) then  
             SystemMode.StartCycle;
         StartSignalMem:=GlobalStartSignal;

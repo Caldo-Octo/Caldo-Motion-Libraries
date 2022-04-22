@@ -23,16 +23,12 @@ type TContainer=object
 	GantryPattern:integer;
 	GantryPatternEnabled:boolean;
 	BowlSpinEnabled:boolean;
-	UpdateSettings:boolean;
 	
 	procedure InitializePump(var Axis:TDistributedT1Axis;XPos:double;YPos:double;Identifier:integer;Speed:double); forward;
 	procedure InitializeAuger(var Axis:TDistributedT1Axis;XPos:double;YPos:double;Identifier:integer;Speed:double); forward;
 	procedure Dispense; forward;
-	procedure UpdateSpeed(Speed:single); forward;
-	procedure UpdateAccel(Accel_:single); forward;
-	procedure UpdateDecel(Decel_:single); forward;
-	procedure UpdateWeightSP(Weight:double); forward;
-	procedure UpdateRevolutions(Revs:double;ReverseRevs:double); forward;
+	procedure UpdateSettings; forward;
+
 	
 	
 end;
@@ -148,28 +144,10 @@ procedure TContainer.InitializeAuger(var Axis:TDistributedT1Axis;XPos:double;YPo
 			end;
 	end;
 	
-	procedure TContainer.UpdateSpeed(Speed:single); 
+	procedure TContainer.UpdateSettings; 
 		begin
-			DispenseSpeed:=Speed;
-		end;
-
-	procedure TContainer.UpdateAccel(Accel_:single);
-		begin
-			Accel:=Accel_;
-		end;
-
-	procedure TContainer.UpdateDecel(Decel_:single);
-		begin
-			Decel:=Decel_;
-		end;
-	procedure TContainer.UpdateWeightSP(Weight:double);
-		begin
-			WeightSP:=Weight;
-		end;
-	procedure TContainer.UpdateRevolutions(Revs:double; ReverseRevs:double);
-		begin
-			Revolutions:=Revs;
-			ReverseRevolutions:=ReverseRevs;
+			Motor.SetAccel(Accel);
+			Motor.SetDecel(Decel);
 		end;
 	
 
