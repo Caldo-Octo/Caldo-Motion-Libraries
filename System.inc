@@ -61,7 +61,7 @@ procedure ButtonHandler(Container:integer);
 	var DispenseTaskPresent:boolean;
 	begin
 	DispenseTaskPresent:=TaskPresent(TaskAddr(DispenseWrapper));
-	if not DispenseTaskPresent and OctoMode.InManual then
+	if not DispenseTaskPresent and SystemMode.InManual then
 		begin
 			if Container <= 28 then
 				begin
