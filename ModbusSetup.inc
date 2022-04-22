@@ -273,13 +273,13 @@ procedure SystemEventHandler;
         if (mb_SysCommand.Value = 1) then
             begin
             GlobalStartSignal:=true;
-            mb_SystemCommand.SetValue(2);
+            mb_SysCommand.SetValue(2);
             end;
         if (mb_SysCommand.Value = 4) then
             begin
             GlobalStartSignal:=false;
             SystemMode.ManualDispenseComplete:=true;
-            mb.SystemCommand.SetValue(0);
+            mb.SysCommand.SetValue(0);
             end;
 
         if GlobalStartSignal and (not StartSignalMem) then  
