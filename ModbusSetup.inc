@@ -267,24 +267,30 @@ procedure MapModbusMMCOutputs;
         mb_ContainerStatus.SetValue(0){}
     end;
 
+procedure Launcher;
+    begin
+        SystemMode.StartCycle;
+    end;
 procedure SystemEventHandler;
     var StartSignalMem:boolean;
     begin
         if (mb_SysCommand.Value = 1) then
             begin
-            {GlobalStartSignal:=true;}
+            GlobalStartSignal:=true;
             mb_SysCommand.SetValue(2);
             end;
         if (mb_SysCommand.Value = 4) then
             begin
-            GlobalStartSignal:=false;
             SystemMode.ManualDispenseComplete:=true;
             mb_SysCommand.SetValue(0);
             end;
 
-        if GlobalStartSignal and (not StartSignalMem) then  
-            SystemMode.StartCycle;
-        StartSignalMem:=GlobalStartSignal;
+        if GlobalStartSignal then
+            begin  
+            BeginTask(TaskAddr(Launcher));
+            GlobalStartSignal:=false;
+            end;
+        
     end;
 
 
