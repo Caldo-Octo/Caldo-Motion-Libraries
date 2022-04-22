@@ -300,8 +300,8 @@ procedure ModbusEventDispatcher;
             yield;
                 begin
                     MapModbusMMCInputs;
-                    SystemEventHandler;
-                    Gantry.EventHandler;
+                    {SystemEventHandler;
+                    Gantry.EventHandler;}
                     MapModbusMMCOutputs;
                 end;
             end;
