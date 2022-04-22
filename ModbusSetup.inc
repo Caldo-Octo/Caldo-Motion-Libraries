@@ -211,7 +211,7 @@ procedure MapModbusMMCInputs;
     begin
         {Boolean variables are encoded in modbus words}
         {System Modbus Words}
-        GlobaldStartSignal:=mb_SysCommand.Value and $0A;
+        GlobalStartSignal:=mb_SysCommand.Value and $0A;
         GlobalContainerNo:=mb_CurrentContainer;
         {Gantry Modbus Words}
         {TODO: Add Gantry command masks}
