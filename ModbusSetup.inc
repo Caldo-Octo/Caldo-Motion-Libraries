@@ -302,6 +302,7 @@ procedure ModbusEventDispatcher;
         GantryModbusCommsInit;
         ContainerModbusCommsInit;
         InitializeSubsystems;
+        SystemMode.InManual:=true;
         while true do
             begin
             yield;
