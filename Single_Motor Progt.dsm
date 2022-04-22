@@ -1,0 +1,119 @@
+Douloi Block Program
+Version 1.41
+1
+TAxisGroup
+0 {reference}
+TestMotor
+1
+0
+1
+1
+1
+1
+1
+1
+ 1.00000000000000E+0000
+ 1.00000000000000E+0001
+ 1.00000000000000E+0001
+FALSE
+ 5.12000000000000E+0004
+256
+FALSE
+0
+1
+TControlPlate
+1 {reference}
+Main
+100 100
+400 300
+-16777211
+Tahoma
+1
+-16777208
+8
+0
+6
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseDown;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseDrag;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseUp;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure DoubleClickLeft;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure Setup;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+function  CanClose:boolean;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+nil
+0 0  diagnostic marker
+a Title
+0
+2
+TUserType
+0 {reference}
+FALSE
+3
+Type TDistributedT1Axis=object
+  virtial:boolean;
+  end;
+TRUE
+TUserIncludeFile
+0 {reference}
+FALSE
+Containers.inc
+
+Containers.inc
+-2134376448
+TRUE
+FALSE
+1
+2
+1000
+FALSE
+0
+1
+
+0

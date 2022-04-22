@@ -10933,7 +10933,7 @@ TControlStatic
 0 {reference}
 XMotorLimit
 105 70
-190 93
+190 98
 -16777211
 Tahoma
 1
@@ -11767,10 +11767,10 @@ FALSE
 TRUE
 FALSE
 1
-1
+0
 2000
 TRUE
 0
-274
+51
 C:\Program Files (x86)\Snap2Motion\For_MMC\Resources\Remote Networks\MMC_Network.enc
 0
