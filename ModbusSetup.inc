@@ -270,6 +270,8 @@ procedure MapModbusMMCOutputs;
 procedure SystemEventHandler;
     var StartSignalMem:boolean;
     begin
+        yield;
+    begin
         if (mb_SysCommand.Value = 1) then
             begin
             GlobalStartSignal:=true;
@@ -286,6 +288,7 @@ procedure SystemEventHandler;
             SystemMode.StartCycle;
         StartSignalMem:=GlobalStartSignal;
     end;
+    end;
 
 
 
@@ -300,8 +303,8 @@ procedure ModbusEventDispatcher;
             yield;
                 begin
                     MapModbusMMCInputs;
-                    {SystemEventHandler;
-                    Gantry.EventHandler;}
+                    SystemEventHandler;
+                    {Gantry.EventHandler;}
                     MapModbusMMCOutputs;
                 end;
             end;
