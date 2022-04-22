@@ -273,7 +273,7 @@ procedure SystemEventHandler;
         if (mb_SysCommand.Value = 1) then
             begin
             GlobalStartSignal:=true;
-            mb.SystemCommand.SetValue(2);
+            mb_SystemCommand.SetValue(2);
             end;
         if (mb_SysCommand.Value = 4) then
             begin
@@ -292,6 +292,9 @@ procedure SystemEventHandler;
 procedure ModbusEventDispatcher;
     var StartSignalMem:boolean;
     begin
+        SystemModbusCommsInit;
+        GantryModbusCommsInit;
+        ContainerModbusCommsInit;
         while true do
             begin
             yield;
