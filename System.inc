@@ -13,7 +13,7 @@ var SystemStatusEnum:integer;
 
 procedure InitializeSubsystems;
 	begin
-		LoadCell.Initialize(16,1);
+		{LoadCell.Initialize(16,1);}
 		{We need to change the Remote_Motor_Names eventually}
 		Containers[1].InitializeAuger(Remote_Motor_27,Col1Coord,Row1Coord,1,AugDefaultSpeed);
 		Containers[2].InitializeAuger(Remote_Motor_28,Col2Coord,Row1Coord,2,AugDefaultSpeed);

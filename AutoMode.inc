@@ -1,6 +1,6 @@
 var Containers: array[1..28] of TContainer;
 var GlobalContainerNo:integer;
-var LoadCell:TAnalogInput;
+{var LoadCell:TAnalogInput;}
 var GlobalManualDispenseComplete:boolean;
 {-----------------Task Wrapper Functions----------------------}
 	{We can't use object methods directly when calling a new task so 
