@@ -212,7 +212,7 @@ procedure MapModbusMMCInputs;
         {Boolean variables are encoded in modbus words}
         {System Modbus Words}
         {GlobalStartSignal:=mb_SysCommand.Value and $00A;}
-        GlobalContainerNo:=mb_CurrentContainer;
+        GlobalContainerNo:=mb_CurrentContainer.Value;
         {Gantry Modbus Words}
         {TODO: Add Gantry command masks}
         {Gantry.Enable:=mb_GantryCommand.Value and $0A;}
