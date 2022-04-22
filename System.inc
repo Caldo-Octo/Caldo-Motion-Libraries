@@ -72,7 +72,6 @@ procedure ButtonHandler(Container:integer);
 					Gantry.MoveToDenesterStaging;
 					Gantry.MoveToDenester;
 					Delay(4000);
-					Denester.SetValue(0);
 					Gantry.ZMotor.MoveTo(0);
 					Gantry.MoveToDenesterStaging;
 				end
