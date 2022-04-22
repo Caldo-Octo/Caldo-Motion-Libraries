@@ -106,7 +106,7 @@ const _UserDoubleLast_d= $FD;
 {System Communications}
 var mb_SysStatus:TModbusWord;
 var mb_SysCommand:TModbusWord;
-var mb_LoadCell:TModbusDouble;
+var mb_LoadCell:TModbusSingle;
 {Gantry Communications}
 var mb_GantryStatus:TModbusWord;
 var mb_GantryCommand:TModbusWord;
