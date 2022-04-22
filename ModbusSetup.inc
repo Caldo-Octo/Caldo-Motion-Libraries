@@ -272,7 +272,7 @@ procedure SystemEventHandler;
     begin
         if GlobalStartSignal and (not StartSignalMem) then  
             SystemMode.StartCycle;
-        StartSignalMem:=StartSignal;
+        StartSignalMem:=GlobalStartSignal;
     end;
 
 
