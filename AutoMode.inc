@@ -115,7 +115,7 @@ procedure SystemMode.AutoDispense;
 				LoadCellScaled:=0;
 				while (not AutoDispenseComplete) do {removed CurrentWeightSP}
 					yield;
-				Container.DispensePermissive:=false;
+				Containers[GlobalContainerNo].DispensePermissive:=false;
 				AutoProcessComplete:=true;
 				{Fix this later, Dispense Permissive should also Stop gantry pattern}
 				while (TaskPresent(TaskAddr(DispenseWrapper)) or TaskPresent(TaskAddr(ZigPatternWrapper)) or TaskPresent(TaskAddr(LinePatternWrapper))) do
