@@ -602,7 +602,6 @@ procedure SystemMode.AutoDispense;
 
 procedure SystemMode.StartCycle;
 	begin
-		SetContainer;
 		if SystemMode.InAuto then
 			AutoDispense
 		else
