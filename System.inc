@@ -494,7 +494,6 @@ var SystemMode:object
 	ManualDispenseComplete:boolean;
 	Container:TContainer;
 	procedure ToggleMode; forward;
-	procedure SetContainer; forward;
 	function MoveToContainer:boolean; forward;
 	procedure SetWeightSP; forward;
 	procedure StartGantryPattern; forward;
@@ -653,7 +652,7 @@ procedure InitializeSubsystems;
         Gantry.YMotor.SetMotor(on);
         Gantry.ZMotor.SetMotor(on);
 	end;
-	
+
 procedure ButtonHandler(Container:integer);
 	var DispenseTaskPresent:boolean;
 	begin
