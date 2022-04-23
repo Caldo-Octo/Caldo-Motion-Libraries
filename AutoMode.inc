@@ -106,7 +106,7 @@ procedure SystemMode.AutoDispense;
 	var GantryMoveComplete:boolean;
 	var LoadCellScaled:double;
 	begin
-		SetWeightSP;
+		CurrentWeightSp:=(LoadCell.Voltage*300)+Container[GlobalContainerNo].WeightSP
 		GantryMoveComplete:=MoveToContainer;
 		if GantryMoveComplete then
 			begin
@@ -117,7 +117,7 @@ procedure SystemMode.AutoDispense;
 					begin
 						yield;
 						begin
-							LoadCellScaled:=UpdateLoadCellScaled(300);
+							LoadCellScaled:=(LoadCell.Voltage*300);
 						end;
 					end;
 					
