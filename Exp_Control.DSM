@@ -655,7 +655,7 @@ TControlPlate
 51 {reference}
 Main
 25 15
-425 295
+630 520
 -16777211
 Tahoma
 1
@@ -1928,7 +1928,7 @@ Touch and Type Here
 nil
 0 0  diagnostic marker
 MMC-V Test Platform
-5
+38
 TControlPlate
 144 {reference}
 RP23_Configuration
@@ -3228,7 +3228,1986 @@ AutoMode.inc
 TRUE
 FALSE
 1
-35
+TControlPlate
+334 {reference}
+Settings
+640 300
+740 360
+-16777211
+Tahoma
+1
+-16777208
+8
+0
+6
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseDown;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseDrag;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseUp;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure DoubleClickLeft;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure Setup;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+function  CanClose:boolean;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+nil
+0 0  diagnostic marker
+Change MMC Settings
+0
+15
+TUserVariable
+337 {reference}
+TRUE
+ContainersIndex
+Integer
+FALSE
+10
+1
+0
+TUserVariable
+339 {reference}
+TRUE
+ContainerXCoord
+Number
+FALSE
+10
+1
+0
+TUserVariable
+340 {reference}
+TRUE
+ContainerYCoord
+Number
+FALSE
+10
+1
+0
+TUserVariable
+341 {reference}
+TRUE
+ContainerZCoord
+Number
+FALSE
+10
+1
+0
+TUserVariable
+342 {reference}
+TRUE
+DispenseSpeed
+Number
+FALSE
+10
+1
+0
+TUserVariable
+343 {reference}
+TRUE
+ReverseSpeed
+Number
+FALSE
+10
+1
+0
+TUserVariable
+344 {reference}
+TRUE
+Accel
+Number
+FALSE
+10
+1
+0
+TUserVariable
+345 {reference}
+TRUE
+Decel
+Number
+FALSE
+10
+1
+0
+TUserVariable
+346 {reference}
+TRUE
+Current
+Number
+FALSE
+10
+1
+0
+TUserVariable
+347 {reference}
+TRUE
+WeightSP
+Number
+FALSE
+10
+1
+0
+TUserVariable
+348 {reference}
+TRUE
+Revolutions
+Number
+FALSE
+10
+1
+0
+TUserVariable
+349 {reference}
+TRUE
+DispenseRevolutions
+Number
+FALSE
+10
+1
+0
+TUserVariable
+350 {reference}
+TRUE
+GantryPattern
+Number
+FALSE
+10
+1
+0
+TUserVariable
+351 {reference}
+TRUE
+GantryPatternEnabled
+Boolean
+FALSE
+10
+1
+0
+TUserVariable
+352 {reference}
+TRUE
+BowlSpinEnabled
+Boolean
+FALSE
+10
+1
+0
+-2134376448
+TRUE
+FALSE
+1
+TControlStatic
+0 {reference}
+ContainerIndexLabel
+50 55
+125 78
+-16777211
+Tahoma
+1
+-16777208
+12
+0
+0
+nil
+0 0  diagnostic marker
+Container
+0
+TControlStatic
+0 {reference}
+WeightSPLabel
+50 100
+125 120
+-16777211
+Tahoma
+1
+-16777208
+10
+0
+0
+nil
+0 0  diagnostic marker
+Weight SP
+0
+TControlStatic
+0 {reference}
+RevolutionsLabel
+50 130
+125 150
+-16777211
+Tahoma
+1
+-16777208
+10
+0
+0
+nil
+0 0  diagnostic marker
+Revolutions
+0
+TControlStatic
+0 {reference}
+ReverseRevsLabel
+50 160
+125 180
+-16777211
+Tahoma
+1
+-16777208
+10
+0
+0
+nil
+0 0  diagnostic marker
+Reverse
+0
+TControlStatic
+0 {reference}
+SpeedLabel
+50 190
+125 210
+-16777211
+Tahoma
+1
+-16777208
+10
+0
+0
+nil
+0 0  diagnostic marker
+Speed
+0
+TControlStatic
+0 {reference}
+RevSpeedLabel
+50 220
+125 240
+-16777211
+Tahoma
+1
+-16777208
+10
+0
+0
+nil
+0 0  diagnostic marker
+Rev. Speed
+0
+TControlStatic
+0 {reference}
+AccelLabel
+50 250
+125 270
+-16777211
+Tahoma
+1
+-16777208
+10
+0
+0
+nil
+0 0  diagnostic marker
+Accel
+0
+TControlStatic
+0 {reference}
+DecelLabel
+50 280
+125 300
+-16777211
+Tahoma
+1
+-16777208
+10
+0
+0
+nil
+0 0  diagnostic marker
+Decel
+0
+TControlStatic
+0 {reference}
+GantryPAtternLabel
+50 310
+125 330
+-16777211
+Tahoma
+1
+-16777208
+10
+0
+0
+nil
+0 0  diagnostic marker
+Gantry Patt.
+0
+TControlStatic
+0 {reference}
+BowlSpinEnLabel
+50 340
+125 360
+-16777211
+Tahoma
+1
+-16777208
+10
+0
+0
+nil
+0 0  diagnostic marker
+Enable Spin
+0
+TControlEditor
+317 {reference}
+WeightSP_Editor
+130 100
+170 120
+-16777211
+Tahoma
+1
+-16777208
+10
+0
+1
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure EnterKeyPressed;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TBlock_H
+0 {reference}
+0 {ReferenceLink}
+414 106 1993170 121 29
+1
+TStaticField
+0 {reference}
+9 7 114 21
+nil
+
+TRUE
+Enter Key Pressed
+EnterKeyPressed
+FALSE
+TRUE
+FALSE
+TBlock
+0 {reference}
+347 {ReferenceLink}
+414 135 36095 373 37
+7
+TStaticField
+0 {reference}
+9 11 37 25
+nil
+
+TRUE
+Set   
+
+TNumberVariableListField
+0 {reference}
+44 11 154 25
+nil
+
+TRUE
+WeightSP
+WeightSP
+0
+TConditionallyPresentIndexField
+0 {reference}
+157 11 157 25
+nil
+Number
+TRUE
+ 1.00000000000000E+0000
+FALSE
+TConditionallyPresentAccessorField
+0 {reference}
+160 18 160 18
+nil
+
+TRUE
+.SetValue(
+:=
+TStaticField
+0 {reference}
+163 11 180 25
+nil
+
+TRUE
+ to 
+
+TNumericField
+0 {reference}
+183 7 341 30
+TNumericExpression
+0 {reference}
+317 {ReferenceLink}
+597 142 14053594 158 23
+3
+TStaticField
+0 {reference}
+12 11 12 11
+nil
+
+TRUE
+
+EditorReadlnDouble(
+TPathNameField
+0 {reference}
+15 4 111 18
+nil
+
+TRUE
+WeightSP_Editor
+Main.WeightSP_Editor
+Main.
+WeightSP_Editor
+TRUE
+TRUE
+TRUE
+TStaticField
+0 {reference}
+114 4 146 18
+nil
+
+TRUE
+Value
+)
+Number
+Number
+TRUE
+ 0.00000000000000E+0000
+TRUE
+TConditionallyPresentAccessorField
+0 {reference}
+344 18 344 18
+nil
+
+TRUE
+);
+;
+TRUE
+TRUE
+FALSE
+nil
+FALSE
+FALSE
+FALSE
+FALSE
+nil
+0 0  diagnostic marker
+1.0
+0
+TControlEditor
+318 {reference}
+Revs_Editor
+130 130
+170 150
+-16777211
+Tahoma
+1
+-16777208
+10
+0
+1
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure EnterKeyPressed;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TBlock_H
+0 {reference}
+0 {ReferenceLink}
+452 146 1993170 121 29
+1
+TStaticField
+0 {reference}
+9 7 114 21
+nil
+
+TRUE
+Enter Key Pressed
+EnterKeyPressed
+FALSE
+TRUE
+FALSE
+TBlock
+0 {reference}
+349 {ReferenceLink}
+452 175 36095 408 37
+7
+TStaticField
+0 {reference}
+9 11 37 25
+nil
+
+TRUE
+Set   
+
+TNumberVariableListField
+0 {reference}
+44 11 217 25
+nil
+
+TRUE
+DispenseRevolutions
+DispenseRevolutions
+0
+TConditionallyPresentIndexField
+0 {reference}
+220 11 220 25
+nil
+Number
+TRUE
+ 1.00000000000000E+0000
+FALSE
+TConditionallyPresentAccessorField
+0 {reference}
+223 18 223 18
+nil
+
+TRUE
+.SetValue(
+:=
+TStaticField
+0 {reference}
+226 11 243 25
+nil
+
+TRUE
+ to 
+
+TNumericField
+0 {reference}
+246 7 376 30
+TNumericExpression
+0 {reference}
+318 {ReferenceLink}
+698 182 14053594 130 23
+3
+TStaticField
+0 {reference}
+12 11 12 11
+nil
+
+TRUE
+
+EditorReadlnDouble(
+TPathNameField
+0 {reference}
+15 4 83 18
+nil
+
+TRUE
+Revs_Editor
+Main.Revs_Editor
+Main.
+Revs_Editor
+TRUE
+TRUE
+TRUE
+TStaticField
+0 {reference}
+86 4 118 18
+nil
+
+TRUE
+Value
+)
+Number
+Number
+TRUE
+ 0.00000000000000E+0000
+TRUE
+TConditionallyPresentAccessorField
+0 {reference}
+379 18 379 18
+nil
+
+TRUE
+);
+;
+TRUE
+TRUE
+FALSE
+nil
+FALSE
+FALSE
+FALSE
+FALSE
+nil
+0 0  diagnostic marker
+2
+0
+TControlEditor
+319 {reference}
+ReverseRevs_Editor
+130 160
+170 180
+-16777211
+Tahoma
+1
+-16777208
+10
+0
+1
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure EnterKeyPressed;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TBlock_H
+0 {reference}
+0 {ReferenceLink}
+425 181 1993170 121 29
+1
+TStaticField
+0 {reference}
+9 7 114 21
+nil
+
+TRUE
+Enter Key Pressed
+EnterKeyPressed
+FALSE
+TRUE
+FALSE
+TBlock
+0 {reference}
+348 {ReferenceLink}
+425 210 36095 402 37
+7
+TStaticField
+0 {reference}
+9 11 37 25
+nil
+
+TRUE
+Set   
+
+TNumberVariableListField
+0 {reference}
+44 11 164 25
+nil
+
+TRUE
+Revolutions
+Revolutions
+0
+TConditionallyPresentIndexField
+0 {reference}
+167 11 167 25
+nil
+Number
+TRUE
+ 1.00000000000000E+0000
+FALSE
+TConditionallyPresentAccessorField
+0 {reference}
+170 18 170 18
+nil
+
+TRUE
+.SetValue(
+:=
+TStaticField
+0 {reference}
+173 11 190 25
+nil
+
+TRUE
+ to 
+
+TNumericField
+0 {reference}
+193 7 370 30
+TNumericExpression
+0 {reference}
+319 {ReferenceLink}
+618 217 14053594 177 23
+3
+TStaticField
+0 {reference}
+12 11 12 11
+nil
+
+TRUE
+
+EditorReadlnDouble(
+TPathNameField
+0 {reference}
+15 4 130 18
+nil
+
+TRUE
+ReverseRevs_Editor
+Main.ReverseRevs_Editor
+Main.
+ReverseRevs_Editor
+TRUE
+TRUE
+TRUE
+TStaticField
+0 {reference}
+133 4 165 18
+nil
+
+TRUE
+Value
+)
+Number
+Number
+TRUE
+ 0.00000000000000E+0000
+TRUE
+TConditionallyPresentAccessorField
+0 {reference}
+373 18 373 18
+nil
+
+TRUE
+);
+;
+TRUE
+TRUE
+FALSE
+nil
+FALSE
+FALSE
+FALSE
+FALSE
+nil
+0 0  diagnostic marker
+1
+0
+TControlEditor
+320 {reference}
+Speed_Editor
+130 190
+170 210
+-16777211
+Tahoma
+1
+-16777208
+10
+0
+1
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure EnterKeyPressed;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TBlock_H
+0 {reference}
+0 {ReferenceLink}
+368 138 1993170 121 29
+1
+TStaticField
+0 {reference}
+9 7 114 21
+nil
+
+TRUE
+Enter Key Pressed
+EnterKeyPressed
+FALSE
+TRUE
+FALSE
+TBlock
+0 {reference}
+342 {ReferenceLink}
+368 167 36095 386 37
+7
+TStaticField
+0 {reference}
+9 11 37 25
+nil
+
+TRUE
+Set   
+
+TNumberVariableListField
+0 {reference}
+44 11 187 25
+nil
+
+TRUE
+DispenseSpeed
+DispenseSpeed
+0
+TConditionallyPresentIndexField
+0 {reference}
+190 11 190 25
+nil
+Number
+TRUE
+ 1.00000000000000E+0000
+FALSE
+TConditionallyPresentAccessorField
+0 {reference}
+193 18 193 18
+nil
+
+TRUE
+.SetValue(
+:=
+TStaticField
+0 {reference}
+196 11 213 25
+nil
+
+TRUE
+ to 
+
+TNumericField
+0 {reference}
+216 7 354 30
+TNumericExpression
+0 {reference}
+320 {ReferenceLink}
+584 174 14053594 138 23
+3
+TStaticField
+0 {reference}
+12 11 12 11
+nil
+
+TRUE
+
+EditorReadlnDouble(
+TPathNameField
+0 {reference}
+15 4 91 18
+nil
+
+TRUE
+Speed_Editor
+Main.Speed_Editor
+Main.
+Speed_Editor
+TRUE
+TRUE
+TRUE
+TStaticField
+0 {reference}
+94 4 126 18
+nil
+
+TRUE
+Value
+)
+Number
+Number
+TRUE
+ 0.00000000000000E+0000
+TRUE
+TConditionallyPresentAccessorField
+0 {reference}
+357 18 357 18
+nil
+
+TRUE
+);
+;
+TRUE
+TRUE
+FALSE
+nil
+FALSE
+FALSE
+FALSE
+FALSE
+nil
+0 0  diagnostic marker
+30
+0
+TControlEditor
+321 {reference}
+RevSpeed_Editor
+130 220
+170 240
+-16777211
+Tahoma
+1
+-16777208
+10
+0
+1
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure EnterKeyPressed;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TBlock_H
+0 {reference}
+0 {ReferenceLink}
+301 120 1993170 121 29
+1
+TStaticField
+0 {reference}
+9 7 114 21
+nil
+
+TRUE
+Enter Key Pressed
+EnterKeyPressed
+FALSE
+TRUE
+FALSE
+TBlock
+0 {reference}
+343 {ReferenceLink}
+301 149 36095 401 37
+7
+TStaticField
+0 {reference}
+9 11 37 25
+nil
+
+TRUE
+Set   
+
+TNumberVariableListField
+0 {reference}
+44 11 181 25
+nil
+
+TRUE
+ReverseSpeed
+ReverseSpeed
+0
+TConditionallyPresentIndexField
+0 {reference}
+184 11 184 25
+nil
+Number
+TRUE
+ 1.00000000000000E+0000
+FALSE
+TConditionallyPresentAccessorField
+0 {reference}
+187 18 187 18
+nil
+
+TRUE
+.SetValue(
+:=
+TStaticField
+0 {reference}
+190 11 207 25
+nil
+
+TRUE
+ to 
+
+TNumericField
+0 {reference}
+210 7 369 30
+TNumericExpression
+0 {reference}
+321 {ReferenceLink}
+511 156 14053594 159 23
+3
+TStaticField
+0 {reference}
+12 11 12 11
+nil
+
+TRUE
+
+EditorReadlnDouble(
+TPathNameField
+0 {reference}
+15 4 112 18
+nil
+
+TRUE
+RevSpeed_Editor
+Main.RevSpeed_Editor
+Main.
+RevSpeed_Editor
+TRUE
+TRUE
+TRUE
+TStaticField
+0 {reference}
+115 4 147 18
+nil
+
+TRUE
+Value
+)
+Number
+Number
+TRUE
+ 0.00000000000000E+0000
+TRUE
+TConditionallyPresentAccessorField
+0 {reference}
+372 18 372 18
+nil
+
+TRUE
+);
+;
+TRUE
+TRUE
+FALSE
+nil
+FALSE
+FALSE
+FALSE
+FALSE
+nil
+0 0  diagnostic marker
+30
+0
+TControlEditor
+322 {reference}
+Accel_Editor
+130 250
+170 270
+-16777211
+Tahoma
+1
+-16777208
+10
+0
+1
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure EnterKeyPressed;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TBlock_H
+0 {reference}
+0 {ReferenceLink}
+401 135 1993170 121 29
+1
+TStaticField
+0 {reference}
+9 7 114 21
+nil
+
+TRUE
+Enter Key Pressed
+EnterKeyPressed
+FALSE
+TRUE
+FALSE
+TBlock
+0 {reference}
+344 {ReferenceLink}
+401 164 36095 325 37
+7
+TStaticField
+0 {reference}
+9 11 37 25
+nil
+
+TRUE
+Set   
+
+TNumberVariableListField
+0 {reference}
+44 11 130 25
+nil
+
+TRUE
+Accel
+Accel
+0
+TConditionallyPresentIndexField
+0 {reference}
+133 11 133 25
+nil
+Number
+TRUE
+ 1.00000000000000E+0000
+FALSE
+TConditionallyPresentAccessorField
+0 {reference}
+136 18 136 18
+nil
+
+TRUE
+.SetValue(
+:=
+TStaticField
+0 {reference}
+139 11 156 25
+nil
+
+TRUE
+ to 
+
+TNumericField
+0 {reference}
+159 7 293 30
+TNumericExpression
+0 {reference}
+322 {ReferenceLink}
+560 171 14053594 134 23
+3
+TStaticField
+0 {reference}
+12 11 12 11
+nil
+
+TRUE
+
+EditorReadlnDouble(
+TPathNameField
+0 {reference}
+15 4 87 18
+nil
+
+TRUE
+Accel_Editor
+Main.Accel_Editor
+Main.
+Accel_Editor
+TRUE
+TRUE
+TRUE
+TStaticField
+0 {reference}
+90 4 122 18
+nil
+
+TRUE
+Value
+)
+Number
+Number
+TRUE
+ 0.00000000000000E+0000
+TRUE
+TConditionallyPresentAccessorField
+0 {reference}
+296 18 296 18
+nil
+
+TRUE
+);
+;
+TRUE
+TRUE
+FALSE
+nil
+FALSE
+FALSE
+FALSE
+FALSE
+nil
+0 0  diagnostic marker
+10
+0
+TControlEditor
+323 {reference}
+Decel_Editor
+130 280
+170 300
+-16777211
+Tahoma
+1
+-16777208
+10
+0
+1
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure EnterKeyPressed;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TBlock_H
+0 {reference}
+0 {ReferenceLink}
+343 105 1993170 121 29
+1
+TStaticField
+0 {reference}
+9 7 114 21
+nil
+
+TRUE
+Enter Key Pressed
+EnterKeyPressed
+FALSE
+TRUE
+FALSE
+TBlock
+0 {reference}
+345 {ReferenceLink}
+343 134 36095 325 37
+7
+TStaticField
+0 {reference}
+9 11 37 25
+nil
+
+TRUE
+Set   
+
+TNumberVariableListField
+0 {reference}
+44 11 130 25
+nil
+
+TRUE
+Decel
+Decel
+0
+TConditionallyPresentIndexField
+0 {reference}
+133 11 133 25
+nil
+Number
+TRUE
+ 1.00000000000000E+0000
+FALSE
+TConditionallyPresentAccessorField
+0 {reference}
+136 18 136 18
+nil
+
+TRUE
+.SetValue(
+:=
+TStaticField
+0 {reference}
+139 11 156 25
+nil
+
+TRUE
+ to 
+
+TNumericField
+0 {reference}
+159 7 293 30
+TNumericExpression
+0 {reference}
+323 {ReferenceLink}
+502 141 14053594 134 23
+3
+TStaticField
+0 {reference}
+12 11 12 11
+nil
+
+TRUE
+
+EditorReadlnDouble(
+TPathNameField
+0 {reference}
+15 4 87 18
+nil
+
+TRUE
+Decel_Editor
+Main.Decel_Editor
+Main.
+Decel_Editor
+TRUE
+TRUE
+TRUE
+TStaticField
+0 {reference}
+90 4 122 18
+nil
+
+TRUE
+Value
+)
+Number
+Number
+TRUE
+ 0.00000000000000E+0000
+TRUE
+TConditionallyPresentAccessorField
+0 {reference}
+296 18 296 18
+nil
+
+TRUE
+);
+;
+TRUE
+TRUE
+FALSE
+nil
+FALSE
+FALSE
+FALSE
+FALSE
+nil
+0 0  diagnostic marker
+10
+0
+TControlEditor
+324 {reference}
+GantryPattern_Editor
+130 310
+170 330
+-16777211
+Tahoma
+1
+-16777208
+10
+0
+1
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure EnterKeyPressed;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TBlock_H
+0 {reference}
+0 {ReferenceLink}
+276 153 1993170 121 29
+1
+TStaticField
+0 {reference}
+9 7 114 21
+nil
+
+TRUE
+Enter Key Pressed
+EnterKeyPressed
+FALSE
+TRUE
+FALSE
+TBlock
+0 {reference}
+350 {ReferenceLink}
+276 182 36095 419 37
+7
+TStaticField
+0 {reference}
+9 11 37 25
+nil
+
+TRUE
+Set   
+
+TNumberVariableListField
+0 {reference}
+44 11 177 25
+nil
+
+TRUE
+GantryPattern
+GantryPattern
+0
+TConditionallyPresentIndexField
+0 {reference}
+180 11 180 25
+nil
+Number
+TRUE
+ 1.00000000000000E+0000
+FALSE
+TConditionallyPresentAccessorField
+0 {reference}
+183 18 183 18
+nil
+
+TRUE
+.SetValue(
+:=
+TStaticField
+0 {reference}
+186 11 203 25
+nil
+
+TRUE
+ to 
+
+TNumericField
+0 {reference}
+206 7 387 30
+TNumericExpression
+0 {reference}
+324 {ReferenceLink}
+482 189 14053594 181 23
+3
+TStaticField
+0 {reference}
+12 11 12 11
+nil
+
+TRUE
+
+EditorReadlnDouble(
+TPathNameField
+0 {reference}
+15 4 134 18
+nil
+
+TRUE
+GantryPattern_Editor
+Main.GantryPattern_Editor
+Main.
+GantryPattern_Editor
+TRUE
+TRUE
+TRUE
+TStaticField
+0 {reference}
+137 4 169 18
+nil
+
+TRUE
+Value
+)
+Number
+Number
+TRUE
+ 0.00000000000000E+0000
+TRUE
+TConditionallyPresentAccessorField
+0 {reference}
+390 18 390 18
+nil
+
+TRUE
+);
+;
+TRUE
+TRUE
+FALSE
+nil
+FALSE
+FALSE
+FALSE
+FALSE
+nil
+0 0  diagnostic marker
+1
+0
+TControlStatic
+0 {reference}
+Setpoint
+125 80
+170 97
+-16777211
+Tahoma
+1
+-16777208
+8
+0
+0
+nil
+0 0  diagnostic marker
+Setpoint
+0
+TControlStatic
+0 {reference}
+Actual
+180 80
+220 97
+-16777211
+Tahoma
+1
+-16777208
+8
+0
+0
+nil
+0 0  diagnostic marker
+Actual
+0
+TControlStatic
+325 {reference}
+ActualWeight
+180 100
+220 120
+-16777211
+Tahoma
+1
+-16777208
+10
+0
+0
+nil
+0 0  diagnostic marker
+
+0
+TControlStatic
+326 {reference}
+ActualRevs
+180 130
+220 150
+-16777211
+Tahoma
+1
+-16777208
+10
+0
+0
+nil
+0 0  diagnostic marker
+
+0
+TControlStatic
+327 {reference}
+ActualRevRevs
+180 160
+220 180
+-16777211
+Tahoma
+1
+-16777208
+10
+0
+0
+nil
+0 0  diagnostic marker
+
+0
+TControlStatic
+328 {reference}
+ActualSpeed
+180 190
+220 210
+-16777211
+Tahoma
+1
+-16777208
+10
+0
+0
+nil
+0 0  diagnostic marker
+
+0
+TControlStatic
+329 {reference}
+ActualRevSpeed
+180 220
+220 240
+-16777211
+Tahoma
+1
+-16777208
+10
+0
+0
+nil
+0 0  diagnostic marker
+
+0
+TControlStatic
+330 {reference}
+ActualAccel
+180 250
+220 270
+-16777211
+Tahoma
+1
+-16777208
+10
+0
+0
+nil
+0 0  diagnostic marker
+
+0
+TControlStatic
+331 {reference}
+ActualDecel
+180 280
+220 300
+-16777211
+Tahoma
+1
+-16777208
+10
+0
+0
+nil
+0 0  diagnostic marker
+
+0
+TControlStatic
+332 {reference}
+Actual_Gantry_Pattern
+180 310
+220 330
+-16777211
+Tahoma
+1
+-16777208
+10
+0
+0
+nil
+0 0  diagnostic marker
+
+0
+TControlStatic
+333 {reference}
+SpinEnabled
+180 340
+220 360
+-16777211
+Tahoma
+1
+-16777208
+10
+0
+0
+nil
+0 0  diagnostic marker
+
+0
+TControlButton
+0 {reference}
+EnableButton
+130 340
+170 360
+536870911
+Tahoma
+1
+-16777208
+8
+0
+3
+TUserProcedure
+0 {reference}
+FALSE
+7
+procedure Click;
+  begin
+  if Settings.BowlSpinEnabled then
+    Settings.BowlSpinEnabled:=false
+  else
+    Settings.BowlSpinEnabled:=true;
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseDown;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseUp;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+nil
+0 0  diagnostic marker
+Enable
+FALSE
+TControlEditor
+336 {reference}
+ContainersIndex_editor
+130 55
+165 78
+-16777211
+Tahoma
+1
+-16777208
+12
+0
+1
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure EnterKeyPressed;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TBlock_H
+0 {reference}
+0 {ReferenceLink}
+331 37 1993170 121 29
+1
+TStaticField
+0 {reference}
+9 7 114 21
+nil
+
+TRUE
+Enter Key Pressed
+EnterKeyPressed
+FALSE
+TRUE
+FALSE
+TBlock
+0 {reference}
+337 {ReferenceLink}
+331 66 36095 510 45
+7
+TStaticField
+0 {reference}
+9 15 37 29
+nil
+
+TRUE
+Set   
+
+TNumberVariableListField
+0 {reference}
+44 15 191 29
+nil
+
+TRUE
+ContainersIndex
+ContainersIndex
+0
+TConditionallyPresentIndexField
+0 {reference}
+194 15 194 29
+nil
+Number
+TRUE
+ 1.00000000000000E+0000
+FALSE
+TConditionallyPresentAccessorField
+0 {reference}
+197 22 197 22
+nil
+
+TRUE
+.SetValue(
+:=
+TStaticField
+0 {reference}
+200 15 217 29
+nil
+
+TRUE
+ to 
+
+TNumericField
+0 {reference}
+220 7 478 38
+TNumericExpression
+0 {reference}
+0 {ReferenceLink}
+551 73 1226588 258 31
+3
+TStaticField
+0 {reference}
+12 8 45 22
+nil
+
+TRUE
+round
+round(
+TNumericField
+0 {reference}
+48 4 243 27
+TNumericExpression
+0 {reference}
+336 {ReferenceLink}
+599 77 14053594 195 23
+3
+TStaticField
+0 {reference}
+12 11 12 11
+nil
+
+TRUE
+
+EditorReadlnDouble(
+TPathNameField
+0 {reference}
+15 4 148 18
+nil
+
+TRUE
+ContainersIndex_editor
+Main.ContainersIndex_editor
+Main.
+ContainersIndex_editor
+TRUE
+TRUE
+TRUE
+TStaticField
+0 {reference}
+151 4 183 18
+nil
+
+TRUE
+Value
+)
+Number
+Number
+FALSE
+ 0.00000000000000E+0000
+TRUE
+TStaticField
+0 {reference}
+246 15 246 15
+nil
+
+TRUE
+
+)
+Number
+Number
+TRUE
+ 0.00000000000000E+0000
+TRUE
+TConditionallyPresentAccessorField
+0 {reference}
+481 22 481 22
+nil
+
+TRUE
+);
+;
+TRUE
+TRUE
+FALSE
+nil
+FALSE
+FALSE
+FALSE
+FALSE
+nil
+0 0  diagnostic marker
+1
+0
+TControlButton
+0 {reference}
+Update_Settings_But
+180 370
+250 405
+536870911
+Tahoma
+1
+-16777208
+8
+0
+3
+TUserProcedure
+0 {reference}
+FALSE
+14
+procedure Click;
+  var Index:integer;
+  begin
+  Index:=Settings.ContainersIndex;
+  Containers[Index].WeightSP:=Settings.WeightSP;
+  Containers[Index].Revolutions:=Settings.DispenseRevolutions;
+  Containers[Index].ReverseRevolutions:=Settings.Revolutions;
+  Containers[Index].DispenseSpeed:=Settings.DispenseSpeed;
+  Containers[Index].ReverseSpeed:=Settings.ReverseSpeed;
+  Containers[Index].Accel:=Settings.Accel;
+  Conatiners[Index].Decel:=Settings.Decel;
+  Containers[index].GantryPattern:=Settings.GantryPattern;
+  Containers[index].BowlSpinEnabled:=Settings.BowlSpinEnabled;
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseDown;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseUp;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+nil
+0 0  diagnostic marker
+Update
+FALSE
+34
 TUserVariable
 19 {reference}
 TRUE
@@ -3585,58 +5564,6 @@ FALSE
 10
 1
 0
-TUserProcedure
-281 {reference}
-TRUE
-47
-procedure Dispense(Motor:TDistributedT1Axis;Pattern:longint;Amt:longint);
-  var Container_ptrn1 : Array[0..3] of double;
-  var Container_ptrn2 : Array[0..3] of double;
-  var i: integer;
-  var PatternIndex: integer;
-  var WeightCheck: boolean;
-
-  begin
-
-  
-	Container_ptrn1[0]:= 2; {Positive is CCW, brings food foward!}
-  Container_ptrn1[1] = 2;
-  Container_ptrn1[2] = 2;
-  Container_ptrn1[3] = -1;
-  
-  Container_ptrn2[0]:= 2;
-  Container_ptrn2[1] = 2;
-  Container_ptrn2[2] = 2;
-  Container_ptrn2[3] = 2;
-
-  PatternIndex:=0;
-  WeightCheck:=(Amt>Loadcell.Value)
-  MotionComplete:=false;
-  while not MotionComplete do
-    begin
-{Current implementation finishes current move then stops}
-      WeightCheck:=(Amt>Loadcell.Value);
-      if Pattern = 1 then
-        if not Motor.MoveIsFinished then
-          yield
-        else if (PatternIndex <3) then
-          PatternIndex := PatternIndex+1
-        else if (PatternIndex >= 3) then
-          PatternIndex:=0;
-        Motor.MoveBy(Container_ptrn1[PatternIndex])
-{Current motor settings (256 microsteps w/ 4000 user units) motor spins ~2/3 of rev when told to move by 6}
-      if Pattern = 2 then
-        if not Motor.MoveIsFinished then
-          yield
-        else if (PatternIndex <3) then
-          PatternIndex := PatternIndex+1
-        else if (PatternIndex >= 3) then
-          PatternIndex:=0;
-        Motor.MoveBy(Container_ptrn2[PatternIndex])
-    end;
-end;
-
-TRUE
 TUserVariable
 287 {reference}
 TRUE
