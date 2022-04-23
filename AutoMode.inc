@@ -4,6 +4,7 @@ var GlobalContainerNo:integer;
 var GlobalManualDispenseComplete:boolean;
 var GlobalLoadCell:double;
 var AutoProcessComplete:boolean;
+var AutoDispenseComplete:boolean;
 {-----------------Task Wrapper Functions----------------------}
 	{We can't use object methods directly when calling a new task so 
 	they have to be wrapped in a function that can}
