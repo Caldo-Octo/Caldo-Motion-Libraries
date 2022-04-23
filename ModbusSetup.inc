@@ -3,7 +3,7 @@ const UnusedModuleNo = $10;
 const SystemStatus     = $21;
 const SystemCommand    = $22;
 const SystemState     = $23;
-const _UserWord4_w     = $24;
+const GantryEnabled     = $24;
 const _UserWord5_w     = $25;
 const _UserWord6_w     = $26;
 const _UserWord7_w     = $27;
@@ -106,7 +106,9 @@ const _UserDoubleLast_d= $FD;
 {System Communications}
 var mb_SysStatus:TModbusWord;
 var mb_SysCommand:TModbusWord;
+var mb_GantryEnabled:TModbusWord;
 var mb_LoadCell:TModbusSingle;
+
 {Gantry Communications}
 var mb_GantryStatus:TModbusWord;
 var mb_GantryCommand:TModbusWord;
@@ -153,6 +155,7 @@ procedure SystemModbusCommsInit;
     begin
         mb_SysStatus.Initialize(UnusedModuleNo, SystemStatus, 0);
         mb_SysCommand.Initialize(UnusedModuleNo, SystemCommand, 0);
+        mb_GantryEnabled.Initialize(UnusedModuleNo, GantryEnabled, 0);
         mb_LoadCell.Initialize(UnusedModuleNo, LoadCellConst, 0);
         yield;
     end;
@@ -275,18 +278,34 @@ procedure Launcher;
 procedure SystemEventHandler;
     var StartSignalMem:boolean;
     begin
-        if (mb_SysCommand.Value = 1) then {Start Dispense}
+        if (mb_SysCommand.Value = 1) and (mb_SysStatus.Value = 0)then {Start Dispense}
             begin
+            AutoProcessComplete:=false;
             SystemMode.InAuto:=true;
             SystemMode.InManual:=false;
             GlobalStartSignal:=true;
             AutoDispenseComplete:=false;
-            mb_SysCommand.SetValue(2); {In Process}
+            mb_SysStatus.SetValue(1); {busy}
+
             end;
+
         if (mb_SysCommand.Value = 8) then {Stop Manual Dispense}
             begin
             GlobalManualDispenseComplete:=true;
             end;
+
+        if (mb_GantryEnabled.Value <> 0) then
+            begin
+            SystemMode.GantryEnabled:=true
+            Gantry.enable:=true;
+            end
+        else
+            begin
+            SystemMode.GantryEnabled:=false;
+            Gantry.enable:=false;
+            end;
+
+
 
         if GlobalStartSignal then
             begin  
@@ -295,7 +314,7 @@ procedure SystemEventHandler;
             end;
         
         if AutoProcessComplete then
-            mb_SysCommand.SetValue(4);{process complete}
+            mb_SysStatus.SetValue(0);{process complete}
         
         if GlobalManualDispenseComplete then
             mb_SysCommand.SetValue(4);
@@ -310,6 +329,7 @@ procedure ModbusEventDispatcher;
         GantryModbusCommsInit;
         ContainerModbusCommsInit;
         InitializeSubsystems;
+
         while true do
             begin
             yield;

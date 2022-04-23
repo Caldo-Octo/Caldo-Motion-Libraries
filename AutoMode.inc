@@ -62,10 +62,6 @@ procedure SystemMode.ToggleMode;
 			InManual:=false;
 			end;
 	end;
-procedure SystemMode.SetContainer;
-	begin
-		Container:=Containers[GlobalContainerNo];
-	end;
 
 function SystemMode.MoveToContainer:boolean;
 	begin
@@ -106,7 +102,8 @@ procedure SystemMode.AutoDispense;
 	var GantryMoveComplete:boolean;
 	var LoadCellScaled:double;
 	begin
-		CurrentWeightSp:=(LoadCell.Voltage*300)+Container[GlobalContainerNo].WeightSP
+		Container:=Containers[GlobalContainerNo];
+		CurrentWeightSp:=(LoadCell.Voltage*300)+Container.WeightSP;
 		GantryMoveComplete:=MoveToContainer;
 		if GantryMoveComplete then
 			begin
