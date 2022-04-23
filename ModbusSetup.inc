@@ -140,7 +140,7 @@ var mb_ReverseSpeed:TModbusSingle;
 var mb_Accel:TModbusSingle;
 var mb_Decel:TModbusSingle;
 var mb_Current:TModbusSingle;
-var mb_DispenseWeight:TModbusSingle;
+var mb_DispenseWeight:TModbusWord;
 var mb_ContainerXCoord:TModbusSingle;
 var mb_ContainerYCoord:TModbusSingle;
 var mb_ContainerZCoord:TModbusSingle;
@@ -316,8 +316,6 @@ procedure ModbusEventDispatcher;
                 begin
                     MapModbusMMCInputs;
                     SystemEventHandler;
-                    if LoadCell.Voltage > 5 then
-                        AutoDispenseComplete:=true;
                     Gantry.EventHandler;
                     MapModbusMMCOutputs;
                 end;

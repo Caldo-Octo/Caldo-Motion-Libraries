@@ -88,7 +88,7 @@ procedure SystemMode.SetWeightSP;
 	var LoadCellScaled:double;
 	begin
 		LoadCellScaled := UpdateLoadCellScaled(300);
-		CurrentWeightSP:=Container.WeightSP+LoadCellScaled;
+		CurrentWeightSP:=Containers[CurrentContainerNo].WeightSP+LoadCellScaled;
 	end;
 
 procedure SystemMode.StartGantryPattern;
@@ -113,8 +113,14 @@ procedure SystemMode.AutoDispense;
 				StartGantryPattern;
 				BeginTask(TaskAddr(DispenseWrapper));
 				LoadCellScaled:=0;
-				while (not AutoDispenseComplete) do {removed CurrentWeightSP}
-					yield;
+				while LoadCellScaled < CurrentWeightSP; do {removed CurrentWeightSP}
+					begin
+						yield;
+						begin
+							LoadCellScaled:=UpdateLoadCellScaled(300);
+						end;
+					end;
+					
 				Containers[GlobalContainerNo].DispensePermissive:=false;
 				AutoProcessComplete:=true;
 				{Fix this later, Dispense Permissive should also Stop gantry pattern}
