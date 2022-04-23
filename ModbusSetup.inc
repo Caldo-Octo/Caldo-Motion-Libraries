@@ -3,7 +3,7 @@ const UnusedModuleNo = $10;
 const SystemStatus     = $21;
 const SystemCommand    = $22;
 const SystemState     = $23;
-const GantryEnabled     = $24;
+const GantryEnable     = $24;
 const _UserWord5_w     = $25;
 const _UserWord6_w     = $26;
 const _UserWord7_w     = $27;
@@ -106,7 +106,7 @@ const _UserDoubleLast_d= $FD;
 {System Communications}
 var mb_SysStatus:TModbusWord;
 var mb_SysCommand:TModbusWord;
-var mb_GantryEnabled:TModbusWord;
+var mb_GantryEnable:TModbusWord;
 var mb_LoadCell:TModbusSingle;
 
 {Gantry Communications}
@@ -155,7 +155,7 @@ procedure SystemModbusCommsInit;
     begin
         mb_SysStatus.Initialize(UnusedModuleNo, SystemStatus, 0);
         mb_SysCommand.Initialize(UnusedModuleNo, SystemCommand, 0);
-        mb_GantryEnabled.Initialize(UnusedModuleNo, GantryEnabled, 0);
+        mb_GantryEnable.Initialize(UnusedModuleNo, GantryEnable, 0);
         mb_LoadCell.Initialize(UnusedModuleNo, LoadCellConst, 0);
         yield;
     end;
@@ -294,7 +294,7 @@ procedure SystemEventHandler;
             GlobalManualDispenseComplete:=true;
             end;
 
-        if (mb_GantryEnabled.Value <> 0) then
+        if (mb_GantryEnable.Value <> 0) then
             begin
             SystemMode.GantryEnabled:=true
             Gantry.enable:=true;
