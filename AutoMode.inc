@@ -86,7 +86,7 @@ function SystemMode.MoveToContainer:boolean;
 procedure SystemMode.SetWeightSP;
 	var LoadCellScaled:double;
 	begin
-		LoadCellScaled := UpdateLoadCellScaled(1);
+		LoadCellScaled := UpdateLoadCellScaled(300);
 		CurrentWeightSP:=Container.WeightSP+LoadCellScaled;
 	end;
 
