@@ -113,7 +113,7 @@ procedure SystemMode.AutoDispense;
 				StartGantryPattern;
 				BeginTask(TaskAddr(DispenseWrapper));
 				LoadCellScaled:=0;
-				while LoadCellScaled < CurrentWeightSP; do {removed CurrentWeightSP}
+				while LoadCellScaled < CurrentWeightSP do {removed CurrentWeightSP}
 					begin
 						yield;
 						begin
