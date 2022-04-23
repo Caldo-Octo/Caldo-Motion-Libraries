@@ -112,12 +112,12 @@ procedure SystemMode.AutoDispense;
 				StartGantryPattern;
 				BeginTask(TaskAddr(DispenseWrapper));
 				LoadCellScaled:=0;
-				while (LoadCellScaled<5) do {removed CurrentWeightSP}
+				while (LoadCell.Voltage<5) do {removed CurrentWeightSP}
 					begin
 						yield;
-						begin
+						{begin
 						LoadCellScaled:=LoadCell.Voltage;
-						end;
+						end;}
 					end;
 				Container.DispensePermissive:=false;
 				AutoProcessComplete:=true;
