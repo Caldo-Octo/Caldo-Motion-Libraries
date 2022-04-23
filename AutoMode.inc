@@ -88,7 +88,7 @@ procedure SystemMode.SetWeightSP;
 	var LoadCellScaled:double;
 	begin
 		LoadCellScaled := UpdateLoadCellScaled(300);
-		CurrentWeightSP:=Containers[CurrentContainerNo].WeightSP+LoadCellScaled;
+		CurrentWeightSP:=Containers[GlobalContainerNo].WeightSP+LoadCellScaled;
 	end;
 
 procedure SystemMode.StartGantryPattern;
