@@ -275,12 +275,14 @@ procedure Launcher;
 procedure SystemEventHandler;
     var StartSignalMem:boolean;
     begin
-        if (mb_SysCommand.Value = 1) then
+        if (mb_SysCommand.Value = 1) then {Start Dispense}
             begin
+            SystemMode.InAuto:=true;
+            SystemMode.InManual:=false;
             GlobalStartSignal:=true;
-            mb_SysCommand.SetValue(2);
+            mb_SysCommand.SetValue(2); {In Process}
             end;
-        if (mb_SysCommand.Value = 4) then
+        if (mb_SysCommand.Value = 8) then {Stop Manual Dispense}
             begin
             GlobalManualDispenseComplete:=true;
             end;
@@ -290,6 +292,9 @@ procedure SystemEventHandler;
             BeginTask(TaskAddr(Launcher));
             GlobalStartSignal:=false;
             end;
+        
+        if AutoProcessComplete then
+            mb_SysCommand.SetValue(4);{process complete}
         
         if GlobalManualDispenseComplete then
             mb_SysCommand.SetValue(4);

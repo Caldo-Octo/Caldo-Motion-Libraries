@@ -2,6 +2,7 @@ var Containers: array[1..28] of TContainer;
 var GlobalContainerNo:integer;
 {var LoadCell:TAnalogInput;}
 var GlobalManualDispenseComplete:boolean;
+var AutoProcessComplete:boolean;
 {-----------------Task Wrapper Functions----------------------}
 	{We can't use object methods directly when calling a new task so 
 	they have to be wrapped in a function that can}
@@ -114,10 +115,12 @@ procedure SystemMode.AutoDispense;
 					begin
 						yield;
 						begin
-						LoadCellScaled:=UpdateLoadCellScaled(1);
+						LoadCellScaled:=UpdateLoadCellScaled(300);
+						GlobalLoadCell:=LoadCellScaled;
 						end;
 					end;
 				Container.DispensePermissive:=false;
+				AutoProcessComplete:=true;
 				{Fix this later, Dispense Permissive should also Stop gantry pattern}
 				while (TaskPresent(TaskAddr(DispenseWrapper)) or TaskPresent(TaskAddr(ZigPatternWrapper)) or TaskPresent(TaskAddr(LinePatternWrapper))) do
 					yield;
