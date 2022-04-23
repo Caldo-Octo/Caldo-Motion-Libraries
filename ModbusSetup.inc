@@ -280,6 +280,7 @@ procedure SystemEventHandler;
             SystemMode.InAuto:=true;
             SystemMode.InManual:=false;
             GlobalStartSignal:=true;
+            AutoDispenseComplete:=false;
             mb_SysCommand.SetValue(2); {In Process}
             end;
         if (mb_SysCommand.Value = 8) then {Stop Manual Dispense}
@@ -315,6 +316,8 @@ procedure ModbusEventDispatcher;
                 begin
                     MapModbusMMCInputs;
                     SystemEventHandler;
+                    if LoadCell.Voltage > 5 then
+                        AutoDispenseComplete:=true;
                     Gantry.EventHandler;
                     MapModbusMMCOutputs;
                 end;

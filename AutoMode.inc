@@ -112,13 +112,8 @@ procedure SystemMode.AutoDispense;
 				StartGantryPattern;
 				BeginTask(TaskAddr(DispenseWrapper));
 				LoadCellScaled:=0;
-				while (LoadCell.Voltage<5) do {removed CurrentWeightSP}
-					begin
-						yield;
-						{begin
-						LoadCellScaled:=LoadCell.Voltage;
-						end;}
-					end;
+				while (not AutoDispenseComplete) do {removed CurrentWeightSP}
+					yield;
 				Container.DispensePermissive:=false;
 				AutoProcessComplete:=true;
 				{Fix this later, Dispense Permissive should also Stop gantry pattern}
