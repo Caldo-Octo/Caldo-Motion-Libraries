@@ -4,7 +4,7 @@ const SystemStatus     = $21;
 const SystemCommand    = $22;
 const SystemState     = $23;
 const GantryEnable     = $24;
-const _UserWord5_w     = $25;
+const RequestDenester     = $25;
 const _UserWord6_w     = $26;
 const _UserWord7_w     = $27;
 const _UserWord8_w     = $28;
@@ -108,6 +108,7 @@ var mb_SysStatus:TModbusWord;
 var mb_SysCommand:TModbusWord;
 var mb_GantryEnable:TModbusWord;
 var mb_LoadCell:TModbusSingle;
+var mb_RequestDenester:TModbusWord;
 
 {Gantry Communications}
 var mb_GantryStatus:TModbusWord;
@@ -157,6 +158,7 @@ procedure SystemModbusCommsInit;
         mb_SysCommand.Initialize(UnusedModuleNo, SystemCommand, 0);
         mb_GantryEnable.Initialize(UnusedModuleNo, GantryEnable, 0);
         mb_LoadCell.Initialize(UnusedModuleNo, LoadCellConst, 0);
+        mb_RequestDenester(UnusedModuleNo, RequestDenester, 0);
         yield;
     end;
 
