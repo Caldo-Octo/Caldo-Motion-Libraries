@@ -684,7 +684,11 @@ procedure ButtonHandler(Container:integer);
 		end;
 	end;
 
+
+
+
 var IngredientQueue:Array [0..12] of integer;
+var GloablAbortSignal:boolean;
 
 procedure AutoStateMachine;
 	var AutoState:integer;
@@ -696,11 +700,27 @@ procedure AutoStateMachine;
 			begin
 				yield;
 				begin
+					if  GlobalAbortSignal then
+						begin
+						Gantry.XMotor.BeginStop;
+						Gantry.YMotor.BeginStop;
+						Gantry.ZMotor.MoveTo(0);
+						IngredientIndex:=0;
+						GlobalAbortSignal:=false;
+						AutoState:=0;
+						end;
+
 					if (AutoState = 0) and (GlobalStartSignal) then {Wait for Start signal from either modbus or S2M}
 						AutoState:=10
 					else if  (AutoState = 10) then
 						begin
+						GlobalStartSignal:=false;
+						Gantry.Xmotor.SetMotor(On);
+						Gantry.Ymotor.SetMotor(On);
+						Gantry.ZMotor.SetMotor(On);
+						Gantry.MoveToDenesterStaging;
 						Gantry.MoveToDenester;
+						Gantry.MoveToDenesterStaging;
 						AutoState:=15;
 						end
 					else if (AutoState = 15) and Gantry.AtDenester then
