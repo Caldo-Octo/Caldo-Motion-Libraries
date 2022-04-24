@@ -519,7 +519,7 @@ procedure SystemMode.ToggleMode;
 
 function SystemMode.MoveToContainer:boolean;
 	begin
-		if Gantry.GantryReady and GantryEnabled then
+		if GantryEnabled then
 			begin
 				if GlobalContainerNo <= 20 then
 					Gantry.JointAxisMove(Container)
@@ -697,7 +697,8 @@ procedure AutoStateMachine;
 	begin
 	GlobalAbortSignal:=false;
 	GlobalStartSignal:=false;
-		IngredientIndex:=0;
+	IngredientIndex:=0;
+	AutoState:=0;
 		while True do
 			begin
 				yield;
@@ -716,6 +717,7 @@ procedure AutoStateMachine;
 						AutoState:=10
 					else if  (AutoState = 10) then
 						begin
+						GantryEnabled:=true;
 						GlobalStartSignal:=false;
 						Gantry.Xmotor.SetMotor(On);
 						Gantry.Ymotor.SetMotor(On);
