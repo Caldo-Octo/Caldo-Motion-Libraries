@@ -695,6 +695,8 @@ procedure AutoStateMachine;
 	var IngredientIndex:integer;
 	var CurrentContainer:TContainer;
 	begin
+	GlobalAbortSignal:=false;
+	GlobalStartSignal:=false;
 		IngredientIndex:=0;
 		while True do
 			begin
@@ -720,7 +722,6 @@ procedure AutoStateMachine;
 						Gantry.ZMotor.SetMotor(On);
 						Gantry.MoveToDenesterStaging;
 						Gantry.MoveToDenester;
-						Gantry.MoveToDenesterStaging;
 						AutoState:=15;
 						end
 					else if (AutoState = 15) and Gantry.AtDenester then
@@ -728,6 +729,7 @@ procedure AutoStateMachine;
 						GlobalRequestDenester:=true;
 						Delay(4000);
 						GlobalRequestDenester:=false;
+						Gantry.MoveToDenesterStaging;
 						AutoState:=20;
 						end
 					else if (AutoState = 20) then
