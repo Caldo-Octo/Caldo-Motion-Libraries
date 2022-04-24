@@ -195,6 +195,7 @@ var SystemInAuto:boolean;
 var SystemReady:boolean;
 var ManualMode:boolean;
 var SystemStatusEnum:integer;
+var GlobalRequestDenester:integer;
 
 {==================================================================Single Instance Objects=============================================================================}
 
@@ -704,8 +705,9 @@ procedure AutoStateMachine;
 						end
 					else if (AutoState = 15) and Gantry.AtDenester then
 						begin
-						mb_RequestDenester.SetValue(1);
+						GlobalRequestDenester:=true;
 						Delay(4000);
+						GlobalRequestDenester:=false;
 						AutoState:=20;
 						end
 					else if (AutoState = 20) then
