@@ -682,3 +682,49 @@ procedure ButtonHandler(Container:integer);
 				end;
 		end;
 	end;
+
+var IngredientQueue:Array [0..12] of integer;
+
+procedure AutoStateMachine;
+	var AutoState:integer;
+	var IngredientIndex:integer;
+	var CurrentContainer:TContainer;
+	begin
+		IngredientIndex:=0;
+		while True do
+			begin
+				yield;
+				begin
+					if (AutoState = 0) and (GlobalStartSignal) then {Wait for Start signal from either modbus or S2M}
+						AutoState:=10
+					else if  (AutoState = 10) then
+						begin
+						Gantry.MoveToDenester;
+						AutoState:=15;
+						end
+					else if (AutoState = 15) and Gantry.AtDenester then
+						begin
+						mb_RequestDenester.SetValue(1);
+						Delay(4000);
+						AutoState:=20;
+						end
+					else if (AutoState = 20) then
+						begin
+							if (IngredientQueue[IngredientIndex]<>0) then
+								begin
+									GlobalContainerNo:=IngredientQueue[IngredientIndex];
+									SystemMode.AutoDispense;
+									IngredientIndex:=IngredientIndex+1;
+								end
+							else
+								AutoState:=30;
+						end
+					else if (AutoState = 30) then
+						begin
+							Gantry.MoveToOutfeed;
+							AutoState:=0;
+						end
+				end;
+		
+
+	end;
