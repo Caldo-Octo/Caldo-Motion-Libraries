@@ -7597,10 +7597,12 @@ Tahoma
 TUserProcedure
 0 {reference}
 FALSE
-5
+7
 procedure Click;
+  var i:longint;
   begin
-  IngredientQueue:=hmiIngredientQueue;
+  {for i:=0 to 11 do
+    IngredientQueue[i]:=Round(hmiIngredientQueue[i]);}
   GlobalStartSignal:=True;
   end;
 TRUE
@@ -8093,10 +8095,10 @@ FALSE
 TRUE
 FALSE
 1
-2
+0
 2000
 TRUE
 0
-334
+51
 C:\Program Files (x86)\Snap2Motion\For_MMC\Resources\Remote Networks\MMC_Network.enc
 0
