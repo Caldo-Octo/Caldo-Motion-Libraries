@@ -158,7 +158,7 @@ procedure SystemModbusCommsInit;
         mb_SysCommand.Initialize(UnusedModuleNo, SystemCommand, 0);
         mb_GantryEnable.Initialize(UnusedModuleNo, GantryEnable, 0);
         mb_LoadCell.Initialize(UnusedModuleNo, LoadCellConst, 0);
-        mb_RequestDenester(UnusedModuleNo, RequestDenester, 0);
+        mb_RequestDenester.Initialize(UnusedModuleNo, RequestDenester, 0);
         yield;
     end;
 
