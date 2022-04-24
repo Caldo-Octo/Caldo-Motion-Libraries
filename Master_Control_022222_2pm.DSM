@@ -1928,7 +1928,7 @@ Touch and Type Here
 nil
 0 0  diagnostic marker
 MMC-V Test Platform
-105
+101
 TControlButton
 0 {reference}
 Jog__Button
@@ -10483,72 +10483,38 @@ nil
 0 0  diagnostic marker
 Auto Mode 
 0
-3
+4
 TUserIncludeFile
 0 {reference}
 FALSE
-Containers.inc
+ModbusSlave.inc
 
-Containers.inc
+ModbusSlave.inc
 TUserIncludeFile
 0 {reference}
 FALSE
-Gantry.inc
+System.inc
 
-Gantry.inc
+System.inc
+TUserVariable
+0 {reference}
+FALSE
+ManualDispenseComplete
+Boolean
+FALSE
+10
+1
+0
 TUserIncludeFile
 0 {reference}
 FALSE
-AutoMode.inc
+ModbusSetup.inc
 
-AutoMode.inc
+ModbusSetup.inc
 -2134376448
 TRUE
 FALSE
 1
-TControlButton
-0 {reference}
-InitializeButton
-740 165
-835 220
-536870911
-Tahoma
-1
--16777208
-8
-0
-3
-TUserProcedure
-0 {reference}
-FALSE
-4
-procedure Click;
-  begin
-    AutoMode.InitializeActuators;
-  end;
-TRUE
-TUserProcedure
-0 {reference}
-FALSE
-4
-procedure MouseDown;
-  begin
-  {your program goes here - remove the curly comment brackets}
-  end;
-TRUE
-TUserProcedure
-0 {reference}
-FALSE
-4
-procedure MouseUp;
-  begin
-  {your program goes here - remove the curly comment brackets}
-  end;
-TRUE
-nil
-0 0  diagnostic marker
-Initialize
-FALSE
 TControlButton
 0 {reference}
 GantryEnable
@@ -10933,7 +10899,7 @@ TControlStatic
 0 {reference}
 XMotorLimit
 105 70
-190 98
+190 93
 -16777211
 Tahoma
 1
@@ -11008,138 +10974,6 @@ nil
 0 0  diagnostic marker
 
 0
-TControlButton
-0 {reference}
-DenesterButton
-735 300
-830 340
-536870911
-Tahoma
-1
--16777208
-8
-0
-3
-TUserProcedure
-0 {reference}
-FALSE
-5
-procedure Click;
-  const Denester = 29;
-  begin
-    AutoMode.ButtonHandler(Denester);
-  end;
-TRUE
-TUserProcedure
-0 {reference}
-FALSE
-4
-procedure MouseDown;
-  begin
-  {your program goes here - remove the curly comment brackets}
-  end;
-TRUE
-TUserProcedure
-0 {reference}
-FALSE
-4
-procedure MouseUp;
-  begin
-  {your program goes here - remove the curly comment brackets}
-  end;
-TRUE
-nil
-0 0  diagnostic marker
-Denester
-FALSE
-TControlButton
-0 {reference}
-OutfeedButton
-860 300
-955 340
-536870911
-Tahoma
-1
--16777208
-8
-0
-3
-TUserProcedure
-0 {reference}
-FALSE
-5
-procedure Click;
-  const Outfeed = 30;
-  begin
-  AutoMode.ButtonHandler(Outfeed);
-  end;
-TRUE
-TUserProcedure
-0 {reference}
-FALSE
-4
-procedure MouseDown;
-  begin
-  {your program goes here - remove the curly comment brackets}
-  end;
-TRUE
-TUserProcedure
-0 {reference}
-FALSE
-4
-procedure MouseUp;
-  begin
-  {your program goes here - remove the curly comment brackets}
-  end;
-TRUE
-nil
-0 0  diagnostic marker
-Outfeed
-FALSE
-TControlButton
-0 {reference}
-DefaultButton
-620 300
-710 340
-536870911
-Tahoma
-1
--16777208
-8
-0
-3
-TUserProcedure
-0 {reference}
-FALSE
-5
-procedure Click;
-  const IdlePos = 40;
-  begin
-  AutoMode.ButtonHandler(IdlePos);
-  end;
-TRUE
-TUserProcedure
-0 {reference}
-FALSE
-4
-procedure MouseDown;
-  begin
-  {your program goes here - remove the curly comment brackets}
-  end;
-TRUE
-TUserProcedure
-0 {reference}
-FALSE
-4
-procedure MouseUp;
-  begin
-  {your program goes here - remove the curly comment brackets}
-  end;
-TRUE
-nil
-0 0  diagnostic marker
-Default
-FALSE
 TControlButton
 0 {reference}
 Manual_SpinnerButton
@@ -11767,7 +11601,7 @@ FALSE
 TRUE
 FALSE
 1
-0
+2
 2000
 TRUE
 0
