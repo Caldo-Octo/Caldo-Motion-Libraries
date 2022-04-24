@@ -1990,7 +1990,7 @@ Touch and Type Here
 nil
 0 0  diagnostic marker
 MMC-V Test Platform
-71
+72
 TControlPlate
 144 {reference}
 RP23_Configuration
@@ -3360,7 +3360,7 @@ nil
 0 0  diagnostic marker
 Change MMC Settings
 0
-16
+17
 TUserVariable
 337 {reference}
 TRUE
@@ -3504,7 +3504,16 @@ Number
 TRUE
 12
 0
-32770
+0
+TUserVariable
+0 {reference}
+FALSE
+Ingredient1
+Number
+FALSE
+10
+1
+0
 -2134376448
 TRUE
 FALSE
@@ -7597,12 +7606,13 @@ Tahoma
 TUserProcedure
 0 {reference}
 FALSE
-7
+8
 procedure Click;
   var i:longint;
   begin
-  {for i:=0 to 11 do
-    IngredientQueue[i]:=Round(hmiIngredientQueue[i]);}
+  
+  for i:=0 to 11 do
+    IngredientQueue[i]:=Round(Settings.hmiIngredientQueue[i]);
   GlobalStartSignal:=True;
   end;
 TRUE
@@ -7671,7 +7681,50 @@ nil
 0 0  diagnostic marker
 Abort
 FALSE
-36
+TControlStatic
+0 {reference}
+Localdbgf
+520 400
+570 417
+-16777211
+Tahoma
+1
+-16777208
+8
+0
+0
+TBlock_Show
+0 {reference}
+0 {ReferenceLink}
+508 179 1993170 78 29
+2
+TStaticField
+0 {reference}
+9 7 41 21
+nil
+
+TRUE
+Show
+Show
+TNumericField
+0 {reference}
+48 7 74 21
+nil
+Number
+FALSE
+ 0.00000000000000E+0000
+TRUE
+FALSE
+FALSE
+FALSE
+nil
+FALSE
+FALSE
+nil
+0 0  diagnostic marker
+
+0
+38
 TUserVariable
 19 {reference}
 TRUE
@@ -8091,11 +8144,29 @@ FALSE
 10
 1
 0
+TUserVariable
+0 {reference}
+FALSE
+Localdebug
+Number
+FALSE
+10
+1
+0
+TUserVariable
+0 {reference}
+FALSE
+LocalDebugIn
+Number
+FALSE
+10
+1
+0
 -1865940992
 TRUE
 FALSE
 1
-0
+2
 2000
 TRUE
 0
