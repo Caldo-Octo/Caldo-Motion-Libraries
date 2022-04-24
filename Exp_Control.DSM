@@ -1598,7 +1598,69 @@ TRUE
 TRUE
 TRUE
 FALSE
+TBlock
+0 {reference}
+382 {ReferenceLink}
+404 500 8388736 180 29
+2
+TPathNameField
+0 {reference}
+9 7 165 21
 nil
+
+TRUE
+AutoMode InitializeWrapper
+Main.AutoMode.InitializeWrapper
+Main.AutoMode.
+InitializeWrapper
+TRUE
+TRUE
+TRUE
+TStaticField
+0 {reference}
+168 14 168 14
+nil
+
+TRUE
+
+;
+TRUE
+TRUE
+FALSE
+TBlock
+0 {reference}
+383 {ReferenceLink}
+404 529 8388736 216 29
+2
+TPathNameField
+0 {reference}
+9 7 201 21
+nil
+
+TRUE
+AutoMode StartAutoStateMachine
+Main.AutoMode.StartAutoStateMachine
+Main.AutoMode.
+StartAutoStateMachine
+TRUE
+TRUE
+TRUE
+TStaticField
+0 {reference}
+204 14 204 14
+nil
+
+TRUE
+
+;
+TRUE
+TRUE
+FALSE
+nil
+FALSE
+TRUE
+FALSE
+TRUE
 FALSE
 FALSE
 FALSE
@@ -1928,7 +1990,7 @@ Touch and Type Here
 nil
 0 0  diagnostic marker
 MMC-V Test Platform
-70
+71
 TControlPlate
 144 {reference}
 RP23_Configuration
@@ -3205,7 +3267,25 @@ nil
 0 0  diagnostic marker
 Auto Mode 
 0
-0
+2
+TUserProcedure
+382 {reference}
+TRUE
+4
+procedure InitializeWrapper;
+  begin
+    InitializeSubsystems;
+  end;
+TRUE
+TUserProcedure
+383 {reference}
+TRUE
+4
+procedure StartAutoStateMachine;
+  begin
+  BeginTask(TaskAddr(AutoStateMachine));
+  end;
+TRUE
 -2134376448
 TRUE
 FALSE
@@ -3280,7 +3360,7 @@ nil
 0 0  diagnostic marker
 Change MMC Settings
 0
-15
+16
 TUserVariable
 337 {reference}
 TRUE
@@ -3416,6 +3496,15 @@ FALSE
 10
 1
 0
+TUserVariable
+385 {reference}
+TRUE
+hmiIngredientQueue
+Number
+TRUE
+12
+0
+32770
 -2134376448
 TRUE
 FALSE
@@ -5209,7 +5298,7 @@ Ingredient Queue
 0
 TControlEditor
 354 {reference}
-WeightSP_Editor2
+IQueue_Editor
 475 90
 515 110
 -16777211
@@ -5246,8 +5335,8 @@ TRUE
 FALSE
 TBlock
 0 {reference}
-347 {ReferenceLink}
-414 135 36095 323 37
+385 {ReferenceLink}
+414 135 36095 438 37
 7
 TStaticField
 0 {reference}
@@ -5259,24 +5348,24 @@ Set
 
 TNumberVariableListField
 0 {reference}
-44 11 104 25
+44 11 213 25
 nil
 
 TRUE
-WeightSP
-WeightSP
+hmiIngredientQueue
+hmiIngredientQueue
 0
 TConditionallyPresentIndexField
 0 {reference}
-107 11 107 25
+220 11 246 25
 nil
 Number
 TRUE
- 1.00000000000000E+0000
+ 0.00000000000000E+0000
 FALSE
 TConditionallyPresentAccessorField
 0 {reference}
-110 18 110 18
+249 18 249 18
 nil
 
 TRUE
@@ -5284,7 +5373,7 @@ TRUE
 :=
 TStaticField
 0 {reference}
-113 11 130 25
+252 11 269 25
 nil
 
 TRUE
@@ -5292,11 +5381,11 @@ TRUE
 
 TNumericField
 0 {reference}
-133 7 291 30
+272 7 414 30
 TNumericExpression
 0 {reference}
 354 {ReferenceLink}
-547 142 14053594 158 23
+686 142 14053594 142 23
 3
 TStaticField
 0 {reference}
@@ -5308,20 +5397,20 @@ TRUE
 EditorReadlnDouble(
 TPathNameField
 0 {reference}
-15 4 111 18
+15 4 95 18
 nil
 
 TRUE
-WeightSP_Editor2
-Main.WeightSP_Editor2
+IQueue_Editor
+Main.IQueue_Editor
 Main.
-WeightSP_Editor2
+IQueue_Editor
 TRUE
 TRUE
 TRUE
 TStaticField
 0 {reference}
-114 4 146 18
+98 4 130 18
 nil
 
 TRUE
@@ -5334,7 +5423,7 @@ TRUE
 TRUE
 TConditionallyPresentAccessorField
 0 {reference}
-294 18 294 18
+417 18 417 18
 nil
 
 TRUE
@@ -5354,7 +5443,7 @@ nil
 0
 TControlEditor
 355 {reference}
-WeightSP_Editor3
+IQueue_Editor2
 475 115
 515 135
 -16777211
@@ -5391,8 +5480,8 @@ TRUE
 FALSE
 TBlock
 0 {reference}
-347 {ReferenceLink}
-414 135 36095 323 37
+385 {ReferenceLink}
+414 135 36095 445 37
 7
 TStaticField
 0 {reference}
@@ -5404,16 +5493,16 @@ Set
 
 TNumberVariableListField
 0 {reference}
-44 11 104 25
+44 11 213 25
 nil
 
 TRUE
-WeightSP
-WeightSP
+hmiIngredientQueue
+hmiIngredientQueue
 0
 TConditionallyPresentIndexField
 0 {reference}
-107 11 107 25
+220 11 246 25
 nil
 Number
 TRUE
@@ -5421,7 +5510,7 @@ TRUE
 FALSE
 TConditionallyPresentAccessorField
 0 {reference}
-110 18 110 18
+249 18 249 18
 nil
 
 TRUE
@@ -5429,7 +5518,7 @@ TRUE
 :=
 TStaticField
 0 {reference}
-113 11 130 25
+252 11 269 25
 nil
 
 TRUE
@@ -5437,11 +5526,11 @@ TRUE
 
 TNumericField
 0 {reference}
-133 7 291 30
+272 7 421 30
 TNumericExpression
 0 {reference}
 355 {ReferenceLink}
-547 142 14053594 158 23
+686 142 14053594 149 23
 3
 TStaticField
 0 {reference}
@@ -5453,20 +5542,20 @@ TRUE
 EditorReadlnDouble(
 TPathNameField
 0 {reference}
-15 4 111 18
+15 4 102 18
 nil
 
 TRUE
-WeightSP_Editor3
-Main.WeightSP_Editor3
+IQueue_Editor2
+Main.IQueue_Editor2
 Main.
-WeightSP_Editor3
+IQueue_Editor2
 TRUE
 TRUE
 TRUE
 TStaticField
 0 {reference}
-114 4 146 18
+105 4 137 18
 nil
 
 TRUE
@@ -5479,7 +5568,7 @@ TRUE
 TRUE
 TConditionallyPresentAccessorField
 0 {reference}
-294 18 294 18
+424 18 424 18
 nil
 
 TRUE
@@ -5495,11 +5584,11 @@ FALSE
 FALSE
 nil
 0 0  diagnostic marker
-1
+0
 0
 TControlEditor
 356 {reference}
-WeightSP_Editor4
+IQueue_Editor3
 475 140
 515 160
 -16777211
@@ -5536,8 +5625,8 @@ TRUE
 FALSE
 TBlock
 0 {reference}
-347 {ReferenceLink}
-414 135 36095 323 37
+385 {ReferenceLink}
+414 135 36095 445 37
 7
 TStaticField
 0 {reference}
@@ -5549,24 +5638,24 @@ Set
 
 TNumberVariableListField
 0 {reference}
-44 11 104 25
+44 11 213 25
 nil
 
 TRUE
-WeightSP
-WeightSP
+hmiIngredientQueue
+hmiIngredientQueue
 0
 TConditionallyPresentIndexField
 0 {reference}
-107 11 107 25
+220 11 246 25
 nil
 Number
 TRUE
- 1.00000000000000E+0000
+ 2.00000000000000E+0000
 FALSE
 TConditionallyPresentAccessorField
 0 {reference}
-110 18 110 18
+249 18 249 18
 nil
 
 TRUE
@@ -5574,7 +5663,7 @@ TRUE
 :=
 TStaticField
 0 {reference}
-113 11 130 25
+252 11 269 25
 nil
 
 TRUE
@@ -5582,11 +5671,11 @@ TRUE
 
 TNumericField
 0 {reference}
-133 7 291 30
+272 7 421 30
 TNumericExpression
 0 {reference}
 356 {ReferenceLink}
-547 142 14053594 158 23
+686 142 14053594 149 23
 3
 TStaticField
 0 {reference}
@@ -5598,20 +5687,20 @@ TRUE
 EditorReadlnDouble(
 TPathNameField
 0 {reference}
-15 4 111 18
+15 4 102 18
 nil
 
 TRUE
-WeightSP_Editor4
-Main.WeightSP_Editor4
+IQueue_Editor3
+Main.IQueue_Editor3
 Main.
-WeightSP_Editor4
+IQueue_Editor3
 TRUE
 TRUE
 TRUE
 TStaticField
 0 {reference}
-114 4 146 18
+105 4 137 18
 nil
 
 TRUE
@@ -5624,7 +5713,7 @@ TRUE
 TRUE
 TConditionallyPresentAccessorField
 0 {reference}
-294 18 294 18
+424 18 424 18
 nil
 
 TRUE
@@ -5640,11 +5729,11 @@ FALSE
 FALSE
 nil
 0 0  diagnostic marker
-1
+0
 0
 TControlEditor
 357 {reference}
-WeightSP_Editor5
+IQueue_Editor4
 475 165
 515 185
 -16777211
@@ -5681,8 +5770,8 @@ TRUE
 FALSE
 TBlock
 0 {reference}
-347 {ReferenceLink}
-414 135 36095 323 37
+385 {ReferenceLink}
+414 135 36095 445 37
 7
 TStaticField
 0 {reference}
@@ -5694,24 +5783,24 @@ Set
 
 TNumberVariableListField
 0 {reference}
-44 11 104 25
+44 11 213 25
 nil
 
 TRUE
-WeightSP
-WeightSP
+hmiIngredientQueue
+hmiIngredientQueue
 0
 TConditionallyPresentIndexField
 0 {reference}
-107 11 107 25
+220 11 246 25
 nil
 Number
 TRUE
- 1.00000000000000E+0000
+ 3.00000000000000E+0000
 FALSE
 TConditionallyPresentAccessorField
 0 {reference}
-110 18 110 18
+249 18 249 18
 nil
 
 TRUE
@@ -5719,7 +5808,7 @@ TRUE
 :=
 TStaticField
 0 {reference}
-113 11 130 25
+252 11 269 25
 nil
 
 TRUE
@@ -5727,11 +5816,11 @@ TRUE
 
 TNumericField
 0 {reference}
-133 7 291 30
+272 7 421 30
 TNumericExpression
 0 {reference}
 357 {ReferenceLink}
-547 142 14053594 158 23
+686 142 14053594 149 23
 3
 TStaticField
 0 {reference}
@@ -5743,20 +5832,20 @@ TRUE
 EditorReadlnDouble(
 TPathNameField
 0 {reference}
-15 4 111 18
+15 4 102 18
 nil
 
 TRUE
-WeightSP_Editor5
-Main.WeightSP_Editor5
+IQueue_Editor4
+Main.IQueue_Editor4
 Main.
-WeightSP_Editor5
+IQueue_Editor4
 TRUE
 TRUE
 TRUE
 TStaticField
 0 {reference}
-114 4 146 18
+105 4 137 18
 nil
 
 TRUE
@@ -5769,7 +5858,7 @@ TRUE
 TRUE
 TConditionallyPresentAccessorField
 0 {reference}
-294 18 294 18
+424 18 424 18
 nil
 
 TRUE
@@ -5785,11 +5874,11 @@ FALSE
 FALSE
 nil
 0 0  diagnostic marker
-1
+0
 0
 TControlEditor
 358 {reference}
-WeightSP_Editor6
+IQueue_Editor5
 475 190
 515 210
 -16777211
@@ -5826,8 +5915,8 @@ TRUE
 FALSE
 TBlock
 0 {reference}
-347 {ReferenceLink}
-414 135 36095 323 37
+385 {ReferenceLink}
+414 135 36095 445 37
 7
 TStaticField
 0 {reference}
@@ -5839,24 +5928,24 @@ Set
 
 TNumberVariableListField
 0 {reference}
-44 11 104 25
+44 11 213 25
 nil
 
 TRUE
-WeightSP
-WeightSP
+hmiIngredientQueue
+hmiIngredientQueue
 0
 TConditionallyPresentIndexField
 0 {reference}
-107 11 107 25
+220 11 246 25
 nil
 Number
 TRUE
- 1.00000000000000E+0000
+ 4.00000000000000E+0000
 FALSE
 TConditionallyPresentAccessorField
 0 {reference}
-110 18 110 18
+249 18 249 18
 nil
 
 TRUE
@@ -5864,7 +5953,7 @@ TRUE
 :=
 TStaticField
 0 {reference}
-113 11 130 25
+252 11 269 25
 nil
 
 TRUE
@@ -5872,11 +5961,11 @@ TRUE
 
 TNumericField
 0 {reference}
-133 7 291 30
+272 7 421 30
 TNumericExpression
 0 {reference}
 358 {ReferenceLink}
-547 142 14053594 158 23
+686 142 14053594 149 23
 3
 TStaticField
 0 {reference}
@@ -5888,20 +5977,20 @@ TRUE
 EditorReadlnDouble(
 TPathNameField
 0 {reference}
-15 4 111 18
+15 4 102 18
 nil
 
 TRUE
-WeightSP_Editor6
-Main.WeightSP_Editor6
+IQueue_Editor5
+Main.IQueue_Editor5
 Main.
-WeightSP_Editor6
+IQueue_Editor5
 TRUE
 TRUE
 TRUE
 TStaticField
 0 {reference}
-114 4 146 18
+105 4 137 18
 nil
 
 TRUE
@@ -5914,7 +6003,7 @@ TRUE
 TRUE
 TConditionallyPresentAccessorField
 0 {reference}
-294 18 294 18
+424 18 424 18
 nil
 
 TRUE
@@ -5930,11 +6019,11 @@ FALSE
 FALSE
 nil
 0 0  diagnostic marker
-1
+0
 0
 TControlEditor
 359 {reference}
-WeightSP_Editor7
+IQueue_Editor6
 475 215
 515 235
 -16777211
@@ -5971,8 +6060,8 @@ TRUE
 FALSE
 TBlock
 0 {reference}
-347 {ReferenceLink}
-414 135 36095 323 37
+385 {ReferenceLink}
+414 135 36095 445 37
 7
 TStaticField
 0 {reference}
@@ -5984,24 +6073,24 @@ Set
 
 TNumberVariableListField
 0 {reference}
-44 11 104 25
+44 11 213 25
 nil
 
 TRUE
-WeightSP
-WeightSP
+hmiIngredientQueue
+hmiIngredientQueue
 0
 TConditionallyPresentIndexField
 0 {reference}
-107 11 107 25
+220 11 246 25
 nil
 Number
 TRUE
- 1.00000000000000E+0000
+ 5.00000000000000E+0000
 FALSE
 TConditionallyPresentAccessorField
 0 {reference}
-110 18 110 18
+249 18 249 18
 nil
 
 TRUE
@@ -6009,7 +6098,7 @@ TRUE
 :=
 TStaticField
 0 {reference}
-113 11 130 25
+252 11 269 25
 nil
 
 TRUE
@@ -6017,11 +6106,11 @@ TRUE
 
 TNumericField
 0 {reference}
-133 7 291 30
+272 7 421 30
 TNumericExpression
 0 {reference}
 359 {ReferenceLink}
-547 142 14053594 158 23
+686 142 14053594 149 23
 3
 TStaticField
 0 {reference}
@@ -6033,20 +6122,20 @@ TRUE
 EditorReadlnDouble(
 TPathNameField
 0 {reference}
-15 4 111 18
+15 4 102 18
 nil
 
 TRUE
-WeightSP_Editor7
-Main.WeightSP_Editor7
+IQueue_Editor6
+Main.IQueue_Editor6
 Main.
-WeightSP_Editor7
+IQueue_Editor6
 TRUE
 TRUE
 TRUE
 TStaticField
 0 {reference}
-114 4 146 18
+105 4 137 18
 nil
 
 TRUE
@@ -6059,7 +6148,7 @@ TRUE
 TRUE
 TConditionallyPresentAccessorField
 0 {reference}
-294 18 294 18
+424 18 424 18
 nil
 
 TRUE
@@ -6075,11 +6164,11 @@ FALSE
 FALSE
 nil
 0 0  diagnostic marker
-1
+0
 0
 TControlEditor
 360 {reference}
-WeightSP_Editor8
+IQueue_Editor7
 475 240
 515 260
 -16777211
@@ -6116,8 +6205,8 @@ TRUE
 FALSE
 TBlock
 0 {reference}
-347 {ReferenceLink}
-414 135 36095 323 37
+385 {ReferenceLink}
+414 135 36095 445 37
 7
 TStaticField
 0 {reference}
@@ -6129,24 +6218,24 @@ Set
 
 TNumberVariableListField
 0 {reference}
-44 11 104 25
+44 11 213 25
 nil
 
 TRUE
-WeightSP
-WeightSP
+hmiIngredientQueue
+hmiIngredientQueue
 0
 TConditionallyPresentIndexField
 0 {reference}
-107 11 107 25
+220 11 246 25
 nil
 Number
 TRUE
- 1.00000000000000E+0000
+ 6.00000000000000E+0000
 FALSE
 TConditionallyPresentAccessorField
 0 {reference}
-110 18 110 18
+249 18 249 18
 nil
 
 TRUE
@@ -6154,7 +6243,7 @@ TRUE
 :=
 TStaticField
 0 {reference}
-113 11 130 25
+252 11 269 25
 nil
 
 TRUE
@@ -6162,11 +6251,11 @@ TRUE
 
 TNumericField
 0 {reference}
-133 7 291 30
+272 7 421 30
 TNumericExpression
 0 {reference}
 360 {ReferenceLink}
-547 142 14053594 158 23
+686 142 14053594 149 23
 3
 TStaticField
 0 {reference}
@@ -6178,20 +6267,20 @@ TRUE
 EditorReadlnDouble(
 TPathNameField
 0 {reference}
-15 4 111 18
+15 4 102 18
 nil
 
 TRUE
-WeightSP_Editor8
-Main.WeightSP_Editor8
+IQueue_Editor7
+Main.IQueue_Editor7
 Main.
-WeightSP_Editor8
+IQueue_Editor7
 TRUE
 TRUE
 TRUE
 TStaticField
 0 {reference}
-114 4 146 18
+105 4 137 18
 nil
 
 TRUE
@@ -6204,7 +6293,7 @@ TRUE
 TRUE
 TConditionallyPresentAccessorField
 0 {reference}
-294 18 294 18
+424 18 424 18
 nil
 
 TRUE
@@ -6220,11 +6309,11 @@ FALSE
 FALSE
 nil
 0 0  diagnostic marker
-1
+0
 0
 TControlEditor
 361 {reference}
-WeightSP_Editor9
+IQueue_Editor8
 475 265
 515 285
 -16777211
@@ -6261,8 +6350,8 @@ TRUE
 FALSE
 TBlock
 0 {reference}
-347 {ReferenceLink}
-414 135 36095 323 37
+385 {ReferenceLink}
+414 135 36095 445 37
 7
 TStaticField
 0 {reference}
@@ -6274,24 +6363,24 @@ Set
 
 TNumberVariableListField
 0 {reference}
-44 11 104 25
+44 11 213 25
 nil
 
 TRUE
-WeightSP
-WeightSP
+hmiIngredientQueue
+hmiIngredientQueue
 0
 TConditionallyPresentIndexField
 0 {reference}
-107 11 107 25
+220 11 246 25
 nil
 Number
 TRUE
- 1.00000000000000E+0000
+ 7.00000000000000E+0000
 FALSE
 TConditionallyPresentAccessorField
 0 {reference}
-110 18 110 18
+249 18 249 18
 nil
 
 TRUE
@@ -6299,7 +6388,7 @@ TRUE
 :=
 TStaticField
 0 {reference}
-113 11 130 25
+252 11 269 25
 nil
 
 TRUE
@@ -6307,11 +6396,11 @@ TRUE
 
 TNumericField
 0 {reference}
-133 7 291 30
+272 7 421 30
 TNumericExpression
 0 {reference}
 361 {ReferenceLink}
-547 142 14053594 158 23
+686 142 14053594 149 23
 3
 TStaticField
 0 {reference}
@@ -6323,20 +6412,20 @@ TRUE
 EditorReadlnDouble(
 TPathNameField
 0 {reference}
-15 4 111 18
+15 4 102 18
 nil
 
 TRUE
-WeightSP_Editor9
-Main.WeightSP_Editor9
+IQueue_Editor8
+Main.IQueue_Editor8
 Main.
-WeightSP_Editor9
+IQueue_Editor8
 TRUE
 TRUE
 TRUE
 TStaticField
 0 {reference}
-114 4 146 18
+105 4 137 18
 nil
 
 TRUE
@@ -6349,7 +6438,7 @@ TRUE
 TRUE
 TConditionallyPresentAccessorField
 0 {reference}
-294 18 294 18
+424 18 424 18
 nil
 
 TRUE
@@ -6365,11 +6454,11 @@ FALSE
 FALSE
 nil
 0 0  diagnostic marker
-1
+0
 0
 TControlEditor
 362 {reference}
-WeightSP_Editor10
+IQueue_Editor9
 475 290
 515 310
 -16777211
@@ -6406,8 +6495,8 @@ TRUE
 FALSE
 TBlock
 0 {reference}
-347 {ReferenceLink}
-414 135 36095 323 37
+385 {ReferenceLink}
+414 135 36095 445 37
 7
 TStaticField
 0 {reference}
@@ -6419,24 +6508,24 @@ Set
 
 TNumberVariableListField
 0 {reference}
-44 11 104 25
+44 11 213 25
 nil
 
 TRUE
-WeightSP
-WeightSP
+hmiIngredientQueue
+hmiIngredientQueue
 0
 TConditionallyPresentIndexField
 0 {reference}
-107 11 107 25
+220 11 246 25
 nil
 Number
 TRUE
- 1.00000000000000E+0000
+ 8.00000000000000E+0000
 FALSE
 TConditionallyPresentAccessorField
 0 {reference}
-110 18 110 18
+249 18 249 18
 nil
 
 TRUE
@@ -6444,7 +6533,7 @@ TRUE
 :=
 TStaticField
 0 {reference}
-113 11 130 25
+252 11 269 25
 nil
 
 TRUE
@@ -6452,11 +6541,11 @@ TRUE
 
 TNumericField
 0 {reference}
-133 7 291 30
+272 7 421 30
 TNumericExpression
 0 {reference}
 362 {ReferenceLink}
-547 142 14053594 158 23
+686 142 14053594 149 23
 3
 TStaticField
 0 {reference}
@@ -6468,20 +6557,20 @@ TRUE
 EditorReadlnDouble(
 TPathNameField
 0 {reference}
-15 4 111 18
+15 4 102 18
 nil
 
 TRUE
-WeightSP_Editor10
-Main.WeightSP_Editor10
+IQueue_Editor9
+Main.IQueue_Editor9
 Main.
-WeightSP_Editor10
+IQueue_Editor9
 TRUE
 TRUE
 TRUE
 TStaticField
 0 {reference}
-114 4 146 18
+105 4 137 18
 nil
 
 TRUE
@@ -6494,7 +6583,7 @@ TRUE
 TRUE
 TConditionallyPresentAccessorField
 0 {reference}
-294 18 294 18
+424 18 424 18
 nil
 
 TRUE
@@ -6510,11 +6599,11 @@ FALSE
 FALSE
 nil
 0 0  diagnostic marker
-1
+0
 0
 TControlEditor
 363 {reference}
-WeightSP_Editor11
+IQueue_Editor10
 475 315
 515 335
 -16777211
@@ -6551,8 +6640,8 @@ TRUE
 FALSE
 TBlock
 0 {reference}
-347 {ReferenceLink}
-414 135 36095 323 37
+385 {ReferenceLink}
+414 135 36095 452 37
 7
 TStaticField
 0 {reference}
@@ -6564,24 +6653,24 @@ Set
 
 TNumberVariableListField
 0 {reference}
-44 11 104 25
+44 11 213 25
 nil
 
 TRUE
-WeightSP
-WeightSP
+hmiIngredientQueue
+hmiIngredientQueue
 0
 TConditionallyPresentIndexField
 0 {reference}
-107 11 107 25
+220 11 246 25
 nil
 Number
 TRUE
- 1.00000000000000E+0000
+ 9.00000000000000E+0000
 FALSE
 TConditionallyPresentAccessorField
 0 {reference}
-110 18 110 18
+249 18 249 18
 nil
 
 TRUE
@@ -6589,7 +6678,7 @@ TRUE
 :=
 TStaticField
 0 {reference}
-113 11 130 25
+252 11 269 25
 nil
 
 TRUE
@@ -6597,11 +6686,11 @@ TRUE
 
 TNumericField
 0 {reference}
-133 7 291 30
+272 7 428 30
 TNumericExpression
 0 {reference}
 363 {ReferenceLink}
-547 142 14053594 158 23
+686 142 14053594 156 23
 3
 TStaticField
 0 {reference}
@@ -6613,20 +6702,20 @@ TRUE
 EditorReadlnDouble(
 TPathNameField
 0 {reference}
-15 4 111 18
+15 4 109 18
 nil
 
 TRUE
-WeightSP_Editor11
-Main.WeightSP_Editor11
+IQueue_Editor10
+Main.IQueue_Editor10
 Main.
-WeightSP_Editor11
+IQueue_Editor10
 TRUE
 TRUE
 TRUE
 TStaticField
 0 {reference}
-114 4 146 18
+112 4 144 18
 nil
 
 TRUE
@@ -6639,7 +6728,7 @@ TRUE
 TRUE
 TConditionallyPresentAccessorField
 0 {reference}
-294 18 294 18
+431 18 431 18
 nil
 
 TRUE
@@ -6655,11 +6744,11 @@ FALSE
 FALSE
 nil
 0 0  diagnostic marker
-1
+0
 0
 TControlEditor
 364 {reference}
-WeightSP_Editor12
+IQueue_Editor11
 475 340
 515 360
 -16777211
@@ -6696,8 +6785,8 @@ TRUE
 FALSE
 TBlock
 0 {reference}
-347 {ReferenceLink}
-414 135 36095 323 37
+385 {ReferenceLink}
+414 135 36095 459 37
 7
 TStaticField
 0 {reference}
@@ -6709,24 +6798,24 @@ Set
 
 TNumberVariableListField
 0 {reference}
-44 11 104 25
+44 11 213 25
 nil
 
 TRUE
-WeightSP
-WeightSP
+hmiIngredientQueue
+hmiIngredientQueue
 0
 TConditionallyPresentIndexField
 0 {reference}
-107 11 107 25
+220 11 253 25
 nil
 Number
 TRUE
- 1.00000000000000E+0000
+ 1.00000000000000E+0001
 FALSE
 TConditionallyPresentAccessorField
 0 {reference}
-110 18 110 18
+256 18 256 18
 nil
 
 TRUE
@@ -6734,7 +6823,7 @@ TRUE
 :=
 TStaticField
 0 {reference}
-113 11 130 25
+259 11 276 25
 nil
 
 TRUE
@@ -6742,11 +6831,11 @@ TRUE
 
 TNumericField
 0 {reference}
-133 7 291 30
+279 7 435 30
 TNumericExpression
 0 {reference}
 364 {ReferenceLink}
-547 142 14053594 158 23
+693 142 14053594 156 23
 3
 TStaticField
 0 {reference}
@@ -6758,20 +6847,20 @@ TRUE
 EditorReadlnDouble(
 TPathNameField
 0 {reference}
-15 4 111 18
+15 4 109 18
 nil
 
 TRUE
-WeightSP_Editor12
-Main.WeightSP_Editor12
+IQueue_Editor11
+Main.IQueue_Editor11
 Main.
-WeightSP_Editor12
+IQueue_Editor11
 TRUE
 TRUE
 TRUE
 TStaticField
 0 {reference}
-114 4 146 18
+112 4 144 18
 nil
 
 TRUE
@@ -6784,7 +6873,7 @@ TRUE
 TRUE
 TConditionallyPresentAccessorField
 0 {reference}
-294 18 294 18
+438 18 438 18
 nil
 
 TRUE
@@ -6800,11 +6889,11 @@ FALSE
 FALSE
 nil
 0 0  diagnostic marker
-1
+0
 0
 TControlEditor
 365 {reference}
-WeightSP_Editor13
+IQueue_Editor12
 475 365
 515 385
 -16777211
@@ -6841,8 +6930,8 @@ TRUE
 FALSE
 TBlock
 0 {reference}
-347 {ReferenceLink}
-414 135 36095 323 37
+385 {ReferenceLink}
+414 135 36095 459 37
 7
 TStaticField
 0 {reference}
@@ -6854,24 +6943,24 @@ Set
 
 TNumberVariableListField
 0 {reference}
-44 11 104 25
+44 11 213 25
 nil
 
 TRUE
-WeightSP
-WeightSP
+hmiIngredientQueue
+hmiIngredientQueue
 0
 TConditionallyPresentIndexField
 0 {reference}
-107 11 107 25
+220 11 253 25
 nil
 Number
 TRUE
- 1.00000000000000E+0000
+ 1.10000000000000E+0001
 FALSE
 TConditionallyPresentAccessorField
 0 {reference}
-110 18 110 18
+256 18 256 18
 nil
 
 TRUE
@@ -6879,7 +6968,7 @@ TRUE
 :=
 TStaticField
 0 {reference}
-113 11 130 25
+259 11 276 25
 nil
 
 TRUE
@@ -6887,11 +6976,11 @@ TRUE
 
 TNumericField
 0 {reference}
-133 7 291 30
+279 7 435 30
 TNumericExpression
 0 {reference}
 365 {ReferenceLink}
-547 142 14053594 158 23
+693 142 14053594 156 23
 3
 TStaticField
 0 {reference}
@@ -6903,20 +6992,20 @@ TRUE
 EditorReadlnDouble(
 TPathNameField
 0 {reference}
-15 4 111 18
+15 4 109 18
 nil
 
 TRUE
-WeightSP_Editor13
-Main.WeightSP_Editor13
+IQueue_Editor12
+Main.IQueue_Editor12
 Main.
-WeightSP_Editor13
+IQueue_Editor12
 TRUE
 TRUE
 TRUE
 TStaticField
 0 {reference}
-114 4 146 18
+112 4 144 18
 nil
 
 TRUE
@@ -6929,7 +7018,7 @@ TRUE
 TRUE
 TConditionallyPresentAccessorField
 0 {reference}
-294 18 294 18
+438 18 438 18
 nil
 
 TRUE
@@ -6945,7 +7034,7 @@ FALSE
 FALSE
 nil
 0 0  diagnostic marker
-1
+0
 0
 TControlStatic
 366 {reference}
@@ -7508,10 +7597,11 @@ Tahoma
 TUserProcedure
 0 {reference}
 FALSE
-4
+5
 procedure Click;
   begin
-  {your program goes here - remove the curly comment brackets}
+  IngredientQueue:=hmiIngredientQueue;
+  GlobalStartSignal:=True;
   end;
 TRUE
 TUserProcedure
@@ -7536,7 +7626,50 @@ nil
 0 0  diagnostic marker
 Start
 FALSE
-35
+TControlButton
+0 {reference}
+AbortButton
+395 470
+465 505
+536870911
+Tahoma
+1
+-16777208
+8
+0
+3
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure Click;
+  begin
+  GlobalAbortSignal:=true;
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseDown;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseUp;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+nil
+0 0  diagnostic marker
+Abort
+FALSE
+36
 TUserVariable
 19 {reference}
 TRUE
@@ -7947,6 +8080,15 @@ procedure SafeZMoveTo(Destination:double);
     Escape(3000);
   end;
 TRUE
+TUserVariable
+0 {reference}
+FALSE
+CurrentWeightSp
+Number
+FALSE
+10
+1
+0
 -1865940992
 TRUE
 FALSE
@@ -7955,6 +8097,6 @@ FALSE
 2000
 TRUE
 0
-51
+334
 C:\Program Files (x86)\Snap2Motion\For_MMC\Resources\Remote Networks\MMC_Network.enc
 0
