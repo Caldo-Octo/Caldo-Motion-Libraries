@@ -726,7 +726,8 @@ procedure AutoStateMachine;
 							Gantry.MoveToOutfeed;
 							AutoState:=0;
 						end
+					end;
 				end;
-		
-
+			end;
+		end;
 	end;
