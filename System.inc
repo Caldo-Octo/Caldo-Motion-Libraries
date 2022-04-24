@@ -729,4 +729,3 @@ procedure AutoStateMachine;
 					end;
 				end;
 			end;
-	end;
