@@ -307,6 +307,8 @@ procedure SystemEventHandler;
             Gantry.enable:=false;
             end;
 
+        if GlobalRequestDenester then
+            mb_RequestDenester:=255;
 
 
         if GlobalStartSignal then
