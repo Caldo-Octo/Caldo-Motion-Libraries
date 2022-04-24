@@ -689,12 +689,15 @@ procedure ButtonHandler(Container:integer);
 
 var IngredientQueue:Array [0..12] of integer;
 var GlobalAbortSignal:boolean;
+var Debug:integer;
+var DebugContIn:integer;
 
 procedure AutoStateMachine;
 	var AutoState:integer;
 	var IngredientIndex:integer;
 	var CurrentContainer:TContainer;
 	begin
+	Debug:=0;
 	GlobalAbortSignal:=false;
 	GlobalStartSignal:=false;
 	IngredientIndex:=0;
@@ -738,8 +741,11 @@ procedure AutoStateMachine;
 						begin
 							if (IngredientQueue[IngredientIndex]<>0) then
 								begin
+									Debug:=1;
 									GlobalContainerNo:=IngredientQueue[IngredientIndex];
+									Debug:=2;
 									SystemMode.AutoDispense;
+									Debug:=3;
 									IngredientIndex:=IngredientIndex+1;
 								end
 							else
