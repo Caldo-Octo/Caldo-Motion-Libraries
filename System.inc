@@ -688,7 +688,7 @@ procedure ButtonHandler(Container:integer);
 
 
 var IngredientQueue:Array [0..12] of integer;
-var GloablAbortSignal:boolean;
+var GlobalAbortSignal:boolean;
 
 procedure AutoStateMachine;
 	var AutoState:integer;
