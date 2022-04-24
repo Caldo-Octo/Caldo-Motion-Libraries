@@ -212,7 +212,6 @@ procedure ContainerModbusCommsInit;
     end;
     
 procedure MapModbusMMCInputs;
-    var Container:TContainer;
     begin
         {Boolean variables are encoded in modbus words}
         {System Modbus Words}
@@ -238,12 +237,12 @@ procedure MapModbusMMCInputs;
         Gantry.YPositionSP:=mb_YPositionSP.Value;
         Gantry.ZPositionSP:=mb_ZPositionSP.Value;}
         {Container Modbus Words} 
-        Container:=Containers[GlobalContainerNo];
+        {Container:=Containers[GlobalContainerNo];}
         {TODO: Add container command masks}
         {Container.ReverseEnabled:=mb_ContainerCommand.Value and $0A
         Container.GantryPatternEnabled:=mb_ContainerCommand.Value and $0B;
         Container.UpdateSettings:=mb_ContainerCommand.Value and $0C;}
-        Container.Id:=mb_CurrentContainer.Value;
+        {Container.Id:=mb_CurrentContainer.Value;
         Container.Revolutions:=mb_DispenseRevolutions.Value;
         Container.ReverseRevolutions:=mb_ReverseRevolutions.Value;
         Container.DispenseSpeed:=mb_DispenseSpeed.Value;
@@ -252,7 +251,7 @@ procedure MapModbusMMCInputs;
         Container.Accel:=mb_Accel.Value;
         Container.Decel:=mb_Decel.Value;
         Container.Current:=mb_Current.Value;
-        Container.WeightSP:=mb_DispenseWeight.Value;
+        Container.WeightSP:=mb_DispenseWeight.Value;}
         {Container.XCoord:=mb_ContainerXCoord.Value;
         Container.YCoord:=mb_ContainerYCoord.Value;
         Container.ZCoord:=mb_ContainerZCoord.Value;
