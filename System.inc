@@ -112,7 +112,7 @@ procedure TContainer.InitializeAuger(var Axis:TDistributedT1Axis;XPos:double;YPo
 		Accel:=10;
 		Decel:=10;
 		Current:=2.0;
-		WeightSP:=0;
+		WeightSP:=150;
 		ReverseDelay:=10;
 		DispensePermissive:=false;
 		ReverseEnabled:=true;
@@ -195,7 +195,8 @@ var SystemInAuto:boolean;
 var SystemReady:boolean;
 var ManualMode:boolean;
 var SystemStatusEnum:integer;
-var GlobalRequestDenester:integer;
+var GlobalRequestDenester:boolean;
+var GlobalSpinRequest:boolean;
 
 {==================================================================Single Instance Objects=============================================================================}
 
@@ -340,9 +341,9 @@ var Gantry:object
 					YMotor.BeginMoveTo(DenesterStagingY);
 					while not (XMotor.MoveIsFinished and YMotor.MoveIsFinished) do
 						yield;
-					
 				end;
 				AtDenesterStaging:=true;
+				//Strange behavior not mving to denester
 		end;
 	
 	procedure MoveToDenester;
@@ -478,7 +479,7 @@ procedure LinePatternWrapper;
 		Gantry.StraightLinePattern(5)
 	end;
 {-----------------End Task Wraper Functions------------------}	
-
+var GlobalContainerNoIndicator:integer;
 function UpdateLoadCellScaled(ScalingFactor:double):double;
     begin
         UpdateLoadCellScaled:=LoadCell.Voltage*ScalingFactor;
@@ -562,17 +563,20 @@ procedure SystemMode.AutoDispense;
 		if GantryMoveComplete then
 			begin
 				StartGantryPattern;
+				if Container.BowlSpinEnabled then
+					GlobalSpinRequest:=true;
 				BeginTask(TaskAddr(DispenseWrapper));
-				LoadCellScaled:=0;
-				while LoadCellScaled < CurrentWeightSP do {removed CurrentWeightSP}
+				LoadCellScaled:=0; {tesing loadcell}
+				while LoadCellScaled < CurrentWeightSp do {removed CurrentWeightSP}
 					begin
 						yield;
 						begin
 							LoadCellScaled:=(LoadCell.Voltage*300);
 						end;
 					end;
-					
+				GlobalContainerNoIndicator:= GlobalContainerNo	
 				Containers[GlobalContainerNo].DispensePermissive:=false;
+				GlobalSpinRequest:=false;
 				AutoProcessComplete:=true;
 				{Fix this later, Dispense Permissive should also Stop gantry pattern}
 				while (TaskPresent(TaskAddr(DispenseWrapper)) or TaskPresent(TaskAddr(ZigPatternWrapper)) or TaskPresent(TaskAddr(LinePatternWrapper))) do
@@ -720,7 +724,7 @@ procedure AutoStateMachine;
 						AutoState:=10
 					else if  (AutoState = 10) then
 						begin
-						GantryEnabled:=true;
+						SystemMode.GantryEnabled:=true;
 						GlobalStartSignal:=false;
 						Gantry.Xmotor.SetMotor(On);
 						Gantry.Ymotor.SetMotor(On);
@@ -753,7 +757,7 @@ procedure AutoStateMachine;
 						end
 					else if (AutoState = 30) then
 						begin
-							Gantry.MoveToOutfeed;
+							Gantry.MoveToOutfeedStaging;
 							AutoState:=0;
 						end
 					end;

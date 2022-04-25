@@ -5,7 +5,7 @@ const SystemCommand    = $22;
 const SystemState     = $23;
 const GantryEnable     = $24;
 const RequestDenester     = $25;
-const _UserWord6_w     = $26;
+const RequestSpin     = $26;
 const _UserWord7_w     = $27;
 const _UserWord8_w     = $28;
 const _UserWord9_w     = $29;
@@ -109,6 +109,7 @@ var mb_SysCommand:TModbusWord;
 var mb_GantryEnable:TModbusWord;
 var mb_LoadCell:TModbusSingle;
 var mb_RequestDenester:TModbusWord;
+var mb_RequestSpin:TModbusWord;
 
 {Gantry Communications}
 var mb_GantryStatus:TModbusWord;
@@ -159,6 +160,7 @@ procedure SystemModbusCommsInit;
         mb_GantryEnable.Initialize(UnusedModuleNo, GantryEnable, 0);
         mb_LoadCell.Initialize(UnusedModuleNo, LoadCellConst, 0);
         mb_RequestDenester.Initialize(UnusedModuleNo, RequestDenester, 0);
+        mb_RequestSpin.Initialize(UnusedModuleNo,RequestSpin,0);
         yield;
     end;
 
@@ -264,6 +266,15 @@ procedure MapModbusMMCOutputs;
         {System Modbus Outputs}
         mb_SysStatus.SetValue(SystemStatusEnum)
         {Gantry Modbus Outputs}
+        if GlobalSpinRequest then
+            mb_RequestSpin.SetValue(255)
+        else
+            mb_RequestSpin.SetValue(0);
+
+        if GlobalRequestDenester then
+            mb_RequestDenester.SetValue(255)
+        else
+            mb_RequestDenester.SetValue(0);
         mb_GantryStatus.SetValue(0){}
         mb_XActualPosition.SetValue(Gantry.XMotor.ActualPosition)
         mb_YActualPosition.SetValue(Gantry.YMotor.ActualPosition)
@@ -307,7 +318,7 @@ procedure SystemEventHandler;
             end;
 
         if GlobalRequestDenester then
-            mb_RequestDenester:=255;
+            mb_RequestDenester.setvalue(255);
 
 
         if GlobalStartSignal then
@@ -337,9 +348,9 @@ procedure ModbusEventDispatcher;
             begin
             yield;
                 begin
-                    MapModbusMMCInputs;
+                    {MapModbusMMCInputs;
                     SystemEventHandler;
-                    Gantry.EventHandler;
+                    Gantry.EventHandler;}
                     MapModbusMMCOutputs;
                 end;
             end;
