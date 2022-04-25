@@ -1629,8 +1629,37 @@ TRUE
 FALSE
 TBlock
 0 {reference}
+436 {ReferenceLink}
+404 529 8388736 197 29
+2
+TPathNameField
+0 {reference}
+9 7 182 21
+nil
+
+TRUE
+Settings IndicatorRefreshTask
+Main.Settings.IndicatorRefreshTask
+Main.Settings.
+IndicatorRefreshTask
+TRUE
+TRUE
+TRUE
+TStaticField
+0 {reference}
+185 14 185 14
+nil
+
+TRUE
+
+;
+TRUE
+TRUE
+FALSE
+TBlock
+0 {reference}
 383 {ReferenceLink}
-404 529 8388736 216 29
+404 558 8388736 216 29
 2
 TPathNameField
 0 {reference}
@@ -1657,6 +1686,8 @@ TRUE
 TRUE
 FALSE
 nil
+FALSE
+TRUE
 FALSE
 TRUE
 FALSE
@@ -3293,8 +3324,8 @@ FALSE
 TControlPlate
 334 {reference}
 Settings
-630 240
-780 285
+625 240
+775 285
 -16777211
 Tahoma
 1
@@ -3360,7 +3391,7 @@ nil
 0 0  diagnostic marker
 Change MMC Settings
 0
-17
+34
 TUserVariable
 337 {reference}
 TRUE
@@ -3514,6 +3545,182 @@ FALSE
 10
 1
 0
+TUserVariable
+421 {reference}
+TRUE
+DebugVar
+Number
+FALSE
+10
+1
+0
+TUserProcedure
+0 {reference}
+FALSE
+27
+procedure RefreshCurrentSettings;
+  begin
+  while true do
+    begin
+      yield;
+        begin
+        {Remove Debug Vars later}
+        DebugVar:=Debug;
+        SpinEnIndicator:=Containers[ContainersIndex].BowlSpinEnabled;
+        ContXCoordIndicator:=Containers[ContainersIndex].XCoord;
+        ContYCoordIndicator:=Containers[ContainersIndex].YCoord;
+        ContZCoordIndicator:=Containers[ContainersIndex].ZCoord;
+        CurrentIndicator:=Containers[ContainersIndex].Current;
+        AccelIndicator:=Containers[ContainersIndex].Accel;
+        DecelIndicator:=Containers[ContainersIndex].Decel;
+        DispenseRevsIndicator:=Containers[ContainersIndex].Revolutions;
+        DispenseSpeedIndicator:=Containers[ContainersIndex].DispenseSpeed;
+        GantryPatternIndicator:=Containers[ContainersIndex].GantryPattern;
+        {GantryPatternEnabledIndicator:=Containers[ContainersIndex].GantryPatternEnabled;}
+        ReverseSpeedIndicator:=Containers[ContainersIndex].ReverseSpeed;
+        RevolutionsIndicator:=Containers[ContainersIndex].ReverseRevolutions;
+        WeightSPIndicator:=Containers[ContainersIndex].WeightSP;
+
+    
+        end; 
+    end;
+  end;
+TRUE
+TUserVariable
+422 {reference}
+TRUE
+SpinEnIndicator
+boolean
+FALSE
+10
+1
+0
+TUserVariable
+423 {reference}
+TRUE
+ContXCoordIndicator
+Number
+FALSE
+10
+1
+0
+TUserVariable
+424 {reference}
+TRUE
+ContYCoordIndicator
+Number
+FALSE
+10
+1
+0
+TUserVariable
+425 {reference}
+TRUE
+ContZCoordIndicator
+Number
+FALSE
+10
+1
+0
+TUserVariable
+426 {reference}
+TRUE
+CurrentIndicator
+Number
+FALSE
+10
+1
+0
+TUserVariable
+427 {reference}
+TRUE
+AccelIndicator
+Number
+FALSE
+10
+1
+0
+TUserVariable
+428 {reference}
+TRUE
+DecelIndicator
+Number
+FALSE
+10
+1
+0
+TUserVariable
+429 {reference}
+TRUE
+DispenseRevsIndicator
+Number
+FALSE
+10
+1
+0
+TUserVariable
+430 {reference}
+TRUE
+DispenseSpeedIndicator
+Number
+FALSE
+10
+1
+0
+TUserVariable
+431 {reference}
+TRUE
+GantryPatternIndicator
+Number
+FALSE
+10
+1
+0
+TUserVariable
+432 {reference}
+TRUE
+GantryPatternEnabledIndicator
+Number
+FALSE
+10
+1
+0
+TUserVariable
+433 {reference}
+TRUE
+ReverseSpeedIndicator
+Number
+FALSE
+10
+1
+0
+TUserVariable
+434 {reference}
+TRUE
+RevolutionsIndicator
+Number
+FALSE
+10
+1
+0
+TUserVariable
+435 {reference}
+TRUE
+WeightSPIndicator
+Number
+FALSE
+10
+1
+0
+TUserProcedure
+436 {reference}
+TRUE
+4
+procedure IndicatorRefreshTask;
+  begin
+  BeginTask(TaskAddr(RefreshCurrentSettings));
+  end;
+TRUE
 -2134376448
 TRUE
 FALSE
@@ -4882,6 +5089,51 @@ Tahoma
 10
 0
 0
+TBlock_Show
+0 {reference}
+0 {ReferenceLink}
+383 147 1993170 236 37
+2
+TStaticField
+0 {reference}
+9 11 41 25
+nil
+
+TRUE
+Show
+Show
+TNumericField
+0 {reference}
+44 7 224 30
+TNumericExpression
+0 {reference}
+435 {ReferenceLink}
+427 154 36095 180 23
+1
+TPathNameField
+0 {reference}
+12 4 168 18
+nil
+
+TRUE
+Settings WeightSPIndicator
+Main.Settings.WeightSPIndicator
+Main.Settings.
+WeightSPIndicator
+TRUE
+TRUE
+TRUE
+Number
+Number
+FALSE
+ 0.00000000000000E+0000
+TRUE
+FALSE
+FALSE
+FALSE
+nil
+FALSE
+FALSE
 nil
 0 0  diagnostic marker
 
@@ -4898,6 +5150,51 @@ Tahoma
 10
 0
 0
+TBlock_Show
+0 {reference}
+0 {ReferenceLink}
+389 188 1993170 261 37
+2
+TStaticField
+0 {reference}
+9 11 41 25
+nil
+
+TRUE
+Show
+Show
+TNumericField
+0 {reference}
+44 7 249 30
+TNumericExpression
+0 {reference}
+429 {ReferenceLink}
+433 195 36095 205 23
+1
+TPathNameField
+0 {reference}
+12 4 193 18
+nil
+
+TRUE
+Settings DispenseRevsIndicator
+Main.Settings.DispenseRevsIndicator
+Main.Settings.
+DispenseRevsIndicator
+TRUE
+TRUE
+TRUE
+Number
+Number
+FALSE
+ 0.00000000000000E+0000
+TRUE
+FALSE
+FALSE
+FALSE
+nil
+FALSE
+FALSE
 nil
 0 0  diagnostic marker
 
@@ -4914,6 +5211,51 @@ Tahoma
 10
 0
 0
+TBlock_Show
+0 {reference}
+0 {ReferenceLink}
+374 127 1993170 246 37
+2
+TStaticField
+0 {reference}
+9 11 41 25
+nil
+
+TRUE
+Show
+Show
+TNumericField
+0 {reference}
+44 7 234 30
+TNumericExpression
+0 {reference}
+434 {ReferenceLink}
+418 134 36095 190 23
+1
+TPathNameField
+0 {reference}
+12 4 178 18
+nil
+
+TRUE
+Settings RevolutionsIndicator
+Main.Settings.RevolutionsIndicator
+Main.Settings.
+RevolutionsIndicator
+TRUE
+TRUE
+TRUE
+Number
+Number
+FALSE
+ 0.00000000000000E+0000
+TRUE
+FALSE
+FALSE
+FALSE
+nil
+FALSE
+FALSE
 nil
 0 0  diagnostic marker
 
@@ -4930,6 +5272,51 @@ Tahoma
 10
 0
 0
+TBlock_Show
+0 {reference}
+0 {ReferenceLink}
+470 149 1993170 269 37
+2
+TStaticField
+0 {reference}
+9 11 41 25
+nil
+
+TRUE
+Show
+Show
+TNumericField
+0 {reference}
+44 7 257 30
+TNumericExpression
+0 {reference}
+430 {ReferenceLink}
+514 156 36095 213 23
+1
+TPathNameField
+0 {reference}
+12 4 201 18
+nil
+
+TRUE
+Settings DispenseSpeedIndicator
+Main.Settings.DispenseSpeedIndicator
+Main.Settings.
+DispenseSpeedIndicator
+TRUE
+TRUE
+TRUE
+Number
+Number
+FALSE
+ 0.00000000000000E+0000
+TRUE
+FALSE
+FALSE
+FALSE
+nil
+FALSE
+FALSE
 nil
 0 0  diagnostic marker
 
@@ -4946,6 +5333,51 @@ Tahoma
 10
 0
 0
+TBlock_Show
+0 {reference}
+0 {ReferenceLink}
+492 222 1993170 263 37
+2
+TStaticField
+0 {reference}
+9 11 41 25
+nil
+
+TRUE
+Show
+Show
+TNumericField
+0 {reference}
+44 7 251 30
+TNumericExpression
+0 {reference}
+433 {ReferenceLink}
+536 229 36095 207 23
+1
+TPathNameField
+0 {reference}
+12 4 195 18
+nil
+
+TRUE
+Settings ReverseSpeedIndicator
+Main.Settings.ReverseSpeedIndicator
+Main.Settings.
+ReverseSpeedIndicator
+TRUE
+TRUE
+TRUE
+Number
+Number
+FALSE
+ 0.00000000000000E+0000
+TRUE
+FALSE
+FALSE
+FALSE
+nil
+FALSE
+FALSE
 nil
 0 0  diagnostic marker
 
@@ -4962,6 +5394,51 @@ Tahoma
 10
 0
 0
+TBlock_Show
+0 {reference}
+0 {ReferenceLink}
+555 162 1993170 212 37
+2
+TStaticField
+0 {reference}
+9 11 41 25
+nil
+
+TRUE
+Show
+Show
+TNumericField
+0 {reference}
+44 7 200 30
+TNumericExpression
+0 {reference}
+427 {ReferenceLink}
+599 169 36095 156 23
+1
+TPathNameField
+0 {reference}
+12 4 144 18
+nil
+
+TRUE
+Settings AccelIndicator
+Main.Settings.AccelIndicator
+Main.Settings.
+AccelIndicator
+TRUE
+TRUE
+TRUE
+Number
+Number
+FALSE
+ 0.00000000000000E+0000
+TRUE
+FALSE
+FALSE
+FALSE
+nil
+FALSE
+FALSE
 nil
 0 0  diagnostic marker
 
@@ -4978,6 +5455,51 @@ Tahoma
 10
 0
 0
+TBlock_Show
+0 {reference}
+0 {ReferenceLink}
+507 184 1993170 212 37
+2
+TStaticField
+0 {reference}
+9 11 41 25
+nil
+
+TRUE
+Show
+Show
+TNumericField
+0 {reference}
+44 7 200 30
+TNumericExpression
+0 {reference}
+428 {ReferenceLink}
+551 191 36095 156 23
+1
+TPathNameField
+0 {reference}
+12 4 144 18
+nil
+
+TRUE
+Settings DecelIndicator
+Main.Settings.DecelIndicator
+Main.Settings.
+DecelIndicator
+TRUE
+TRUE
+TRUE
+Number
+Number
+FALSE
+ 0.00000000000000E+0000
+TRUE
+FALSE
+FALSE
+FALSE
+nil
+FALSE
+FALSE
 nil
 0 0  diagnostic marker
 
@@ -4994,6 +5516,51 @@ Tahoma
 10
 0
 0
+TBlock_Show
+0 {reference}
+0 {ReferenceLink}
+446 120 1993170 259 37
+2
+TStaticField
+0 {reference}
+9 11 41 25
+nil
+
+TRUE
+Show
+Show
+TNumericField
+0 {reference}
+44 7 247 30
+TNumericExpression
+0 {reference}
+431 {ReferenceLink}
+490 127 36095 203 23
+1
+TPathNameField
+0 {reference}
+12 4 191 18
+nil
+
+TRUE
+Settings GantryPatternIndicator
+Main.Settings.GantryPatternIndicator
+Main.Settings.
+GantryPatternIndicator
+TRUE
+TRUE
+TRUE
+Number
+Number
+FALSE
+ 0.00000000000000E+0000
+TRUE
+FALSE
+FALSE
+FALSE
+nil
+FALSE
+FALSE
 nil
 0 0  diagnostic marker
 
@@ -5010,6 +5577,82 @@ Tahoma
 10
 0
 0
+TBlock_Show
+0 {reference}
+0 {ReferenceLink}
+419 242 1993170 338 37
+6
+TStaticField
+0 {reference}
+9 11 41 25
+nil
+
+TRUE
+Show
+Show
+TBooleanField
+0 {reference}
+44 7 214 30
+TBooleanExpression
+0 {reference}
+422 {ReferenceLink}
+463 249 36095 170 23
+1
+TPathNameField
+0 {reference}
+15 4 154 18
+nil
+
+TRUE
+Settings SpinEnIndicator
+Main.Settings.SpinEnIndicator
+Main.Settings.
+SpinEnIndicator
+TRUE
+TRUE
+TRUE
+Boolean
+Boolean
+FALSE
+TRUE
+True
+False
+TStaticField
+0 {reference}
+217 11 231 25
+nil
+
+TRUE
+as
+as
+TStringField
+0 {reference}
+238 11 273 25
+nil
+String
+TRUE
+On
+TStaticField
+0 {reference}
+276 11 279 25
+nil
+
+TRUE
+,
+,
+TStringField
+0 {reference}
+286 11 322 25
+nil
+String
+TRUE
+Off
+FALSE
+FALSE
+FALSE
+nil
+FALSE
+FALSE
 nil
 0 0  diagnostic marker
 
@@ -7271,7 +7914,7 @@ Y Coord
 0
 TControlStatic
 378 {reference}
-SpinEnabled2
+ActualXCoord
 180 370
 220 390
 -16777211
@@ -7281,13 +7924,58 @@ Tahoma
 10
 0
 0
+TBlock_Show
+0 {reference}
+0 {ReferenceLink}
+416 205 1993170 248 37
+2
+TStaticField
+0 {reference}
+9 11 41 25
+nil
+
+TRUE
+Show
+Show
+TNumericField
+0 {reference}
+44 7 236 30
+TNumericExpression
+0 {reference}
+423 {ReferenceLink}
+460 212 36095 192 23
+1
+TPathNameField
+0 {reference}
+12 4 180 18
+nil
+
+TRUE
+Settings ContXCoordIndicator
+Main.Settings.ContXCoordIndicator
+Main.Settings.
+ContXCoordIndicator
+TRUE
+TRUE
+TRUE
+Number
+Number
+FALSE
+ 0.00000000000000E+0000
+TRUE
+FALSE
+FALSE
+FALSE
+nil
+FALSE
+FALSE
 nil
 0 0  diagnostic marker
 
 0
 TControlStatic
 379 {reference}
-SpinEnabled3
+ActualYCoord
 180 400
 220 420
 -16777211
@@ -7297,6 +7985,51 @@ Tahoma
 10
 0
 0
+TBlock_Show
+0 {reference}
+0 {ReferenceLink}
+415 252 1993170 247 37
+2
+TStaticField
+0 {reference}
+9 11 41 25
+nil
+
+TRUE
+Show
+Show
+TNumericField
+0 {reference}
+44 7 235 30
+TNumericExpression
+0 {reference}
+424 {ReferenceLink}
+459 259 36095 191 23
+1
+TPathNameField
+0 {reference}
+12 4 179 18
+nil
+
+TRUE
+Settings ContYCoordIndicator
+Main.Settings.ContYCoordIndicator
+Main.Settings.
+ContYCoordIndicator
+TRUE
+TRUE
+TRUE
+Number
+Number
+FALSE
+ 0.00000000000000E+0000
+TRUE
+FALSE
+FALSE
+FALSE
+nil
+FALSE
+FALSE
 nil
 0 0  diagnostic marker
 
@@ -8166,7 +8899,7 @@ FALSE
 TRUE
 FALSE
 1
-2
+0
 2000
 TRUE
 0
