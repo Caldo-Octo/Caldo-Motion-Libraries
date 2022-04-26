@@ -22,7 +22,7 @@ const DenesterStagingX = 800;
 const DenesterStagingY = 1128;
 const DenesterStagingZ = 0;
 const OutfeedStagingX = 924;
-const OutfeedStagingY = 942;
+const OutfeedStagingY = 956.41;
 const OutfeedStagingZ = 3.6;
 const DenesterXPos = 1100;
 const DenesterYPos = 1128;
@@ -538,7 +538,7 @@ function SystemMode.MoveToContainer:boolean;
 procedure SystemMode.SetWeightSP;
 	var LoadCellScaled:double;
 	begin
-		LoadCellScaled := UpdateLoadCellScaled(300);
+		LoadCellScaled := UpdateLoadCellScaled(309);
 		CurrentWeightSP:=Containers[GlobalContainerNo].WeightSP+LoadCellScaled;
 	end;
 
@@ -558,25 +558,24 @@ procedure SystemMode.AutoDispense;
 	var LoadCellScaled:double;
 	begin
 		Container:=Containers[GlobalContainerNo];
-		CurrentWeightSp:=(LoadCell.Voltage*300)+Container.WeightSP;
+		CurrentWeightSp:=(LoadCell.Voltage*309)+Container.WeightSP;
 		GantryMoveComplete:=MoveToContainer;
 		if GantryMoveComplete then
 			begin
 				StartGantryPattern;
-				if Container.BowlSpinEnabled then
-					GlobalSpinRequest:=true;
+				Spin.SetValue(255);
 				BeginTask(TaskAddr(DispenseWrapper));
 				LoadCellScaled:=0; {tesing loadcell}
 				while LoadCellScaled < CurrentWeightSp do {removed CurrentWeightSP}
 					begin
 						yield;
 						begin
-							LoadCellScaled:=(LoadCell.Voltage*300);
+							LoadCellScaled:=(LoadCell.Voltage*309);
 						end;
 					end;
 				GlobalContainerNoIndicator:= GlobalContainerNo	
 				Containers[GlobalContainerNo].DispensePermissive:=false;
-				GlobalSpinRequest:=false;
+				Spin.SetValue(0);
 				AutoProcessComplete:=true;
 				{Fix this later, Dispense Permissive should also Stop gantry pattern}
 				while (TaskPresent(TaskAddr(DispenseWrapper)) or TaskPresent(TaskAddr(ZigPatternWrapper)) or TaskPresent(TaskAddr(LinePatternWrapper))) do
@@ -710,6 +709,15 @@ procedure AutoStateMachine;
 			begin
 				yield;
 				begin
+					if not Gantry.XMotor.MotorIsOn then	
+						Gantry.Xmotor.SetMotor(On);
+					if not Gantry.YMotor.MotorIsOn then		
+						Gantry.Ymotor.SetMotor(On);
+					if not Gantry.ZMotor.MotorIsOn then	
+						Gantry.ZMotor.SetMotor(On);
+				
+					
+					Debug:=AutoState;
 					if  GlobalAbortSignal then
 						begin
 						Gantry.XMotor.BeginStop;
@@ -724,20 +732,18 @@ procedure AutoStateMachine;
 						AutoState:=10
 					else if  (AutoState = 10) then
 						begin
+						IngredientIndex:=0;
 						SystemMode.GantryEnabled:=true;
 						GlobalStartSignal:=false;
-						Gantry.Xmotor.SetMotor(On);
-						Gantry.Ymotor.SetMotor(On);
-						Gantry.ZMotor.SetMotor(On);
 						Gantry.MoveToDenesterStaging;
 						Gantry.MoveToDenester;
 						AutoState:=15;
 						end
 					else if (AutoState = 15) and Gantry.AtDenester then
 						begin
-						GlobalRequestDenester:=true;
+						Denester.SetValue(255);
 						Delay(4000);
-						GlobalRequestDenester:=false;
+						Denester.SetValue(0);
 						Gantry.MoveToDenesterStaging;
 						AutoState:=20;
 						end
@@ -745,11 +751,11 @@ procedure AutoStateMachine;
 						begin
 							if (IngredientQueue[IngredientIndex]<>0) then
 								begin
-									Debug:=1;
+									
 									GlobalContainerNo:=IngredientQueue[IngredientIndex];
-									Debug:=2;
+									
 									SystemMode.AutoDispense;
-									Debug:=3;
+									
 									IngredientIndex:=IngredientIndex+1;
 								end
 							else
@@ -758,6 +764,8 @@ procedure AutoStateMachine;
 					else if (AutoState = 30) then
 						begin
 							Gantry.MoveToOutfeedStaging;
+							Delay(2000);
+							Gantry.MoveToOutfeed;
 							AutoState:=0;
 						end
 					end;
