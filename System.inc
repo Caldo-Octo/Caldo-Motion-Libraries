@@ -558,19 +558,20 @@ procedure SystemMode.AutoDispense;
 	var LoadCellScaled:double;
 	begin
 		Container:=Containers[GlobalContainerNo];
-		CurrentWeightSp:=(LoadCell.Voltage*309)+Container.WeightSP;
+		CurrentWeightSp:=(LoadCell.Voltage*177.2)+Container.WeightSP;
 		GantryMoveComplete:=MoveToContainer;
 		if GantryMoveComplete then
 			begin
 				StartGantryPattern;
-				Spin.SetValue(255);
+				if Container.BowlSpinEnabled then
+					Spin.SetValue(255);
 				BeginTask(TaskAddr(DispenseWrapper));
 				LoadCellScaled:=0; {tesing loadcell}
 				while LoadCellScaled < CurrentWeightSp do {removed CurrentWeightSP}
 					begin
 						yield;
 						begin
-							LoadCellScaled:=(LoadCell.Voltage*309);
+							LoadCellScaled:=(LoadCell.Voltage*177.2);
 						end;
 					end;
 				GlobalContainerNoIndicator:= GlobalContainerNo	
@@ -742,8 +743,9 @@ procedure AutoStateMachine;
 					else if (AutoState = 15) and Gantry.AtDenester then
 						begin
 						Denester.SetValue(255);
-						Delay(4000);
+						Delay(3200);
 						Denester.SetValue(0);
+						Delay(800);
 						Gantry.MoveToDenesterStaging;
 						AutoState:=20;
 						end
