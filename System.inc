@@ -196,6 +196,7 @@ var ManualMode:boolean;
 var SystemStatusEnum:integer;
 var GlobalRequestDenester:boolean;
 var GlobalSpinRequest:boolean;
+var LoadCellFiltered:double;
 
 {==================================================================Single Instance Objects=============================================================================}
 
@@ -641,6 +642,24 @@ procedure SystemMode.StartCycle;
 			ManualDispense;
 	end;
 
+procedure LoadCellFilter;
+	var Total:double;
+	var i:integer;
+	begin
+	Total:=0;
+	i=0;
+	while i < 10 do
+		begin
+			yield;
+			begin
+				total := total+LoadCell.Voltage;
+				i := i+1;
+			end;
+		end;
+		LoadCellFiltered:=total/i;
+	end;
+
+
 procedure InitializeSubsystems;
 	begin
 		{LoadCell.Initialize(16,1);}
@@ -727,25 +746,24 @@ var DebugContIn:integer;
 procedure AutoStateMachine;
 	var AutoState:integer;
 	var IngredientIndex:integer;
-	var CurrentContainer:TContainer;
+	var ActiveContainer:TContainer;
+	var XMotorSpeedMem:single;
+	var StartingLCWeight:double;
+	var FinishingWeightSP:double;
+
 	begin
 	Debug:=0;
 	GlobalAbortSignal:=false;
 	GlobalStartSignal:=false;
 	IngredientIndex:=0;
 	AutoState:=0;
+	StartingLCWeight:=0;
+	FinishingWeightSP:=0;
+	BeginTask(TaskAddr(LoadCellFilter));
 		while True do
 			begin
 				yield;
 				begin
-					if not Gantry.XMotor.MotorIsOn then	
-						Gantry.Xmotor.SetMotor(On);
-					if not Gantry.YMotor.MotorIsOn then		
-						Gantry.Ymotor.SetMotor(On);
-					if not Gantry.ZMotor.MotorIsOn then	
-						Gantry.ZMotor.SetMotor(On);
-				
-					
 					Debug:=AutoState;
 					if  GlobalAbortSignal then
 						begin
@@ -753,32 +771,49 @@ procedure AutoStateMachine;
 						Gantry.YMotor.BeginStop;
 						Gantry.ZMotor.MoveTo(0);
 						IngredientIndex:=0;
+						GlobalStartSignal:=false;
 						GlobalAbortSignal:=false;
 						AutoState:=0;
 						end;
-
-					if (AutoState = 0) and (GlobalStartSignal) then {Wait for Start signal from either modbus or S2M}
-						AutoState:=10
+				{Wait for Start signal from either modbus or S2M}
+					if (AutoState = 0)then 
+						if GlobalStartSignal then
+							begin
+								GlobalStartSignal:=false;
+								AutoState:=10;
+							end;
+							
+				{Go to denester}
 					else if  (AutoState = 10) then
 						begin
-						IngredientIndex:=0;
-						SystemMode.GantryEnabled:=true;
-						GlobalStartSignal:=false;
-						Gantry.MoveToDenesterStaging;
-						Gantry.MoveToDenester;
-						AutoState:=15;
+							SystemMode.GantryEnabled:=true;
+							Gantry.MoveToDenesterStaging;
+							Gantry.MoveToDenester;
+							AutoState:=15;
 						end
-					else if (AutoState = 15) and Gantry.AtDenester then
-						begin
-						Denester.SetValue(255);
-						Delay(3200);
-						Denester.SetValue(0);
-						Delay(800);
-						Gantry.MoveToDenesterStaging;
-						AutoState:=20;
-						end
+
+				{Dispense bowl}
+					else if (AutoState = 15) then
+						if Gantry.AtDenester then
+							begin
+								Denester.SetValue(255);
+								Delay(3200);
+								Denester.SetValue(0);
+								Gantry.MoveToDenesterStaging;
+								AutoState:=20;
+							end;
+						
+				{Set container}	
 					else if (AutoState = 20) then
 						begin
+							GlobalContainerNo:=IngredientQueue[IngredientIndex];
+							if (GlobalContainerNo = 0) then
+								AutoState:=60
+							else
+								AutoState:=30;
+						end;
+						{Old Code}
+						{begin
 							if (IngredientQueue[IngredientIndex]<>0) then
 								begin
 									GlobalContainerNo:=IngredientQueue[IngredientIndex];
@@ -787,12 +822,56 @@ procedure AutoStateMachine;
 								end
 							else
 								AutoState:=30;
-						end
+						end}
+					{Go to container}
 					else if (AutoState = 30) then
 						begin
+							ActiveContainer:=Containers[GlobalContainerNo];
+							Debug:=ActiveContainer.id;
+							if ActiveContainer.IsPump then {Must be higher than staging minus 10}
+								begin
+									Gantry.MoveToStaging(ActiveContainer);
+									Gantry.MoveToPump(ActiveContainer);
+								end;
+							else
+								Gantry.JointAxisMove(ActiveContainer);{this might be root cause of bug}
+							AutoState:=40;
+						end;
+					{Dispense}
+					else if (AutoState=40) then
+						BeginTask(TaskAddr(DispenseWrapper));
+
+						if ActiveContainer.BowlSpinEnabled then
+							Spin.SetValue(255);
+
+						if (ActiveContainer.IsPump and ActiveContainer.GantryPattern = 1) then
+							begin
+								XMotorSpeedMem:=Gantry.Xmotor.Speed;
+								Gantry.XMotor.SetSpeed(10);
+								Gantry.XMotor.BeginMoveBy(-50);
+							end;
+						StartingLCWeight:=LoadCellFiltered;
+						FinishingWeightSP:=StartingLCWeight+ActiveContainer.WeightSP;
+						while LoadCellFiltered < FinishingWeightSP do
+							yield;
+						Containers[GlobalContainerNo].DispensePermissive:=false; {we need to use this instead of Active Container so that the same instance stops (not sure how S2M handles it)}
+						Gantry.XMotor.BeginStop;
+						Spin.SetValue(0);
+						while TaskPresent(TaskAddr(DispenseWrapper)) do
+							yield;
+						AutoState:=50;
+					
+					else if (AutoState=50) then
+						begin
+							IngredientIndex:=IngredientIndex+1;
+							AutoState=20;
+						end;
+				{Go to output}
+					else if (AutoState = 60) then
+						begin
 							Gantry.MoveToOutfeedStaging;
-							Delay(1000);
-							Gantry.MoveToOutfeed;
+							Delay(200);
+							{Gantry.MoveToOutfeed;}
 							AutoState:=0;
 						end
 					end;
