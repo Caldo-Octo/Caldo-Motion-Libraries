@@ -7,7 +7,7 @@ const Col4Coord = 625;
 const Col5Coord = 780;
 const Row1Coord = 1464;
 const Row2Coord = 987.5;
-const Row3Coord = 500;
+const Row3Coord = 495;
 const Row4Coord = 18;
 const ZDispensePos = 9;
 const AugDefaultSpeed = 20;
@@ -68,7 +68,7 @@ procedure  TContainer.InitializePump(var Axis:TDistributedT1Axis;XPos:double;YPo
 		Motor:=Axis;
 		XCoord:=XPos;
 		YCoord:=YPos;
-		ZCoord:=3;
+		ZCoord:=2.6;
 		Id:=Identifier;
 		IsPump:=true;
 		StagingXCoord:=100.0;
@@ -90,9 +90,9 @@ procedure  TContainer.InitializePump(var Axis:TDistributedT1Axis;XPos:double;YPo
 		DispensePermissive:=false;
 		ReverseEnabled:=true;
 		DispenseComplete:=false;
-		Revolutions:=180;
+		Revolutions:=1800;
 		ReverseRevolutions:=-6;
-		GantryPattern:=0;
+		GantryPattern:=1;
 		GantryPatternEnabled:=false;
 		BowlSpinEnabled:=true;
 	end;
@@ -136,7 +136,6 @@ procedure TContainer.InitializeAuger(var Axis:TDistributedT1Axis;XPos:double;YPo
 		Motor.SetDecel(Decel);
 		if IsPump then
 			begin
-				
 				Motor.BeginMoveBy(Revolutions);
 				while DispensePermissive do 
 					yield;
@@ -241,7 +240,7 @@ var Gantry:object
 			ZMotor:=ZMot;
 			ZEncoder:=ZEnc;
 			AtPump:=false;
-			if (XMot.ActualPosition > 99) and (XMot.ActualPosition < 101) and (YMot.ActualPosition <3) then
+			if (XMot.ActualPosition > 95) and (XMot.ActualPosition < 101) and (YMot.ActualPosition <3) then
 				AtHome:=true;
 			
 		end;
@@ -320,7 +319,7 @@ var Gantry:object
 						yield;
 					ZMotor.MoveTo(9);
 				end;
-			if (XMotor.ActualPosition <101) and (XMotor.ActualPosition > 99) then
+			if (XMotor.ActualPosition <102) and (XMotor.ActualPosition > 95) then
 				AtPumpStaging := true
 			else if (XMotor.ActualPosition > 101) and (XMotor.ActualPosition < 900) then
 				AtContainers := true
@@ -422,7 +421,7 @@ var Gantry:object
 		
 	procedure StraightLinePattern(BowlDiameter:integer);
 		begin
-			XMotor.MoveBy(BowlDiameter);
+			XMotor.MoveBy(BowlDiameter*5);
 		end;
 	
 	function GantryReady:boolean;
@@ -547,7 +546,7 @@ procedure SystemMode.StartGantryPattern;
 		if Container.GantryPatternEnabled and GantryEnabled then
 			begin
 				if Container.GantryPattern = 1 then
-					BeginTask(TaskAddr(ZigPatternWrapper))
+					BeginTask(TaskAddr(LinePatternWrapper))
 				else if Container.GantryPattern = 2 then
 					BeginTask(TaskAddr(LinePatternWrapper));
 			end;
@@ -556,31 +555,60 @@ procedure SystemMode.StartGantryPattern;
 procedure SystemMode.AutoDispense;
 	var GantryMoveComplete:boolean;
 	var LoadCellScaled:double;
+	var LastWeight:double;
+	var speedMem:single;
 	begin
 		Container:=Containers[GlobalContainerNo];
-		CurrentWeightSp:=(LoadCell.Voltage*177.2)+Container.WeightSP;
-		GantryMoveComplete:=MoveToContainer;
-		if GantryMoveComplete then
+		CurrentWeightSp:=(LoadCell.Voltage*360)+Container.WeightSP;
+		{GantryMoveComplete:=MoveToContainer;}
+		if Container.IsPump then
 			begin
-				StartGantryPattern;
+				Gantry.MoveToStaging(Container);
+				Gantry.MoveToPump(Container);
+			end
+		else
+			begin
+				Gantry.JointAxisMove(Container);
+		
+			end;
+		if true then
+			begin
+				if((container.GantryPattern = 1) and Gantry.AtPump) then
+					begin
+						speedMem:=Gantry.XMotor.Speed;
+						Gantry.Xmotor.SetSpeed(5);
+						Gantry.Xmotor.BeginMoveBy(-50);
+						
+					end;
+					
 				if Container.BowlSpinEnabled then
 					Spin.SetValue(255);
+
 				BeginTask(TaskAddr(DispenseWrapper));
 				LoadCellScaled:=0; {tesing loadcell}
 				while LoadCellScaled < CurrentWeightSp do {removed CurrentWeightSP}
 					begin
 						yield;
 						begin
-							LoadCellScaled:=(LoadCell.Voltage*177.2);
+							LoadCellScaled:=(LoadCell.Voltage*360);
 						end;
 					end;
-				GlobalContainerNoIndicator:= GlobalContainerNo	
+				GlobalContainerNoIndicator:= GlobalContainerNo;	
 				Containers[GlobalContainerNo].DispensePermissive:=false;
+			
 				Spin.SetValue(0);
+				if Gantry.AtPump then
+					begin
+						Gantry.XMotor.BeginStop;
+						Delay(1000);
+					end;
+					Gantry.XMotor.SetSpeed(speedMem);
 				AutoProcessComplete:=true;
+				
 				{Fix this later, Dispense Permissive should also Stop gantry pattern}
-				while (TaskPresent(TaskAddr(DispenseWrapper)) or TaskPresent(TaskAddr(ZigPatternWrapper)) or TaskPresent(TaskAddr(LinePatternWrapper))) do
+				while TaskPresent(TaskAddr(DispenseWrapper)) do
 					yield;
+				Gantry.ZMotor.MoveTo(0);
 			end
 		else
 			GantryError:=true;
@@ -753,11 +781,8 @@ procedure AutoStateMachine;
 						begin
 							if (IngredientQueue[IngredientIndex]<>0) then
 								begin
-									
 									GlobalContainerNo:=IngredientQueue[IngredientIndex];
-									
-									SystemMode.AutoDispense;
-									
+									SystemMode.AutoDispense;									
 									IngredientIndex:=IngredientIndex+1;
 								end
 							else
@@ -766,7 +791,7 @@ procedure AutoStateMachine;
 					else if (AutoState = 30) then
 						begin
 							Gantry.MoveToOutfeedStaging;
-							Delay(2000);
+							Delay(1000);
 							Gantry.MoveToOutfeed;
 							AutoState:=0;
 						end

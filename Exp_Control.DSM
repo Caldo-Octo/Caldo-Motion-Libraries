@@ -1973,7 +1973,7 @@ Touch and Type Here
 nil
 0 -22  diagnostic marker
 MMC-V Test Platform
-107
+121
 TControlPlate
 144 {reference}
 RP23_Configuration
@@ -3127,7 +3127,7 @@ procedure MonitorPower;
       begin
       Y_Motor.SetPositiveLimit(1466);
       Y_Motor.SetNegativeLimit(-5);
-      X_Motor.SetNegativeLimit(-100);
+      X_Motor.SetNegativeLimit(-300);
       if Y_Motor.ActualPosition < 500 then
         X_Motor.SetPositiveLimit(XLimitRow1)
         else
@@ -3276,7 +3276,7 @@ FALSE
 TControlPlate
 334 {reference}
 Settings
-1215 290
+1220 290
 1365 335
 -16777211
 Tahoma
@@ -3343,7 +3343,7 @@ nil
 0 0  diagnostic marker
 Change MMC Settings
 0
-35
+37
 TUserVariable
 337 {reference}
 TRUE
@@ -3509,7 +3509,7 @@ FALSE
 TUserProcedure
 0 {reference}
 FALSE
-28
+31
 procedure RefreshCurrentSettings;
   begin
   while true do
@@ -3517,6 +3517,9 @@ procedure RefreshCurrentSettings;
       yield;
         begin
         {Remove Debug Vars later}
+        GantryAtHome:=Gantry.AtHome;
+        GantryAtPumpsStaging:=Gantry.AtPumpStaging;
+        DispContIn:=ContainersIndex;
         DebugVar:=Debug;
         SpinEnIndicator:=Containers[ContainersIndex].BowlSpinEnabled;
         ContXCoordIndicator:=Containers[ContainersIndex].XCoord;
@@ -3679,6 +3682,24 @@ TUserVariable
 TRUE
 GlobalContainerNoIndicator
 Number
+FALSE
+10
+1
+0
+TUserVariable
+450 {reference}
+TRUE
+GantryAthome
+boolean
+FALSE
+10
+1
+0
+TUserVariable
+451 {reference}
+TRUE
+GantryAtPumpsStaging
+boolean
 FALSE
 10
 1
@@ -8752,8 +8773,8 @@ FALSE
 TControlButton
 0 {reference}
 StagingButton2
-790 300
-850 330
+225 480
+330 525
 536870911
 Tahoma
 1
@@ -8857,7 +8878,7 @@ Tahoma
 TBlock_Show
 0 {reference}
 0 {ReferenceLink}
-508 179 1993170 284 45
+508 179 1993170 294 45
 2
 TStaticField
 0 {reference}
@@ -8869,11 +8890,11 @@ Show
 Show
 TNumericField
 0 {reference}
-44 7 272 38
+44 7 282 38
 TNumericExpression
 0 {reference}
 0 {ReferenceLink}
-552 186 1226588 238 31
+552 186 1226588 228 31
 5
 TStaticField
 0 {reference}
@@ -8932,15 +8953,15 @@ TRUE
 /
 TNumericField
 0 {reference}
-173 8 223 22
+173 8 213 22
 nil
 Number
 TRUE
- 1.77200000000000E+0002
+ 3.60000000000000E+0002
 TRUE
 TStaticField
 0 {reference}
-226 15 226 15
+216 15 216 15
 nil
 
 TRUE
@@ -8976,12 +8997,13 @@ Tahoma
 TUserProcedure
 0 {reference}
 FALSE
-6
+7
 procedure Click;
   begin
   GlobalAbortSignal:=true;
   Gantry.XMotor.BeginStop;
   Gantry.YMotor.BeginStop;
+  AbortTask(TaskAddr(DispenseWrapper));
   end;
 TRUE
 TUserProcedure
@@ -11128,7 +11150,7 @@ procedure MouseUp;
 TRUE
 nil
 0 0  diagnostic marker
-Update Revolutions
+Update Revs
 FALSE
 TControlButton
 0 {reference}
@@ -11602,7 +11624,458 @@ nil
 -2 -2  diagnostic marker
 Default
 FALSE
-38
+TControlButton
+0 {reference}
+Go_to_ContainerButton
+230 240
+345 290
+536870911
+Tahoma
+1
+-16777208
+8
+0
+3
+TUserProcedure
+0 {reference}
+FALSE
+7
+procedure Click;
+  begin
+  GlobalContainerNo:=Settings.ContainersIndex;
+  SystemMode.GantryEnabled:=true;
+  SystemMode.AutoDispense;
+  Gantry.ZMotor.MoveTo(0);
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseDown;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseUp;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+nil
+0 0  diagnostic marker
+GoTo and Dispense
+FALSE
+TControlStatic
+0 {reference}
+Text2
+230 215
+345 238
+-16777211
+Tahoma
+1
+-16777208
+12
+0
+0
+nil
+0 0  diagnostic marker
+Jose Mode:
+0
+TControlStatic
+0 {reference}
+Text3
+235 315
+375 332
+-16777211
+Tahoma
+1
+-16777208
+8
+0
+0
+nil
+0 0  diagnostic marker
+Augers: Container 1-20 
+0
+TControlStatic
+0 {reference}
+Text4
+235 290
+290 317
+-16777211
+Tahoma
+1
+-16777208
+14
+1
+0
+nil
+0 0  diagnostic marker
+Key
+0
+TControlStatic
+0 {reference}
+Text5
+235 335
+375 352
+-16777211
+Tahoma
+1
+-16777208
+8
+0
+0
+nil
+0 0  diagnostic marker
+Pumps: Container 21-28 
+0
+TControlStatic
+0 {reference}
+Text6
+235 355
+390 372
+-16777211
+Tahoma
+1
+-16777208
+8
+0
+0
+nil
+0 0  diagnostic marker
+To change a setting, input new
+0
+TControlStatic
+0 {reference}
+Text7
+235 370
+395 387
+-16777211
+Tahoma
+1
+-16777208
+8
+0
+0
+nil
+0 0  diagnostic marker
+ setting,  press enter and
+0
+TControlStatic
+0 {reference}
+Text8
+235 385
+395 402
+-16777211
+Tahoma
+1
+-16777208
+8
+0
+0
+nil
+0 0  diagnostic marker
+Once all desired settings
+0
+TControlStatic
+0 {reference}
+Text9
+235 400
+395 417
+-16777211
+Tahoma
+1
+-16777208
+8
+0
+0
+nil
+0 0  diagnostic marker
+are changed press update  btn.
+0
+TControlStatic
+0 {reference}
+Text10
+355 235
+395 264
+-16777211
+Tahoma
+1
+-16777208
+16
+1
+0
+TBlock_Show
+0 {reference}
+0 {ReferenceLink}
+416 182 1993170 140 37
+2
+TStaticField
+0 {reference}
+9 11 41 25
+nil
+
+TRUE
+Show
+Show
+TNumericField
+0 {reference}
+44 7 128 30
+TNumericExpression
+0 {reference}
+448 {ReferenceLink}
+460 189 36095 84 23
+1
+TPathNameField
+0 {reference}
+12 4 72 18
+nil
+
+TRUE
+dispContIn
+Main.dispContIn
+Main.
+dispContIn
+TRUE
+TRUE
+TRUE
+Number
+Number
+FALSE
+ 0.00000000000000E+0000
+TRUE
+FALSE
+FALSE
+FALSE
+nil
+FALSE
+FALSE
+nil
+0 0  diagnostic marker
+
+0
+TControlStatic
+0 {reference}
+Text11
+710 430
+775 453
+-16777211
+Tahoma
+1
+-16777208
+0
+0
+0
+TBlock_Show
+0 {reference}
+0 {ReferenceLink}
+558 231 1993170 330 37
+6
+TStaticField
+0 {reference}
+9 11 41 25
+nil
+
+TRUE
+Show
+Show
+TBooleanField
+0 {reference}
+44 7 206 30
+TBooleanExpression
+0 {reference}
+450 {ReferenceLink}
+602 238 36095 162 23
+1
+TPathNameField
+0 {reference}
+15 4 146 18
+nil
+
+TRUE
+Settings GantryAthome
+Main.Settings.GantryAthome
+Main.Settings.
+GantryAthome
+TRUE
+TRUE
+TRUE
+Boolean
+Boolean
+FALSE
+TRUE
+True
+False
+TStaticField
+0 {reference}
+209 11 223 25
+nil
+
+TRUE
+as
+as
+TStringField
+0 {reference}
+230 11 265 25
+nil
+String
+TRUE
+On
+TStaticField
+0 {reference}
+268 11 271 25
+nil
+
+TRUE
+,
+,
+TStringField
+0 {reference}
+278 11 314 25
+nil
+String
+TRUE
+Off
+FALSE
+FALSE
+FALSE
+nil
+FALSE
+FALSE
+nil
+0 0  diagnostic marker
+
+0
+TControlStatic
+0 {reference}
+Home
+650 425
+710 448
+-16777211
+Tahoma
+1
+-16777208
+0
+0
+0
+nil
+0 0  diagnostic marker
+HOme
+0
+TControlStatic
+0 {reference}
+Text12
+690 455
+750 478
+-16777211
+Tahoma
+1
+-16777208
+0
+0
+0
+TBlock_Show
+0 {reference}
+0 {ReferenceLink}
+525 270 1993170 381 37
+6
+TStaticField
+0 {reference}
+9 11 41 25
+nil
+
+TRUE
+Show
+Show
+TBooleanField
+0 {reference}
+44 7 257 30
+TBooleanExpression
+0 {reference}
+451 {ReferenceLink}
+569 277 36095 213 23
+1
+TPathNameField
+0 {reference}
+15 4 197 18
+nil
+
+TRUE
+Settings GantryAtPumpsStaging
+Main.Settings.GantryAtPumpsStaging
+Main.Settings.
+GantryAtPumpsStaging
+TRUE
+TRUE
+TRUE
+Boolean
+Boolean
+FALSE
+TRUE
+True
+False
+TStaticField
+0 {reference}
+260 11 274 25
+nil
+
+TRUE
+as
+as
+TStringField
+0 {reference}
+281 11 316 25
+nil
+String
+TRUE
+On
+TStaticField
+0 {reference}
+319 11 322 25
+nil
+
+TRUE
+,
+,
+TStringField
+0 {reference}
+329 11 365 25
+nil
+String
+TRUE
+Off
+FALSE
+FALSE
+FALSE
+nil
+FALSE
+FALSE
+nil
+0 0  diagnostic marker
+
+0
+TControlStatic
+0 {reference}
+Text13
+630 455
+695 478
+-16777211
+Tahoma
+1
+-16777208
+0
+0
+0
+nil
+0 0  diagnostic marker
+Staging
+0
+39
 TUserVariable
 19 {reference}
 TRUE
@@ -12035,6 +12508,15 @@ TUserVariable
 0 {reference}
 FALSE
 LocalDebugIn
+Number
+FALSE
+10
+1
+0
+TUserVariable
+448 {reference}
+TRUE
+dispContIn
 Number
 FALSE
 10
