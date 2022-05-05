@@ -26,7 +26,7 @@ const OutfeedStagingY = 956.41;
 const OutfeedStagingZ = 3.6;
 const DenesterXPos = 1100;
 const DenesterYPos = 1128;
-const DenesterZPos = 7;
+const DenesterZPos = 6.5;
 
 {==================================================================Type Defs===============================================================}
 type TContainer=object
@@ -91,7 +91,7 @@ procedure  TContainer.InitializePump(var Axis:TDistributedT1Axis;XPos:double;YPo
 		ReverseEnabled:=true;
 		DispenseComplete:=false;
 		Revolutions:=1800;
-		ReverseRevolutions:=-6;
+		ReverseRevolutions:=-600;
 		GantryPattern:=1;
 		GantryPatternEnabled:=false;
 		BowlSpinEnabled:=true;
@@ -134,43 +134,31 @@ procedure TContainer.InitializeAuger(var Axis:TDistributedT1Axis;XPos:double;YPo
 		Motor.SetCurrent(Current);
 		Motor.SetAccel(Accel);
 		Motor.SetDecel(Decel);
-		if IsPump then
+		ReverseSwitch:=false;
+		while DispensePermissive do
 			begin
-				Motor.BeginMoveBy(Revolutions);
-				while DispensePermissive do 
-					yield;
-				if ReverseEnabled then
-					begin
-					Motor.SetSpeed(ReverseSpeed);
-					Motor.Stop;
-					Motor.MoveBy(ReverseRevolutions);
-					{Delay(ReverseDelay);}
-					end;
-				Motor.Stop;
-				Motor.SetCurrent(0);
-				Motor.SetMotor(Off);
-			end
-		else
-			begin
-				ReverseSwitch:=false;
-				while DispensePermissive do
-				 begin
+				yield;
+				begin
 					if Motor.MoveIsFinished and not ReverseSwitch then
 						begin
 						Motor.BeginMoveBy(Revolutions);
 						ReverseSwitch:=true;
 						end
-					else if Motor.MoveIsFinished and ReverseSwitch then
+					else if Motor.MoveIsFinished and ReverseSwitch and (not IsPump) then
 						begin
 							Motor.BeginMoveBy(ReverseRevolutions);
 							ReverseSwitch:=false;
 						end;
-					yield;
-				 end;
-				 Motor.Stop;
-				 Motor.SetCurrent(0);
-				 Motor.SetMotor(Off);
+				end;
 			end;
+			if IsPump then
+				begin
+					Motor.Stop;
+					Motor.MoveBy(ReverseRevolutions);
+				end;
+			Motor.Stop;
+			Motor.SetCurrent(0);
+			Motor.SetMotor(Off);
 	end;
 	
 	procedure TContainer.UpdateSettings; 
@@ -197,6 +185,7 @@ var SystemStatusEnum:integer;
 var GlobalRequestDenester:boolean;
 var GlobalSpinRequest:boolean;
 var LoadCellFiltered:double;
+var avg:double;
 
 {==================================================================Single Instance Objects=============================================================================}
 
@@ -343,7 +332,7 @@ var Gantry:object
 						yield;
 				end;
 				AtDenesterStaging:=true;
-				//Strange behavior not mving to denester
+				{Strange behavior not mving to denester}
 		end;
 	
 	procedure MoveToDenester;
@@ -453,9 +442,7 @@ var Gantry:object
 					XMotor.SetDecel(XDecel);
 					YMotor.SetDecel(YDecel);
 					ZMotor.SetDecel(ZDecel);
-					{XMotor.SetCurrent(XCurrent);
-					YMotor.SetCurrent(YCurrent);
-					ZMotor.SetCurrent(ZCurrent);}
+			
 				end;
 			UpdateSettingsMem:=UpdateSettings;
 		end;
@@ -559,22 +546,22 @@ procedure SystemMode.AutoDispense;
 	var LastWeight:double;
 	var speedMem:single;
 	begin
-		Container:=Containers[GlobalContainerNo];
+		
 		CurrentWeightSp:=(LoadCell.Voltage*360)+Container.WeightSP;
 		{GantryMoveComplete:=MoveToContainer;}
 		if Container.IsPump then
 			begin
-				Gantry.MoveToStaging(Container);
-				Gantry.MoveToPump(Container);
+				Gantry.MoveToStaging(Containers[GlobalContainerNo]);
+				Gantry.MoveToPump(Containers[GlobalContainerNo]);
 			end
 		else
 			begin
-				Gantry.JointAxisMove(Container);
+				Gantry.JointAxisMove(Containers[GlobalContainerNo]);
 		
 			end;
 		if true then
 			begin
-				if((container.GantryPattern = 1) and Gantry.AtPump) then
+				if((Containers[GlobalContainerNo].GantryPattern = 1) and Gantry.AtPump) then
 					begin
 						speedMem:=Gantry.XMotor.Speed;
 						Gantry.Xmotor.SetSpeed(5);
@@ -591,7 +578,7 @@ procedure SystemMode.AutoDispense;
 					begin
 						yield;
 						begin
-							LoadCellScaled:=(LoadCell.Voltage*360);
+							LoadCellScaled:=(avg*160);
 						end;
 					end;
 				GlobalContainerNoIndicator:= GlobalContainerNo;	
@@ -600,7 +587,7 @@ procedure SystemMode.AutoDispense;
 				Spin.SetValue(0);
 				if Gantry.AtPump then
 					begin
-						Gantry.XMotor.BeginStop;
+						Gantry.XMotor.Stop;
 						Delay(1000);
 					end;
 					Gantry.XMotor.SetSpeed(speedMem);
@@ -648,16 +635,23 @@ procedure LoadCellFilter;
 	begin
 	Total:=0;
 	i=0;
-	while i < 10 do
+	while true do
 		begin
 			yield;
 			begin
-				total := total+LoadCell.Voltage;
-				i := i+1;
+				while i < 10 do
+					begin
+						yield;
+						begin
+							total := total+LoadCell.Voltage;
+							i := i+1;
+						end;
+					end;
+				LoadCellFiltered:=total/i;
 			end;
 		end;
-		LoadCellFiltered:=total/i;
 	end;
+	
 
 
 procedure InitializeSubsystems;
@@ -668,11 +662,18 @@ procedure InitializeSubsystems;
 		Containers[2].InitializeAuger(Remote_Motor_28,Col2Coord,Row1Coord,2,AugDefaultSpeed);
 		Containers[3].InitializeAuger(Remote_Motor_25,Col3Coord,Row1Coord,3,AugDefaultSpeed);
 		Containers[4].InitializeAuger(Remote_Motor_26,Col4Coord,Row1Coord,4,AugDefaultSpeed);
+		Containers[4].WeightSP:=28;
+		yield;
 		Containers[5].InitializeAuger(Remote_Motor_23,Col5Coord,Row1Coord,5,AugDefaultSpeed);
 		Containers[6].InitializeAuger(Remote_Motor_24,Col1Coord,Row2Coord,6,AugDefaultSpeed);
-		Containers[7].InitializeAuger(Remote_Motor_21,Col2Coord,Row2Coord,7,AugDefaultSpeed);
+		Containers[7].InitializeAuger(Remote_Motor_21,Col2Coord,Row2Coord,7,5);
+		Containers[7].WeightSP:=14;
+		Containers[7].Revolutions:=-18;
+		Containers[7].ReverseRevolutions:=0;
+		yield;
 		Containers[8].InitializeAuger(Remote_Motor_22,Col3Coord,Row2Coord,8,AugDefaultSpeed);
 		Containers[9].InitializeAuger(Remote_Motor_19,Col4Coord,Row2Coord,9,AugDefaultSpeed);
+		Containers[9].WeightSP:=28;
 		Containers[10].InitializeAuger(Remote_Motor_20,Col5Coord,Row2Coord,10,AugDefaultSpeed);
 		yield;
 		Containers[11].InitializeAuger(Remote_Motor_17,Col1Coord,Row3Coord,11,AugDefaultSpeed);
@@ -680,9 +681,15 @@ procedure InitializeSubsystems;
 		Containers[13].InitializeAuger(Remote_Motor_15,Col3Coord,Row3Coord,13,AugDefaultSpeed);
 		Containers[14].InitializeAuger(Remote_Motor_16,Col4Coord,Row3Coord,14,AugDefaultSpeed);
 		Containers[15].InitializeAuger(Remote_Motor_13,Col5Coord,Row3Coord,15,AugDefaultSpeed);
+		Containers[15].WeightSP:=28;
+		Containers[15].Revolutions:=10;
+		Containers[15].Revolutions:=-8;
+		Containers[15].DispenseSpeed:=10;
+		Containers[15].ReverseSpeed:=10;
 		Containers[16].InitializeAuger(Remote_Motor_14,Col1Coord,Row4Coord,16,AugDefaultSpeed);
 		Containers[17].InitializeAuger(Remote_Motor_11,Col2Coord,Row4Coord,17,AugDefaultSpeed);
 		Containers[18].InitializeAuger(Remote_Motor_12,Col3Coord,Row4Coord,18,AugDefaultSpeed);
+		Containers[18].WeightSP:=28;
 		Containers[19].InitializeAuger(Remote_Motor_9,Col4Coord,Row4Coord,19,AugDefaultSpeed);
 		Containers[20].InitializeAuger(Remote_Motor_10,Col5Coord,Row4Coord,20,AugDefaultSpeed);
 		yield;	
@@ -699,9 +706,9 @@ procedure InitializeSubsystems;
 		SystemReady:=true;
 		if (X_Motor.ActualPosition > 99) and (X_Motor.ActualPosition < 101) and (Y_Motor.ActualPosition<10) then
 			Gantry.AtHome:=true;
-        Gantry.XMotor.SetMotor(on);
+        {Gantry.XMotor.SetMotor(on);
         Gantry.YMotor.SetMotor(on);
-        Gantry.ZMotor.SetMotor(on);
+        Gantry.ZMotor.SetMotor(on);}
 	end;
 
 procedure ButtonHandler(Container:integer);
@@ -742,6 +749,7 @@ var IngredientQueue:Array [0..12] of integer;
 var GlobalAbortSignal:boolean;
 var Debug:integer;
 var DebugContIn:integer;
+var Total:double;
 
 procedure AutoStateMachine;
 	var AutoState:integer;
@@ -750,6 +758,9 @@ procedure AutoStateMachine;
 	var XMotorSpeedMem:single;
 	var StartingLCWeight:double;
 	var FinishingWeightSP:double;
+	var LoadCellScaled:double;
+	var ii:integer;
+	var jj:integer;
 
 	begin
 	Debug:=0;
@@ -757,123 +768,176 @@ procedure AutoStateMachine;
 	GlobalStartSignal:=false;
 	IngredientIndex:=0;
 	AutoState:=0;
-	StartingLCWeight:=0;
 	FinishingWeightSP:=0;
-	BeginTask(TaskAddr(LoadCellFilter));
+	LoadCellScaled:=0;
+	ii:=0;
+	jj:=0;
+	avg:=0;
 		while True do
 			begin
 				yield;
+				{moving the loadcell variables updater here to remove while loops}
+				LoadCellScaled:=(avg*160);
+					if ii = 10 then
+						begin 
+							avg:=(Total/10);
+							Total := 0;
+							ii := 0;
+							yield;
+						end
+					else 
+						begin
+							Total:=(LoadCell.Voltage+Main.Total);
+							ii := ii + 1;
+							yield;
+						end
+					
 				begin
-					Debug:=AutoState;
+					Debug:=AutoState;	
 					if  GlobalAbortSignal then
 						begin
-						Gantry.XMotor.BeginStop;
-						Gantry.YMotor.BeginStop;
-						Gantry.ZMotor.MoveTo(0);
-						IngredientIndex:=0;
-						GlobalStartSignal:=false;
-						GlobalAbortSignal:=false;
 						AutoState:=0;
+						{GlobalStartSignal:=false;}
 						end;
+
 				{Wait for Start signal from either modbus or S2M}
-					if (AutoState = 0)then 
-						if GlobalStartSignal then
-							begin
-								GlobalStartSignal:=false;
-								AutoState:=10;
-							end;
+					if (AutoState = 0) and GlobalStartSignal then 
+						begin
+							GlobalAbortSignal:=false;
+							GlobalAbortSignal:=false;
+							GlobalStartSignal:=false;
+							IngredientIndex:=0;
+							AutoState:=10;
+						end
+						
 							
 				{Go to denester}
 					else if  (AutoState = 10) then
 						begin
 							SystemMode.GantryEnabled:=true;
 							Gantry.MoveToDenesterStaging;
-							Gantry.MoveToDenester;
-							AutoState:=15;
+							{Gantry.MoveToDenester;}
+							AutoState:=20;{Change}
 						end
 
 				{Dispense bowl}
 					else if (AutoState = 15) then
-						if Gantry.AtDenester then
-							begin
-								Denester.SetValue(255);
-								Delay(3200);
-								Denester.SetValue(0);
-								Gantry.MoveToDenesterStaging;
-								AutoState:=20;
-							end;
+						begin
+							if Gantry.AtDenester then
+								begin
+									Denester.SetValue(255);
+									Delay(3200);
+									Denester.SetValue(0);
+									Gantry.MoveToDenesterStaging;
+									AutoState:=20;
+								end
+							else
+								yield;
+						end
+						
 						
 				{Set container}	
 					else if (AutoState = 20) then
 						begin
 							GlobalContainerNo:=IngredientQueue[IngredientIndex];
+
 							if (GlobalContainerNo = 0) then
 								AutoState:=60
 							else
 								AutoState:=30;
-						end;
-						{Old Code}
-						{begin
-							if (IngredientQueue[IngredientIndex]<>0) then
-								begin
-									GlobalContainerNo:=IngredientQueue[IngredientIndex];
-									SystemMode.AutoDispense;									
-									IngredientIndex:=IngredientIndex+1;
-								end
-							else
-								AutoState:=30;
-						end}
+						
+						end
+					
 					{Go to container}
 					else if (AutoState = 30) then
 						begin
 							ActiveContainer:=Containers[GlobalContainerNo];
-							Debug:=ActiveContainer.id;
+
 							if ActiveContainer.IsPump then {Must be higher than staging minus 10}
 								begin
 									Gantry.MoveToStaging(ActiveContainer);
 									Gantry.MoveToPump(ActiveContainer);
-								end;
+								end
 							else
 								Gantry.JointAxisMove(ActiveContainer);{this might be root cause of bug}
 							AutoState:=40;
-						end;
+				
+						end
 					{Dispense}
 					else if (AutoState=40) then
-						BeginTask(TaskAddr(DispenseWrapper));
+						begin
+							Containers[GlobalContainerNo].ReverseEnabled:=true;
+							BeginTask(TaskAddr(DispenseWrapper));
 
-						if ActiveContainer.BowlSpinEnabled then
-							Spin.SetValue(255);
+							if ActiveContainer.BowlSpinEnabled then
+								Spin.SetValue(255);
 
-						if (ActiveContainer.IsPump and ActiveContainer.GantryPattern = 1) then
-							begin
-								XMotorSpeedMem:=Gantry.Xmotor.Speed;
-								Gantry.XMotor.SetSpeed(10);
-								Gantry.XMotor.BeginMoveBy(-50);
-							end;
-						StartingLCWeight:=LoadCellFiltered;
-						FinishingWeightSP:=StartingLCWeight+ActiveContainer.WeightSP;
-						while LoadCellFiltered < FinishingWeightSP do
+							if (ActiveContainer.IsPump and (ActiveContainer.GantryPattern = 1)) then
+								begin
+									XMotorSpeedMem:=Gantry.Xmotor.Speed;
+									Gantry.XMotor.SetSpeed(5);
+									Delay(1000);
+									Gantry.XMotor.BeginMoveBy(-100);
+								end;
+							StartingLCWeight:=avg*160;
 							yield;
-						Containers[GlobalContainerNo].DispensePermissive:=false; {we need to use this instead of Active Container so that the same instance stops (not sure how S2M handles it)}
-						Gantry.XMotor.BeginStop;
-						Spin.SetValue(0);
-						while TaskPresent(TaskAddr(DispenseWrapper)) do
-							yield;
-						AutoState:=50;
+							FinishingWeightSP:=StartingLCWeight+Containers[GlobalContainerNo].WeightSP;
+							{machine sometimes skips steps. EVERY time going to desnester staging x failts}
+							{avg update loop stops bc of this while loop, dispense wrapper is always active until the loadcell condition is met}
+							while TaskPresent(TaskAddr(DispenseWrapper)) do
+								begin
+									yield;
+									if jj = 10 then
+										begin 
+											avg:=(Total/10);
+											Total := 0;
+											jj := 0;
+											yield;
+										end
+									else 
+										begin
+											Total:=(LoadCell.Voltage+Main.Total);
+											jj := jj + 1;
+											yield;
+										end
+									yield;
+									LoadCellScaled:= avg*160;
+									{This use to not be in the loop}
+									{moving this did not help, still not passing this boolean below!}
+									if LoadCellScaled > FinishingWeightSP then
+										begin
+										Containers[GlobalContainerNo].DispensePermissive:=false; {we need to use this instead of Active Container so that the same instance stops (not sure how S2M handles it)}
+										if Containers[GlobalContainerNo].IsPump then
+											begin
+												Gantry.XMotor.Stop;
+												Gantry.XMotor.SetSpeed(XMotorSpeedMem);
+											end;
+										Spin.SetValue(0);
+										end;
+								end;
+							AutoState:=50;
+						end
+						
 					
 					else if (AutoState=50) then
 						begin
 							IngredientIndex:=IngredientIndex+1;
-							AutoState=20;
-						end;
+							AutoState:=20;
+							yield;
+						end
 				{Go to output}
 					else if (AutoState = 60) then
 						begin
-							Gantry.MoveToOutfeedStaging;
+							{Gantry.MoveToOutfeedStaging;}
 							Delay(200);
+							IngredientIndex:=0;
 							{Gantry.MoveToOutfeed;}
 							AutoState:=0;
+						
 						end
+
+					else 
+						yield;
 					end;
 				end;
 			end;

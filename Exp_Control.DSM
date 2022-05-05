@@ -577,7 +577,7 @@ FALSE
  4.00000000000000E+0003
 256
 FALSE
-3
+4
 TNamedIO
 0 {reference}
 LoadCell
@@ -600,6 +600,14 @@ Denester
 16
 6
 38
+FALSE
+0   {persistent index}
+TNamedIO
+0 {reference}
+FilterLoadcell
+16
+6
+42
 FALSE
 0   {persistent index}
 1
@@ -1386,7 +1394,161 @@ FALSE
 TBlock
 0 {reference}
 0 {ReferenceLink}
-404 405 6333684 60 29
+404 405 13921354 190 29
+5
+TNAxisListField
+0 {reference}
+13 7 65 21
+nil
+
+TRUE
+X_Motor
+X_Motor
+0
+TStaticField
+0 {reference}
+68 7 87 21
+nil
+
+TRUE
+Set
+
+TLocalListField
+0 {reference}
+94 7 134 21
+nil
+
+TRUE
+Speed
+.SetSpeed(
+3
+Speed
+.SetSpeed(
+Accel
+.SetAccel(
+Decel
+.SetDecel(
+TNumericField
+0 {reference}
+141 7 181 21
+nil
+Number
+TRUE
+ 2.00000000000000E+0002
+TRUE
+TStaticField
+0 {reference}
+184 7 187 21
+nil
+
+TRUE
+ 
+);
+TRUE
+TRUE
+FALSE
+TBlock
+0 {reference}
+0 {ReferenceLink}
+404 434 13921354 192 29
+5
+TNAxisListField
+0 {reference}
+13 7 64 21
+nil
+
+TRUE
+Y_Motor
+Y_Motor
+0
+TStaticField
+0 {reference}
+67 7 86 21
+nil
+
+TRUE
+Set
+
+TLocalListField
+0 {reference}
+93 7 136 21
+nil
+
+TRUE
+Speed 
+.SetSpeed(
+3
+Speed
+.SetSpeed(
+Accel
+.SetAccel(
+Decel
+.SetDecel(
+TNumericField
+0 {reference}
+143 7 183 21
+nil
+Number
+TRUE
+ 2.00000000000000E+0002
+TRUE
+TStaticField
+0 {reference}
+186 7 189 21
+nil
+
+TRUE
+ 
+);
+TRUE
+TRUE
+FALSE
+TBlock
+0 {reference}
+0 {ReferenceLink}
+404 463 13921354 192 29
+4
+T1AxisListField
+0 {reference}
+13 7 65 21
+nil
+
+TRUE
+X_Motor
+X_Motor
+0
+FALSE
+TStaticField
+0 {reference}
+68 7 150 21
+nil
+
+TRUE
+Set Error Limit
+.SetErrorLimit(
+TNumericField
+0 {reference}
+157 7 183 21
+nil
+Number
+TRUE
+ 5.00000000000000E+0000
+FALSE
+TStaticField
+0 {reference}
+186 14 186 14
+nil
+
+TRUE
+
+);
+TRUE
+TRUE
+FALSE
+TBlock
+0 {reference}
+0 {ReferenceLink}
+404 492 6333684 60 29
 1
 TStaticField
 0 {reference}
@@ -1402,7 +1564,7 @@ FALSE
 TBlock
 0 {reference}
 0 {ReferenceLink}
-404 434 13921354 454 37
+404 521 13921354 454 37
 6
 TNAxisListField
 0 {reference}
@@ -1448,7 +1610,7 @@ TNumericField
 TNumericExpression
 0 {reference}
 0 {ReferenceLink}
-607 441 13921354 229 23
+607 528 13921354 229 23
 3
 T1AxisListField
 0 {reference}
@@ -1505,8 +1667,66 @@ TRUE
 TRUE
 TBlock
 0 {reference}
+382 {ReferenceLink}
+404 558 8388736 180 29
+2
+TPathNameField
+0 {reference}
+9 7 165 21
+nil
+
+TRUE
+AutoMode InitializeWrapper
+Main.AutoMode.InitializeWrapper
+Main.AutoMode.
+InitializeWrapper
+TRUE
+TRUE
+TRUE
+TStaticField
+0 {reference}
+168 14 168 14
+nil
+
+TRUE
+
+;
+TRUE
+TRUE
+FALSE
+TBlock
+0 {reference}
+436 {ReferenceLink}
+404 587 8388736 197 29
+2
+TPathNameField
+0 {reference}
+9 7 182 21
+nil
+
+TRUE
+Settings IndicatorRefreshTask
+Main.Settings.IndicatorRefreshTask
+Main.Settings.
+IndicatorRefreshTask
+TRUE
+TRUE
+TRUE
+TStaticField
+0 {reference}
+185 14 185 14
+nil
+
+TRUE
+
+;
+TRUE
+TRUE
+FALSE
+TBlock
+0 {reference}
 260 {ReferenceLink}
-404 471 8388736 249 29
+404 616 8388736 249 29
 4
 TPathNameField
 0 {reference}
@@ -1552,66 +1772,8 @@ TRUE
 FALSE
 TBlock
 0 {reference}
-382 {ReferenceLink}
-404 500 8388736 180 29
-2
-TPathNameField
-0 {reference}
-9 7 165 21
-nil
-
-TRUE
-AutoMode InitializeWrapper
-Main.AutoMode.InitializeWrapper
-Main.AutoMode.
-InitializeWrapper
-TRUE
-TRUE
-TRUE
-TStaticField
-0 {reference}
-168 14 168 14
-nil
-
-TRUE
-
-;
-TRUE
-TRUE
-FALSE
-TBlock
-0 {reference}
-436 {ReferenceLink}
-404 529 8388736 197 29
-2
-TPathNameField
-0 {reference}
-9 7 182 21
-nil
-
-TRUE
-Settings IndicatorRefreshTask
-Main.Settings.IndicatorRefreshTask
-Main.Settings.
-IndicatorRefreshTask
-TRUE
-TRUE
-TRUE
-TStaticField
-0 {reference}
-185 14 185 14
-nil
-
-TRUE
-
-;
-TRUE
-TRUE
-FALSE
-TBlock
-0 {reference}
 383 {ReferenceLink}
-404 558 8388736 216 29
+404 645 8388736 216 29
 2
 TPathNameField
 0 {reference}
@@ -1641,9 +1803,15 @@ nil
 FALSE
 TRUE
 FALSE
+FALSE
+FALSE
 TRUE
 FALSE
 TRUE
+FALSE
+FALSE
+FALSE
+FALSE
 FALSE
 FALSE
 FALSE
@@ -1692,33 +1860,38 @@ TRUE
 FALSE
 TBlock
 0 {reference}
-255 {ReferenceLink}
-855 277 8388736 203 29
+0 {ReferenceLink}
+855 277 13921354 163 29
 4
-TPathNameField
+TNAxisListField
 0 {reference}
-9 7 86 21
+13 7 62 21
 nil
 
 TRUE
-SafeZMoveTo
-Main.SafeZMoveTo
-Main.
-SafeZMoveTo
-TRUE
-TRUE
-TRUE
-TStaticField
+Stepper
+Stepper
+0
+TLocalListField
 0 {reference}
-89 7 153 21
+69 7 120 21
 nil
 
 TRUE
-Destination
-(
+Move To
+.MoveTo(
+4
+Move By
+.MoveBy(
+Move To
+.MoveTo(
+Begin Move By
+.BeginMoveBy(
+Begin Move To
+.BeginMoveTo(
 TNumericField
 0 {reference}
-160 7 186 21
+127 7 153 21
 nil
 Number
 TRUE
@@ -1726,15 +1899,15 @@ TRUE
 TRUE
 TStaticField
 0 {reference}
-189 14 189 14
+156 7 165 21
 nil
 
 TRUE
-
+   
 );
 TRUE
 TRUE
-FALSE
+TRUE
 TBlock
 0 {reference}
 0 {ReferenceLink}
@@ -1963,17 +2136,23 @@ FALSE
 TComment
 0 {reference}
 0 {ReferenceLink}
-1216 387 255 160 60
+1083 483 255 17 306
 0
 FALSE
 1
 Touch and Type Here
-1
-Touch and Type Here
+7
+Tou
+ch 
+and 
+Typ
+e 
+Her
+e
 nil
-0 -22  diagnostic marker
+-144 -339  diagnostic marker
 MMC-V Test Platform
-121
+132
 TControlPlate
 144 {reference}
 RP23_Configuration
@@ -3114,7 +3293,7 @@ procedure MonitorPower;
   var i:single;
   const K_heating=0.00025;
   const K_decay=0.99990;
-  const XLimitRow1 = 850;
+  const XLimitRow1 =1101;
   const XLimitAbsolute = 1101;
   begin
   Level:=0;
@@ -3276,8 +3455,8 @@ FALSE
 TControlPlate
 334 {reference}
 Settings
-1220 290
-1365 335
+1215 275
+1360 320
 -16777211
 Tahoma
 1
@@ -3343,7 +3522,7 @@ nil
 0 0  diagnostic marker
 Change MMC Settings
 0
-37
+39
 TUserVariable
 337 {reference}
 TRUE
@@ -3437,7 +3616,7 @@ FALSE
 TUserVariable
 348 {reference}
 TRUE
-Revolutions
+ReverseRevolutions
 Number
 FALSE
 10
@@ -3509,35 +3688,41 @@ FALSE
 TUserProcedure
 0 {reference}
 FALSE
-31
+37
 procedure RefreshCurrentSettings;
   begin
   while true do
     begin
       yield;
         begin
+        {LCIndicatorFiltered:=LoadCellFiltered;}
         {Remove Debug Vars later}
-        GantryAtHome:=Gantry.AtHome;
-        GantryAtPumpsStaging:=Gantry.AtPumpStaging;
+      
         DispContIn:=ContainersIndex;
         DebugVar:=Debug;
+        yield;
         SpinEnIndicator:=Containers[ContainersIndex].BowlSpinEnabled;
         ContXCoordIndicator:=Containers[ContainersIndex].XCoord;
+        yield;
         ContYCoordIndicator:=Containers[ContainersIndex].YCoord;
+        yield;
         ContZCoordIndicator:=Containers[ContainersIndex].ZCoord;
+        yield;
         CurrentIndicator:=Containers[ContainersIndex].Current;
+         yield;
         AccelIndicator:=Containers[ContainersIndex].Accel;
         DecelIndicator:=Containers[ContainersIndex].Decel;
         DispenseRevsIndicator:=Containers[ContainersIndex].Revolutions;
         DispenseSpeedIndicator:=Containers[ContainersIndex].DispenseSpeed;
         GantryPatternIndicator:=Containers[ContainersIndex].GantryPattern;
-        {GantryPatternEnabledIndicator:=Containers[ContainersIndex].GantryPatternEnabled;}
+     
         ReverseSpeedIndicator:=Containers[ContainersIndex].ReverseSpeed;
+         yield;
         RevolutionsIndicator:=Containers[ContainersIndex].ReverseRevolutions;
         WeightSPIndicator:=Containers[ContainersIndex].WeightSP;
         GlobalContainerNoIndicator := GlobalContainerNo;
-
-    
+        LCindicatorFiltered:=avg;
+        TotalWeight:=Total;
         end; 
     end;
   end;
@@ -3700,6 +3885,24 @@ TUserVariable
 TRUE
 GantryAtPumpsStaging
 boolean
+FALSE
+10
+1
+0
+TUserVariable
+452 {reference}
+TRUE
+LCIndicatorFiltered
+Number
+FALSE
+10
+1
+0
+TUserVariable
+473 {reference}
+TRUE
+TotalWeight
+Number
 FALSE
 10
 1
@@ -4198,7 +4401,7 @@ FALSE
 TBlock
 0 {reference}
 348 {ReferenceLink}
-425 210 36095 402 37
+425 210 36095 449 37
 7
 TStaticField
 0 {reference}
@@ -4210,16 +4413,16 @@ Set
 
 TNumberVariableListField
 0 {reference}
-44 11 164 25
+44 11 211 25
 nil
 
 TRUE
-Revolutions
+ReverseRevolutions
 Revolutions
 0
 TConditionallyPresentIndexField
 0 {reference}
-167 11 167 25
+214 11 214 25
 nil
 Number
 TRUE
@@ -4227,7 +4430,7 @@ TRUE
 FALSE
 TConditionallyPresentAccessorField
 0 {reference}
-170 18 170 18
+217 18 217 18
 nil
 
 TRUE
@@ -4235,7 +4438,7 @@ TRUE
 :=
 TStaticField
 0 {reference}
-173 11 190 25
+220 11 237 25
 nil
 
 TRUE
@@ -4243,11 +4446,11 @@ TRUE
 
 TNumericField
 0 {reference}
-193 7 370 30
+240 7 417 30
 TNumericExpression
 0 {reference}
 319 {ReferenceLink}
-618 217 14053594 177 23
+665 217 14053594 177 23
 3
 TStaticField
 0 {reference}
@@ -4285,7 +4488,7 @@ TRUE
 TRUE
 TConditionallyPresentAccessorField
 0 {reference}
-373 18 373 18
+420 18 420 18
 nil
 
 TRUE
@@ -8398,7 +8601,7 @@ nil
 Stop
 FALSE
 TControlStatic
-0 {reference}
+455 {reference}
 Localdbgf
 685 550
 735 567
@@ -8459,7 +8662,7 @@ nil
 
 0
 TControlStatic
-0 {reference}
+456 {reference}
 Text
 140 490
 180 507
@@ -8544,7 +8747,7 @@ nil
 
 0
 TControlStatic
-0 {reference}
+457 {reference}
 Localdbgf2
 745 550
 795 567
@@ -8606,174 +8809,8 @@ nil
 0
 TControlButton
 0 {reference}
-StagingButton
-790 380
-850 410
-536870911
-Tahoma
-1
--16777208
-8
-0
-3
-TUserProcedure
-0 {reference}
-FALSE
-4
-procedure Click;
-  begin
-  {your program goes here - remove the curly comment brackets}
-  end;
-TRUE
-TUserProcedure
-0 {reference}
-FALSE
-4
-procedure MouseDown;
-  begin
-  {your program goes here - remove the curly comment brackets}
-  end;
-TRUE
-TUserProcedure
-0 {reference}
-FALSE
-4
-procedure MouseUp;
-  begin
-  {your program goes here - remove the curly comment brackets}
-  end;
-TRUE
-TBlock_H
-0 {reference}
-0 {ReferenceLink}
-343 54 1993170 60 29
-1
-TStaticField
-0 {reference}
-9 7 37 21
-nil
-
-TRUE
-Click
-Click
-FALSE
-TRUE
-FALSE
-TBlock
-0 {reference}
-0 {ReferenceLink}
-343 83 13921354 163 29
-4
-TNAxisListField
-0 {reference}
-13 7 62 21
-nil
-
-TRUE
-Stepper
-Stepper
-0
-TLocalListField
-0 {reference}
-69 7 120 21
-nil
-
-TRUE
-Move To
-.MoveTo(
-4
-Move By
-.MoveBy(
-Move To
-.MoveTo(
-Begin Move By
-.BeginMoveBy(
-Begin Move To
-.BeginMoveTo(
-TNumericField
-0 {reference}
-127 7 153 21
-nil
-Number
-TRUE
- 1.00000000000000E+0000
-TRUE
-TStaticField
-0 {reference}
-156 7 165 21
-nil
-
-TRUE
-   
-);
-TRUE
-TRUE
-TRUE
-TBlock
-0 {reference}
-0 {ReferenceLink}
-343 112 13921354 180 29
-4
-TNAxisListField
-0 {reference}
-13 7 65 21
-nil
-
-TRUE
-X_Motor
-X_Motor
-0
-TLocalListField
-0 {reference}
-72 7 123 21
-nil
-
-TRUE
-Move To
-.MoveTo(
-4
-Move By
-.MoveBy(
-Move To
-.MoveTo(
-Begin Move By
-.BeginMoveBy(
-Begin Move To
-.BeginMoveTo(
-TNumericField
-0 {reference}
-130 7 170 21
-nil
-Number
-TRUE
- 8.00000000000000E+0002
-TRUE
-TStaticField
-0 {reference}
-173 7 182 21
-nil
-
-TRUE
-   
-);
-TRUE
-TRUE
-TRUE
-nil
-FALSE
-FALSE
-FALSE
-FALSE
-FALSE
-FALSE
-nil
-0 0  diagnostic marker
-Staging
-FALSE
-TControlButton
-0 {reference}
 StagingButton2
-225 480
+225 485
 330 525
 536870911
 Tahoma
@@ -8864,7 +8901,7 @@ nil
 Home
 FALSE
 TControlStatic
-0 {reference}
+458 {reference}
 Localdbgf3
 635 355
 685 372
@@ -8878,7 +8915,7 @@ Tahoma
 TBlock_Show
 0 {reference}
 0 {ReferenceLink}
-508 179 1993170 294 45
+508 179 1993170 284 45
 2
 TStaticField
 0 {reference}
@@ -8890,7 +8927,7 @@ Show
 Show
 TNumericField
 0 {reference}
-44 7 282 38
+44 7 272 38
 TNumericExpression
 0 {reference}
 0 {ReferenceLink}
@@ -8957,7 +8994,7 @@ TNumericField
 nil
 Number
 TRUE
- 3.60000000000000E+0002
+ 1.60000000000000E+0002
 TRUE
 TStaticField
 0 {reference}
@@ -8985,7 +9022,7 @@ nil
 TControlButton
 0 {reference}
 AbortButton
-480 460
+485 460
 550 495
 536870911
 Tahoma
@@ -8997,13 +9034,16 @@ Tahoma
 TUserProcedure
 0 {reference}
 FALSE
-7
+10
 procedure Click;
   begin
+  Gantry.XMotor.Stop;
+  Gantry.YMotor.Stop;
+  Gantry.ZMotor.MoveTo(0);
   GlobalAbortSignal:=true;
-  Gantry.XMotor.BeginStop;
-  Gantry.YMotor.BeginStop;
-  AbortTask(TaskAddr(DispenseWrapper));
+  GlobalStartSignal:=false;
+  if TaskPresent(TaskAddr(DispenseWrapper))then
+    AbortTask(TaskAddr(DispenseWrapper));
   end;
 TRUE
 TUserProcedure
@@ -9031,8 +9071,8 @@ FALSE
 TControlStatic
 0 {reference}
 WeightSPLabel2
-550 355
-625 375
+550 350
+625 370
 -16777211
 Tahoma
 1
@@ -9044,119 +9084,6 @@ nil
 0 0  diagnostic marker
 LoadCell
 0
-TControlButton
-0 {reference}
-denesterButton
-55 490
-125 520
-536870911
-Tahoma
-1
--16777208
-8
-0
-3
-TUserProcedure
-0 {reference}
-FALSE
-4
-procedure Click;
-  begin
-  {your program goes here - remove the curly comment brackets}
-  end;
-TRUE
-TUserProcedure
-0 {reference}
-FALSE
-4
-procedure MouseDown;
-  begin
-  {your program goes here - remove the curly comment brackets}
-  end;
-TRUE
-TUserProcedure
-0 {reference}
-FALSE
-4
-procedure MouseUp;
-  begin
-  {your program goes here - remove the curly comment brackets}
-  end;
-TRUE
-TBlock_H
-0 {reference}
-0 {ReferenceLink}
-397 75 1993170 60 29
-1
-TStaticField
-0 {reference}
-9 7 37 21
-nil
-
-TRUE
-Click
-Click
-FALSE
-TRUE
-FALSE
-TBlock
-0 {reference}
-0 {ReferenceLink}
-397 104 3937500 235 29
-5
-TStaticField
-0 {reference}
-9 7 54 21
-nil
-
-TRUE
-Modbus
-
-TModbusWordOrNumberListField
-0 {reference}
-61 7 117 21
-nil
-
-TRUE
-Denester
-Denester
-0
-TStaticField
-0 {reference}
-120 7 174 21
-nil
-
-TRUE
-Set Value
-.SetValue(
-TNumericField
-0 {reference}
-181 7 221 21
-nil
-Number
-TRUE
- 2.55000000000000E+0002
-TRUE
-TStaticField
-0 {reference}
-224 14 224 14
-nil
-
-TRUE
-
-);
-TRUE
-TRUE
-FALSE
-nil
-FALSE
-FALSE
-FALSE
-FALSE
-nil
-0 0  diagnostic marker
-denester
-FALSE
 TControlStatic
 441 {reference}
 ActualXCoord2
@@ -10922,54 +10849,6 @@ Z -
 FALSE
 TControlButton
 0 {reference}
-OutStageingButton
-790 335
-850 370
-536870911
-Tahoma
-1
--16777208
-8
-0
-3
-TUserProcedure
-0 {reference}
-FALSE
-9
-procedure Click;
-  begin
-  Gantry.XMotor.SetMotor(on);
-  Gantry.YMotor.SetMotor(On);
-  Gantry.ZMotor.SetMotor(On);
-  Gantry.MoveToOutfeedStaging;
-  Delay(2000);
-  Gantry.MoveToOutfeed;
-  end;
-TRUE
-TUserProcedure
-0 {reference}
-FALSE
-4
-procedure MouseDown;
-  begin
-  {your program goes here - remove the curly comment brackets}
-  end;
-TRUE
-TUserProcedure
-0 {reference}
-FALSE
-4
-procedure MouseUp;
-  begin
-  {your program goes here - remove the curly comment brackets}
-  end;
-TRUE
-nil
-0 0  diagnostic marker
-Outfeed
-FALSE
-TControlButton
-0 {reference}
 Update_Settings_But2
 225 420
 315 440
@@ -11126,7 +11005,7 @@ procedure Click;
   Index:=Settings.ContainersIndex;
  
   Containers[Index].Revolutions:=Settings.DispenseRevolutions;
-  Containers[Index].ReverseRevolutions:=Settings.Revolutions;
+  Containers[Index].ReverseRevolutions:=Settings.ReverseRevolutions;
  
   end;
 TRUE
@@ -11643,7 +11522,7 @@ FALSE
 procedure Click;
   begin
   GlobalContainerNo:=Settings.ContainersIndex;
-  SystemMode.GantryEnabled:=true;
+  SystemMode.GantryEnabled:=false;
   SystemMode.AutoDispense;
   Gantry.ZMotor.MoveTo(0);
   end;
@@ -11799,7 +11678,7 @@ nil
 are changed press update  btn.
 0
 TControlStatic
-0 {reference}
+459 {reference}
 Text10
 355 235
 395 264
@@ -11860,10 +11739,10 @@ nil
 
 0
 TControlStatic
-0 {reference}
+460 {reference}
 Text11
-710 430
-775 453
+685 425
+750 448
 -16777211
 Tahoma
 1
@@ -11954,8 +11833,8 @@ nil
 TControlStatic
 0 {reference}
 Home
-650 425
-710 448
+615 425
+675 448
 -16777211
 Tahoma
 1
@@ -11968,10 +11847,10 @@ nil
 HOme
 0
 TControlStatic
-0 {reference}
+461 {reference}
 Text12
-690 455
-750 478
+685 460
+745 483
 -16777211
 Tahoma
 1
@@ -12062,8 +11941,8 @@ nil
 TControlStatic
 0 {reference}
 Text13
-630 455
-695 478
+605 460
+670 483
 -16777211
 Tahoma
 1
@@ -12074,6 +11953,1354 @@ Tahoma
 nil
 0 0  diagnostic marker
 Staging
+0
+TControlStatic
+462 {reference}
+Text14
+830 450
+895 473
+-16777211
+Tahoma
+1
+-16777208
+0
+0
+0
+TBlock_Show
+0 {reference}
+0 {ReferenceLink}
+324 108 1993170 186 37
+2
+TStaticField
+0 {reference}
+9 11 41 25
+nil
+
+TRUE
+Show
+Show
+TNumericField
+0 {reference}
+44 7 174 30
+TNumericExpression
+0 {reference}
+421 {ReferenceLink}
+368 115 36095 130 23
+1
+TPathNameField
+0 {reference}
+12 4 118 18
+nil
+
+TRUE
+Settings DebugVar
+Main.Settings.DebugVar
+Main.Settings.
+DebugVar
+TRUE
+TRUE
+TRUE
+Number
+Number
+FALSE
+ 0.00000000000000E+0000
+TRUE
+FALSE
+FALSE
+FALSE
+nil
+FALSE
+FALSE
+nil
+0 0  diagnostic marker
+
+0
+TControlButton
+0 {reference}
+MotOnBut
+895 185
+960 240
+536870911
+Tahoma
+1
+-16777208
+8
+0
+3
+TUserProcedure
+0 {reference}
+FALSE
+6
+procedure Click;
+  begin
+  Gantry.XMotor.SetMotor(on);
+  Gantry.YMotor.SetMotor(On);
+  Gantry.ZMotor.SetMotor(On);
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseDown;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseUp;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+nil
+0 0  diagnostic marker
+Turn Motors On
+FALSE
+TControlButton
+0 {reference}
+Go_to_ContainerButton2
+325 145
+385 195
+536870911
+Tahoma
+1
+-16777208
+8
+0
+3
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure Click;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+5
+procedure MouseDown;
+  begin
+  GlobalContainerNo:=Settings.ContainersIndex;
+  Containers[GlobalContainerNo].Dispense;
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseUp;
+  begin
+  Containers[GlobalContainerNo].DispensePermissive:=false;
+  end;
+TRUE
+nil
+0 0  diagnostic marker
+Dispense
+FALSE
+TControlStatic
+0 {reference}
+Text15
+540 100
+590 117
+-16777211
+Tahoma
+1
+-16777208
+8
+0
+0
+nil
+0 0  diagnostic marker
+Mot. On
+0
+TControlStatic
+463 {reference}
+Text16
+620 95
+675 112
+-16777211
+Tahoma
+1
+-16777208
+8
+0
+0
+TBlock_Show
+0 {reference}
+0 {ReferenceLink}
+509 179 1993170 323 37
+6
+TStaticField
+0 {reference}
+9 11 41 25
+nil
+
+TRUE
+Show
+Show
+TBooleanField
+0 {reference}
+44 7 199 30
+TBooleanExpression
+0 {reference}
+0 {ReferenceLink}
+553 186 13921354 155 23
+2
+TNAxisListField
+0 {reference}
+19 4 71 18
+nil
+
+TRUE
+X_Motor
+X_Motor
+0
+TStaticField
+0 {reference}
+74 4 139 18
+nil
+
+TRUE
+Motor Is On
+.MotorIsOn
+Boolean
+Boolean
+FALSE
+TRUE
+True
+False
+TStaticField
+0 {reference}
+202 11 216 25
+nil
+
+TRUE
+as
+as
+TStringField
+0 {reference}
+223 11 258 25
+nil
+String
+TRUE
+On
+TStaticField
+0 {reference}
+261 11 264 25
+nil
+
+TRUE
+,
+,
+TStringField
+0 {reference}
+271 11 307 25
+nil
+String
+TRUE
+Off
+FALSE
+FALSE
+FALSE
+nil
+FALSE
+FALSE
+nil
+0 0  diagnostic marker
+
+0
+TControlStatic
+464 {reference}
+Text17
+705 95
+760 112
+-16777211
+Tahoma
+1
+-16777208
+8
+0
+0
+TBlock_Show
+0 {reference}
+0 {ReferenceLink}
+932 153 1993170 322 37
+6
+TStaticField
+0 {reference}
+9 11 41 25
+nil
+
+TRUE
+Show
+Show
+TBooleanField
+0 {reference}
+44 7 198 30
+TBooleanExpression
+0 {reference}
+0 {ReferenceLink}
+976 160 13921354 154 23
+2
+TNAxisListField
+0 {reference}
+19 4 70 18
+nil
+
+TRUE
+Y_Motor
+Y_Motor
+0
+TStaticField
+0 {reference}
+73 4 138 18
+nil
+
+TRUE
+Motor Is On
+.MotorIsOn
+Boolean
+Boolean
+FALSE
+TRUE
+True
+False
+TStaticField
+0 {reference}
+201 11 215 25
+nil
+
+TRUE
+as
+as
+TStringField
+0 {reference}
+222 11 257 25
+nil
+String
+TRUE
+On
+TStaticField
+0 {reference}
+260 11 263 25
+nil
+
+TRUE
+,
+,
+TStringField
+0 {reference}
+270 11 306 25
+nil
+String
+TRUE
+Off
+FALSE
+FALSE
+FALSE
+nil
+FALSE
+FALSE
+nil
+-357 0  diagnostic marker
+
+0
+TControlStatic
+465 {reference}
+Text18
+790 95
+845 112
+-16777211
+Tahoma
+1
+-16777208
+8
+0
+0
+TBlock_Show
+0 {reference}
+0 {ReferenceLink}
+574 126 1993170 320 37
+6
+TStaticField
+0 {reference}
+9 11 41 25
+nil
+
+TRUE
+Show
+Show
+TBooleanField
+0 {reference}
+44 7 196 30
+TBooleanExpression
+0 {reference}
+0 {ReferenceLink}
+618 133 13921354 152 23
+2
+TNAxisListField
+0 {reference}
+19 4 68 18
+nil
+
+TRUE
+Stepper
+Stepper
+0
+TStaticField
+0 {reference}
+71 4 136 18
+nil
+
+TRUE
+Motor Is On
+.MotorIsOn
+Boolean
+Boolean
+FALSE
+TRUE
+True
+False
+TStaticField
+0 {reference}
+199 11 213 25
+nil
+
+TRUE
+as
+as
+TStringField
+0 {reference}
+220 11 255 25
+nil
+String
+TRUE
+On
+TStaticField
+0 {reference}
+258 11 261 25
+nil
+
+TRUE
+,
+,
+TStringField
+0 {reference}
+268 11 304 25
+nil
+String
+TRUE
+Off
+FALSE
+FALSE
+FALSE
+nil
+FALSE
+FALSE
+nil
+0 0  diagnostic marker
+
+0
+TControlButton
+0 {reference}
+AbortButton2
+485 420
+550 455
+536870911
+Tahoma
+1
+-16777208
+8
+0
+3
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure Click;
+  begin
+    AbortTask(TaskAddr(AutoUpdateDisplay));
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseDown;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseUp;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+nil
+0 0  diagnostic marker
+stopdisplay
+FALSE
+TControlButton
+0 {reference}
+AbortButton3
+385 500
+435 530
+536870911
+Tahoma
+1
+-16777208
+8
+0
+3
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure Click;
+  begin
+    Prompter.writeln(WatchdogHasTripped);
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseDown;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseUp;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+nil
+0 0  diagnostic marker
+Watchdog
+FALSE
+TControlButton
+0 {reference}
+Start_FilterButton
+695 360
+780 395
+536870911
+Tahoma
+1
+-16777208
+8
+0
+3
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure Click;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseDown;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TUserProcedure
+0 {reference}
+FALSE
+4
+procedure MouseUp;
+  begin
+  {your program goes here - remove the curly comment brackets}
+  end;
+TRUE
+TBlock_H
+0 {reference}
+0 {ReferenceLink}
+372 156 1993170 60 29
+1
+TStaticField
+0 {reference}
+9 7 37 21
+nil
+
+TRUE
+Click
+Click
+FALSE
+TRUE
+FALSE
+TBlock_C
+0 {reference}
+0 {ReferenceLink}
+372 185 6333684 120 240
+1
+TStaticField
+0 {reference}
+9 4 52 18
+nil
+
+TRUE
+Forever
+while true do
+TRUE
+FALSE
+FALSE
+nil
+FALSE
+FALSE
+TBlock
+0 {reference}
+0 {ReferenceLink}
+397 208 6333684 60 29
+1
+TStaticField
+0 {reference}
+9 7 36 21
+nil
+
+TRUE
+Yield
+yield;
+TRUE
+TRUE
+FALSE
+TBlock
+0 {reference}
+466 {ReferenceLink}
+397 237 36095 159 29
+7
+TStaticField
+0 {reference}
+9 7 37 21
+nil
+
+TRUE
+Set   
+
+TNumberVariableListField
+0 {reference}
+44 7 76 21
+nil
+
+TRUE
+Total
+Total
+0
+TConditionallyPresentIndexField
+0 {reference}
+79 7 79 21
+nil
+Number
+TRUE
+ 1.00000000000000E+0000
+FALSE
+TConditionallyPresentAccessorField
+0 {reference}
+82 14 82 14
+nil
+
+TRUE
+.SetValue(
+:=
+TStaticField
+0 {reference}
+85 7 102 21
+nil
+
+TRUE
+ to 
+
+TNumericField
+0 {reference}
+109 7 135 21
+nil
+Number
+TRUE
+ 0.00000000000000E+0000
+TRUE
+TConditionallyPresentAccessorField
+0 {reference}
+138 14 138 14
+nil
+
+TRUE
+);
+;
+TRUE
+TRUE
+FALSE
+TBlock_C
+0 {reference}
+0 {ReferenceLink}
+397 266 6333684 120 94
+3
+TStaticField
+0 {reference}
+9 7 37 21
+nil
+
+TRUE
+Loop
+Loop round(
+TNumericField
+0 {reference}
+44 7 77 21
+nil
+Number
+TRUE
+ 5.00000000000000E+0001
+FALSE
+TStaticField
+0 {reference}
+80 7 94 21
+nil
+
+TRUE
+do
+) do
+TRUE
+TRUE
+FALSE
+TBlock
+0 {reference}
+3 {ReferenceLink}
+397 360 36095 279 45
+7
+TStaticField
+0 {reference}
+9 15 37 29
+nil
+
+TRUE
+Set   
+
+TNumberVariableListField
+0 {reference}
+44 15 68 29
+nil
+
+TRUE
+avg
+avg
+0
+TConditionallyPresentIndexField
+0 {reference}
+71 15 71 29
+nil
+Number
+TRUE
+ 1.00000000000000E+0000
+FALSE
+TConditionallyPresentAccessorField
+0 {reference}
+74 22 74 22
+nil
+
+TRUE
+.SetValue(
+:=
+TStaticField
+0 {reference}
+77 15 94 29
+nil
+
+TRUE
+ to 
+
+TNumericField
+0 {reference}
+97 7 247 38
+TNumericExpression
+0 {reference}
+0 {ReferenceLink}
+494 367 1226588 150 31
+5
+TStaticField
+0 {reference}
+12 15 12 15
+nil
+
+TRUE
+
+(
+TNumericField
+0 {reference}
+15 4 75 27
+TNumericExpression
+0 {reference}
+466 {ReferenceLink}
+509 371 36095 60 23
+1
+TPathNameField
+0 {reference}
+12 4 40 18
+nil
+
+TRUE
+Total
+Main.Total
+Main.
+Total
+TRUE
+TRUE
+TRUE
+Number
+Number
+TRUE
+ 5.00000000000000E+0000
+TRUE
+TLocalListField
+0 {reference}
+82 8 95 22
+nil
+
+TRUE
+ / 
+/
+4
+ + 
++
+ - 
+-
+ x 
+*
+ / 
+/
+TNumericField
+0 {reference}
+102 8 135 22
+nil
+Number
+TRUE
+ 5.00000000000000E+0001
+TRUE
+TStaticField
+0 {reference}
+138 15 138 15
+nil
+
+TRUE
+
+)
+Number
+Number
+TRUE
+ 0.00000000000000E+0000
+TRUE
+TConditionallyPresentAccessorField
+0 {reference}
+250 22 250 22
+nil
+
+TRUE
+);
+;
+TRUE
+TRUE
+FALSE
+nil
+FALSE
+FALSE
+FALSE
+FALSE
+TBlock
+0 {reference}
+466 {ReferenceLink}
+422 295 36095 381 45
+7
+TStaticField
+0 {reference}
+9 15 37 29
+nil
+
+TRUE
+Set   
+
+TNumberVariableListField
+0 {reference}
+44 15 76 29
+nil
+
+TRUE
+Total
+Total
+0
+TConditionallyPresentIndexField
+0 {reference}
+79 15 79 29
+nil
+Number
+TRUE
+ 1.00000000000000E+0000
+FALSE
+TConditionallyPresentAccessorField
+0 {reference}
+82 22 82 22
+nil
+
+TRUE
+.SetValue(
+:=
+TStaticField
+0 {reference}
+85 15 102 29
+nil
+
+TRUE
+ to 
+
+TNumericField
+0 {reference}
+105 7 349 38
+TNumericExpression
+0 {reference}
+0 {ReferenceLink}
+527 302 1226588 244 31
+5
+TStaticField
+0 {reference}
+12 15 12 15
+nil
+
+TRUE
+
+(
+TNumericField
+0 {reference}
+15 4 142 27
+TNumericExpression
+0 {reference}
+0 {ReferenceLink}
+542 306 3937500 127 23
+2
+TAnalogInputListField
+0 {reference}
+16 4 69 18
+nil
+
+TRUE
+LoadCell
+LoadCell
+0
+TStaticField
+0 {reference}
+72 4 115 18
+nil
+
+TRUE
+Voltage
+.Voltage
+Number
+Number
+TRUE
+ 5.00000000000000E+0000
+TRUE
+TLocalListField
+0 {reference}
+149 8 166 22
+nil
+
+TRUE
+ + 
++
+4
+ + 
++
+ - 
+-
+ x 
+*
+ / 
+/
+TNumericField
+0 {reference}
+169 4 229 27
+TNumericExpression
+0 {reference}
+466 {ReferenceLink}
+696 306 36095 60 23
+1
+TPathNameField
+0 {reference}
+12 4 40 18
+nil
+
+TRUE
+Total
+Main.Total
+Main.
+Total
+TRUE
+TRUE
+TRUE
+Number
+Number
+TRUE
+ 2.00000000000000E+0000
+TRUE
+TStaticField
+0 {reference}
+232 15 232 15
+nil
+
+TRUE
+
+)
+Number
+Number
+TRUE
+ 0.00000000000000E+0000
+TRUE
+TConditionallyPresentAccessorField
+0 {reference}
+352 22 352 22
+nil
+
+TRUE
+);
+;
+TRUE
+TRUE
+FALSE
+nil
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+FALSE
+nil
+0 -64  diagnostic marker
+Start Filter
+FALSE
+TControlStatic
+467 {reference}
+Localdbgf4
+680 595
+730 612
+-16777211
+Tahoma
+1
+-16777208
+8
+0
+0
+TBlock_Show
+0 {reference}
+0 {ReferenceLink}
+508 179 1993170 217 45
+2
+TStaticField
+0 {reference}
+9 15 41 29
+nil
+
+TRUE
+Show
+Show
+TNumericField
+0 {reference}
+44 7 205 38
+TNumericExpression
+0 {reference}
+0 {ReferenceLink}
+552 186 1226588 161 31
+5
+TStaticField
+0 {reference}
+12 15 12 15
+nil
+
+TRUE
+
+(
+TNumericField
+0 {reference}
+15 4 75 27
+TNumericExpression
+0 {reference}
+470 {ReferenceLink}
+567 190 36095 60 23
+1
+TPathNameField
+0 {reference}
+12 4 32 18
+nil
+
+TRUE
+avg
+Main.avg
+Main.
+avg
+TRUE
+TRUE
+TRUE
+Number
+Number
+TRUE
+ 5.00000000000000E+0000
+TRUE
+TLocalListField
+0 {reference}
+82 8 99 22
+nil
+
+TRUE
+ x 
+*
+4
+ + 
++
+ - 
+-
+ x 
+*
+ / 
+/
+TNumericField
+0 {reference}
+106 8 146 22
+nil
+Number
+TRUE
+ 1.60000000000000E+0002
+TRUE
+TStaticField
+0 {reference}
+149 15 149 15
+nil
+
+TRUE
+
+)
+Number
+Number
+FALSE
+ 0.00000000000000E+0000
+TRUE
+FALSE
+FALSE
+FALSE
+nil
+FALSE
+FALSE
+nil
+0 0  diagnostic marker
+
+0
+TControlStatic
+468 {reference}
+Localdbgf5
+835 365
+885 382
+-16777211
+Tahoma
+1
+-16777208
+8
+0
+0
+TBlock_Show
+0 {reference}
+0 {ReferenceLink}
+508 179 1993170 198 37
+2
+TStaticField
+0 {reference}
+9 11 41 25
+nil
+
+TRUE
+Show
+Show
+TNumericField
+0 {reference}
+44 7 186 30
+TNumericExpression
+0 {reference}
+473 {ReferenceLink}
+552 186 36095 142 23
+1
+TPathNameField
+0 {reference}
+12 4 130 18
+nil
+
+TRUE
+Settings TotalWeight
+Main.Settings.TotalWeight
+Main.Settings.
+TotalWeight
+TRUE
+TRUE
+TRUE
+Number
+Number
+FALSE
+ 0.00000000000000E+0000
+TRUE
+FALSE
+FALSE
+FALSE
+nil
+FALSE
+FALSE
+nil
+0 0  diagnostic marker
+
+0
+TControlStatic
+472 {reference}
+Localdbgf6
+635 380
+685 397
+-16777211
+Tahoma
+1
+-16777208
+8
+0
+0
+TBlock_Show
+0 {reference}
+0 {ReferenceLink}
+508 179 1993170 338 45
+2
+TStaticField
+0 {reference}
+9 15 41 29
+nil
+
+TRUE
+Show
+Show
+TNumericField
+0 {reference}
+44 7 326 38
+TNumericExpression
+0 {reference}
+0 {ReferenceLink}
+552 186 1226588 282 31
+5
+TStaticField
+0 {reference}
+12 15 12 15
+nil
+
+TRUE
+
+(
+TNumericField
+0 {reference}
+15 4 196 27
+TNumericExpression
+0 {reference}
+452 {ReferenceLink}
+567 190 36095 181 23
+1
+TPathNameField
+0 {reference}
+12 4 169 18
+nil
+
+TRUE
+Settings LCIndicatorFiltered
+Main.Settings.LCIndicatorFiltered
+Main.Settings.
+LCIndicatorFiltered
+TRUE
+TRUE
+TRUE
+Number
+Number
+TRUE
+ 5.00000000000000E+0000
+TRUE
+TLocalListField
+0 {reference}
+203 8 220 22
+nil
+
+TRUE
+ x 
+*
+4
+ + 
++
+ - 
+-
+ x 
+*
+ / 
+/
+TNumericField
+0 {reference}
+227 8 267 22
+nil
+Number
+TRUE
+ 1.60000000000000E+0002
+TRUE
+TStaticField
+0 {reference}
+270 15 270 15
+nil
+
+TRUE
+
+)
+Number
+Number
+FALSE
+ 0.00000000000000E+0000
+TRUE
+FALSE
+FALSE
+FALSE
+nil
+FALSE
+FALSE
+nil
+0 0  diagnostic marker
+
+0
+TControlStatic
+0 {reference}
+WeightSPLabel3
+550 380
+625 400
+-16777211
+Tahoma
+1
+-16777208
+10
+0
+0
+nil
+0 0  diagnostic marker
+Filtered
 0
 39
 TUserVariable
@@ -12526,7 +13753,7 @@ FALSE
 TRUE
 FALSE
 1
-0
+2
 2000
 TRUE
 0
